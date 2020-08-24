@@ -1,0 +1,140 @@
+{% assign section_setting = section.settings  %}
+{% assign highlightOne = section_setting.highlightOne %}
+{% assign highlightLinkOne = section_setting.highlightLinkOne %}
+{% assign highlightOneTitle = section_setting.highlightOneTitle %}
+{% assign highlightOneSubheading = section_setting.highlightOneSubheading %}
+{% assign highlightTwo = section_setting.highlightTwo %}
+{% assign highlightLinkTwo = section_setting.highlightLinkTwo %}
+{% assign highlightTwoTitle = section_setting.highlightTwoTitle %}
+{% assign highlightTwoSubheading = section_setting.highlightTwoSubheading %}
+{% assign highlightThree = section_setting.highlightThree %}
+{% assign highlightLinkThree = section_setting.highlightLinkThree %}
+{% assign highlightThreeTitle = section_setting.highlightThreeTitle %}
+{% assign highlightThreeSubheading = section_setting.highlightThreeSubheading %}
+
+
+<section class="productHighlights">
+<div class="highlights__flex">
+<div class="highlight__highlights">
+<a href="{{highlightLinkOne}}"><img src="{{highlightOne | img_url: 'master'}}"></a>
+<h2>{{highlightOneTitle}}</h2>
+<h4>{{highlightOneSubheading}}</h4>
+</div>
+<div class="highlight__highlights">
+<a href="{{highlightLinkTwo}}"><img src="{{highlightTwo | img_url: 'master'}}"></a>
+<h2>{{highlightTwoTitle}}</h2>
+<h4>{{highlightTwoSubheading}}</h4>
+</div>
+<div class="highlight__highlights">
+<a href="{{highlightLinkThree}}"><img src="{{highlightThree | img_url: 'master'}}"></a>
+<h2>{{highlightThreeTitle}}</h2>
+<h4>{{highlightThreeSubheading}}</h4>
+</div>
+</div>
+
+</section>
+
+{% stylesheet %}
+    .productHighlights{
+        padding-top: 10px;    
+        border-bottom: 1px solid #D3D3D3; 
+    }
+    .highlights__flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    .highlight__highlights{
+        width: 32%;
+        text-align: center;
+    }
+{% endstylesheet %}
+
+{% schema %}
+    {
+        "name": "Product Highlights",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Highlight One"
+            },
+            {
+                "type": "image_picker",
+                "id": "highlightOne",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "highlightLinkOne",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "highlightOneTitle",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "highlightOneSubheading",
+                "label": "Subheading"
+            },
+             {
+                "type": "header",
+                "content": "Highlight Two"
+            },
+            {
+                "type": "image_picker",
+                "id": "highlightTwo",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "highlightLinkTwo",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "highlightTwoTitle",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "highlightTwoSubheading",
+                "label": "Subheading"
+            },
+             {
+                "type": "header",
+                "content": "Highlight Three"
+            },
+            {
+                "type": "image_picker",
+                "id": "highlightThree",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "highlightLinkThree",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "highlightThreeTitle",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "highlightThreeSubheading",
+                "label": "Subheading"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "product highlights",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
