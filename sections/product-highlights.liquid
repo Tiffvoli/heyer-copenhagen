@@ -1,37 +1,32 @@
 {% assign section_setting = section.settings  %}
-{% assign highlightOne = section_setting.highlightOne %}
-{% assign highlightLinkOne = section_setting.highlightLinkOne %}
-{% assign highlightOneTitle = section_setting.highlightOneTitle %}
-{% assign highlightOneSubheading = section_setting.highlightOneSubheading %}
-{% assign highlightTwo = section_setting.highlightTwo %}
-{% assign highlightLinkTwo = section_setting.highlightLinkTwo %}
-{% assign highlightTwoTitle = section_setting.highlightTwoTitle %}
-{% assign highlightTwoSubheading = section_setting.highlightTwoSubheading %}
-{% assign highlightThree = section_setting.highlightThree %}
-{% assign highlightLinkThree = section_setting.highlightLinkThree %}
-{% assign highlightThreeTitle = section_setting.highlightThreeTitle %}
-{% assign highlightThreeSubheading = section_setting.highlightThreeSubheading %}
-
+{% assign blocks = section.blocks %}
 
 <section class="productHighlights">
-<div class="highlights__flex">
-<div class="highlight__highlights">
-<a href="{{highlightLinkOne}}"><img src="{{highlightOne | img_url: 'master'}}"></a>
-<h2>{{highlightOneTitle}}</h2>
-<h4>{{highlightOneSubheading}}</h4>
-</div>
-<div class="highlight__highlights">
-<a href="{{highlightLinkTwo}}"><img src="{{highlightTwo | img_url: 'master'}}"></a>
-<h2>{{highlightTwoTitle}}</h2>
-<h4>{{highlightTwoSubheading}}</h4>
-</div>
-<div class="highlight__highlights">
-<a href="{{highlightLinkThree}}"><img src="{{highlightThree | img_url: 'master'}}"></a>
-<h2>{{highlightThreeTitle}}</h2>
-<h4>{{highlightThreeSubheading}}</h4>
-</div>
-</div>
+  <div class="highlights__flex">
 
+    {% if blocks %}
+      {% for block in blocks %}
+        {% assign block_settings = block.settings %}
+        {% assign highlight_image = block_settings.highlight_image %}
+        {% assign highlight_link = block_settings.highlight_link %}
+        {% assign highlight_title = block_settings.highlight_title %}
+        {% assign highlight_subheading = block_settings.highlight_subheading %}
+        {% assign product = all_products[block_settings.product] %}
+        {% assign product_image = product.featured_image %}
+        {% assign product_url = product.url %}
+        {% assign product_title = product.title %}
+
+        <div class="highlight__highlights">
+          <a href="{{ product_url }}">
+            <img src="{{ product_image | img_url: 'master' }}"/>
+          </a>
+          <h2>{{ highlight_title }}</h2>
+          <h4>{{ highlight_subheading }}</h4>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+  </div>
 </section>
 
 {% stylesheet %}
@@ -53,81 +48,39 @@
     {
         "name": "Product Highlights",
         "settings": [
-            {
-                "type": "header",
-                "content": "Highlight One"
-            },
-            {
-                "type": "image_picker",
-                "id": "highlightOne",
-                "label": "Product Image"
-            },
-            {
-                "type": "url",
-                "id": "highlightLinkOne",
-                "label": "Product Link"
-            },
-            {
-                "type": "text",
-                "id": "highlightOneTitle",
-                "label": "Title"
-            },
-             {
-                "type": "richtext",
-                "id": "highlightOneSubheading",
-                "label": "Subheading"
-            },
-             {
-                "type": "header",
-                "content": "Highlight Two"
-            },
-            {
-                "type": "image_picker",
-                "id": "highlightTwo",
-                "label": "Product Image"
-            },
-            {
-                "type": "url",
-                "id": "highlightLinkTwo",
-                "label": "Product Link"
-            },
-            {
-                "type": "text",
-                "id": "highlightTwoTitle",
-                "label": "Title"
-            },
-             {
-                "type": "richtext",
-                "id": "highlightTwoSubheading",
-                "label": "Subheading"
-            },
-             {
-                "type": "header",
-                "content": "Highlight Three"
-            },
-            {
-                "type": "image_picker",
-                "id": "highlightThree",
-                "label": "Product Image"
-            },
-            {
-                "type": "url",
-                "id": "highlightLinkThree",
-                "label": "Product Link"
-            },
-            {
-                "type": "text",
-                "id": "highlightThreeTitle",
-                "label": "Title"
-            },
-             {
-                "type": "richtext",
-                "id": "highlightThreeSubheading",
-                "label": "Subheading"
-            }
         ],
         "blocks": [
-
+          {
+            "type": "product_highlight",
+            "name": "Product highlight",
+            "settings": [
+              {
+                  "type": "product",
+                  "id": "product",
+                  "label": "Product"
+              },
+              {
+                  "type": "image_picker",
+                  "id": "highlight_image",
+                  "label": "Product Image"
+              },
+              {
+                  "type": "url",
+                  "id": "highlight_link",
+                  "label": "Product Link"
+              },
+              {
+                  "type": "text",
+                  "id": "highlight_title",
+                  "label": "Title"
+              },
+              {
+                "type": "richtext",
+                "id": "highlight_subheading",
+                "label": "Subheading"
+              }
+            ]
+          }
         ],
         "presets": [
             {
