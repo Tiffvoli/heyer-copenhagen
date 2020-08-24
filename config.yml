@@ -1,10 +1,9 @@
 # Development
 dev:
-  password: 
-  theme_id: ''
-  store: .myshopify.com
+  password: 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
+  theme_id: "109427523733"
+  store: farewell-global.myshopify.com
   timeout: 30s
   ignore_files:
     - config/settings_data.json
-
-# Production
+    - locales/
