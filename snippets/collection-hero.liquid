@@ -1,0 +1,11 @@
+{%- assign collection_title = collection.title -%}
+{%- assign collection_description = collection.description -%}
+
+<section class="collectionHero section">
+  <div class="collectionHero_inner">
+    <div class="container">
+      {%- if collection_title != blank -%}<h2 class="collection_title">{{ collection_title }}</h2>{%- endif -%}
+      {%- if collection_description != blank -%}<div class="collectionHero_description">{{ collection_description }}</div>{% endif -%}
+    </div>
+  </div>
+</section>

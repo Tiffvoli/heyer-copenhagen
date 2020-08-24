@@ -1,0 +1,11 @@
+{% include 'breadcrumb' %}
+
+<section class="product section">
+  <div class="container">
+    <img src="{{ product.featured_image | img_url: 'master' }}" />
+    {% section 'product-details' %}
+  </div>
+</section>
+
+{% comment %} {% section 'related-products' %} {% endcomment %}
+{% include 'product-schema' with product %}

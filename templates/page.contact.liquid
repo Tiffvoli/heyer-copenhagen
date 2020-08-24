@@ -1,0 +1,51 @@
+{% assign title = page.title %}
+{% assign content = page.content %}
+
+<section id="page-contact" class="contact page section">
+  <div class="container">
+    <header class="page_header">
+      {% if title != blank %}<h1 class="page_title">{{ title }}</h1>{% endif %}
+    </header>
+    <div class="page_content">
+
+      <div class="contact_content">
+        <div class="contact_col">{{ content }}</div>
+        <div class="contact_col">
+          
+          {%- form 'contact', class: 'contactForm' -%}
+            {%- if form.errors -%}  
+            <ul class="contactForm_errors">
+              {%- for field in form.errors -%}
+              <li>{{ field | replace: 'body', 'Message' | capitalize }} - {{ form.errors.messages[field] }}</li>
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+
+            {%- if form.posted_successfully? -%}
+            <div class="contactForm_success">{{ 'customer.contact.post_success' | t }}</div>
+            {%- endif -%}
+
+            <div class="formGroup">
+              <label class="label" for="contact_name">{{ 'contact.form.name' | t }}</label>
+              <input type="text" class="input input-dark" id="contact_name" name="contact[name]" placeholder="{{ 'contact.form.name_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="contact_email">{{ 'contact.form.email' | t }}</label>
+              <input type="email" class="input input-dark" id="contact_email" name="contact[email]" placeholder="{{ 'contact.form.email_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="message">{{ 'contact.form.message' | t }}</label>
+              <textarea rows="6" id="message" class="input-textarea input input-dark" name="contact[body]" placeholder="{{ 'contact.form.message_placeholder' | t }}" required></textarea>
+            </div>
+
+            <input class="button" type="submit" value="{{ 'contact.form.submit' | t }}" />
+          {%- endform -%}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

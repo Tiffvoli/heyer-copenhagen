@@ -1,0 +1,395 @@
+// Font
+$font-header: "Helvetica Neue", Helvetica, sans-serif;
+$font-body: "Helvetica Neue", Helvetica, sans-serif;
+
+// Colors
+$color-white: rgba(255, 255, 255, 1);
+$color-dark-grey: rgba(215, 215, 215, 1);
+$color-light-grey: rgba(246, 246, 246, 1);
+$color-black: rgba(0, 0, 0, 1);
+$color-light-green: rgba(173, 218, 27, 1);
+
+// Container
+$container-padding-phone: 15px;
+$container-padding-tablet: 30px;
+$container-padding-desktop: 60px;
+
+
+// Account
+.account {}
+
+.account_inner {
+  width: 100%;
+  display: flex;
+  flex-flow: column-reverse;
+
+  @media (min-width: 768px) {
+    flex-flow: row;
+  }
+}
+
+.account_mainContent {
+  width: 100%;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    margin-right: 40px;
+    max-width: 75%;
+  }
+}
+
+.account_sidebar {
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: 25%;
+  }
+}
+
+.account_sidebar .link {
+  display: block;
+  margin-bottom: 10px;
+}
+
+// Addresses
+.addresses {
+  width: 100%;
+}
+
+.addresses_list {
+  width: 100%;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.addresses .addressCard {
+  min-height: 300px;
+}
+
+.addressCard {
+  position: relative;
+  background-color: $color-white;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  text-align: left;
+  margin-bottom: 65px;
+  padding: 40px;
+  min-height: 300px;
+}
+
+.addressCard-default .addressCard {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: auto;
+}
+
+.addressCard-default .link {
+  display: block;
+  margin-top: 10px;
+}
+
+.addressCard-new {
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: unset;
+}
+
+.addressCard-new .button-close {
+  margin-bottom: 10px;
+
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+
+.addressCard_name {
+  font-weight: bold;
+}
+
+.addressCard_street {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.addressCard_default {
+  display: flex; 
+  align-items: center;
+  min-height: 17px;
+  margin-bottom: 20px;
+}
+
+.addressCard_checkmark {
+  max-width: 15px;
+  width: 100%;
+  height: auto;
+  margin-right: 5px;
+}
+
+.addressCard_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: calc(100% - 80px);
+  margin: 0 40px 20px 40px;
+  box-sizing: border-box;
+}
+
+// Order history
+.orders {
+  width: 100%;
+}
+
+.ordersList {
+  padding: 20px 0;
+}
+
+.ordersList .pagination {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+// Orders page
+.order {
+  display: flex;
+  flex-flow: column;
+
+  @media (min-width: 768px) {
+    flex-flow: row;
+  }
+}
+
+.orderInformation {
+  max-width: 100%;
+  width: 100%;
+  margin-right: 0;
+
+  @media (min-width: 768px) {
+    max-width: 75%;
+    margin-right: 50px;
+  }
+}
+
+.orderAddresses {
+  max-width: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: 25%;
+  }
+}
+
+.orderInformation table {
+  background-color: $color-white;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.order .addressCard {
+  min-height: auto;
+}
+
+// Order page
+.order-table {
+  width: 100%;
+
+  a {
+    border-bottom: 1px solid currentColor;
+  }
+
+  th, td {
+    border: 0;
+    padding: 5px;
+  }
+
+  tbody th,
+  tfoot th {
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  tbody tr + tr {
+    border-top: 1px solid $color-black;
+  }
+
+  thead {
+    border-bottom: 1px solid $color-black;
+  }
+
+  tfoot {
+    border-top: 1px solid $color-black;
+
+    tr {
+      &:first-child th,
+      &:first-child td {
+        padding-top: 1.25rem;
+      }
+
+      &:nth-last-child(2) th,
+      &:nth-last-child(2) td {
+        padding-bottom: 1.25rem;
+      }
+
+      &:last-child th,
+      &:last-child td {
+        border-top: 1px solid grey;
+        font-weight: bold;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    tfoot {
+      tr {
+        td, th {
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    border: 0;
+
+    thead {
+      display: none;
+    }
+
+    th,
+    td {
+      float: left;
+      clear: left;
+      width: 100%;
+      text-align: right;
+      padding: 0.5rem 0;
+      border: 0;
+      margin: 0;
+    }
+
+    th::before,
+    td::before {
+      content: attr(data-label);
+      float: left;
+      text-align: left;
+      padding-right: 2rem;
+      max-width: 80%;
+    }
+
+    tbody {
+      tr {
+        th:first-child {
+          padding-top: 1.25rem;
+        }
+        td:last-child {
+          padding-bottom: 1.25rem;
+        }
+      }
+
+      th::before,
+      td::before {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.order-table__product {
+  @media(max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.order-discount {
+  color: inherit;
+  display: block;
+  line-height: 1.2rem;
+
+  .icon-saletag {
+    fill: currentColor;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.order-discount--title {
+  text-transform: uppercase;
+  word-break: break-word;
+  padding-right: 1rem;
+}
+
+.order-discount--list {
+  margin: 0.8rem 0 0 1.3rem;
+  list-style: none;
+  padding: 0;
+}
+
+.order-discount__item {
+  text-indent: -1.3rem;
+
+  & + .order-discount__item {
+    margin-top: 0.6rem;
+  }
+}
+
+.order-discount-wrapper {
+
+  @media(max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.order-discount-card-wrapper {
+  display: flex;
+  justify-content: center;
+
+  @media(min-width: 768px) {
+    justify-content: flex-end;
+  }
+}
+
+.order-discount--cart {
+  font-size: inherit;
+  padding-right: 0;
+
+  @media(min-width: 768px) {
+    font-size: inherit;
+  }
+}
+
+.order-discount--cart-total {
+  padding-left: 20px;
+
+  @media(min-width: 768px) {
+    padding-left: 40px;
+    min-width: 150px;
+  }
+}
+
+.text-right {
+  text-align: right !important;
+}

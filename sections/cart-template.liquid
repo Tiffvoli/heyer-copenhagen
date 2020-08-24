@@ -1,0 +1,136 @@
+{% comment %} General {% endcomment %}
+{%- assign cart_items = cart.items -%}
+{%- assign cart_items_count = cart.item_count -%}
+{%- assign subtotal = cart.total_price -%}
+
+{% comment %} Section {% endcomment %}
+{%- assign section_settings = section.settings -%}
+
+<section class="cart section">
+  <div class="container">
+    <h1>{{ 'cart.general.title' | t }}</h1>
+
+    {%- if cart_items_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="cartForm" id="cart-form">
+
+        <div class="cartItems_labels">
+          <div class="cartItems_label cartItems_label-large">{{ 'cart.label.product' | t }}</div>
+          <div class="cartItems_label">{{ 'cart.label.price' | t }}</div>
+          <div class="cartItems_label">{{ 'cart.label.quantity' | t }}</div>
+        </div>
+
+        <div class="cartItems">
+          {% for line_item in cart_items %}
+            {% assign index = forloop.index %}
+            {% assign item_id = line_item.id %}
+            {% assign item_product_title = line_item.product.title %}
+            {% assign item_image = line_item.image %}
+            {% assign item_url = line_item.url %}
+            {% assign item_qty = line_item.quantity %}
+            {% assign item_price = line_item.price %}
+            {% assign item_variant_options = line_item.options_with_values %}
+            {% assign item_product_price = line_item.product.price %}
+            {% assign item_product_compare_price = line_item.product.compare_at_price %}
+
+            <div class="cartItem">
+              <div class="cartItem_col cartItem_col-large">
+
+                {% comment %} Item details {% endcomment %}
+                <div class="cartItem_details">
+
+                  {% comment %} Item image {% endcomment %}
+                  <div class="cartItem_image">
+                    <img class="image" src="{{ item_image | img_url: 'medium' }}" />
+                  </div>
+
+                  {% comment %} Item info {% endcomment %}
+                  <div class="cartItem_info">
+
+                    {% comment %} Product title {% endcomment %}
+                    <a href="{{ item_url }}" class="cartItem_title">{{ item_product_title }}</a>
+
+                    {% comment %} Line item variants {% endcomment %}
+                    {% if line_item.product.has_only_default_variant != true %}
+                      <div class="cartItem_options">
+                        {% for item_variant in item_variant_options %}
+                          {% assign item_variant_name = item_variant.name %}
+                          {% assign item_variant_value = item_variant.value %}
+
+                          <div class="cartItem_option">
+                            <span>{{ item_variant_name }}:</span>
+                            <span><strong>{{ item_variant_value }}</strong></span>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+
+                    {% comment %} Remove item {% endcomment %}
+                    <div class="cartQty_removeContainer">
+                      <a href="/cart/change?line={{ index }}&amp;quantity=0" class="cartQty_remove">{{ 'cart.general.remove' | t }}</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              
+              {% comment %} Line item price {% endcomment %}
+              <div class="cartItem_col">
+                <div class="cartItem_price">
+                  <span>{{ item_price | money }}</span>
+                </div>
+              </div>
+
+              {% comment %} Quantity {% endcomment %}
+              <div class="cartItem_col">
+                <div class="cartQty">
+                  <div class="cartQty_inner">
+                    <a class="cartQty_button" href="/cart/change?line={{ index }}&amp;quantity={{ line_item.quantity | minus: 1 }}">-</a>
+                    <label class="cartQty_label" for="updates_{{ item_id }}">{{ 'cart.label.quantity' | t }}</label>
+                    <input class="cartQty_input" type="number" name="updates[]" id="updates_{{ item_id }}" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
+                    <a class="cartQty_button" href="/cart/change?line={{ index }}&amp;quantity={{ line_item.quantity | plus: 1 }}">+</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="cartSummary">
+          <div class="cartSummary_lines">
+
+            {% comment %} Delivery {% endcomment %}
+            <div class="cartSummary_line">
+              <div class="cartSummary_text">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</div>
+            </div>
+
+            {% comment %} Subtotal {% endcomment %}
+            <div class="cartSummary_line">
+              <div class="cartSummary_text">{{ 'cart.general.subtotal' | t }}</div>
+              <div class="cartSummary_price">{{ subtotal | money }}</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="cartCheckout">
+          <a class="button button-transparent" href="/collections/browse-all#shopify-section-collection-navigation">{{ 'cart.general.continue_shopping' | t }}</a>
+            <button class="button">{{ 'cart.general.checkout' | t }}</button>
+        </div>
+
+      </form>
+    {%- else -%}
+      <div class="cartForm cartForm-empty">
+        <h2>{{ 'cart.general.empty' | t }}</h2>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+    ]
+  }
+{% endschema %}

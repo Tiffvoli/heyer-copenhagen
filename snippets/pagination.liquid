@@ -1,0 +1,34 @@
+{% comment %}
+    Renders a pagination bar
+
+    Accepts:
+    - paginate: {Object} Paginate Liquid object (required)
+
+    Usage:
+    {% include 'pagination', paginate: paginate %}
+{% endcomment %}
+
+{% if paginate.pages > 1 %}
+  <div class="pagination">
+    <div class="pagination_container">
+
+      {% comment %} Previous button {% endcomment %}
+      <a class="pagination_button pagination_button-prev{% unless paginate.previous.is_link %} disabled{% endunless %}" href="{{ paginate.previous.url }}"></a>
+
+      {% comment %} Page nunbers {% endcomment %}
+      <div class="pagination_numbers">
+        {% assign count = paginate.pages %}
+        {% for part in (1..count) %}
+          {% assign index = forloop.index %}
+          <li class="pagination_number{% if paginate.current_page == part %} pagination_number-current{% endif %}">
+            <a class="link" href="{{ paginate.url }}?page={{ index }}">{{ index }}</a>
+          </li>
+        {% endfor %}
+      </div>
+
+      {% comment %} Next button {% endcomment %}
+      <a class="pagination_button pagination_button-next{% unless paginate.next.is_link %} disabled{% endunless %}" href="{{ paginate.next.url }}"></a>
+
+    </div>
+  </div>
+{% endif %}

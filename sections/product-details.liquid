@@ -1,0 +1,35 @@
+{% assign section_settings = section.settings %}
+{% assign preorder_text = section_settings.preorder_text %}
+{% assign product_title = product.title %}
+{% assign product_description = product.description %}
+{% assign active_product = product.selected_or_first_available_variant %}
+{% assign product_id = active_product.id %}
+{% assign product_available = active_product.available %}
+
+{% comment %} Price {% endcomment %}
+{% assign product_price = active_product.price %}
+{% assign product_compare_price = active_product.compare_at_price %}
+
+<h1 class="product_title">{{ product_title }}</h1>
+
+<div class="product_pricing{% if class %} {{ class }}{% endif %}">
+  {%- if product_price < product_compare_price -%}
+    <span class="product_price">{{- product_price | money -}}</span>
+    <span class="product_price product_price-sale">{{- product_compare_price | money -}}</span>
+  {%- else -%}
+    <span class="product_price">{{- product_price | money -}}</span>
+  {%- endif -%}
+</div>
+
+<p>{{ product_description }}</p>
+
+{% include 'product-form' with product %}
+
+{% schema %}
+  {
+    "name": "Product details",
+    "class": "product_details",
+    "settings": [
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,120 @@
+<section class="page section">
+  <div class="container">
+
+    <div id="CustomerLoginForm" class="">
+      <header class="page_header">
+        <h1 class="page_title">{{ 'customer.login.title' | t }}</h1>
+      </header>
+
+      {% comment %} Customer login form {% endcomment %}
+      {% form 'customer_login', class: 'form form-small' %}
+
+        {% comment %} Form errors {% endcomment %}
+        {%- if form.errors -%}
+          <div class="formMessage">
+            <h3 class="formMessage_title" tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h3>
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        {% comment %} Form fields {% endcomment %}
+        <div class="formGroup">
+          <label class="label" for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            value=""
+            class="input input-dark"
+            placeholder="{{ 'customer.login.email' | t }}"
+            required
+          >
+        </div>
+
+        <div class="formGroup">
+          <label class="label" for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+          <input
+            type="password"
+            name="customer[password]"
+            id="CustomerPassword"
+            value=""
+            class="input input-dark"
+            placeholder="{{ 'customer.login.password' | t }}"
+            required
+          >
+        </div>
+
+        {% comment %} Recover password {% endcomment %}
+        <div class="formGroup">
+          <a class="link" id="showRecoverPassword" href="#">{{ 'customer.login.forgot_password' | t }}</a>
+        </div>
+
+        {% comment %} Form submit {% endcomment %}
+        <button class="button" type="submit">{{ 'customer.login.sign_in' | t }}</button>
+      {% endform %}
+    </div>
+
+    <div id="RecoverPasswordForm" class="hidden">
+      <header class="page_header" style="margin-bottom: 65px;">
+        <h1 class="page_title">{{ 'customer.recover_password.title' | t }}</h1>
+        <h2 class="pageHero_description pageHero_description-center">{{ 'customer.recover_password.subtext' | t }}</h2>
+      </header>
+
+      {% form 'recover_customer_password', class: 'form form-small' %}
+
+        {% if form.posted_successfully? %}
+          <h3>{{ 'customer.recover_password.success' | t }}</h3>
+        {% endif %}
+
+        {% comment %} Form fields {% endcomment %}
+        <div class="formGroup">
+          <label class="label" for="customer[password]">{{ 'customer.recover_password.email' | t }}</label>
+          <input
+            id="RecoverEmail"
+            class="input input-dark"
+            type="email"
+            value=""
+            name="email"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="{{ 'customer.recover_password.email_placeholder' | t }}"
+            required
+          >
+        </div>
+
+        {% comment %} Form submit {% endcomment %}
+        <button class="button" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+
+        {% comment %} Cancel recover password {% endcomment %}
+        <a id="hideRecoverPassword" class="link" href="#" style="display: block; margin-top: 20px;">{{ 'customer.recover_password.cancel' | t }}</a>
+      {% endform %}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  var formCustomerLogin = document.getElementById('CustomerLoginForm');
+  var formRecoverPassword = document.getElementById('RecoverPasswordForm');
+  var showRecoverPassword = document.getElementById('showRecoverPassword');
+  var hideRecoverPassword = document.getElementById('hideRecoverPassword');
+
+  showRecoverPassword.addEventListener('click', function(event) {
+    event.preventDefault();
+    formCustomerLogin.classList.add('hidden');
+    formRecoverPassword.classList.toggle('hidden');
+  });
+
+  hideRecoverPassword.addEventListener('click', function(event) {
+    event.preventDefault();
+    formCustomerLogin.classList.remove('hidden');
+    formRecoverPassword.classList.toggle('hidden');
+  });
+</script>
+
+{% comment %} {% include 'subscription-account-login' %} {% endcomment %}
+{% comment %} {% section 'account-reset-password' %} {% endcomment %}
+{% comment %} {% section 'account-recover-password' %} {% endcomment %}

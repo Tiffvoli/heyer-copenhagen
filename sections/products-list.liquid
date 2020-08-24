@@ -1,0 +1,47 @@
+{%- assign section_settings = section.settings -%}
+{%- assign number_of_products = collection.products | size -%}
+{%- assign products_per_page = section_settings.products_per_page -%}
+{%- assign empty_collection_text = section_settings.empty_collection_text -%}
+
+<section class="productsList section">
+  <div class="container">
+    {%- if number_of_products > 0 -%}
+      <div class="productsList_inner">
+
+      {%- comment -%} Loop through products {% endcomment -%}
+      {% paginate collection.products by products_per_page %}
+
+        {% comment %} Loop through products {% endcomment %}
+        {%- for product in collection.products -%}
+          {%- include 'product-card' with product -%}
+        {%- endfor -%}
+
+        {% comment %} Pagination {% endcomment %}
+        {%- include 'pagination' -%}
+      {% endpaginate %}
+
+      </div>
+
+    {% comment %} If collection does not contain products {% endcomment %}
+    {%- else -%}
+      <div>{{ 'collections.general.no_matches' | t }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product list",
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_per_page",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "label": "Number of products per page",
+        "default": 10
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,174 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Naked",
+    "theme_version": "1.0.0",
+    "theme_author": "Martin Søndergaard",
+    "theme_documentation_url": "https:\/\/github.com\/martinsoender\/",
+    "theme_support_email": "martin.sondergaard@outlook.com"
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_icons_enabled",
+        "label": "Enable social icons",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "social_logo_height",
+        "min": 20,
+        "max": 64,
+        "step": 4,
+        "unit": "px",
+        "label": "Logo height",
+        "default": 24
+      },
+      {
+        "type": "header",
+        "content": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_url",
+        "label": "Twitter",
+        "info": "http:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_twitter_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_url",
+        "label": "Facebook",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_facebook_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Tiktok"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_url",
+        "label": "Tiktok",
+        "info": "https:\/\/tiktok.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_tiktok_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_url",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_pinterest_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_url",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_instagram_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "LinkedIn"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin_url",
+        "label": "LinkedIn",
+        "info": "https:\/\/linkedin.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_linkedin_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "YouTube"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_url",
+        "label": "YouTube",
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_youtube_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Vimeo"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_url",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_vimeo_logo",
+        "label": "Logo",
+        "info": "128 x 128 pixels .png recommended"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Icon",
+        "info": "512 x 512 pixels .png required"
+      }
+    ]
+  }
+]

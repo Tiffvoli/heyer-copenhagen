@@ -1,0 +1,358 @@
+// Font
+$font-header: "Helvetica Neue", Helvetica, sans-serif;
+$font-body: "Helvetica Neue", Helvetica, sans-serif;
+
+// Colors
+$color-white: rgba(255, 255, 255, 1);
+$color-dark-grey: rgba(215, 215, 215, 1);
+$color-light-grey: rgba(246, 246, 246, 1);
+$color-black: rgba(0, 0, 0, 1);
+$color-light-green: rgba(173, 218, 27, 1);
+
+// Cart
+.cart {}
+
+// Cart form
+.cartForm {}
+.cartForm-empty {
+  margin-bottom: 75px;
+}
+
+.cartItems_labels {
+  border-bottom: 1px solid rgba($color-black, 0.14);
+  padding-bottom: 40px;
+}
+
+.cartItems_label {
+  font-family: $font-body;
+  font-size: 1.6rem;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+  float: left;
+}
+.cartItems_label-large {
+  width: 50%;
+}
+.cartItems_label:not(.cartItems_label-large) {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block; 
+  }  
+}
+
+.cartItems {
+  margin-top: 30px;
+}
+
+.cartItem {
+  position: relative;
+  display: flex;
+  padding-bottom: 30px;
+  flex-flow: wrap;
+
+  @media (min-width: 768px) {
+    flex-flow: unset; 
+  }  
+}
+
+.cartItem_col {
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+}
+.cartItem_col-large {
+  width: 75%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }  
+}
+
+.cartItem_image {
+  max-width: 108px;
+  width: 100%;
+  min-height: 146px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.cartItem_details {
+  display: flex;
+}
+
+.cartItem_info {
+  margin-top: 20px;
+  margin-left: 32px;
+  max-width: 33.333333%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: 45%;
+  }
+}
+
+.cartItem_title {
+  display: block;
+  font-family: $font-header;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-bottom: 15px;
+}
+
+.cartItem_price {
+  margin-top: 20px;
+  text-align: right;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.cartItem_options {
+  margin-bottom: 10px;
+}
+
+.cartQty {
+  box-sizing: border-box;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    margin-top: 20px;
+    position: relative;
+    right: unset;
+    bottom: unset;
+    z-index: unset;
+    margin-bottom: 0;
+  }
+}
+
+.cartQty_inner {
+  border: 1px solid rgba($color-black, 0.14);
+  border-radius: 10px;
+  padding: 0;
+  width: max-content;
+
+  @media (min-width: 768px) {
+    padding: 10px;
+  }
+
+  &:hover {
+    border: 1px solid rgba($color-black, 0.5);
+  }
+}
+
+.cartQty_button {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background: transparent;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  color: $color-black;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.cartQty label {
+  display: block;
+  margin-bottom: 5px;
+}
+.cartQty label[for] {
+  cursor: pointer;
+}
+
+.cartQty_label {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+}
+
+.cartQty_input {
+  width: 20px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  padding: 0;
+  background-color: transparent;
+  color: $color-black;
+  max-width: 100%;
+  line-height: 1;
+  border: none;
+  border-radius: 0;
+  font-size: 13px;
+  outline: none;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.cartQty_input::-webkit-outer-spin-button,
+.cartQty_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cartQty_remove {
+  font-family: $font-body;
+  font-size: 1.2rem;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+// Cart discount
+.cartDiscount {
+  display: flex;
+}
+
+.cartDiscount input {
+  border: 1px solid rgba($color-black, 0.14);
+  margin-right: 15px;
+}
+
+.cartDiscount .button {
+  border: 1px solid rgba($color-black, 0.14);
+
+  &:hover {
+    border: 1px solid rgba($color-black, 1);
+  }
+}
+
+// Cart summary
+.cartSummary {
+  margin-top: 27px;
+  border-top: 1px solid rgba($color-black, 0.14);
+  border-bottom: 1px solid rgba($color-black, 0.14);
+}
+
+.cartSummary_line {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba($color-black, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.cartSummary_text,
+.cartSummary_price {
+  font-family: $font-body;
+  font-size: 1.6rem;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.cartCheckout {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.checkout_button {
+  font-family: $font-header;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-left: 0;
+  margin-top: 20px;
+  background-color: $color-light-green;
+  border-color: $color-light-green;
+  color: $color-black;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin-left: 20px;
+    margin-top: 0;
+    min-width: 350px;
+    width: auto;
+  }
+}
+
+// Cart upsell
+.cartUpsell {
+  padding-top: 0;
+  padding-left: 0;
+  padding-bottom: 60px;
+
+  &::before {
+    content: " ";
+    background: rgba($color-black, 0.14);
+    height: 1px;
+    z-index: 1;
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 60px;
+  }
+}
+
+.cartUpsell header {
+  text-align: center;
+}
+
+.cartUpsell_title {
+  font-family: $font-header;
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.cartUpsell_products {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    margin: 0 -20px;
+    flex-flow: row;
+  }
+}
+
+.cartUpsell_products .productCard {
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: calc(50% - 40px);
+  }
+}

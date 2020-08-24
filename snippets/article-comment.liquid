@@ -1,0 +1,7 @@
+<div class="comment">
+  <div class="comment_content">{{ comment.content }}</div>
+  <div class="comment_meta">
+    <span class="comment_author">{{ comment.author }}</span>
+    <span class="comment_date">{{ comment.created_at | time_tag: format: 'date' }}</span>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<section class="page section">
+  <div class="container">
+
+    <div id="CustomerActiveAccountForm">
+      <header class="page_header" style="margin-bottom: 65px;">
+        <h1 class="page_title">{{ 'customer.activate_account.title' | t }}</h1>
+        <h2 class="pageHero_description">{{ 'customer.activate_account.subtext' | t }}</h2>
+      </header>
+
+      {% comment %} Active customer account {% endcomment %}
+      {% form 'activate_customer_password', class: 'form form-small' %}
+
+        {% comment %} Form messages {% endcomment %}
+        {%- if form.errors -%}
+          <div class="formMessage formMessage_error">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        {% comment %} Form fields {% endcomment %}
+        <div class="formGroup">
+          <label class="label" for="CustomerPassword">{{ 'customer.activate_account.password' | t }}</label>
+          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input input-dark" placeholder="{{ 'customer.activate_account.password' | t }}" required>
+        </div>
+
+        <div class="formGroup">
+          <label class="label" for="CustomerPasswordConfirmation">{{ 'customer.activate_account.password_confirm' | t }}</label>
+          <input type="password" value="" name="customer[password_confirmation]" id="CustomerPassword" class="input input-dark" placeholder="{{ 'customer.activate_account.password_confirm' | t }}" required>
+        </div>
+
+        {% comment %} Form submit {% endcomment %}
+        <button class="button" type="submit">{{ 'customer.activate_account.submit' | t }}</button>
+
+        {% comment %} Form cancel {% endcomment %}
+        <button class="button button-white" type="submit" name="decline">{{ 'customer.activate_account.cancel' | t }}</button>
+
+      {% endform %}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,80 @@
+{% comment %} Options {% endcomment %}
+{% assign social_icons_enabled = settings.social_icons_enabled %}
+{% assign logo_height = settings.social_logo_height %}
+
+{% comment %} Social Media Brands {% endcomment %}
+{% assign instagram_url = settings.social_instagram_url %}
+{% assign instagram_logo = settings.social_instagram_logo %}
+
+{% assign facebook_url = settings.social_facebook_url %}
+{% assign facebook_logo = settings.social_facebook_logo %}
+
+{% assign twitter_url = settings.social_twitter_url %}
+{% assign twitter_logo = settings.social_twitter_logo %}
+
+{% assign pinterest_url = settings.social_pinterest_url %}
+{% assign pinterest_logo = settings.social_pinterest_logo %}
+
+{% assign linkedin_url = settings.social_linkedin_url %}
+{% assign linkedin_logo = settings.social_linkedin_logo %}
+
+{% assign youtube_url = settings.social_youtube_url %}
+{% assign youtube_logo = settings.social_youtube_logo %}
+
+{% assign vimeo_url = settings.social_vimeo_url %}
+{% assign vimeo_logo = settings.social_vimeo_logo %}
+
+{% assign tiktok_url = settings.social_tiktok_url %}
+{% assign tiktok_logo = settings.social_tiktok_logo %}
+
+{% if social_icons_enabled %}
+  <div class="social_icons">
+    {%- if instagram_url and instagram_logo -%}
+      <a href="{{ instagram_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ instagram_logo | img_url: '128x' }}" alt="{{ instagram_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if facebook_url and facebook_logo -%}
+      <a href="{{ facebook_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ facebook_logo | img_url: '128x' }}" alt="{{ facebook_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if twitter_url and twitter_logo -%}
+      <a href="{{ twitter_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ twitter_logo | img_url: '128x' }}" alt="{{ twitter_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if tiktok_url and tiktok_logo -%}
+      <a href="{{ tiktok_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ tiktok_logo | img_url: '128x' }}" alt="{{ tiktok_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if youtube_url and youtube_logo -%}
+      <a href="{{ youtube_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ youtube_logo | img_url: '128x' }}" alt="{{ youtube_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if vimeo_url and vimeo_logo -%}
+      <a href="{{ vimeo_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ vimeo_logo | img_url: '128x' }}" alt="{{ vimeo_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if linkedin_url and linkedin_logo -%}
+      <a href="{{ linkedin_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ linkedin_logo | img_url: '128x' }}" alt="{{ linkedin_logo.alt }}">
+      </a>
+    {%- endif -%}
+
+    {%- if pinterest_url and pinterest_logo -%}
+      <a href="{{ pinterest_url }}" target="_blank">
+        <img class="social_icon" style="max-height: {{ logo_height }}px" src="{{ pinterest_logo | img_url: '128x' }}" alt="{{ pinterest_logo.alt }}">
+      </a>
+    {%- endif -%}
+  </div>
+{% endif %}

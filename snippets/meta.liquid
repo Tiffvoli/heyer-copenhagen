@@ -1,0 +1,140 @@
+{% comment %} Meta {% endcomment %}
+{% assign theme_color = settings.meta_theme_colour %}
+{% assign site_name = settings.meta_site_name %}
+{% assign active_page_url = request.host | append: request.path %}
+
+{% comment %} Set OG image {% endcomment %}
+{% assign og_secure_image = blank %}
+
+{% if template contains 'collection' %}
+  {% assign og_secure_image = collection.image.src | img_url: 'master', format: 'pjpg' %}
+{% elsif template contains 'product' %}
+  {% assign og_secure_image = product.images[0].src | img_url: 'master', format: 'pjpg' %}
+{% endif %}
+
+{% comment %} To comply with Google's 160 characters limit for descriptions {% endcomment %}
+{% assign page_description = page_description | truncate: 150 %}
+
+{% comment %} 
+  Dynamic title options 
+  Usage: Use any of the shortcodes below to in the meta title field in Shopify.
+
+  Product, Collection, Blog, Article:
+    {YEAR} - outputs current year e.g. "2019"
+    {MONTH} - outputs current month e.g. November (Always capitalized)
+    {ENDS_SOON} - Outputs the date 14 days from the current date eg. Offer ends 20. NOVEMBER 2019
+
+  Collection:
+    {PRODUCT_AMOUNT} - Output the number of products in the collection e.g. "See our 24 watches"
+    {LOW_PRICE} - Outputs the lowest priced product in the collection
+    {HIGH_PRICE} - Outputs the highest priced product in the collection
+  
+  Product:
+    {PRODUCT_PRICE} - Outputs the active product price
+{% endcomment %}
+
+{% comment %} Current Year {% endcomment %}
+{% assign current_year = 'now' | date: '%Y' %}
+{% assign current_month = 'now' | date: '%B' %}
+
+{% if page_title contains '{YEAR}' %}
+  {% assign page_title = page_title | replace: '{YEAR}', current_year %}
+{% endif %}
+
+{% if page_description contains '{YEAR}' %}
+  {% assign page_description = page_description | replace: '{YEAR}', current_year %}
+{% endif %}
+
+{% comment %} Current Month {% endcomment %}
+{% if page_title contains '{MONTH}' %}
+  {% assign page_title = page_title | replace: '{MONTH}', current_month %}
+{% endif %}
+
+{% if page_description contains '{MONTH}' %}
+  {% assign page_description = page_description | replace: '{MONTH}', current_month %}
+{% endif %}
+
+{% comment %} Ends Soon {% endcomment %}
+{% if page_title contains '{ENDS_SOON}' %}
+  {% assign days = 14 | times: 24 | times: 60 | times: 60 %}
+  {% assign end_date = "now" | date: "%s" | plus: days | date: "%d %B %Y" %}
+  {% assign page_title = page_title | replace: '{ENDS_SOON}', end_date %}
+{% endif %}
+
+{% if page_description contains '{ENDS_SOON}' %}
+  {% assign days = 14 | times: 24 | times: 60 | times: 60 %}
+  {% assign end_date = "now" | date: "%s" | plus: days | date: "%d %B %Y" %}
+  {% assign page_description = page_description | replace: '{ENDS_SOON}', end_date %}
+{% endif %}
+
+{% comment %} Product Amount {% endcomment %}
+{% if template contains 'collection' %}
+  {% assign product_amount = collection.all_products_count %}
+  {% assign current_collection_sorted = collection.products | sort: 'price' %}
+  {% assign lowest_price_in_collection = current_collection_sorted[0].price_min | money %}
+  {% assign highest_price_in_collection = current_collection_sorted[-1].price_max | money %}
+
+  {% comment %} Number of products in collection {% endcomment %}
+  {% if page_title contains '{PRODUCT_AMOUNT}' %}
+    {% assign page_title = page_title | replace: '{PRODUCT_AMOUNT}', product_amount %}
+  {% endif %}
+
+  {% if page_description contains '{PRODUCT_AMOUNT}' %}
+    {% assign page_description = page_description | replace: '{PRODUCT_AMOUNT}', product_amount %}
+  {% endif %}
+
+  {% comment %} Lowest priced product in collection {% endcomment %}
+  {% if page_title contains '{LOW_PRICE}' %}
+    {% assign page_title = page_title | replace: '{LOW_PRICE}', lowest_price_in_collection %}
+  {% endif %}
+
+  {% if page_description contains '{LOW_PRICE}' %}
+    {% assign page_description = page_description | replace: '{LOW_PRICE}', lowest_price_in_collection %}
+  {% endif %}
+
+  {% comment %} Highest priced product in collection {% endcomment %}
+  {% if page_title contains '{HIGH_PRICE}' %}
+    {% assign page_title = page_title | replace: '{HIGH_PRICE}', highest_price_in_collection %}
+  {% endif %}
+
+  {% if page_description contains '{HIGH_PRICE}' %}
+    {% assign page_description = page_description | replace: '{HIGH_PRICE}', highest_price_in_collection %}
+  {% endif %}
+{% endif %}
+
+{% if template contains 'product' %}
+  {% assign current_product_price = product.selected_or_first_available_variant.price | money %}
+
+  {% comment %} Product price {% endcomment %}
+  {% if page_title contains '{PRODUCT_PRICE}' %}
+    {% assign page_title = page_title | replace: '{PRODUCT_PRICE}', current_product_price %}
+  {% endif %}
+
+  {% if page_description contains '{PRODUCT_PRICE}' %}
+    {% assign page_description = page_description | replace: '{PRODUCT_PRICE}', current_product_price %}
+  {% endif %}
+{% endif %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#a5d4ea">
+
+<title>{{- page_title -}}</title>
+<meta name="title" content="{{ page_title}}" />
+<meta name="description" content="{{ page_description }}">
+
+{% comment %} Open Graph {% endcomment %}
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:description" content="{{ page_description }}" />
+<meta property="og:url" content="{{- active_page_url -}}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Chamberlain Coffee" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:secure_url" content="{{ og_secure_image }}" />
+
+{% comment %} Twitter card {% endcomment %}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page_title }}"/>
+
+<link rel="canonical" href="{{ canonical_url }}">

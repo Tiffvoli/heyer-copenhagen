@@ -1,0 +1,10 @@
+# Development
+dev:
+  password: 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
+  theme_id: '109275316391'
+  store: blankr.myshopify.com
+  timeout: 30s
+  ignore_files:
+    - config/settings_data.json
+
+# Production

@@ -1,0 +1,42 @@
+{% comment %} General {% endcomment %}
+{%- assign section_settings = section.settings -%}
+{%- assign menu = section_settings.menu -%}
+
+<header id="site-nav" class="header">
+  <div class="container">
+    <div class="header_inmer">
+
+      <nav class="nav" role="navigation">
+        {% for link in linklists[menu].links %}
+          <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+        {% if customer %}
+          <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+          <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_out' | t }}</a>
+        {% else %}
+          <a href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
+          <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+        {% endif %}
+      </nav>
+
+      <div class="js-cart-trigger">
+        <span>Cart</span>
+        <span class="js-cart-counter"></span>
+      </div>
+    
+    </div>
+  </div>
+</header>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,53 @@
+{
+  "name": "@martinsoender/naked-shopify-theme",
+  "version": "0.0.1",
+  "author": "Martin Sondergaard <martin.sondergaard@outlook.com>",
+  "description": "Naked Shopify Theme",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx parcel build --no-cache --out-dir assets/ --public-url ./assets/ --global components components/components.js components/components.scss",
+    "watch": "npx parcel watch --no-hmr --cache-dir components/.cache/ --out-dir assets/ --public-url ./assets/ --global components components/components.js components/components.scss"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@shopify/theme-currency": "^2.0.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "parcel-bundler": "^1.12.0",
+    "sass": "^1.26.10"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": true,
+          "targets": {
+            "android": "67",
+            "chrome": "42",
+            "edge": "12",
+            "firefox": "45",
+            "ie": "11",
+            "ios": "9",
+            "opera": "29",
+            "safari": "9"
+          },
+          "useBuiltIns": "entry"
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "transform-react-jsx",
+        {
+          "pragma": "m"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "form-serialize": "^0.7.2",
+    "whatwg-fetch": "^3.4.0"
+  }
+}
