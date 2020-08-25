@@ -3,7 +3,7 @@
 {% assign subheading = section_setting.subheading %}
 {% assign buttonText = section_setting.buttonText %}
 {% assign buttonLink = section_setting.buttonLink %}
-{% assign headerImg = section_setting.headerImg %}
+
 
 
 
@@ -15,7 +15,10 @@
 <a class="button" href="{{buttonLink}}"> {{buttonText}} </a>
 {% endif %}
 </div>
-<img class="header-img" src="{{headerImg | img_url: 'master'}}">
+
+<video loop="" muted="" autoplay="autoplay" preload="" width="100%">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/1458636388.mp4?v=1598363501" type="video/mp4">
+</video>
 
 </section>
 
@@ -72,11 +75,6 @@
             {
                 "type": "header",
                 "content": "Images"
-            },
-            {
-                "type": "image_picker",
-                "id": "headerImg",
-                "label": "headerImg"
             }
         ],
         "blocks": [
