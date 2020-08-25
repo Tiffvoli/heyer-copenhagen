@@ -1,0 +1,91 @@
+{% assign section_setting = section.settings  %}
+{% assign essential_title = section_setting.essential_title %}
+{% assign essential_description = section_setting.essential_description %}
+{% assign image_one = section_setting.image_one%}
+{% assign image_link_one = section_setting.image_link_one%}
+{% assign image_two = section_setting.image_two%}
+{% assign image_link_two = section_setting.image_link_two%}
+{% assign image_three = section_setting.image_three%}
+{% assign image_link_three = section_setting.image_link_three%}
+
+
+<section class="container travelEssentials">
+<h1>{{essential_title}}</h1>
+<h2>{{essential_description}}</h2>
+<a href="{{image_link_one}}"> <img src="{{image_one | img_url: 'master'}}"> </a>
+<a href="{{image_link_two}}"> <img src="{{image_two | img_url: 'master'}}"> </a>
+<a href="{{image_link_three}}"> <img src="{{image_three | img_url: 'master'}}"> </a>
+</section>
+
+{% stylesheet %}
+    .travelEssentials h1,
+    .travelEssentials h2{
+        color: rgb(128,130,132);
+    }
+{% endstylesheet %}
+
+{% schema %}
+    {
+        "name": "Essentials",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "essential_title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "essential_description",
+                "label": "Description"
+            },
+            {
+                "type": "header",
+                "content": "Images"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_one",
+                "label": "Image 1"
+            },
+            {
+                "type": "url",
+                "id": "image_link_one",
+                "label": "Image Link 1"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_two",
+                "label": "Image 2"
+            },
+            {
+                "type": "url",
+                "id": "image_link_two",
+                "label": "Image Link 2"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_three",
+                "label": "Image 3"
+            },
+            {
+                "type": "url",
+                "id": "image_link_three",
+                "label": "Image Link 3"
+            }
+        ],
+         "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "travel essentials",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
