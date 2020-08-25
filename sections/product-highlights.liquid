@@ -21,10 +21,10 @@
         {% assign product_price = product.price %}
 
         <div class="highlight__highlights">
-          <a href="{{ product_url }}">
-            <img src="{{ product_image | img_url: 'master' }}"/>
-          <h2>{{ product_title }}</h2>
-          <h4>{{ product_price }}</h4>
+          <a href="{{ highlight_link }}">
+            <img src="{{ highlight_image | img_url: 'master' }}"/>
+          <h2>{{ highlight_title }}</h2>
+          <h4>{{ highlight_subheading }}</h4>
           </a>
         </div>
       {% endfor %}
