@@ -10,17 +10,47 @@
 
 
 <section class="container travelEssentials">
+<div class="essentials">
+<div class="essentials__heading">
 <h1>{{essential_title}}</h1>
 <h2>{{essential_description}}</h2>
+</div>
+<div class="essentials__small">
 <a href="{{image_link_one}}"> <img src="{{image_one | img_url: 'master'}}"> </a>
 <a href="{{image_link_two}}"> <img src="{{image_two | img_url: 'master'}}"> </a>
+</div>
+</div>
+<div class="essentials__big">
 <a href="{{image_link_three}}"> <img src="{{image_three | img_url: 'master'}}"> </a>
+</div>
 </section>
 
 {% stylesheet %}
-    .travelEssentials h1,
-    .travelEssentials h2{
-        color: rgb(128,130,132);
+    .travelEssentials{  
+        display: inline-flex;
+        align-items: flex-end;
+    }
+    .essentials{
+        width: 50%;
+    }
+    .essentials__heading{
+         color: rgb(128,130,132);
+         padding: 50px 0;
+    }
+    .travelEssentials h1{
+        font-size: 30px;
+    }
+     .travelEssentials h2{
+        font-size: 14px;
+    }
+    .essentials__small{
+        display: flex;
+    }
+    .essentials__small a{
+        padding-right: 10px;
+    }
+    .essentials__big{
+        width: 50%;
     }
 {% endstylesheet %}
 
