@@ -1,1 +1,86 @@
-hi
+{% assign section_setting = section.settings  %}
+{% assign title = section_setting.Title %}
+{% assign buttonText = section_setting.buttonText %}
+{% assign buttonLink = section_setting.buttonLink %}
+{% assign headerImg = section_setting.headerImg %}
+
+
+
+<section class="heroBanner">
+<div class="heroBanner_overlay">
+<h2>{{title}}</h2>
+{% if buttonText != blank and buttonLink != blank %}  
+<a class="button" href="{{buttonLink}}"> {{buttonText}} </a>
+{% endif %}
+</div>
+<img class="header-img" src="{{headerImg | img_url: 'master'}}">
+
+</section>
+
+{% stylesheet %}
+    .heroBanner{
+        position: relative;
+    }
+    .heroBanner_overlay{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .header-img{
+        width: 100%;
+    }
+{% endstylesheet %}
+
+
+{% schema %}
+    {
+        "name": "Sustainable Design",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title & Subheading"
+            },
+            {
+                "type": "text",
+                "id": "Title",
+                "label": "Title"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "buttonText",
+                "label": "buttonText"
+            },
+            {
+                "type": "url",
+                "id": "buttonLink",
+                "label": "buttonLink"
+            },
+            {
+                "type": "header",
+                "content": "Images"
+            },
+            {
+                "type": "image_picker",
+                "id": "headerImg",
+                "label": "headerImg"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "sustainable design",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
