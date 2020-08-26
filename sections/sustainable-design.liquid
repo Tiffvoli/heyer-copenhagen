@@ -7,8 +7,7 @@
 
 
 
-<section class="sustainableDesign">
-<div class="container">
+<section class="container sustainableDesign" style="display: flex">
 <div class="sustainableDesign__overlay">
 <h2>{{title}}</h2>
 {% if buttonText != blank and buttonLink != blank %}  
@@ -17,13 +16,13 @@
 </div>
 <img src="{{image_one | img_url: 'master'}}">
 <img class="sustainableDesign__img-2" src="{{image_two | img_url: 'master'}}">
-</div>
 </section>
+
 
 {% stylesheet %}
     .sustainableDesign{
-        position: relative;
         display: flex;
+        background-color: white;
     }
     .sustainableDesign img{
         object-fit: cover;
@@ -40,6 +39,9 @@
     }
     .sustainableDesign__overlay h2{
         font-size: 3rem;
+    }
+    .sustainableDesign__img{
+        display: flex;
     }
     @media (max-width: 480px) {
         .sustainableDesign__img-2{
