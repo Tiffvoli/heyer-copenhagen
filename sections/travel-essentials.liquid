@@ -47,9 +47,10 @@
     }
     .essentials__small{
         display: flex;
+        justify-content: space-between;
     }
-    .essentials__small a{
-        padding-right: 10px;
+    .essentials__small img{
+        width: 95%;
     }
     .essentials__big{
         width: 50%;
@@ -57,17 +58,16 @@
      @media (max-width: 480px) {
    .travelEssentials{
        display: block;
+       padding-bottom: 0px;
    }
-   .essentials{
+   .essentials,
+   .essentials__small img{
        width: 100%;
    }
    .essentials__big{
        width: 100%;
        padding: 3% 0;
    }
-   .essentials__small a{
-        padding-right: 0px;
-    }
   }
 {% endstylesheet %}
 
