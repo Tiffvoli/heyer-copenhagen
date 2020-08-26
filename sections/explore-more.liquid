@@ -1,0 +1,103 @@
+{% assign section_setting = section.settings  %}
+{% assign blocks = section.blocks %}
+{% assign explore_heading = section_setting.explore_heading %}
+
+<div class="container">
+<section class="exploreMore">
+<h1>{{ explore_heading}}</h1>
+  <div class="explore__flex">
+
+    {% if blocks %}
+      {% for block in blocks %}
+        {% assign block_settings = block.settings %}
+        {% assign explore_image = block_settings.explore_image %}
+        {% assign explore_link = block_settings.explore_link %}
+        {% assign explore_title = block_settings.explore_title %}
+        {% assign product = all_products[block_settings.product] %}
+        {% assign product_image = product.featured_image %}
+        {% assign product_url = product.url %}
+        {% assign product_title = product.title %}
+        {% assign product_price = product.price %}
+
+        <div class="explore__blocks">
+          <a href="{{ explore_link }}">
+            <img src="{{ explore_image | img_url: 'master' }}"/>
+          <h2>{{ explore_title }}</h2>
+          </a>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+  </div>
+</section>
+</div>
+
+{% stylesheet %}
+    .exploreMore{
+        padding: 50px 0;   
+    }
+    .exploreMore h1{
+      color: #808284;
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+    .explore__flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    .explore__blocks{
+        width: 24%;
+    }
+    .explore__blocks a{
+      color: black;
+      text-align: left;
+    }
+    .explore__blocks h2{
+      color: #808284;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+{% endstylesheet %}
+
+{% schema %}
+    {
+        "name": "Explore More",
+        "settings": [
+          {
+            "type": "text",
+            "id": "explore_heading",
+            "label": "Heading"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "explore_more",
+            "name": "Explore more",
+            "settings": [
+              {
+                  "type": "image_picker",
+                  "id": "explore_image",
+                  "label": "Explore Image"
+              },
+              {
+                  "type": "url",
+                  "id": "explore_link",
+                  "label": "Image Link"
+              },
+              {
+                  "type": "text",
+                  "id": "explore_title",
+                  "label": "Title"
+              }
+            ]
+          }
+        ],
+        "presets": [
+            {
+                "name": "explore more",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
