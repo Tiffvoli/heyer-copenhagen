@@ -38,7 +38,7 @@
     }
     .exploreMore h1{
       color: #808284;
-      font-size: 30px;
+      font-size: 2rem;
       letter-spacing: 1px;
     }
     .explore__flex{
@@ -54,10 +54,20 @@
     }
     .explore__blocks h2{
       color: #808284;
-      font-size: 14px;
+      font-size: 1.2rem;
       letter-spacing: 1px;
       padding: 10px 0;
     }
+     @media (max-width: 480px) {
+       .explore__flex{
+        display: inline-block;
+
+       }
+       .explore__blocks{
+         width: 50%;
+         float: left;
+       }
+     }
 {% endstylesheet %}
 
 {% schema %}
