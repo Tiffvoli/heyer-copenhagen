@@ -40,7 +40,7 @@
     }
     .productHighlights h1{
       color: #808284;
-      font-size: 30px;
+      font-size: 2rem;
       letter-spacing: 1px;
       padding: 10px 0;
     }
@@ -59,11 +59,21 @@
       padding-top: 10px;
     }
     .highlight__highlights h2,
-    .highlight__highlights h4{
+    .highlight__highlights p{
       color: #808284;
-      font-size: 14px;
+      font-size: 1.2rem;
       letter-spacing: 1px;
     }
+     @media (max-width: 480px) {
+       .highlights__flex{
+         display: inline-block;
+         background-color: white;
+       }
+       .highlight__highlights{
+         width: 100%;
+       }
+       }
+     }
 {% endstylesheet %}
 
 {% schema %}
