@@ -8,8 +8,8 @@
 {% assign image_three = section_setting.image_three%}
 {% assign image_link_three = section_setting.image_link_three%}
 
-
-<section class="container travelEssentials">
+<div class="container">
+<section class="travelEssentials">
 <div class="essentials">
 <div class="essentials__heading">
 <h1>{{essential_title}}</h1>
@@ -24,7 +24,7 @@
 <a href="{{image_link_three}}"> <img src="{{image_three | img_url: 'master'}}"> </a>
 </div>
 </section>
-
+</div>
 {% stylesheet %}
     .travelEssentials{  
         display: inline-flex;
