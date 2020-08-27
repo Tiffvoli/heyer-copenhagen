@@ -36,6 +36,7 @@
   {%- endif -%}
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
   {% if template contains 'customer' %}
     {{ 'account.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
@@ -84,6 +85,7 @@
 
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
+  {{ 'swiper-js.min.js' | asset_url | script_tag }}
 
 </body>
 </html>
