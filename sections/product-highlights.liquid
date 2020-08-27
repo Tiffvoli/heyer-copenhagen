@@ -1,6 +1,26 @@
 {% assign section_setting = section.settings  %}
 {% assign blocks = section.blocks %}
 {% assign highlightheading = section_setting.highlightheading %}
+{% assign swiper_image_one = section_setting.swiper_image_one%}
+{% assign swiper_link_one = section_setting.swiper_link_one%}
+{% assign swiper_title_one = section_setting.swiper_title_one%}
+{% assign swiper_subheading_one = section_setting.swiper_subheading_one%}
+{% assign swiper_image_two = section_setting.swiper_image_two%}
+{% assign swiper_link_two = section_setting.swiper_link_two%}
+{% assign swiper_title_two = section_setting.swiper_title_two%}
+{% assign swiper_subheading_two = section_setting.swiper_subheading_two%}
+{% assign swiper_image_three = section_setting.swiper_image_three%}
+{% assign swiper_link_three = section_setting.swiper_link_three%}
+{% assign swiper_title_three = section_setting.swiper_title_three%}
+{% assign swiper_subheading_three = section_setting.swiper_subheading_three%}
+{% assign swiper_image_four = section_setting.swiper_image_four%}
+{% assign swiper_link_four = section_setting.swiper_link_four%}
+{% assign swiper_title_four = section_setting.swiper_title_four%}
+{% assign swiper_subheading_four = section_setting.swiper_subheading_four%}
+{% assign swiper_image_five = section_setting.swiper_image_five%}
+{% assign swiper_link_five = section_setting.swiper_link_five%}
+{% assign swiper_title_five = section_setting.swiper_title_five%}
+{% assign swiper_subheading_five = section_setting.swiper_subheading_five%}
 
 <div class="container">
 <section class="productHighlights">
@@ -31,9 +51,35 @@
     {% endif %}
  <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
-        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
-        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
+        <a href="{{ swiper_link_one}}" class="swiper-slide">
+        <img src="{{ swiper_image_one | img_url: 'master' }}" />
+        <h2>{{ swiper_title_one }}</h2>
+        <h4>{{ swiper_subheading_one }}</h4>
+        </a>
+
+        <a href="{{ swiper_link_two}}" class="swiper-slide">
+        <img src="{{ swiper_image_two | img_url: 'master' }}" />
+        <h2>{{ swiper_title_two }}</h2>
+        <h4>{{ swiper_subheading_two }}</h4>
+        </a>
+        
+        <a href="{{ swiper_link_three}}" class="swiper-slide">
+        <img src="{{ swiper_image_three | img_url: 'master' }}" />
+        <h2>{{ swiper_title_three }}</h2>
+        <h4>{{ swiper_subheading_three }}</h4>
+        </a>
+       
+        <a href="{{ swiper_link_four}}" class="swiper-slide">
+        <img src="{{ swiper_image_four | img_url: 'master' }}" />
+        <h2>{{ swiper_title_four }}</h2>
+        <h4>{{ swiper_subheading_four }}</h4>
+        </a>
+
+        <a href="{{ swiper_link_five}}" class="swiper-slide">
+        <img src="{{ swiper_image_five | img_url: 'master' }}" />
+        <h2>{{ swiper_title_five }}</h2>
+        <h4>{{ swiper_subheading_five }}</h4>
+        </a>    
       </div>
   
       <div class="swiper-scrollbar"></div>
@@ -45,7 +91,8 @@
 
 {% stylesheet %}
     .productHighlights{
-      padding: 30px 0;    
+      padding: 30px 0;  
+      background-color:white;  
     }
     .productHighlights h1{
       color: #808284;
@@ -69,8 +116,8 @@
     }
     .highlight__highlights h2,
     .highlight__highlights p,
-    .highlight__highlights-mobile h2,
-    .highlight__highlights-mobile p{
+    .swiper-container h2,
+    .swiper-container p{
       color: #808284;
       font-size: 1.2rem;
       letter-spacing: 1px;
@@ -78,7 +125,7 @@
     /* Mobile Version */
     .swiper-container {
         width: 100%;
-        height: 50vh;
+        height: 55vh;
         margin-left: auto;
         margin-right: auto;
         object-fit: cover;
@@ -86,17 +133,15 @@
       }
       .swiper-wrapper {
         align-items: center;
+        transition: all 1000ms ease 0s;
       }
       .swiper-slide {
-        text-align: center;
+        text-align: left;
         font-size: 18px;
         width: 70%;
         height: 50vh;
         /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
+        display: block;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         -webkit-justify-content: center;
@@ -108,8 +153,11 @@
       }
       .swiper-slide img {
         width: 100%;
-        height: 100%;
+        height: 85%;
         object-fit: cover;
+      }
+      .swiper-scrollbar{
+        transition: all 1000ms ease 0s;
       }
      /* media query for mobile device */
      @media (max-width: 480px) {
@@ -120,10 +168,11 @@
        .swiper-container{
          display: flex;
        }
+       .swiper-container h2,
+       .swiper-container p{
+         padding: 0px;
+    }
       }
-      
-
-
 {% endstylesheet %}
 
 {% javascript %}
@@ -137,6 +186,7 @@
         },
       });
 {% endjavascript %}
+
 {% schema %}
     {
         "name": "Product Highlights",
@@ -145,7 +195,111 @@
             "type": "text",
             "id": "highlightheading",
             "label": "Heading"
-          }
+          },
+          {
+                "type": "header",
+                "content": "Swiper Mobile"
+            },
+            {
+                "type": "image_picker",
+                "id": "swiper_image_one",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "swiper_link_one",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "swiper_title_one",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "swiper_subheading_one",
+                "label": "Subheading"
+            },
+            {
+                "type": "image_picker",
+                "id": "swiper_image_two",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "swiper_link_two",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "swiper_title_two",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "swiper_subheading_two",
+                "label": "Subheading"
+            },
+            {
+                "type": "image_picker",
+                "id": "swiper_image_three",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "swiper_link_three",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "swiper_title_three",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "swiper_subheading_three",
+                "label": "Subheading"
+            },
+            {
+                "type": "image_picker",
+                "id": "swiper_image_four",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "swiper_link_four",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "swiper_title_four",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "swiper_subheading_four",
+                "label": "Subheading"
+            },
+            {
+                "type": "image_picker",
+                "id": "swiper_image_five",
+                "label": "Product Image"
+            },
+            {
+                "type": "url",
+                "id": "swiper_link_five",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "swiper_title_five",
+                "label": "Title"
+            },
+             {
+                "type": "richtext",
+                "id": "swiper_subheading_five",
+                "label": "Subheading"
+            }
         ],
         "blocks": [
           {
