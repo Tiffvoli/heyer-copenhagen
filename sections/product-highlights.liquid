@@ -29,33 +29,23 @@
         </div>
       {% endfor %}
     {% endif %}
-<div class="highlight__highlights-mobile">
-         <div class="showSlide fade">
-         <img src="{{ highlight_image | img_url: 'master' }}"/>
-        <h2>{{ highlight_title }}</h2>
-        <h4>{{ highlight_subheading }}</h4>
+ <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
+        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
+        <div class="swiper-slide"><img src="{{ highlight_image | img_url: 'master' }}" /></div>
       </div>
-      <div class="showSlide fade">
-        <img src="{{ highlight_image | img_url: 'master' }}"/>
-        <h2>{{ highlight_title }}</h2>
-        <h4>{{ highlight_subheading }}</h4>
-      </div>
+  
+      <div class="swiper-scrollbar"></div>
 
-      <div class="showSlide fade">
-         <img src="{{ highlight_image | img_url: 'master' }}"/>
-        <h2>{{ highlight_title }}</h2>
-        <h4>{{ highlight_subheading }}</h4>
-      </div>
-      <a class="left" onclick="nextSlide(-1)">❮</a>
-      <a class="right" onclick="nextSlide(1)">❯</a>
-        </div>
+    </div>
   </div>
 </section>
 </div>
 
 {% stylesheet %}
     .productHighlights{
-        padding: 30px 0;    
+      padding: 30px 0;    
     }
     .productHighlights h1{
       color: #808284;
@@ -64,7 +54,7 @@
       padding: 10px 0;
     }
     .highlights__flex{
-        display: flex;
+        display: inline-flex;
         justify-content: space-between;
     }
     .highlight__highlights{
@@ -85,110 +75,67 @@
       font-size: 1.2rem;
       letter-spacing: 1px;
     }
-    .showSlide {
+    /* Mobile Version */
+    .swiper-container {
+        width: 100%;
+        height: 50vh;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: cover;
         display: none;
       }
-      .showSlide img {
+      .swiper-wrapper {
+        align-items: center;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        width: 70%;
+        height: 50vh;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .swiper-slide img {
         width: 100%;
-        height: 60vh;
+        height: 100%;
         object-fit: cover;
       }
-      .highlight__highlights-mobile {
-        max-width: 480px;
-        position: relative;
-        margin: auto;
-        display: none;
-      }
-      .left,
-      .right {
-        cursor: pointer;
-        position: absolute;
-        top: 45%;
-        width: auto;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-      }
-      .right {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      .left:hover,
-      .right:hover {
-        background-color: #808284;
-      }
-      .active {
-        background-color: #717171;
-      }
-      /* Fading animation */
-      .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-      @-webkit-keyframes fade {
-        from {
-          opacity: 0.4;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes fade {
-        from {
-          opacity: 0.4;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+     /* media query for mobile device */
      @media (max-width: 480px) {
-       .highlights__flex{
-         display: inline-block;
-       }
        .highlight__highlights{
          width: 100%;
          display: none;
        }
-       .highlight__highlights-mobile {
-        display: block;
+       .swiper-container{
+         display: flex;
+       }
       }
-      }
+      
+
 
 {% endstylesheet %}
 
 {% javascript %}
-  var slide_index = 1;
-      displaySlides(slide_index);
-
-      function nextSlide(n) {
-        displaySlides((slide_index += n));
-      }
-
-      function currentSlide(n) {
-        displaySlides((slide_index = n));
-      }
-
-      function displaySlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("showSlide");
-        if (n > slides.length) {
-          slide_index = 1;
-        }
-        if (n < 1) {
-          slide_index = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slides[slide_index - 1].style.display = "block";
-      }
+   var swiper = new Swiper(".swiper-container", {
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        grabCursor: true,
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+      });
 {% endjavascript %}
 {% schema %}
     {
