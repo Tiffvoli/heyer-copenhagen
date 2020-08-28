@@ -18,44 +18,6 @@
 <img class="sustainableDesign__img-2" src="{{image_two | img_url: 'master'}}">
 </section>
 
-
-{% stylesheet %}
-    .sustainableDesign{
-        display: flex;
-        background-color: white;
-    }
-    .sustainableDesign img{
-        object-fit: cover;
-        width: 50%;
-        height: 85vh;
-    }
-    .sustainableDesign__overlay{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-    }
-    .sustainableDesign__overlay h2{
-        font-size: 3rem;
-    }
-    .sustainableDesign__img{
-        display: flex;
-    }
-    @media (max-width: 480px) {
-        .sustainableDesign__img-2{
-            display: none;
-        }
-        .sustainableDesign img{
-        object-fit: cover;
-        width: 100%;
-        height: 60vh;
-    }
-    }
-{% endstylesheet %}
-
-
 {% schema %}
     {
         "name": "Sustainable Design",

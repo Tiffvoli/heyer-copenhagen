@@ -8,8 +8,8 @@
 {% assign image_three = section_setting.image_three%}
 {% assign image_link_three = section_setting.image_link_three%}
 
-<div class="container">
-<section class="travelEssentials">
+
+<section class="container travelEssentials">
 <div class="essentials">
 <div class="essentials__heading">
 <h1>{{essential_title}}</h1>
@@ -24,61 +24,7 @@
 <a href="{{image_link_three}}"> <img src="{{image_three | img_url: 'master'}}"> </a>
 </div>
 </section>
-</div>
-{% stylesheet %}
-    .travelEssentials{  
-        display: inline-flex;
-        align-items: flex-end;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .essentials{
-        width: 50%;
-    }
-    .essentials__heading{
-         color: rgb(128,130,132);
-         padding: 50px 0;
-    }
-    .travelEssentials h1{
-        font-size: 2rem;
-    }
-     .travelEssentials p{
-        font-size: 1.2rem;
-    }
-    .essentials__small{
-        display: flex;
-        justify-content: space-between;
-    }
-    .essentials__small img{
-        width: 95%;
-    }
-    .essentials__big{
-        width: 50%;
-    }
-     @media (max-width: 480px) {
-   .travelEssentials{
-       display: block;
-       padding-bottom: 0px;
-       padding-top: 0px;
-   }
-   .essentials__heading{
-       padding: 25px 0;
-   }
-   .essentials{
-       width: 100%;
-   }
-   .essentials__small a{
-       width: 48.5%;
-   }
-   .essentials__small img{
-        width: 100%;
-    }
-   .essentials__big{
-       width: 100%;
-       padding: 3% 0;
-   }
-  }
-{% endstylesheet %}
+
 
 {% schema %}
     {

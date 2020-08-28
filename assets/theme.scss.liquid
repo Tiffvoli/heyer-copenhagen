@@ -737,3 +737,232 @@ tfoot th {
     font-weight: bold;
   }
 }
+/*------------- Landing Page --------------*/
+
+// Hero Banner
+.heroBanner {
+  position: relative;
+}
+.heroBanner_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.header-img {
+  width: 100%;
+}
+
+// Travel Essentials
+.travelEssentials {
+  display: inline-flex;
+  align-items: flex-end;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.essentials {
+  width: 50%;
+}
+.essentials__heading {
+  color: rgb(128, 130, 132);
+  padding: 50px 0;
+}
+.travelEssentials h1 {
+  font-size: 2rem;
+}
+.travelEssentials p {
+  font-size: 1.2rem;
+}
+.essentials__small {
+  display: flex;
+  justify-content: space-between;
+}
+.essentials__small img {
+  width: 95%;
+}
+.essentials__big {
+  width: 50%;
+}
+@media (max-width: 480px) {
+  .travelEssentials {
+    display: block;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .essentials__heading {
+    padding: 25px 0;
+  }
+  .essentials {
+    width: 100%;
+  }
+  .essentials__small a {
+    width: 48.5%;
+  }
+  .essentials__small img {
+    width: 100%;
+  }
+  .essentials__big {
+    width: 100%;
+    padding: 3% 0;
+  }
+}
+
+// Product Highlights
+.productHighlights {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.productHighlights h1 {
+  color: #808284;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  padding: 10px 0;
+}
+.highlights__flex {
+  display: inline-flex;
+  justify-content: space-between;
+}
+.highlight__highlights {
+  width: 32%;
+}
+.highlight__highlights a {
+  color: black;
+  text-align: left;
+}
+.highlight__highlights h2 {
+  padding-top: 10px;
+}
+.highlight__highlights h2,
+.highlight__highlights p,
+.swiper-container h2,
+.swiper-container p {
+  color: #808284;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+/* Mobile Version */
+.swiper-container {
+  width: 100%;
+  height: 70vh;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  display: none;
+}
+.swiper-wrapper {
+  transition: all 1000ms ease 0s;
+}
+.swiper-slide {
+  text-align: left;
+  font-size: 18px;
+  width: 70%;
+  height: 60vh;
+  /* Center slide text vertically */
+  display: block;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-scrollbar {
+  transition: all 1000ms ease 0s;
+}
+/* media query for mobile device */
+@media (max-width: 480px) {
+  .highlight__highlights {
+    width: 100%;
+    display: none;
+  }
+  .swiper-container {
+    display: flex;
+  }
+  .swiper-container h2,
+  .swiper-container p {
+    padding: 0px;
+  }
+}
+
+// Sustainable Design
+.sustainableDesign {
+  display: flex;
+  background-color: white;
+}
+.sustainableDesign img {
+  object-fit: cover;
+  width: 50%;
+  height: 85vh;
+}
+.sustainableDesign__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.sustainableDesign__overlay h2 {
+  font-size: 3rem;
+}
+.sustainableDesign__img {
+  display: flex;
+}
+@media (max-width: 480px) {
+  .sustainableDesign__img-2 {
+    display: none;
+  }
+  .sustainableDesign img {
+    object-fit: cover;
+    width: 100%;
+    height: 60vh;
+  }
+}
+
+// Explore More
+.exploreMore {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+.exploreMore h1 {
+  color: #808284;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.explore__flex {
+  display: flex;
+  justify-content: space-between;
+}
+.explore__blocks {
+  width: 24%;
+}
+.explore__blocks a {
+  color: black;
+  text-align: left;
+}
+.explore__blocks h2 {
+  color: #808284;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  padding: 10px 0;
+}
+@media (max-width: 480px) {
+  .explore__flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 3%;
+  }
+  .explore__blocks {
+    width: 100%;
+  }
+}

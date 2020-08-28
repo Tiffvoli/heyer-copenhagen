@@ -2,8 +2,7 @@
 {% assign blocks = section.blocks %}
 {% assign explore_heading = section_setting.explore_heading %}
 
-<section class="exploreMore">
-<div class="container">
+<section class="container exploreMore">
 <h1>{{ explore_heading}}</h1>
   <div class="explore__flex">
 
@@ -29,47 +28,7 @@
     {% endif %}
 
   </div>
-  </div>
 </section>
-
-{% stylesheet %}
-    .exploreMore{
-        padding: 50px 0;  
-        background-color: white;
-    }
-    .exploreMore h1{
-      color: #808284;
-      font-size: 2rem;
-      letter-spacing: 1px;
-    }
-    .explore__flex{
-        display: flex;
-        justify-content: space-between;
-    }
-    .explore__blocks{
-        width: 24%;
-    }
-    .explore__blocks a{
-      color: black;
-      text-align: left;
-    }
-    .explore__blocks h2{
-      color: #808284;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      padding: 10px 0;
-    }
-     @media (max-width: 480px) {
-       .explore__flex{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 3%;
-       }
-       .explore__blocks{
-         width: 100%;       
-       }
-     }
-{% endstylesheet %}
 
 {% schema %}
     {
