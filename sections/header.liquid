@@ -10,24 +10,31 @@
         {% for link in linklists[menu].links %}
           <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
-        {% if customer %}
+      </nav>
+      <nav class="nav" role="navigation" style="display: flex">
+         <a href="{{ routes.account_url }}">FAQ</a>
+      {% if customer %}
           <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
           <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_out' | t }}</a>
         {% else %}
           <a href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
           <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
         {% endif %}
-      </nav>
-
+       
       <div class="js-cart-trigger">
         <span>Cart</span>
         <span class="js-cart-counter"></span>
       </div>
-    
+</nav>
     </div>
   </div>
 </header>
-
+{% stylesheet %}
+  .nav{
+    height: 100%;
+    background-color: red;
+  }
+{% endstylesheet %}
 {% schema %}
   {
     "name": "Header",
