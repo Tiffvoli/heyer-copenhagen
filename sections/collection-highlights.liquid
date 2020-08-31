@@ -26,44 +26,7 @@
 </div>
 </section>
 
-{% stylesheet %}
- .collectionHighlights {
-  padding-top: 70px;
-  padding-bottom: 30px; 
-  }
-.collectionHighlights__flex{
-  display: inline-flex;
-  justify-content: space-between;
 
-}
-.collectionHighlights__highlights{
-  width: 49.7%;
-  position: relative;
-  height: 90vh;
-  object-fit: cover;
-}
-.collectionHighlights__overlay{
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-}
-.collectionHighlights__highlights h2{
-    font-size: 3rem;
-    letter-spacing: 1px;  
-}
-@media (max-width: 480px) {
-    .collectionHighlights__flex{
-        display: inline-block;
-    }
-    .collectionHighlights__highlights{
-        width: 100%;
-        height: auto;
-    }
-}
-{% endstylesheet %}
 
 {% schema %}
     {
