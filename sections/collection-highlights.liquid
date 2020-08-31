@@ -1,0 +1,72 @@
+{% assign section_setting = section.settings  %}
+{% assign blocks = section.blocks %}
+
+<section class="container collectionHighlights">
+  <div class="collectionHighlights__flex">
+{% if blocks %}
+      {% for block in blocks %}
+        {% assign block_settings = block.settings %}
+        {% assign collection_image = block_settings.collection_image %}
+        {% assign collection_button = block_settings.collection_button %}
+        {% assign collection_title = block_settings.collection_title %}
+        {% assign collection_button_text = block_settings.collection_button_text %}
+
+       <div class="collectionHighlights__highlights">
+       <div class="collectionHighlights__overlay">
+       <h2>{{collection_title}}</h2>
+    {% if collection_button_text != blank and collection_button != blank %}  
+       <a class="button" href="{{collection_button}}"> {{collection_button_text}} </a>
+    {% endif %}
+    </div>
+       <img src="{{ collection_image | img_url: 'master' }}" />
+   
+</div>
+    {% endfor %}
+    {% endif %}
+</div>
+</section>
+
+
+
+{% schema %}
+    {
+        "name": "Collection Highlights",
+        "settings": [
+        ],
+        "blocks": [
+              {
+            "type": "collection_highlight",
+            "name": "Collection highlight",
+            "settings": [
+              {
+                  "type": "image_picker",
+                  "id": "collection_image",
+                  "label": "Collection Image"
+              },
+              {
+                  "type": "url",
+                  "id": "collection_button",
+                  "label": "Collection Button"
+              },
+              {
+                  "type": "text",
+                  "id": "collection_title",
+                  "label": "Title"
+              },
+              {
+                "type": "text",
+                "id": "collection_button_text",
+                "label": "Button Text"
+            }
+            ]
+          }
+        ],
+        "presets": [
+            {
+                "name": "collection highlights",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
