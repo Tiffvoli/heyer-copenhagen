@@ -2,6 +2,9 @@
 {%- assign section_settings = section.settings -%}
 {%- assign menu = section_settings.menu -%}
 {%- assign menu_logo = section_settings.menu_logo -%}
+{%- assign menu_img = section_settings.menu_img -%}
+{%- assign menu_img_link = section_settings.menu_img_link -%}
+{%- assign menu_img_title= section_settings.menu_img_title-%}
 
 <header id="site-nav" class="header">
   <div class="container">
@@ -9,9 +12,27 @@
 
       <nav class="nav" role="navigation" style="display: flex">
         {% for link in linklists[menu].links %}
-       <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">
+       <a class="{% if link.active %}active{% endif %}" id="header_link" href= "{{ link.url }}">
        <div class="link_title">{{ link.title }}</div>
+       </a>
+       <div class="dropdown-content">
+       <a href="{{menu_img_link}}"> 
+       <img src="{{ menu_img | img_url: 'master' }}" />
+       <h2>{{menu_img_title}}</h2>
        </a> 
+       <a href="{{menu_img_link}}"> 
+       <img src="{{ menu_img | img_url: 'master' }}" />
+       <h2>{{menu_img_title}}</h2>
+       </a> 
+       <a href="{{menu_img_link}}"> 
+       <img src="{{ menu_img | img_url: 'master' }}" />
+       <h2>{{menu_img_title}}</h2>
+       </a> 
+      <a href="{{menu_img_link}}"> 
+      <img src="{{ menu_img | img_url: 'master' }}" />
+      <h2>{{menu_img_title}}</h2>
+      </a> 
+       </div> 
         {% endfor %}
         
       </nav>
@@ -37,8 +58,35 @@
 </div>
 </header>
 {% stylesheet %}
-   
+  .dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100vw;
+    z-index: 1;
+    left: 0;
+    top: 101%;
+    padding: 30px 15px;
+  }
+  .dropdown-content img{
+    width: 90%;
+    height: 250px;
+    object-fit: cover;
+  }
+  #header_link:hover{
+     border-bottom: 1px solid black;
+     color: $color-black;
+  }
+  #header_link:hover + .dropdown-content{
+    display: inline-flex;
+    justify-content: space-between;
+  }
+  .dropdown-content h2{
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+  }
 {% endstylesheet %} 
+
 {% schema %}
   {
     "name": "Header",
@@ -52,6 +100,21 @@
         "type": "image_picker",
         "id": "menu_logo",
         "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "menu_img",
+        "label": "Dropdown Image"
+      },
+      {
+        "type": "url",
+        "id": "menu_img_link",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "menu_img_title",
+        "label": "Image Title"
       }
     ]
   }

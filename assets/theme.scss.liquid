@@ -554,7 +554,7 @@ tfoot th {
 .header {
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid $color-light-grey;
+  border-bottom: 2px solid rgba(76, 76, 75, 0.1);
 }
 
 .header_inmer {
@@ -568,13 +568,14 @@ tfoot th {
   padding: 0 1.5rem;
   height: 100%;
 }
-.header_inmer a:hover {
-  border-bottom: 1px solid black;
-  color: $color-black;
-}
+
 .nav {
   height: 100%;
   align-items: center;
+}
+.nav a:hover {
+  border-bottom: 1px solid black;
+  color: $color-black;
 }
 .header_logo {
   width: 10%;
@@ -768,6 +769,7 @@ tfoot th {
 // Hero Banner
 .heroBanner {
   position: relative;
+  background-color: white;
 }
 .heroBanner_overlay {
   position: absolute;
