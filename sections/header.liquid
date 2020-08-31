@@ -13,6 +13,7 @@
        <div class="link_title">{{ link.title }}</div>
        </a> 
         {% endfor %}
+        
       </nav>
       <img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/>
       <nav class="nav" role="navigation" style="display: flex">
@@ -33,26 +34,11 @@
       </div>
 </nav>
     </div>
-  </div>
+</div>
 </header>
 {% stylesheet %}
-  .nav{
-    height: 100%;
-    align-items: center;
-  }
-  .header_logo{
-    width: 10%;
-  }
-  .link_title{
-  padding-top: 2.1rem;
-  }
- .js-cart-trigger{
-   height: 100%;
- }
-.js-cart-trigger:hover{
-  border-bottom: 1px solid black;
-}
-{% endstylesheet %}
+   
+{% endstylesheet %} 
 {% schema %}
   {
     "name": "Header",
