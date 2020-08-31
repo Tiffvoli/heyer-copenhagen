@@ -1,29 +1,35 @@
 {% comment %} General {% endcomment %}
 {%- assign section_settings = section.settings -%}
 {%- assign menu = section_settings.menu -%}
+{%- assign menu_logo = section_settings.menu_logo -%}
 
 <header id="site-nav" class="header">
   <div class="container">
     <div class="header_inmer">
 
-      <nav class="nav" role="navigation">
+      <nav class="nav" role="navigation" style="display: flex">
         {% for link in linklists[menu].links %}
-          <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
+       <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">
+       <div class="link_title">{{ link.title }}</div>
+       </a> 
         {% endfor %}
       </nav>
+      <img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/>
       <nav class="nav" role="navigation" style="display: flex">
-         <a href="{{ routes.account_url }}">FAQ</a>
+         <a href="{{ routes.account_url }}"><div class="link_title">FAQ</div></a>
       {% if customer %}
-          <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
-          <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_out' | t }}</a>
+          <a href="{{ routes.account_url }}"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
+          <a href="{{ routes.account_login_url }}"><div class="link_title">{{ 'layout.customer.log_out' | t }}</div></a>
         {% else %}
-          <a href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
-          <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+          <a href="{{ routes.account_register_url }}"><div class="link_title">{{ 'layout.customer.create_account' | t }}</div></a>
+          <a href="{{ routes.account_login_url }}"><div class="link_title">{{ 'layout.customer.log_in' | t }}</div></a>
         {% endif %}
        
-      <div class="js-cart-trigger">
+      <div class="js-cart-trigger menu-cart">
+      <div class="link_title">
         <span>Cart</span>
         <span class="js-cart-counter"></span>
+        </div>
       </div>
 </nav>
     </div>
@@ -32,8 +38,20 @@
 {% stylesheet %}
   .nav{
     height: 100%;
-    background-color: red;
+    align-items: center;
   }
+  .header_logo{
+    width: 10%;
+  }
+  .link_title{
+  padding-top: 2.1rem;
+  }
+ .js-cart-trigger{
+   height: 100%;
+ }
+.js-cart-trigger:hover{
+  border-bottom: 1px solid black;
+}
 {% endstylesheet %}
 {% schema %}
   {
@@ -43,6 +61,11 @@
         "type": "link_list",
         "id": "menu",
         "label": "Menu"
+      },
+      {
+        "type": "image_picker",
+        "id": "menu_logo",
+        "label": "Logo"
       }
     ]
   }
