@@ -562,6 +562,7 @@ tfoot th {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 .header_inmer a {
   color: $color-text-grey;
@@ -573,8 +574,8 @@ tfoot th {
   align-items: center;
   margin: 0;
 }
-.nav a:hover {
-  border-bottom: 1px solid black;
+.link-title:hover {
+  box-shadow: inset 0 -1px 0 black;
   color: $color-black;
 }
 .header_logo {
@@ -587,10 +588,10 @@ tfoot th {
   height: 100%;
   color: $color-text-grey;
 }
-.js-cart-trigger:hover {
-  border-bottom: 1px solid black;
-  color: $color-black;
-}
+//.js-cart-trigger:hover {
+//  border-bottom: 1px solid black;
+//  color: $color-black;
+//}
 // Footer
 .footer {
 }

@@ -14,6 +14,18 @@
 {%- assign shop_img_4 = section_settings.shop_img_4 -%}
 {%- assign shop_link_4 = section_settings.shop_link_4 -%}
 {%- assign shop_title_4 = section_settings.shop_title_4 -%}
+{%- assign about_img = section_settings.about_img -%}
+{%- assign about_link = section_settings.about_link -%}
+{%- assign about_title= section_settings.about_title-%}
+{%- assign about_img_2 = section_settings.about_img_2 -%}
+{%- assign about_link_2 = section_settings.about_link_2 -%}
+{%- assign about_title_2 = section_settings.about_title_2 -%}
+{%- assign about_img_3 = section_settings.about_img_3 -%}
+{%- assign about_link_3 = section_settings.about_link_3 -%}
+{%- assign about_title_3 = section_settings.about_title_3 -%}
+{%- assign about_img_4 = section_settings.about_img_4 -%}
+{%- assign about_link_4 = section_settings.about_link_4 -%}
+{%- assign about_title_4 = section_settings.about_title_4 -%}
 
 <header id="site-nav" class="header">
   <div class="container">
@@ -21,29 +33,11 @@
 
       <nav class="nav" role="navigation" style="display: flex">
         {% for link in linklists[menu].links %}
-       <a class="{% if link.active %}active{% endif %}" id="{{link.title}}" href= "{{ link.url }}">
-       <div class="link_title">{{ link.title }}</div>
+       <div class="{{link.title}}" id="dropdown-wrapper">
+       <a class="{% if link.active %}active{% endif %}"  href= "{{ link.url }}">
+       <div class="menu_left_title">{{ link.title }}</div>
        </a>
-
-       <div class="dropdown-content-2">
-       <a href="{{shop_link}}"> 
-       <img src="{{ shop_img | img_url: 'master' }}" />
-       <h2>{{shop_title}}</h2>
-       </a>
-       <a href="{{shop_link_2}}"> 
-       <img src="{{ shop_img_2 | img_url: 'master' }}" />
-       <h2>{{shop_title_2}}</h2>
-       </a> 
-       <a href="{{shop_link_3}}"> 
-       <img src="{{ shop_img_3 | img_url: 'master' }}" />
-       <h2>{{shop_title_3}}</h2>
-       </a>
-        <a href="{{shop_link_4}}"> 
-       <img src="{{ shop_img_4 | img_url: 'master' }}" />
-       <h2>{{shop_title_4}}</h2>
-       </a>
-       </div>   
-
+      
        <div class="dropdown-content">
        <a href="{{shop_link}}"> 
        <img src="{{ shop_img | img_url: 'master' }}" />
@@ -62,7 +56,26 @@
        <h2>{{shop_title_4}}</h2>
        </a>
        </div>
-       
+
+       <div class="dropdown-content-2">
+       <a href="{{about_link}}"> 
+       <img src="{{ about_img | img_url: 'master' }}" />
+       <h2>{{about_title}}</h2>
+       </a>
+       <a href="{{about_link_2}}"> 
+       <img src="{{ about_img_2| img_url: 'master' }}" />
+       <h2>{{about_title_2}}</h2>
+       </a> 
+       <a href="{{about_link_3}}"> 
+       <img src="{{ about_img_3 | img_url: 'master' }}" />
+       <h2>{{about_title_3}}</h2>
+       </a>
+        <a href="{{about_link_4}}"> 
+       <img src="{{ about_img_4 | img_url: 'master' }}" />
+       <h2>{{about_title_4}}</h2>
+       </a>
+       </div>
+       </div>
         {% endfor %}
         
       </nav>
@@ -88,39 +101,52 @@
 </div>
 </header>
   {% stylesheet %}
+  #dropdown-wrapper{
+    padding: 0 1.5rem;
+    height: 100%;
+  }
+  #dropdown-wrapper:hover{
+    box-shadow: inset 0 -1px 0 black;
+    color: $color-black;
+  }
+  .menu_left_title{
+    margin-top: 0.6rem;
+  }
+  .dropdown-content,
   .dropdown-content-2{
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: #ffffff;
     width: 100vw;
     z-index: 1;
     left: 0;
-    top: 101%;
+    top: 100%;
   }
-  .dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: pink;
-    width: 100vw;
-    z-index: 1;
-    left: 0;
-    top: 101%;
+  .Shop,
+  .About{
+      overflow: hidden;
+      outline: none;
+      border: none;
+      margin: 0;
   }
-
+  .dropdown-content a,
   .dropdown-content-2 a{
     width: 25%;
     padding: 30px 15px;
   }
+  .dropdown-content img,
   .dropdown-content-2 img{
     width: 100%;
     height: 250px;
     object-fit: cover;
   }
-  #Shop:hover +  .dropdown-content{
+  .Shop:hover .dropdown-content,
+  .About:hover .dropdown-content-2{
     display: flex;
     justify-content: space-between;
   }
 
+  .dropdown-content h2,
   .dropdown-content-2 h2{
     padding-top: 0.5rem;
     font-size: 1.5rem;
@@ -140,6 +166,10 @@
         "type": "image_picker",
         "id": "menu_logo",
         "label": "Logo"
+      },
+      {
+        "type": "header",
+        "content": "Dropdown Menu - Shop"
       },
       {
         "type": "image_picker",
@@ -199,6 +229,70 @@
       {
         "type": "text",
         "id": "shop_title_4",
+        "label": "Image Title"
+      },
+       {
+        "type": "header",
+        "content": "Dropdown Menu - About"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_img",
+        "label": "Dropdown Image"
+      },
+      {
+        "type": "url",
+        "id": "about_link",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "about_title",
+        "label": "Image Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_img_2",
+        "label": "Dropdown Image"
+      },
+      {
+        "type": "url",
+        "id": "about_link_2",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "about_title_2",
+        "label": "Image Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_img_3",
+        "label": "Dropdown Image"
+      },
+      {
+        "type": "url",
+        "id": "about_link_3",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "about_title_3",
+        "label": "Image Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_img_4",
+        "label": "Dropdown Image"
+      },
+      {
+        "type": "url",
+        "id": "about_link_4",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "about_title_4",
         "label": "Image Title"
       }
     ]
