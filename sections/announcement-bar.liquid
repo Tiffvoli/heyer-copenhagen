@@ -1,17 +1,35 @@
 
 {%- assign section_settings = section.settings -%}
 {%- assign announcement_message = section.settings.message_text -%}
-{%- assign message_link = section.settings.message_text -%}
+{%- assign message_link = section.settings.message_link -%}
 {%- assign message_text = section.settings.message_text -%}
 {%- assign header_padding = section.settings.header_padding -%}
 {%- assign color_bg = section.settings.color_bg -%}
 {%- assign color_text = section.settings.color_text -%}
-{%- assign color_text_hover = section.settings.color_text -%}
+{%- assign color_text_hover = section.settings.color_text_hover -%}
+{%- assign global_img = section.settings.global_img -%}
 
-  <div class="announcement-bar">  
+  <div class="announcement-bar container"> 
+  <div class="announcement__side"></div>
+  <div class="announcement__middle"> 
     <a href="{{message_link}}" class="announcement-bar announcement-bar--link">  
       <p class="announcement-bar__message">{{ message_text}}</p>
     </a>
+  </div>
+  <div class="announcement__side">
+  <a href=""" class="announcement-bar--link"><p style="text-decoration: underline">Contact</p></a>
+  <div class="country_dropbtn">
+          <img class="country-flag-menu" src="{{ global_img | img_url: 'master' }}" />
+          <p>DKK</p>
+          <div class="country-dropdown-content">   
+          <a href="#"><img class="country-flag" src="{{ global_img | img_url: 'master' }}"> Sweden</a>
+          <a href="#"><img class="country-flag" src="{{ global_img | img_url: 'master' }}"> Germany</a>
+          <a href="#"><img class="country-flag" src="{{ global_img | img_url: 'master' }}"> South Korea</a>
+          <a href="#"><img class="country-flag" src="{{ global_img | img_url: 'master' }}"> Japan</a>
+          <a href="#"><img class="country-flag" src="{{ global_img | img_url: 'master' }}"> China</a>
+        </div>
+        </div>
+  </div>
 </div>
 
 
@@ -26,15 +44,20 @@
         width:100%;
         z-index:9;
       {% endif %}
+      display: flex;
+      justify-content: space-between;
     }
     .announcement-bar p {
       padding:10px 0;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin:0 !important;
+      letter-spacing: 1px;
     }
     .announcement-bar__message,
-    .announcement-bar--link {
+    .announcement-bar--link,
+    .announcement__side p {
       color: {{ color_text}};
+      justify-content: center;
     }
     .announcement-bar--link:hover, 
     .announcement-bar--link:hover .announcement-bar__message {
@@ -46,7 +69,60 @@
     }
 </style>
 
-
+{% stylesheet %}
+  .announcement__middle{
+    width: 50%;
+  }
+  .announcement__side{
+   width: 25%;
+   display: flex;
+   justify-content: flex-end;
+}
+.country_dropbtn{
+  display: flex;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  margin: 0;
+  width: 30%;
+  justify-content: flex-end;
+}
+.country-dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 1;
+  top:100%;
+  border: solid 1px black;
+  margin-right: 3%;
+  width: 12%;
+}
+.country-dropdown-content a{
+  display: block;
+  color: black;
+  padding: 10px 20px;
+  text-align: left;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+.country-dropdown-content a:hover{
+ border-bottom: solid 1px black;
+}
+.country_dropbtn:hover .country-dropdown-content{
+  display: block;
+}
+.country-flag-menu {
+    width: 30%;
+    height: 50%;
+    padding-right: 0.5rem;
+    margin-top: 0.7rem;
+    object-fit: cover;
+ }
+ .country-flag{
+   width: 15%;
+   padding-right: 1rem;
+ }
+{% endstylesheet %}
 {% schema %}
   {
     "name": "Announcement bar",
@@ -102,7 +178,39 @@
         "id": "color_text_hover",
         "label": "Link hover color",
         "default": "#eeeeee"
+      },
+      {
+        "type": "header",
+        "content": "Country Dropdown"
+      },
+      {
+        "type": "image_picker",
+        "id": "global_img",
+        "label": "Global Flag"
       }
-    ]
+    ],
+     "blocks": [
+          {
+            "type": "country_dropdown",
+            "name": "Country dropdown",
+            "settings": [
+              { 
+               "type": "image_picker",
+               "id": "flag_img",
+               "label": "Flag Image"
+              },
+              {
+                "type": "url",
+                "id": "flag_link",
+                "label": "Flag Link"
+              },
+              {
+                "type": "text",
+                "id": "flag_name",
+                "label": "Country"
+              }
+            ]
+          }
+     ]
   }
 {% endschema %}
