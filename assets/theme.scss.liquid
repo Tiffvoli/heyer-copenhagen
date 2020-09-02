@@ -602,7 +602,60 @@ tfoot th {
   height: 100%;
   color: $color-text-grey;
 }
-
+#right_menu {
+  justify-content: flex-end;
+}
+#dropdown-wrapper {
+  padding-right: 3rem;
+  height: 100%;
+}
+.menu_left_title:hover {
+  box-shadow: inset 0 -1px 0 black;
+  color: $color-black;
+}
+.menu_left_title {
+  margin-top: 0.6rem;
+  height: 62%;
+  margin-bottom: 0;
+}
+.dropdown-content,
+.dropdown-content-2 {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 100vw;
+  z-index: 1;
+  left: 0;
+  top: 100%;
+}
+.Shop,
+.About {
+  overflow: hidden;
+  outline: none;
+  border: none;
+  margin: 0;
+}
+.dropdown-content a,
+.dropdown-content-2 a {
+  width: 25%;
+  padding: 30px 15px;
+}
+.dropdown-content img,
+.dropdown-content-2 img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.Shop:hover .dropdown-content,
+.About:hover .dropdown-content-2 {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-content h2,
+.dropdown-content-2 h2 {
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+}
 // Footer
 .footer {
 }
