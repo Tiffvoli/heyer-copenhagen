@@ -35,7 +35,7 @@
         {% for link in linklists[menu].links %}
        <div class="{{link.title}}" id="dropdown-wrapper">
        <a class="{% if link.active %}active{% endif %}"  href= "{{ link.url }}">
-       <div class="menu_left_title">{{ link.title }}</div>
+       <h4 class="menu_left_title">{{ link.title }}</h4>
        </a>
       
        <div class="dropdown-content">
@@ -80,13 +80,13 @@
         
       </nav>
       <img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/>
-      <nav class="nav" role="navigation" style="display: flex">
-         <a href="{{ routes.account_url }}"><div class="link_title">FAQ</div></a>
+      <nav class="nav" id="right_menu" role="navigation" style="display: flex">
+         <a href="/pages/faqs"><div class="link_title">FAQ</div></a>
       {% if customer %}
-          <a href="{{ routes.account_url }}"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
-          <a href="{{ routes.account_login_url }}"><div class="link_title">{{ 'layout.customer.log_out' | t }}</div></a>
+          
+           <a href="{{ routes.account_url }}"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
         {% else %}
-          <a href="{{ routes.account_register_url }}"><div class="link_title">{{ 'layout.customer.create_account' | t }}</div></a>
+          
           <a href="{{ routes.account_login_url }}"><div class="link_title">{{ 'layout.customer.log_in' | t }}</div></a>
         {% endif %}
        
@@ -101,16 +101,21 @@
 </div>
 </header>
   {% stylesheet %}
+  #right_menu{
+   justify-content: flex-end;
+  }
   #dropdown-wrapper{
-    padding: 0 1.5rem;
+    padding-right: 3rem;
     height: 100%;
   }
-  #dropdown-wrapper:hover{
+  .menu_left_title:hover{
     box-shadow: inset 0 -1px 0 black;
     color: $color-black;
   }
   .menu_left_title{
     margin-top: 0.6rem;
+    height: 62%;
+    margin-bottom: 0;
   }
   .dropdown-content,
   .dropdown-content-2{
@@ -145,7 +150,6 @@
     display: flex;
     justify-content: space-between;
   }
-
   .dropdown-content h2,
   .dropdown-content-2 h2{
     padding-top: 0.5rem;
