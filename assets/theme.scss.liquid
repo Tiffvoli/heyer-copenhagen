@@ -590,11 +590,12 @@ tfoot th {
   width: 45%;
 }
 .header_logo {
-  width: 30%;
+  width: 70%;
 }
 .logo_link {
   text-align: center;
   height: auto !important;
+  width: 10%;
 }
 .link_title {
   padding-top: 2.1rem;
@@ -665,6 +666,8 @@ tfoot th {
   padding-top: 0.5rem;
   font-size: 1.5rem;
 }
+//Announcement Bar
+
 // Footer
 .footer {
 }
@@ -695,18 +698,8 @@ tfoot th {
 .productCard {
   width: 100%;
   box-sizing: border-box;
-  margin: 0 10px;
-
-  @media (min-width: 768px) {
-    max-width: calc(50% - 20px);
-    margin: 0 10px 60px;
-  }
-  @media (min-width: 1024px) {
-    max-width: calc(33.333333% - 20px);
-  }
-  @media (min-width: 1440px) {
-    max-width: calc(25% - 20px);
-  }
+  padding: 0 0 15px 0;
+  //margin: 0 10px;
 }
 
 .productCard_images {
@@ -717,7 +710,7 @@ tfoot th {
 
 .productCard_title {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin: 10px 0 0;
   color: $color-text-grey;
@@ -726,7 +719,7 @@ tfoot th {
 
 .productCard_pricing {
   color: $color-text-grey;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-family: $font-body;
 }
 
@@ -741,12 +734,20 @@ tfoot th {
 }
 
 .productsList_inner {
-  display: flex;
-  flex-flow: wrap row;
-  justify-content: flex-start;
+  //display: flex;
+  //flex-flow: wrap row;
+  //justify-content: flex-start;
+  column-count: 3;
   padding: 80px 0 60px;
   border-bottom: 0.2px solid #e3e3e3;
   border-top: 0.2px solid #e3e3e3;
+
+  @media (max-width: 768px) {
+    column-count: 2;
+  }
+  @media (max-width: 480px) {
+    column-count: 1;
+  }
 }
 .collectionHero__overlay {
   position: absolute;
