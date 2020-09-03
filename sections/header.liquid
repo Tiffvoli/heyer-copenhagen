@@ -79,7 +79,7 @@
         {% endfor %}
         
       </nav>
-      <img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/>
+      <a href="/index" class="logo_link"><img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/></a>
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
          <a href="/pages/faqs"><div class="link_title">FAQ</div></a>
       {% if customer %}
