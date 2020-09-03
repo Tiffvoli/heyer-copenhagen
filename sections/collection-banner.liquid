@@ -1,0 +1,59 @@
+<section class="collectionBanner">
+<div class="collectionBanner__overlay">
+{% include 'collection-hero' with collection %}
+</div>
+<img src="{{image_one | img_url: 'master'}}">
+<img class="collectionBanner_img-2" src="{{image_two | img_url: 'master'}}">
+<div class="container">
+{% include 'breadcrumb' %}
+</div>
+</section>
+
+{% stylesheet %}
+    .collectionBanner{
+        max-height: 70vh;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .collectionBanner__overlay{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+{% endstylesheet %}
+
+{% schema %}
+    {
+        "name": "Collection Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Images"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_one",
+                "label": "Image 1"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_two",
+                "label": "Image 2"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "collection banner",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

@@ -1,11 +1,14 @@
 {%- assign collection_title = collection.title -%}
 {%- assign collection_description = collection.description -%}
+{%- assign collection_image = collection.image -%}
 
 <section class="collectionHero section">
-  <div class="collectionHero_inner">
-    <div class="container">
+  <div class="collectionHero__overlay">
       {%- if collection_title != blank -%}<h2 class="collection_title">{{ collection_title }}</h2>{%- endif -%}
-      {%- if collection_description != blank -%}<div class="collectionHero_description">{{ collection_description }}</div>{% endif -%}
-    </div>
+      {%- if collection_image != blank -%}<div class="collectionHero_description">{{ collection_description }}</div>{% endif -%}
   </div>
+  <img src="{{collection_image| img_url: 'master'}}">
+ 
+  {% include 'breadcrumb' %}
 </section>
+

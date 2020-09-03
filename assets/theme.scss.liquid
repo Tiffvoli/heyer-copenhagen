@@ -24,7 +24,7 @@
 
 $font-header: "CalibreMedium", sans-serif;
 $font-body: "CalibreRegular", sans-serif;
-
+$font-text: "CalibreThin", sans-serif;
 // Colors
 $color-white: rgba(255, 255, 255, 1);
 $color-dark-grey: rgba(215, 215, 215, 1);
@@ -79,6 +79,7 @@ h1 {
 
 h2 {
   font-size: 4.2rem;
+  font-family: $font-body;
 }
 h4 {
   font-family: $font-body;
@@ -87,7 +88,7 @@ h4 {
   letter-spacing: 1px;
 }
 p {
-  font-family: $font-body;
+  font-family: $font-text;
   font-size: 1.6rem;
   line-height: 1.25;
   margin: 0 0 10px;
@@ -666,14 +667,18 @@ tfoot th {
 .breadcrumb {
   color: $color-black;
   font-size: 1.4rem;
-  height: 30px;
+  height: 40px;
+  padding: 10px 0 0;
   line-height: 30px;
   text-align: left;
   text-transform: capitalize;
+  font-family: $font-body;
+  letter-spacing: 1px;
 }
 
 .breadcrumb a {
   color: $color-black;
+  padding-right: 10px;
 
   &:hover {
     text-decoration: underline;
@@ -683,8 +688,8 @@ tfoot th {
 // Product card
 .productCard {
   width: 100%;
-  margin: 0 10px;
   box-sizing: border-box;
+  margin: 0 10px;
 
   @media (min-width: 768px) {
     max-width: calc(50% - 20px);
@@ -706,12 +711,17 @@ tfoot th {
 
 .productCard_title {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin: 0 0 10px;
+  margin: 10px 0 0;
+  color: $color-text-grey;
+  font-family: $font-body;
 }
 
 .productCard_pricing {
+  color: $color-text-grey;
+  font-size: 1.2rem;
+  font-family: $font-body;
 }
 
 .productCard_price {
@@ -722,15 +732,40 @@ tfoot th {
 
 // Collection
 .productsList {
-  margin: 0 -20px; // Align for productCard margin
 }
 
 .productsList_inner {
   display: flex;
   flex-flow: wrap row;
   justify-content: flex-start;
+  padding: 80px 0 60px;
+  border-bottom: 0.2px solid #e3e3e3;
+  border-top: 0.2px solid #e3e3e3;
 }
-
+.collectionHero__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.collectionHero img {
+  height: 70vh;
+  object-fit: cover;
+}
+.collectionHero_description p {
+  font-size: 2.2rem;
+  font-family: $font-body;
+  margin: 0;
+}
+@media (max-width: 480px) {
+  .collectionHero img {
+    max-width: 480;
+    overflow: hidden;
+    height: 70vh;
+  }
+}
 // Pagination
 .pagination {
   display: block;
@@ -858,7 +893,7 @@ tfoot th {
   padding-bottom: 50px;
 }
 .essentials {
-  width: 50%;
+  width: 60%;
 }
 .essentials__heading {
   color: rgb(128, 130, 132);
@@ -866,6 +901,8 @@ tfoot th {
 }
 .travelEssentials h1 {
   font-size: 2rem;
+  color: $color-black;
+  font-family: $font-body;
 }
 .travelEssentials p {
   font-size: 1.2rem;
@@ -878,7 +915,7 @@ tfoot th {
   width: 95%;
 }
 .essentials__big {
-  width: 50%;
+  width: 40%;
 }
 @media (max-width: 480px) {
   .travelEssentials {
