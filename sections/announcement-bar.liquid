@@ -1,0 +1,271 @@
+
+{%- assign section_settings = section.settings -%}
+{%- assign announcement_message = section.settings.message_text -%}
+{%- assign message_link = section.settings.message_link -%}
+{%- assign message_text = section.settings.message_text -%}
+{%- assign header_padding = section.settings.header_padding -%}
+{%- assign color_bg = section.settings.color_bg -%}
+{%- assign color_text = section.settings.color_text -%}
+{%- assign color_text_hover = section.settings.color_text_hover -%}
+{%- assign global_img = section.settings.global_img -%}
+{%- assign country_selector = section.settings.country_selector -%}
+{%- assign flag_1= section.settings.flag_1-%}
+{%- assign country_1 = section.settings.country_1 -%}
+{%- assign flag_2 = section.settings.flag_2 -%}
+{%- assign country_2 = section.settings.country_2 -%}
+{%- assign flag_3 = section.settings.flag_3 -%}
+{%- assign country_3 = section.settings.country_3 -%}
+{%- assign flag_4 = section.settings.flag_4 -%}
+{%- assign country_4 = section.settings.country_4 -%}
+{%- assign flag_5 = section.settings.flag_5 -%}
+{%- assign country_5 = section.settings.country_5 -%}
+
+  <div class="announcement-bar container"> 
+  <div class="announcement__left">
+  </div>
+  <div class="announcement__middle"> 
+    <a href="{{message_link}}" class="announcement-bar announcement-bar--link">  
+      <p class="announcement-bar__message">{{ message_text}}</p>
+    </a>
+  </div>
+  <div class="announcement__right">
+  <a href=""" class="announcement-bar--link"><p>Contact</p></a>
+  <div class="country_dropbtn">
+          <img class="country-flag-menu" src="{{ global_img | img_url: 'master' }}" />
+          <p>{{country_selector}}</p>
+          <div class="country-dropdown-content">   
+          <a href="#"><img class="country-flag" src="{{ flag_1 | img_url: 'master' }}"> {{country_1}} </a>
+          <a href="#"><img class="country-flag" src="{{ flag_2 | img_url: 'master' }}"> {{country_2}} </a>
+          <a href="#"><img class="country-flag" src="{{ flag_3 | img_url: 'master' }}"> {{country_3}} </a>
+          <a href="#"><img class="country-flag" src="{{ flag_4 | img_url: 'master' }}"> {{country_4}} </a>
+          <a href="#"><img class="country-flag" src="{{ flag_5 | img_url: 'master' }}"> {{country_5}} </a>
+        </div>
+        </div>
+  </div>
+</div>
+
+
+<style>
+    .announcement-bar {
+      background-color: {{color_bg}};
+      text-align:center;
+      {% if section.settings.header_padding > 0 %}
+        position:absolute;
+        top: -{{ header_padding }}px !important;
+        left:0;
+        width:100%;
+        z-index:9;
+      {% endif %}
+      display: flex;
+      justify-content: space-between;
+    }
+    .announcement-bar p {
+      padding:10px 0;
+      font-size: 1.2rem;
+      margin:0 !important;
+      letter-spacing: 1px;
+    }
+    .announcement-bar__message,
+    .announcement-bar--link,
+    .announcement__left p,
+    .announcement__right p {
+      color: {{ color_text}};
+      justify-content: center;
+    }
+    .announcement-bar--link:hover, 
+    .announcement-bar--link:hover .announcement-bar__message {
+      color: {{color_text_hover}} !important;
+    }
+    body {
+      position:relative;
+      top: {{header_padding}}px !important;
+    }
+</style>
+
+{% stylesheet %}
+  .announcement__middle{
+    width: 50%;
+  }
+  .announcement__left,
+  .announcement__right{
+   width: 25%;
+   display: flex;
+}
+.announcement__right{
+  justify-content: flex-end;
+}
+.announcement__left{
+  justify-content: flex-start;
+}
+.country_dropbtn{
+  display: flex;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  margin: 0;
+  width: 30%;
+  justify-content: flex-end;
+}
+.country-dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 1;
+  top:100%;
+  width: 15%;
+  margin-right: 3%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.country-dropdown-content a{
+  display: block;
+  color: black;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+.country-dropdown-content a:hover{
+  font-weight: bold;
+  background-color: #ddd;
+}
+.country_dropbtn:hover .country-dropdown-content{
+  display: block;
+}
+.country-flag-menu {
+    width: auto;
+    height: 17px;
+    padding-right: 0.5rem;
+    margin-top: 0.7rem;
+    object-fit: cover;
+ }
+ .country-flag{
+   width: 13%;
+   padding-right: 0.5rem;
+ }
+{% endstylesheet %}
+
+{% schema %}
+  {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+    {
+        "type":   "range",
+        "id":     "header_padding",
+        "min":    0,
+        "max":    100,
+        "step":   1,
+        "unit":   "px",
+        "label":  "Header padding",
+        "default":   0
+    },
+    {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "message_text",
+        "label": "Text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "message_link",
+        "label": "Link",
+        "info": "Optional"
+      },
+    {
+        "type": "header",
+        "content": "Fonts and colors"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+    {
+        "type": "color",
+        "id": "color_text_hover",
+        "label": "Link hover color",
+        "default": "#eeeeee"
+      },
+      {
+        "type": "header",
+        "content": "Country Dropdown"
+      },
+      {
+        "type": "image_picker",
+        "id": "global_img",
+        "label": "Global Flag"
+      },
+      {
+        "type": "text",
+        "id": "country_selector",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_1",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_1",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_2",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_2",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_3",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_3",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_4",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_4",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_5",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_5",
+        "label": "Country Name"
+      }
+    ],
+     "blocks": [
+     ]
+  }
+{% endschema %}
