@@ -1,0 +1,16 @@
+<ul>
+{% for image in product.images %}
+    {% if forloop.first %}
+    <li>  <a href="{{ image | product_img_url: 'master' }}">
+          <img src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" />
+        </a>
+         </li>
+    {% else %}
+    <li>
+        <a href="{{ image | product_img_url: 'master' }}">
+          <img src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" />
+        </a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>

@@ -728,6 +728,43 @@ tfoot th {
 .productCard_price-sale {
   text-decoration: line-through;
 }
+//Product Page
+.product {
+  display: flex;
+}
+.product__features-left {
+  width: 70%;
+  display: flex;
+}
+.product__features-right {
+  width: 30%;
+  position: static;
+  top: 0px;
+  padding: 0 0 0 30px;
+}
+.product__features-right p {
+  font-size: 14px;
+  color: $color-text-grey;
+}
+.product__features-left ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product__features-left ul li:first-child,
+.product__features-left ul li:nth-child(2),
+.product__features-left ul li:nth-child(3),
+.product__features-left ul li:nth-child(4) {
+  width: 49.5%;
+}
+.product__features-left ul li:nth-child(5),
+.product__features-left ul li:nth-last-child(2),
+.product__features-left ul li:last-child {
+  width: 32.7%;
+}
 
 // Collection
 .productsList {
