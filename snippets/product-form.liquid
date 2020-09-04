@@ -55,9 +55,9 @@
   {% endif %}
   
   {% if product_available %}
-    <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
+    <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button button-black">{{ 'products.product.add_to_cart' | t }}</button>
   {% else %}
-    <input id="cta-add-to-cart" class="button" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
+    <input id="cta-add-to-cart" class="button button-black" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
   {% endif %}
 
 </form>

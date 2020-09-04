@@ -9,7 +9,7 @@
 {% comment %} Price {% endcomment %}
 {% assign product_price = active_product.price %}
 {% assign product_compare_price = active_product.compare_at_price %}
-
+<div class="product__header">
 <h1 class="product_title">{{ product_title }}</h1>
 
 <div class="product_pricing{% if class %} {{ class }}{% endif %}">
@@ -20,11 +20,11 @@
     <span class="product_price">{{- product_price | money -}}</span>
   {%- endif -%}
 </div>
-
-<p>{{ product_description }}</p>
+</div>
+{% comment %}<p>{{ product_description }}</p>{% endcomment %}
 
 {% include 'product-form' with product %}
-
+{% inclide 'viewer-shipping' %}
 {% schema %}
   {
     "name": "Product details",
