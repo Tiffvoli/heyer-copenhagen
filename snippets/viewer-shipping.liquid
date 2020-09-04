@@ -1,3 +1,33 @@
-<div class="viewer-section">
-<h4>77 people</h4><h4>are looking at this item right now.</h4>
+
+<div class="viewerShipping">
+<h4><span class="viewer-number">77 people</span>&nbsp;are looking at this item right now.</h4>
+<h4>Order today and receive this item before the&nbsp;<span class="shipping-date"></span></h4>
+<h4 class="free-shipping">Free shipping in all Europe</h4>
 </div>
+
+<script>
+ function getRandomInt(min, max) {
+      min = Math.ceil(1);
+      max = Math.floor(15);
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+    document.querySelector(".viewer-number").textContent = getRandomInt() + " people";
+
+    var date = new Date();
+    date.setDate(date.getDate() + 7);
+
+    var dd = date.getDate();
+
+    var mm = date.getMonth() + 1;
+    var yyyy = date.getFullYear();
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    date = dd + "/" + mm + "/" + yyyy;
+    document.querySelector(".shipping-date").textContent = date;
+    console.log(date);
+</script>
