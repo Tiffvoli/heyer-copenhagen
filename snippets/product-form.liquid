@@ -53,7 +53,7 @@
   {% else %}
     <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
   {% endif %}
-  
+
   {% if product_available %}
     <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button button-black">{{ 'products.product.add_to_cart' | t }}</button>
   {% else %}

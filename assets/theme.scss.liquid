@@ -752,8 +752,9 @@ tfoot th {
   padding: 0 0 0 30px;
 }
 .product__features-right p {
-  font-size: 14px;
+  font-size: 1.5rem;
   color: $color-text-grey;
+  font-family: $font-body;
 }
 .product__features-sticky {
   position: sticky;
@@ -774,8 +775,8 @@ tfoot th {
   width: 49.5%;
 }
 .product__features-left ul li:nth-child(5),
-.product__features-left ul li:nth-last-child(2),
-.product__features-left ul li:last-child {
+.product__features-left ul li:nth-child(6),
+.product__features-left ul li:nth-child(7) {
   width: 32.7%;
 }
 .product__header {
@@ -783,11 +784,17 @@ tfoot th {
   padding-bottom: 25px;
   justify-content: space-between;
 }
+
 .product_title,
 .product_pricing span {
   font-size: 1.8rem;
   font-family: $font-header;
   font-weight: normal;
+}
+.product_option {
+  padding: 20px 0;
+  margin: 10px 0;
+  border-bottom: 0.2px solid #e3e3e3;
 }
 // View + Shipping
 .viewerShipping {
