@@ -1,11 +1,3 @@
-{
-Error: Parse error on line 1:
-{% comment %}  Set t
--^
-Expecting 'STRING', '}'
-% comment %}
-  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
-{% endcomment %}
 
 {% assign file_extension = 'png' %}
 
@@ -47,7 +39,7 @@ Expecting 'STRING', '}'
 </div>
 {% else %}
 <div class="swatch clearfix" data-option-index="{{ option_index }}">
-  <div class="header">{{ swatch }}</div>
+  <div class="header-swatch">{{ swatch }}</div>
   {% assign values = '' %}
   {% for variant in product.variants %}
     {% assign value = variant.options[option_index] %}
@@ -56,18 +48,15 @@ Expecting 'STRING', '}'
       {% assign values = values | append: ',' | append: value %} 
       {% assign values = values | split: ',' %}
       <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
-        {% if is_color %}
-        <div class="tooltip">{{ value }}</div>
-        {% endif %}
         <input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
         {% if is_color %}
         <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})">
-          <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+       
         </label>
         {% else %}
         <label for="swatch-{{ option_index }}-{{ value | handle }}">
           {{ value }}
-          <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+        
         </label>
         {% endif %}
       </div>
