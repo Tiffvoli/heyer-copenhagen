@@ -31,7 +31,7 @@
   <div class="container">
     <div class="header_inmer">
 
-      <nav class="nav" role="navigation" style="display: flex">
+      <nav class="nav" id="left_menu" role="navigation" style="display: flex">
         {% for link in linklists[menu].links %}
        <div class="{{link.title}}" id="dropdown-wrapper">
        <a class="{% if link.active %}active{% endif %}"  href= "{{ link.url }}">
@@ -81,13 +81,13 @@
       </nav>
       <a href="/index" class="logo_link"><img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/></a>
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
-         <a href="/pages/faqs"><div class="link_title">FAQ</div></a>
+         <a href="/pages/faqs" class="header-faq"><div class="link_title">FAQ</div></a>
       {% if customer %}
           
-           <a href="{{ routes.account_url }}"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
-        {% else %}
+           <a href="{{ routes.account_url }}" class="header-signup"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
+        {% else %} 
           
-          <a href="{{ routes.account_login_url }}"><div class="link_title">Sign up</div></a>
+          <a href="{{ routes.account_login_url }}" class="header-signup"><div class="link_title">Sign up</div></a>
         {% endif %}
        
       <div class="js-cart-trigger menu-cart">
@@ -109,6 +109,11 @@
         "type": "link_list",
         "id": "menu",
         "label": "Menu"
+      },
+       {
+        "type": "link_list",
+        "id": "menu_mobile",
+        "label": "Mobile Menu"
       },
       {
         "type": "image_picker",
