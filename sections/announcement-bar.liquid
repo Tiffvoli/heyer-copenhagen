@@ -24,7 +24,7 @@
   <div class="announcement__left">
   </div>
   <div class="announcement__middle"> 
-    <a href="{{message_link}}" class="announcement-bar announcement-bar--link">  
+    <a href="{{message_link}}" class="announcement-bar--link">  
       <p class="announcement-bar__message">{{ message_text}}</p>
     </a>
   </div>
@@ -59,6 +59,8 @@
       display: flex;
       justify-content: space-between;
       height: 40px;
+      z-index: 2;
+      position: fixed;
     }
     .announcement-bar p {
       padding: 13px 0;

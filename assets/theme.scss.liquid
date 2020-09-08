@@ -578,6 +578,10 @@ tfoot th {
   width: 100%;
   box-sizing: border-box;
   border-bottom: 2px solid rgba(76, 76, 75, 0.1);
+  z-index: 1;
+  position: fixed;
+  background-color: $color-white;
+  top: 4rem;
 }
 
 .header_inmer {
@@ -772,25 +776,31 @@ tfoot th {
   position: fixed;
   width: 300px;
   height: 100vh;
-  top: 22.5%;
+  top: 20rem;
   overflow: scroll;
   margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  background: #ededed;
+  padding-top: 55px;
+  padding-left: 60px;
+  padding-right: 20px;
+  background: $color-white;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
 #menu li {
+  color: $color-text-grey;
   padding: 10px 0;
   font-size: 22px;
+  border-bottom: solid 2px #e3e3e3;
 }
 
-#menuToggle input:checked ~ ul {
+#menuToggle input:checked ~ #menu {
   transform: none;
 }
 //Announcement Bar
