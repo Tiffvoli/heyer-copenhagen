@@ -1,6 +1,7 @@
 {% comment %} General {% endcomment %}
 {%- assign section_settings = section.settings -%}
 {%- assign menu = section_settings.menu -%}
+{%- assign menu_mobile = section_settings.menu_mobile -%}
 {%- assign menu_logo = section_settings.menu_logo -%}
 {%- assign shop_img = section_settings.shop_img -%}
 {%- assign shop_link = section_settings.shop_link -%}
@@ -26,12 +27,26 @@
 {%- assign about_img_4 = section_settings.about_img_4 -%}
 {%- assign about_link_4 = section_settings.about_link_4 -%}
 {%- assign about_title_4 = section_settings.about_title_4 -%}
+{%- assign mobile_link_1 = section_settings.mobile_link_1-%}
+{%- assign mobile_title_1 = section_settings.mobile_title_1-%}
+{%- assign mobile_link_2 = section_settings.mobile_link_2-%}
+{%- assign mobile_title_2 = section_settings.mobile_title_2-%}
+{%- assign mobile_link_3 = section_settings.mobile_link_3-%}
+{%- assign mobile_title_3 = section_settings.mobile_title_3-%}
+{%- assign mobile_link_4 = section_settings.mobile_link_4-%}
+{%- assign mobile_title_4 = section_settings.mobile_title_4-%}
+{%- assign best_seller_img_1 = section_settings.best_seller_img_1-%}
+{%- assign best_seller_title_1 = section_settings.best_seller_title_1-%}
+{%- assign best_seller_url_1 = section_settings.best_seller_url_1-%}
+{%- assign best_seller_img_2 = section_settings.best_seller_img_2-%}
+{%- assign best_seller_title_2 = section_settings.best_seller_title_2-%}
+{%- assign best_seller_url_2 = section_settings.best_seller_url_2-%}
 
 <header id="site-nav" class="header">
   <div class="container">
     <div class="header_inmer">
 
-      <nav class="nav" role="navigation" style="display: flex">
+      <nav class="nav" id="left_menu" role="navigation" style="display: flex">
         {% for link in linklists[menu].links %}
        <div class="{{link.title}}" id="dropdown-wrapper">
        <a class="{% if link.active %}active{% endif %}"  href= "{{ link.url }}">
@@ -77,23 +92,59 @@
        </div>
        </div>
         {% endfor %}
-        
       </nav>
+{%comment%} Mobile Header {%endcomment%}
+    <nav role="navigation" id="left_menu-mobile" style="display: none">
+    <div id="menuToggle">
+    <input type="checkbox" />
+  
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <div id="menu">
+    <ul>
+      <a href="{{mobile_link_1}}"><li>{{mobile_title_1}}</li></a>
+      <a href="{{mobile_link_2}}"><li>{{mobile_title_2}}</li></a>
+      <a href="{{mobile_link_3}}"><li>{{mobile_title_3}}</li></a>
+      <a href="{{mobile_link_4}}"><li>{{mobile_title_4}}</li></a>
+      </ul>
+      <h3>Best sellers</h3>
+      <div class="best-sellers">
+       <a href="{{best_seller_url_1}}"> 
+       <img src="{{ best_seller_img_1 | img_url: 'master' }}" />
+       <p>{{best_seller_title_1}}</p>
+       </a>
+       <a href="{{best_seller_url_2}}"> 
+       <img src="{{ best_seller_img_2 | img_url: 'master' }}" />
+       <p>{{best_seller_title_2}}</p>
+       </a>
+      </div>
+    <div class="mobile_links">
+      {% for link in linklists[menu_mobile].links %}
+          <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}     
+    </div>
+    </div>
+  </div>
+</nav>
+{%comment%} End of Mobile Header {%endcomment%}
       <a href="/index" class="logo_link"><img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/></a>
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
-         <a href="/pages/faqs"><div class="link_title">FAQ</div></a>
+         <a href="/pages/faqs" class="header-faq"><div class="link_title">FAQ</div></a>
       {% if customer %}
           
-           <a href="{{ routes.account_url }}"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
-        {% else %}
+           <a href="{{ routes.account_url }}" class="header-signup"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
+        {% else %} 
           
-          <a href="{{ routes.account_login_url }}"><div class="link_title">Sign up</div></a>
+          <a href="{{ routes.account_login_url }}" class="header-signup"><div class="link_title">Sign up</div></a>
         {% endif %}
        
       <div class="js-cart-trigger menu-cart">
-      <div class="link_title">
-        <span>Cart</span>
-        <span class="js-cart-counter"></span>
+      <div class="link_title" id="suitcase_cart">
+         <span class="js-cart-counter"></span>
+        <img class="suitcase" src="{{ 'suitcase.svg' | asset_url}}"/>
+       
         </div>
       </div>
 </nav>
@@ -109,6 +160,11 @@
         "type": "link_list",
         "id": "menu",
         "label": "Menu"
+      },
+       {
+        "type": "link_list",
+        "id": "menu_mobile",
+        "label": "Mobile Menu"
       },
       {
         "type": "image_picker",
@@ -242,6 +298,84 @@
         "type": "text",
         "id": "about_title_4",
         "label": "Image Title"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Menu"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_1",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_1",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_2",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_2",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_3",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_3",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_4",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_4",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "header",
+        "content": "Best Sellers"
+      },
+      {
+        "type": "image_picker",
+        "id": "best_seller_img_1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "best_seller_title_1",
+        "label": "Name"
+      },
+      {
+        "type": "url",
+        "id": "best_seller_url_1",
+        "label": "Link"
+      },
+       {
+        "type": "image_picker",
+        "id": "best_seller_img_2",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "best_seller_title_2",
+        "label": "Name"
+      },
+      {
+        "type": "url",
+        "id": "best_seller_url_2",
+        "label": "Link"
       }
     ]
   }
