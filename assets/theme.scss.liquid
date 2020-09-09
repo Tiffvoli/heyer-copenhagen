@@ -687,6 +687,7 @@ tfoot th {
   }
   .logo_link {
     width: 33%;
+    z-index: 2;
   }
   .js-cart-trigger {
     text-align: right;
@@ -717,10 +718,6 @@ tfoot th {
   text-decoration: none;
   color: #232323;
   transition: color 0.3s ease;
-}
-
-#menuToggle a:hover {
-  color: tomato;
 }
 
 #menuToggle input {
@@ -774,12 +771,12 @@ tfoot th {
 
 #menu {
   position: fixed;
-  width: 300px;
+  width: 100vw;
   height: 100vh;
-  top: 20rem;
+  //top: 20rem;
   overflow: scroll;
   margin: -100px 0 0 -50px;
-  padding-top: 55px;
+  padding-top: 120px;
   padding-left: 60px;
   padding-right: 20px;
   background: $color-white;
@@ -789,19 +786,50 @@ tfoot th {
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
+#menu h3 {
+  color: $color-text-grey;
+  font-size: 2.5rem;
+  font-family: $font-body;
+  font-weight: normal;
+}
 #menu ul {
   list-style-type: none;
-  padding: 0;
+  padding: 0 45px 60px 0;
 }
 #menu li {
   color: $color-text-grey;
   padding: 10px 0;
   font-size: 22px;
-  border-bottom: solid 2px #e3e3e3;
+  border-bottom: solid 0.2px #e3e3e3;
 }
-
 #menuToggle input:checked ~ #menu {
   transform: none;
+}
+.best-sellers {
+  width: 90%;
+  margin-bottom: 40px;
+  padding-bottom: 80px;
+  border-bottom: 0.2px solid #e3e3e3;
+  justify-content: space-between;
+  display: flex;
+}
+.best-sellers a {
+  width: 48%;
+  padding: 0;
+}
+.mobile_links {
+  height: 30rem;
+  width: 90%;
+  column-count: 2;
+}
+.mobile_links a {
+  font-size: 2rem;
+  color: $color-text-grey !important;
+  font-weight: normal;
+  display: block;
+  height: 40px;
+  font-family: $font-body !important;
+  padding: 0;
 }
 //Announcement Bar
 

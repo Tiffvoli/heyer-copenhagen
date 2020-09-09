@@ -79,7 +79,8 @@
        </div>
         {% endfor %}
       </nav>
-      <nav role="navigation" id="left_menu-mobile" style="display: none">
+{%comment%} Mobile Header {%endcomment%}
+    <nav role="navigation" id="left_menu-mobile" style="display: none">
     <div id="menuToggle">
     <input type="checkbox" />
   
@@ -94,11 +95,26 @@
       <a href="#"><li>Extras</li></a>
       <a href="#"><li>Travel Uniform</li></a>
       </ul>
-      <p>Best sellers</p>
+      <h3>Best sellers</h3>
+      <div class="best-sellers">
+       <a href="{{shop_link_4}}"> 
+       <img src="{{ shop_img_4 | img_url: 'master' }}" />
+       <p>{{shop_title_4}}</p>
+       </a>
+       <a href="{{shop_link_4}}"> 
+       <img src="{{ shop_img_4 | img_url: 'master' }}" />
+       <p>{{shop_title_4}}</p>
+       </a>
+      </div>
+    <div class="mobile_links">
+      {% for link in linklists[menu_mobile].links %}
+          <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}     
     </div>
-
+    </div>
   </div>
 </nav>
+{%comment%} End of Mobile Header {%endcomment%}
       <a href="/index" class="logo_link"><img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/></a>
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
          <a href="/pages/faqs" class="header-faq"><div class="link_title">FAQ</div></a>
