@@ -27,6 +27,20 @@
 {%- assign about_img_4 = section_settings.about_img_4 -%}
 {%- assign about_link_4 = section_settings.about_link_4 -%}
 {%- assign about_title_4 = section_settings.about_title_4 -%}
+{%- assign mobile_link_1 = section_settings.mobile_link_1-%}
+{%- assign mobile_title_1 = section_settings.mobile_title_1-%}
+{%- assign mobile_link_2 = section_settings.mobile_link_2-%}
+{%- assign mobile_title_2 = section_settings.mobile_title_2-%}
+{%- assign mobile_link_3 = section_settings.mobile_link_3-%}
+{%- assign mobile_title_3 = section_settings.mobile_title_3-%}
+{%- assign mobile_link_4 = section_settings.mobile_link_4-%}
+{%- assign mobile_title_4 = section_settings.mobile_title_4-%}
+{%- assign best_seller_img_1 = section_settings.best_seller_img_1-%}
+{%- assign best_seller_title_1 = section_settings.best_seller_title_1-%}
+{%- assign best_seller_url_1 = section_settings.best_seller_url_1-%}
+{%- assign best_seller_img_2 = section_settings.best_seller_img_2-%}
+{%- assign best_seller_title_2 = section_settings.best_seller_title_2-%}
+{%- assign best_seller_url_2 = section_settings.best_seller_url_2-%}
 
 <header id="site-nav" class="header">
   <div class="container">
@@ -90,20 +104,20 @@
     
     <div id="menu">
     <ul>
-      <a href="#"><li>Bags</li></a>
-      <a href="#"><li>Luggages</li></a>
-      <a href="#"><li>Extras</li></a>
-      <a href="#"><li>Travel Uniform</li></a>
+      <a href="{{mobile_link_1}}"><li>{{mobile_title_1}}</li></a>
+      <a href="{{mobile_link_2}}"><li>{{mobile_title_2}}</li></a>
+      <a href="{{mobile_link_3}}"><li>{{mobile_title_3}}</li></a>
+      <a href="{{mobile_link_4}}"><li>{{mobile_title_4}}</li></a>
       </ul>
       <h3>Best sellers</h3>
       <div class="best-sellers">
-       <a href="{{shop_link_4}}"> 
-       <img src="{{ shop_img_4 | img_url: 'master' }}" />
-       <p>{{shop_title_4}}</p>
+       <a href="{{best_seller_url_1}}"> 
+       <img src="{{ best_seller_img_1 | img_url: 'master' }}" />
+       <p>{{best_seller_title_1}}</p>
        </a>
-       <a href="{{shop_link_4}}"> 
-       <img src="{{ shop_img_4 | img_url: 'master' }}" />
-       <p>{{shop_title_4}}</p>
+       <a href="{{best_seller_url_2}}"> 
+       <img src="{{ best_seller_img_2 | img_url: 'master' }}" />
+       <p>{{best_seller_title_2}}</p>
        </a>
       </div>
     <div class="mobile_links">
@@ -283,6 +297,84 @@
         "type": "text",
         "id": "about_title_4",
         "label": "Image Title"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Menu"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_1",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_1",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_2",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_2",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_3",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_3",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title_4",
+        "label": "Mobile Link Title"
+      },
+      {
+        "type": "url",
+        "id": "mobile_link_4",
+        "label": "Mobile Link"
+      },
+      {
+        "type": "header",
+        "content": "Best Sellers"
+      },
+      {
+        "type": "image_picker",
+        "id": "best_seller_img_1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "best_seller_title_1",
+        "label": "Name"
+      },
+      {
+        "type": "url",
+        "id": "best_seller_url_1",
+        "label": "Link"
+      },
+       {
+        "type": "image_picker",
+        "id": "best_seller_img_2",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "best_seller_title_2",
+        "label": "Name"
+      },
+      {
+        "type": "url",
+        "id": "best_seller_url_2",
+        "label": "Link"
       }
     ]
   }
