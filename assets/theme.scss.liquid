@@ -857,34 +857,68 @@ tfoot th {
   height: auto;
   padding: 5px;
 }
-//Dropdown coutnry selector
-.mobile_selector {
-  height: 30rem;
+//Dropdown country selector - mobile
+.country-selector-mobile {
+  box-sizing: border-box;
+  margin: 10px 0 20px;
+  position: relative;
 }
-.mobile_selector-flexstart {
-  justify-content: flex-start !important;
-  border: solid 0.2px #e3e3e3 !important;
-  padding: 10px;
-}
-.country-flag-menu-mobile {
+.country-flag-menu-mobile,
+.country-flag-mobile {
   margin: 0 !important;
   height: 20px !important;
   margin-right: 0.5rem !important;
+  width: auto !important;
 }
-#country-dropdown-content-mobile {
-  width: 90%;
-  top: 73rem;
-  margin: 0 20px;
-  left: 0;
-  border: solid 0.2px #e3e3e3;
+.dropdown {
+  border: 0.2px solid #e3e3e3;
+  box-sizing: border-box;
+  padding: 0 15px;
+  width: 100%;
+}
+.country-selector .dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+}
+.country-selector .dropbtn span,
+.country-selector .dropdown-content-test span {
+  box-sizing: border-box;
+  vertical-align: middle;
+  padding-left: 8px;
+  font-size: 12px;
+}
+
+.country-selector-mobile .dropdown-content-mobile {
+  border: 0.2px solid #e3e3e3;
+  border-bottom: none;
   box-shadow: none;
+  bottom: 43px;
+  left: 0;
+  top: initial;
 }
-#country-dropdown-content-mobile a {
+.dropdown-content-mobile {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: 0;
+}
+.dropdown:hover .dropdown-content-mobile {
+  display: block;
+}
+.dropdown a {
   display: flex;
 }
-.country-flag-mobile {
-  width: auto !important;
-  height: 20px !important;
+.dropdown-content-mobile a {
+  padding: 10px !important;
+}
+.dropdown-content-mobile p {
+  padding-top: 0.3rem;
+  margin: 0;
 }
 //Announcement Bar
 

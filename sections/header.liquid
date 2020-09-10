@@ -151,17 +151,21 @@
         {% endif %}
         </div>
         <div class="mobile_selector" style="height: 25rem">
-        <div class="country_dropbtn mobile_selector-flexstart">
-          <img class="country-flag-menu country-flag-menu-mobile" src="{{ global_img | img_url: 'master' }}" />
-          <p style="margin: 0; padding-top: 0.3rem;">{{country_selector}}</p>
-          <div class="country-dropdown-content" id="country-dropdown-content-mobile">   
-          <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_1 | img_url: 'master' }}"><p>{{country_1}}</p></a>
-          <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_2 | img_url: 'master' }}"><p>{{country_2}}</p></a>
-          <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_3 | img_url: 'master' }}"><p>{{country_3}}</p></a>
-          <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_4 | img_url: 'master' }}"><p>{{country_4}}</p></a>
-          <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_5 | img_url: 'master' }}"><p>{{country_5}}</p></a>
-        </div>
-        </div>
+          <div class="country-selector country-selector-mobile">
+       <div class="dropdown">
+       <a class="dropbtn" href="#">
+       <img class="country-flag-menu country-flag-menu-mobile" src="{{ global_img | img_url: 'master' }}" />
+        <p style="margin: 0; padding-top: 0.3rem;">{{country_selector}}</p>
+       </a>
+       <div class="dropdown-content-mobile">
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_1 | img_url: 'master' }}"><p>{{country_1}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_2 | img_url: 'master' }}"><p>{{country_2}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_3 | img_url: 'master' }}"><p>{{country_3}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_4 | img_url: 'master' }}"><p>{{country_4}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_5 | img_url: 'master' }}"><p>{{country_5}}</p></a>
+       </div>
+       </div>
+       </div>
     </div>
     </div>
   </div>
