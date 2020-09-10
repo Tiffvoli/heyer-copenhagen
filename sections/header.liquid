@@ -143,11 +143,11 @@
     </div>
     <div class="mobile_links" id="mobile_account">
      {% if customer %}
-          <a href="{{ routes.account_url }}"><div>{{ 'layout.customer.account' | t }}</div></a>
-          <a href="{{ routes.account_login_url }}"><div>{{ 'layout.customer.log_out' | t }}</div></a>
+          <a href="{{ routes.account_url }}"><p>{{ 'layout.customer.account' | t }}</p></a>
+          <a href="{{ routes.account_login_url }}"><p>{{ 'layout.customer.log_out' | t }}</p></a>
         {% else %}
-          <a href="{{ routes.account_register_url }}"><div>{{ 'layout.customer.create_account' | t }}</div></a>
-          <a href="{{ routes.account_login_url }}"><div>{{ 'layout.customer.log_in' | t }}</div></a>
+          <a href="{{ routes.account_register_url }}"><p>{{ 'layout.customer.create_account' | t }}</p></a>
+          <a href="{{ routes.account_login_url }}"><p>{{ 'layout.customer.log_in' | t }}</p></a>
         {% endif %}
         </div>
         <div class="mobile_selector" style="height: 25rem">
