@@ -708,7 +708,7 @@ tfoot th {
   }
   .logo_link {
     width: 33%;
-    z-index: 2;
+    //z-index: 2;
   }
   .js-cart-trigger {
     text-align: right;
@@ -738,6 +738,7 @@ tfoot th {
 #menuToggle a {
   text-decoration: none;
   color: #232323;
+  padding: 0;
   transition: color 0.3s ease;
 }
 
@@ -794,12 +795,9 @@ tfoot th {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  //top: 20rem;
+  top: 10rem;
+  left: 0;
   overflow: scroll;
-  margin: -100px 0 0 -50px;
-  padding-top: 120px;
-  padding-left: 60px;
-  padding-right: 20px;
   background: $color-white;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -807,29 +805,35 @@ tfoot th {
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
+.menu_wrapper_mobile {
+  padding: 20px;
+}
 #menu h3 {
   color: $color-text-grey;
   font-size: 2.5rem;
   font-family: $font-body;
   font-weight: normal;
+  padding-top: 60px;
 }
-#menu ul {
-  list-style-type: none;
-  padding: 0 45px 60px 0;
-}
-#menu li {
+//#menu ul {
+//  list-style-type: none;
+//  padding: 0 45px 60px 0;
+//}
+#menu h2 {
   color: $color-text-grey;
   padding: 10px 0;
   font-size: 22px;
   border-bottom: solid 0.2px #e3e3e3;
+  font-weight: normal;
+  width: 90%;
 }
 #menuToggle input:checked ~ #menu {
   transform: none;
 }
 .best-sellers {
-  width: 90%;
+  width: 100%;
   margin-bottom: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   border-bottom: 0.2px solid #e3e3e3;
   justify-content: space-between;
   display: flex;
@@ -839,8 +843,8 @@ tfoot th {
   padding: 0;
 }
 .mobile_links {
-  height: 30rem;
-  width: 90%;
+  height: 15rem;
+  width: 100%;
   column-count: 2;
 }
 .mobile_links a {
@@ -851,6 +855,81 @@ tfoot th {
   height: 40px;
   font-family: $font-body !important;
   padding: 0;
+}
+#mobile_account {
+  height: 5rem;
+}
+#mobile_account p {
+  margin: 0 !important;
+}
+#mobile_account a {
+  text-align: center;
+  border: solid 0.2px #e3e3e3;
+  height: auto;
+  padding: 10px;
+}
+//Dropdown country selector - mobile
+.country-selector-mobile {
+  box-sizing: border-box;
+  margin: 10px 0 20px;
+  position: relative;
+}
+.country-flag-menu-mobile,
+.country-flag-mobile {
+  margin: 0 !important;
+  height: 20px !important;
+  margin-right: 0.5rem !important;
+  width: auto !important;
+}
+.dropdown {
+  border: 0.2px solid #e3e3e3;
+  box-sizing: border-box;
+  padding: 0 15px;
+  width: 100%;
+}
+.country-selector .dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+}
+.country-selector .dropbtn span,
+.country-selector .dropdown-content-test span {
+  box-sizing: border-box;
+  vertical-align: middle;
+  padding-left: 8px;
+  font-size: 12px;
+}
+
+.country-selector-mobile .dropdown-content-mobile {
+  border: 0.2px solid #e3e3e3;
+  border-bottom: none;
+  box-shadow: none;
+  bottom: 43px;
+  left: 0;
+  top: initial;
+}
+.dropdown-content-mobile {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: 0;
+}
+.dropdown:hover .dropdown-content-mobile {
+  display: block;
+}
+.dropdown a {
+  display: flex;
+}
+.dropdown-content-mobile a {
+  padding: 10px !important;
+}
+.dropdown-content-mobile p {
+  padding-top: 0.3rem;
+  margin: 0;
 }
 //Announcement Bar
 
@@ -1332,6 +1411,9 @@ tfoot th {
   .collectionHighlights__highlights {
     width: 100%;
     height: auto;
+  }
+  .collectionHighlights__highlights img {
+    height: 80vh;
   }
 }
 // Personaliser

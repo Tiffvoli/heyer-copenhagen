@@ -3,6 +3,7 @@
 {%- assign menu = section_settings.menu -%}
 {%- assign menu_mobile = section_settings.menu_mobile -%}
 {%- assign menu_logo = section_settings.menu_logo -%}
+{%comment%}Desktop Mega Menu{%endcomment%}
 {%- assign shop_img = section_settings.shop_img -%}
 {%- assign shop_link = section_settings.shop_link -%}
 {%- assign shop_title= section_settings.shop_title-%}
@@ -27,6 +28,7 @@
 {%- assign about_img_4 = section_settings.about_img_4 -%}
 {%- assign about_link_4 = section_settings.about_link_4 -%}
 {%- assign about_title_4 = section_settings.about_title_4 -%}
+{%comment%}Mobile Links{%endcomment%}
 {%- assign mobile_link_1 = section_settings.mobile_link_1-%}
 {%- assign mobile_title_1 = section_settings.mobile_title_1-%}
 {%- assign mobile_link_2 = section_settings.mobile_link_2-%}
@@ -35,12 +37,26 @@
 {%- assign mobile_title_3 = section_settings.mobile_title_3-%}
 {%- assign mobile_link_4 = section_settings.mobile_link_4-%}
 {%- assign mobile_title_4 = section_settings.mobile_title_4-%}
+{%comment%}Best Seller Section{%endcomment%}
 {%- assign best_seller_img_1 = section_settings.best_seller_img_1-%}
 {%- assign best_seller_title_1 = section_settings.best_seller_title_1-%}
 {%- assign best_seller_url_1 = section_settings.best_seller_url_1-%}
 {%- assign best_seller_img_2 = section_settings.best_seller_img_2-%}
 {%- assign best_seller_title_2 = section_settings.best_seller_title_2-%}
 {%- assign best_seller_url_2 = section_settings.best_seller_url_2-%}
+{%comment%}Country Dropdown{%endcomment%}
+{%- assign global_img = section.settings.global_img -%}
+{%- assign country_selector = section.settings.country_selector -%}
+{%- assign flag_1= section.settings.flag_1-%}
+{%- assign country_1 = section.settings.country_1 -%}
+{%- assign flag_2 = section.settings.flag_2 -%}
+{%- assign country_2 = section.settings.country_2 -%}
+{%- assign flag_3 = section.settings.flag_3 -%}
+{%- assign country_3 = section.settings.country_3 -%}
+{%- assign flag_4 = section.settings.flag_4 -%}
+{%- assign country_4 = section.settings.country_4 -%}
+{%- assign flag_5 = section.settings.flag_5 -%}
+{%- assign country_5 = section.settings.country_5 -%}
 
 <header id="site-nav" class="header">
   <div class="container">
@@ -102,13 +118,13 @@
     <span></span>
     <span></span>
     
-    <div id="menu">
-    <ul>
-      <a href="{{mobile_link_1}}"><li>{{mobile_title_1}}</li></a>
-      <a href="{{mobile_link_2}}"><li>{{mobile_title_2}}</li></a>
-      <a href="{{mobile_link_3}}"><li>{{mobile_title_3}}</li></a>
-      <a href="{{mobile_link_4}}"><li>{{mobile_title_4}}</li></a>
-      </ul>
+    <div id="menu">  
+    <div class="menu_wrapper_mobile">   
+      <a href="{{mobile_link_1}}"><h2>{{mobile_title_1}}</h2></a>
+      <a href="{{mobile_link_2}}"><h2>{{mobile_title_2}}</h2></a>
+      <a href="{{mobile_link_3}}"><h2>{{mobile_title_3}}</h2></a>
+      <a href="{{mobile_link_4}}"><h2>{{mobile_title_4}}</h2></a>
+     
       <h3>Best sellers</h3>
       <div class="best-sellers">
        <a href="{{best_seller_url_1}}"> 
@@ -125,7 +141,34 @@
           <a class="{% if link.active %}active{% endif %}" href= "{{ link.url }}">{{ link.title }}</a>
         {% endfor %}     
     </div>
+    <div class="mobile_links" id="mobile_account">
+     {% if customer %}
+          <a href="{{ routes.account_url }}"><p>{{ 'layout.customer.account' | t }}</p></a>
+          <a href="{{ routes.account_login_url }}"><p>{{ 'layout.customer.log_out' | t }}</p></a>
+        {% else %}
+          <a href="{{ routes.account_register_url }}"><p>{{ 'layout.customer.create_account' | t }}</p></a>
+          <a href="{{ routes.account_login_url }}"><p>{{ 'layout.customer.log_in' | t }}</p></a>
+        {% endif %}
+        </div>
+        <div class="mobile_selector" style="height: 25rem">
+          <div class="country-selector country-selector-mobile">
+       <div class="dropdown">
+       <a class="dropbtn" href="#">
+       <img class="country-flag-menu country-flag-menu-mobile" src="{{ global_img | img_url: 'master' }}" />
+        <p style="margin: 0; padding-top: 0.3rem;">{{country_selector}}</p>
+       </a>
+       <div class="dropdown-content-mobile">
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_1 | img_url: 'master' }}"><p>{{country_1}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_2 | img_url: 'master' }}"><p>{{country_2}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_3 | img_url: 'master' }}"><p>{{country_3}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_4 | img_url: 'master' }}"><p>{{country_4}}</p></a>
+        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_5 | img_url: 'master' }}"><p>{{country_5}}</p></a>
+       </div>
+       </div>
+       </div>
     </div>
+    </div>
+  </div>
   </div>
 </nav>
 {%comment%} End of Mobile Header {%endcomment%}
@@ -144,7 +187,6 @@
       <div class="link_title" id="suitcase_cart">
          <span class="js-cart-counter"></span>
         <img class="suitcase" src="{{ 'suitcase.svg' | asset_url}}"/>
-       
         </div>
       </div>
 </nav>
@@ -376,6 +418,70 @@
         "type": "url",
         "id": "best_seller_url_2",
         "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Country Dropdown"
+      },
+      {
+        "type": "image_picker",
+        "id": "global_img",
+        "label": "Global Flag"
+      },
+      {
+        "type": "text",
+        "id": "country_selector",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_1",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_1",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_2",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_2",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_3",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_3",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_4",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_4",
+        "label": "Country Name"
+      },
+      {
+        "type": "image_picker",
+        "id": "flag_5",
+        "label": "Country Flag"
+      },
+         {
+        "type": "text",
+        "id": "country_5",
+        "label": "Country Name"
       }
     ]
   }
