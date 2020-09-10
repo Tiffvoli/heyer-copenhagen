@@ -607,6 +607,7 @@ tfoot th {
   width: auto;
   max-height: 14px;
   max-width: none;
+  padding-top: 0.2rem;
 }
 .logo_link {
   text-align: center;
@@ -1068,15 +1069,19 @@ tfoot th {
   //display: flex;
   //flex-flow: wrap row;
   //justify-content: flex-start;
-  column-count: 3;
-  padding: 0 0 60px;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
   border-bottom: 0.2px solid #e3e3e3;
 
   @media (max-width: 768px) {
-    column-count: 2;
+    grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 480px) {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
 .collectionHero__overlay {
