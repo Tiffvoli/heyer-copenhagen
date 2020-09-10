@@ -138,7 +138,6 @@ picture {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  top: 10rem;
 }
 
 .page {
@@ -580,11 +579,15 @@ tfoot th {
   box-sizing: border-box;
   border-bottom: 2px solid rgba(76, 76, 75, 0.1);
   z-index: 1;
-  position: fixed;
+  //position: fixed;
   background-color: $color-white;
-  top: 4rem;
+  //top: 4rem;
 }
-
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 .header_inmer {
   height: 60px;
   display: flex;
@@ -594,7 +597,7 @@ tfoot th {
 }
 .header_inmer a {
   color: $color-text-grey;
-  padding: 0 1.5rem;
+  padding: 0 1.7rem;
   height: 100%;
 }
 .nav {
@@ -615,8 +618,8 @@ tfoot th {
   width: 10%;
 }
 .link_title {
-  padding-top: 2.3rem;
-  height: 62%;
+  padding-top: 2.5rem;
+  height: 58%;
   letter-spacing: 1px;
 }
 .link_title:hover {
@@ -626,14 +629,15 @@ tfoot th {
 .js-cart-trigger {
   height: 100%;
   color: $color-text-grey;
+  padding-left: 1.7rem;
 }
 .suitcase {
   width: 15px;
 }
 #suitcase_cart {
   position: relative;
-  padding-top: 1.5rem;
-  height: 73%;
+  padding-top: 1.7rem;
+  height: 68%;
 }
 .js-cart-counter {
   position: absolute;
@@ -644,7 +648,7 @@ tfoot th {
   justify-content: flex-end;
 }
 #dropdown-wrapper {
-  padding-right: 3rem;
+  padding-right: 3.4rem;
   height: 100%;
 }
 .menu_left_title:hover {
@@ -652,8 +656,8 @@ tfoot th {
   color: $color-black;
 }
 .menu_left_title {
-  margin-top: 0.6rem;
-  height: 62%;
+  margin-top: 0.8rem;
+  height: 58%;
   margin-bottom: 0;
 }
 .dropdown-content,
@@ -1214,7 +1218,6 @@ tfoot th {
 .heroBanner {
   position: relative;
   background-color: white;
-  padding-top: 10rem;
 }
 .heroBanner_overlay {
   position: absolute;
