@@ -1,0 +1,187 @@
+<style>
+      /* Left column */
+      .leftcolumn-article {
+        float: left;
+        width: 70%;
+        padding: 0vw 10vw 0vw 10vw;  
+        margin-top:5vh;
+      }
+   
+      /* Right column */
+      .rightcolumn-article {
+        float: left;
+        width: 30%;
+        padding-right:10vw ;
+        margin-top:5vh;
+      }
+
+      /* Article image */
+      .article-img {
+        width: 100%;
+      }
+   
+      /* Wrap for the whole article */
+      .content-wrap {
+        background-color: white;
+        margin: 0rem auto;   
+      }
+      /* Article title styling */
+      .content-wrap h1{
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+   	  /* Article images styling */
+      .content-wrap img{
+        width: 100%;
+      }
+   
+      /* Clear floats after the columns */
+  	  .row::after {
+        content: "";
+        display: block;  
+      }
+      /* Content article styling */
+      .content-article p{
+        font-size: 16px; !important
+ 	  }
+ 	  .content-article h2{
+   		font-size: 28px; !important
+ 	  }
+   
+      /* Footer and Comment */
+      .footer-article,
+      .comment-article{
+        margin-top: 20px;
+      }
+   
+      /* Right banner divs*/
+      .email-div{
+        padding:5px;
+      }
+      .heyer-media {
+        padding: 0px 5px 20px 5px;
+      }
+      .heyer-media img{
+        width: 100%;
+      }
+ 	  .SoMe img{
+  		width: 10%;
+  		margin-right: 10px;
+        vertical-align: middle;
+	  }
+      .article-p{
+        margin-right:5px;
+      }
+      .related-blogs{
+        display:block
+      }
+      .accent-line-banner {
+	    width: 100%px;
+	    height: 2px;
+	    margin: 40px 0px 40px 0px;
+	    background-color: #e4e4e4;
+	  }
+     /* Comment section styling */
+   	  .comment-article h4{
+        font-size: 16px;
+      }
+       #add-comment-title h3{
+        font-size: 50px !important;
+      }
+   
+      /* Responsive layout */
+      @media screen and (max-width: 800px) {
+        .leftcolumn-article,
+        .rightcolumn-article {
+          width: 100%;
+          padding: 0vw 10vw 0vw 10vw;
+        }
+      }
+</style>
+
+
+<div class="row article-wrap">
+      <div class="leftcolumn-article">
+        <div class="content-wrap">
+         <h1>{{ article.title }}</h1>
+           <p class="details">
+          by {{article.author}} | <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
+          </p>
+
+          <div class="article-img"> {% if article.image %}
+        <div class="article-image lazyload fade-in" data-bgset="{% include 'bgset', image: article.image %}" data-sizes="auto" data-parent-fit="cover"></div>
+        <noscript>
+          <div class="article-image no-js-image" style="background-image: url({{ article.image | img_url: '1024x' }}); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
+        </noscript>
+      {% endif %}
+</div>
+      
+        <div class="content-article">
+        {{ article.content }}
+         
+          </div>       
+        </div>
+      </div>
+
+      <div class="rightcolumn-article">
+        <div class="content-wrap"> 
+          <div class="accent-line-banner"></div> 
+          <div class="heyer-media">       
+          <img src="{{ 'P1blue1.1.png' | asset_url }}"/>    
+             <div class="accent-line-banner"></div>     
+         <div class="SoMe">
+           <p class="article-p">FOLLOW US</p>
+           <a href="https://www.facebook.com/heyercopenhagen/"><img src="{{ 'facebook.svg' | asset_url }}"/></a>
+           <a href="https://www.instagram.com/heyercopenhagen/"><img src="{{ 'instagram.svg' | asset_url }}"/></a>
+           <a href=""><img src="{{ 'pinterest.svg' | asset_url }}"/></a>
+           <a href=""><img src="{{ 'linkedin.svg' | asset_url }}"/></a>
+         </div>
+             <div class="accent-line-banner"></div>
+   <p class="article-p">RECENT POSTS</p>
+             {% include 'relatedblogs' %}
+          <div class="accent-line-banner"></div>
+<p class="article-p">OUR COMMUNITY</p>
+         <div id="insta-feed"></div> 
+             <div class="accent-line-banner"></div>
+             <div class="email-div">
+      <div class="klaviyo-form-XurjMP"></div>
+         </div>
+              <div class="accent-line-banner"></div>
+          </div> 
+      </div>
+  </div>
+  
+
+ <div class="leftcolumn-article footer-article">
+      {% include 'accent-line' %}
+      
+      {% if article.tags.size > 0 %}
+        <p class="tags">
+          {{ 'blog.article.tags_label' | t }}:
+          {% for tag in article.tags %}
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </p>
+      {% endif %}
+      {% if blog.next_article or blog.previous_article %}
+        <p class="prev-next"> 
+          {% if blog.previous_article %}
+            <span class="__prev">{{ 'blog.article.previous_post' | t | link_to: blog.previous_article }}</span>
+          {% endif %}
+          {% if blog.next_article %}
+            <span class="__next">{{ 'blog.article.next_post' | t | link_to: blog.next_article }}</span>
+          {% endif %}
+        </p>
+      {% endif %}
+      {% if settings.share_on_facebook or settings.share_on_twitter %}
+      <p class="share">{{ 'blog.article.social_share' | t }} {% include 'site-shareLinksBlog' %}</p>
+      {% endif %}
+    </div>
+<div class="leftcolumn-article comment-article">
+  {% if blog.comments_enabled? %}
+      <h4 class="meta-comments">{{ 'blog.article.comment_count' | t: count: article.comments_count }}</h4>
+      {% endif %}
+      {% include 'blog-comments' %}
+      <p class="blog-index-link"><a href="{{ blog.url }}">{{ 'blog.article.back_to_all_posts' | t: title: blog.title }}</a></p>
+</div>
+  </div>

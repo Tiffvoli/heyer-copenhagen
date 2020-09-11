@@ -1,0 +1,20 @@
+ {%- assign article = blog.articles[0] -%}
+<div class="featured-article">
+<a href="{{ article.url }}" title="{{ article.title }}">
+<img class="featured-image" id="{{ img_id }}" src="{{ article.image | img_url: 'master' }}" data-src="{{ img_url }}">
+</a>
+{{ article_meta }}
+<div class="article-content">
+{%- if article.tags.size > 0 and section.settings.tags -%}
+<p class="tags"> {% for tag in article.tags %} 
+<a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+{% endfor %}
+</p>
+{%- endif -%}
+<a href="{{ article.url }}"><h2 class="blog-title">{{ article.title }}</h2></a>
+
+<div class="article__excerpt">
+<h4 style="margin: 0">{{article.excerpt_or_content | strip_html | truncatewords: 32 }}</h4>
+</div>
+</div>
+</div>

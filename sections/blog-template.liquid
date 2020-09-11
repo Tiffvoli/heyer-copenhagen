@@ -1,0 +1,39 @@
+{% comment %} Settings {% endcomment %}
+{%- assign layout = section.settings.layout -%}
+<div class="container">
+<div class="blogWrapper">
+
+<div class="blog-left">
+<div class="blog__features-sticky">
+{% include 'featured-blog'%}
+</div>
+</div>
+
+{% paginate blog.articles by 8 %}
+<div class="blog-right">
+{%- for article in blog.articles -%}
+ {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
+<div class="blogpostWrapper">        
+                {%- include 'blog-post' -%}
+</div>
+   {%- endunless -%}
+            {%- endfor -%}
+</div>
+{% endpaginate %}
+
+</div>
+
+ {% paginate blog.articles by 8 %}
+<div class="blog-bottom">
+{%- for article in blog.articles -%}
+ {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
+<div class="blogpostWrapper">        
+                {%- include 'blog-post' -%}
+</div>
+   {%- endunless -%}
+            {%- endfor -%}
+</div>
+{% endpaginate %}
+
+</div>
+
