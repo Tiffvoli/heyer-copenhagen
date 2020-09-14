@@ -72,6 +72,7 @@ h6 {
   margin: 0 0 10px;
   width: 100%;
   letter-spacing: 1px;
+  color: $color-text-grey;
 }
 
 h1 {
@@ -1494,4 +1495,82 @@ tfoot th {
 .prev-next {
   text-align: center;
   padding-top: 40px;
+}
+//Article template
+.articleBanner {
+  display: flex;
+  justify-content: space-between;
+}
+.articleBanner-left {
+  width: auto;
+  min-width: 50%;
+  padding: 40px 60px 0 0;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+.articleBanner-right {
+  width: auto;
+  max-width: 50%;
+  display: flex;
+  padding-top: 40px;
+}
+.articleWrapper {
+  padding: 80px 10% 0;
+  display: flex;
+}
+.article-left {
+  width: 70%;
+  padding-right: 60px;
+  border-right: 0.2px solid #e3e3e3;
+}
+.article-right {
+  width: 30%;
+  padding-left: 60px;
+}
+.article-right img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.articleWrapper p {
+  font-family: $font-header;
+  color: $color-text-grey;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  letter-spacing: 0.5px;
+}
+.articleWrapper h6 {
+  font-size: 1.2rem;
+}
+.articleWrapper h3 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  padding: 10px 0;
+}
+.article-bottom {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 60px;
+  grid-row-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.article-bottom img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+.readmoreWrapper {
+  border-bottom: 0.2px solid #e3e3e3;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.readmoreWrapper h1 {
+  padding: 2rem 0;
+  font-size: 3rem;
+  font-weight: normal;
+}
+.readmoreWrapper h2 {
+  font-size: 1.8rem;
 }
