@@ -33,8 +33,8 @@
       <div style="width:100%;height:0;padding-bottom:67%;position:relative;">
       <iframe src="https://giphy.com/embed/RkuPuqo3pajs2WaEPP" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
       </div>
-      <h3>On the gram</h3>
-      <h3>Read more</h3>
+      <h3>{{instagram_text}}</h3>
+      <h3>{{readmore_text}}</h3>
       {% include 'relatedblogs'%}
       <iframe src="https://giphy.com/embed/iGLKGvR1GK6G4d6eXn" width="100%" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
       <div class="klaviyo-form-XurjMP""></div>
@@ -43,7 +43,7 @@
 
       {% paginate blog.articles by 3 %}
 <div class="container readmoreWrapper">
-<h1>Continue reading...</h1>
+<h1>{{continue_text}}</h1>
 <div class="article-bottom">
       {%- for article in blog.articles -%}
 <div class="blogpostWrapper">        
@@ -78,19 +78,22 @@
                 "label": "Image Link"
             },
             {
-                "type": "richtext",
+                "type": "text",
                 "id": "instagram_text",
-                "label": "Instagram text"
+                "label": "Instagram text",
+                "default": "Add text"
             },
             {
-                "type": "richtext",
+                "type": "text",
                 "id": "readmore_text",
-                "label": "Related blogs text"
+                "label": "Related blogs text",
+                "default": "Add text"
             },
             {
-                "type": "richtext",
+                "type": "text",
                 "id": "continue_text",
-                "label": "More blogs text"
+                "label": "More blogs text",
+                "default": "Add text"
             }
         ],
         "blocks": [
