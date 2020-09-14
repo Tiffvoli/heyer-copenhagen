@@ -12,28 +12,34 @@
 {% paginate blog.articles by 8 %}
 <div class="blog-right">
 {%- for article in blog.articles -%}
- {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
 <div class="blogpostWrapper">        
                 {%- include 'blog-post' -%}
 </div>
-   {%- endunless -%}
             {%- endfor -%}
 </div>
 {% endpaginate %}
 
 </div>
 
- {% paginate blog.articles by 8 %}
-<div class="blog-bottom">
-{%- for article in blog.articles -%}
- {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
-<div class="blogpostWrapper">        
-                {%- include 'blog-post' -%}
-</div>
-   {%- endunless -%}
-            {%- endfor -%}
-</div>
+{% paginate blog.articles by 8 %}
+<div class="blog-bottom-wrapper">
+   <div class="blog-bottom">
+   {%- for article in blog.articles -%}
+      {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
+   <div class="blogpostWrapper">        
+   {%- include 'blog-post' -%}
+   </div>
+      {%- endunless -%}
+   {%- endfor -%}
+   </div>
+         <div class="prev-next">    
+            <a href="{{ paginate.previous.url }}" class="button button-transparent">Previous page</a>   
+            <a href="{{ paginate.next.url }}" class="button button-transparent">Next page</a>
+         </div>
+</div>   
+
 {% endpaginate %}
+
 
 </div>
 

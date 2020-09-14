@@ -211,7 +211,7 @@ button:hover {
 .button-transparent {
   color: $color-black;
   background: transparent;
-  border: 1px solid rgba($color-black, 0.14);
+  border: 0.2px solid #e3e3e3;
 }
 
 // Input
@@ -1480,12 +1480,18 @@ tfoot th {
   object-fit: cover;
 }
 .blog-bottom {
-  padding: 80px 0;
-  border-bottom: 0.2px solid #e3e3e3;
   display: grid;
   grid-auto-columns: 1fr;
   grid-column-gap: 40px;
   grid-row-gap: 60px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
+}
+.blog-bottom-wrapper {
+  padding: 80px 0;
+  border-bottom: 0.2px solid #e3e3e3;
+}
+.prev-next {
+  text-align: center;
+  padding-top: 40px;
 }
