@@ -72,7 +72,6 @@ h6 {
   margin: 0 0 10px;
   width: 100%;
   letter-spacing: 1px;
-  color: $color-text-grey;
 }
 
 h1 {
@@ -1419,7 +1418,7 @@ tfoot th {
 #pplr-4763492024455 {
   display: none !important;
 }
-
+/*------------------Blog & Article page------------------*/
 //Blog Template
 .blogBanner {
   padding: 120px 0 0;
@@ -1456,8 +1455,6 @@ tfoot th {
 .blog__features-sticky {
   position: sticky;
   top: 6.5rem;
-}
-.featured-article {
 }
 .featured-image {
   height: 75vh;
@@ -1515,9 +1512,13 @@ tfoot th {
   display: flex;
   padding-top: 40px;
 }
+.articleBanner-right {
+  object-fit: cover;
+}
 .articleWrapper {
   padding: 80px 10% 0;
   display: flex;
+  color: $color-text-grey;
 }
 .article-left {
   width: 70%;
@@ -1535,7 +1536,6 @@ tfoot th {
 }
 .articleWrapper p {
   font-family: $font-header;
-  color: $color-text-grey;
   font-size: 2rem;
   line-height: 2.8rem;
   letter-spacing: 0.5px;
@@ -1547,6 +1547,9 @@ tfoot th {
   font-size: 2.3rem;
   font-weight: normal;
   padding: 10px 0;
+}
+.articleWrapper a {
+  color: $color-text-grey;
 }
 .article-bottom {
   display: grid;
@@ -1573,4 +1576,36 @@ tfoot th {
 }
 .readmoreWrapper h2 {
   font-size: 1.8rem;
+}
+@media (max-width: 480px) {
+  .articleBanner,
+  .articleWrapper {
+    display: block;
+  }
+  .articleWrapper {
+    padding: 30px 3%;
+  }
+  .articleBanner-left,
+  .articleBanner-right,
+  .article-left,
+  .article-right {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .articleBanner-right img {
+    object-fit: cover;
+    height: 60vh;
+  }
+  .article-left,
+  .article-right {
+    border: none;
+    width: 100%;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 0.2px solid #e3e3e3;
+  }
+  .readmoreWrapper {
+    display: none;
+  }
 }

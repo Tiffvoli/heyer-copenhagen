@@ -1,6 +1,9 @@
 {% assign section_setting = section.settings  %}
 {% assign article_side_image = section_setting.article_side_image %}
 {% assign side_image_url = section_setting.side_image_url %}
+{% assign instagram_text = section_setting.instagram_text %}
+{% assign readmore_text = section_setting.readmore_text %}
+{% assign continue_text = section_setting.continue_text %}
 
 <div class="container">
 <div class="articleBanner">
@@ -53,7 +56,7 @@
 
 <style>
 .ixfTEu.ixfTEu{
-  padding: 0 !important;
+  padding: 20px 0 !important;
 }
 </style>
 {% schema %}
@@ -73,6 +76,21 @@
                 "type": "url",
                 "id": "side_image_url",
                 "label": "Image Link"
+            },
+            {
+                "type": "richtext",
+                "id": "instagram_text",
+                "label": "Instagram text"
+            },
+            {
+                "type": "richtext",
+                "id": "readmore_text",
+                "label": "Related blogs text"
+            },
+            {
+                "type": "richtext",
+                "id": "continue_text",
+                "label": "More blogs text"
             }
         ],
         "blocks": [
