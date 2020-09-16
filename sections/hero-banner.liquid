@@ -3,11 +3,17 @@
 {% assign subheading = section_setting.subheading %}
 {% assign buttonText = section_setting.buttonText %}
 {% assign buttonLink = section_setting.buttonLink %}
-
+{% assign backup_image = section_setting.backup_image %}
 
 
 
 <section class="heroBanner">
+<video autoplay loop autobuffer muted playsinline width="100%" style="position:relative">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.mp4?v=1599735823" type="video/mp4">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.webm?v=1599735823" type="video/webm">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.ogg?v=1599735816" type="video/ogg">
+    <img src="{{ backup_image | img_url: 'master' }}" />
+</video>
 <div class="heroBanner_overlay">
 <h2>{{title}}</h2>
 <h3> {{subheading}}</h3>
@@ -15,13 +21,6 @@
 <a class="button" href="{{buttonLink}}"> {{buttonText}} </a>
 {% endif %}
 </div>
-
-<video autoplay loop autobuffer muted playsinline width="100%">
-  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.mp4?v=1599735823" type="video/mp4">
-  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.webm?v=1599735823" type="video/webm">
-  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.ogg?v=1599735816" type="video/ogg">
-</video>
-
 </section>
 
 {% schema %}
@@ -59,6 +58,11 @@
             {
                 "type": "header",
                 "content": "Images"
+            },
+            {
+                "type": "image_picker",
+                "id": "backup_image",
+                "label": "Back-up Image for video"
             }
         ],
         "blocks": [

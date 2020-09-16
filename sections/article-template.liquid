@@ -1,0 +1,113 @@
+{% assign section_setting = section.settings  %}
+{% assign article_side_image = section_setting.article_side_image %}
+{% assign side_image_url = section_setting.side_image_url %}
+{% assign instagram_text = section_setting.instagram_text %}
+{% assign readmore_text = section_setting.readmore_text %}
+{% assign continue_text = section_setting.continue_text %}
+
+<div class="container">
+<div class="articleBanner">
+  <div class="articleBanner-left">
+    <h2>{{ article.title }}</h2>
+    <p class="article-details">
+    by {{article.author}} | <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
+    </p>
+  </div>
+  <div class="articleBanner-right">
+    {%- if article.image -%}
+    <img src="{{ article.image | img_url: 'master' }}" alt="">
+    {%- endif -%} 
+  </div>
+</div>
+</div>
+{% include 'breadcrumb'%}
+
+<div class="articleWrapper">
+  <div class="article-left">
+      {{ article.content }}
+  </div>
+  <div class="article-right">
+      <a href="{{ side_image_url }}">
+      <img src="{{ article_side_image | img_url: 'master' }}" />
+      </a>
+      <div style="width:100%;height:0;padding-bottom:67%;position:relative;">
+      <iframe src="https://giphy.com/embed/RkuPuqo3pajs2WaEPP" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      </div>
+      <h3>{{instagram_text}}</h3>
+      <h3>{{readmore_text}}</h3>
+      {% include 'relatedblogs'%}
+      <iframe src="https://giphy.com/embed/iGLKGvR1GK6G4d6eXn" width="100%" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <div class="sign-up">
+      <div class="klaviyo-form-XurjMP"></div>
+      </div>
+  </div>
+</div>
+
+      {% paginate blog.articles by 3 %}
+<div class="container readmoreWrapper">
+<h1>{{continue_text}}</h1>
+<div class="article-bottom">
+      {%- for article in blog.articles -%}
+<div class="blogpostWrapper">        
+      {%- include 'blog-post' -%}
+</div>
+      {%- endfor -%}
+</div>
+      {% endpaginate %}
+</div>
+
+<style>
+.ixfTEu.ixfTEu{
+  padding: 20px 0 !important;
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Article Template",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Article Side Bar"
+            },
+            {
+                "type": "image_picker",
+                "id": "article_side_image",
+                "label": "Side Image"
+            },
+            {
+                "type": "url",
+                "id": "side_image_url",
+                "label": "Image Link"
+            },
+            {
+                "type": "text",
+                "id": "instagram_text",
+                "label": "Instagram text",
+                "default": "Add text"
+            },
+            {
+                "type": "text",
+                "id": "readmore_text",
+                "label": "Related blogs text",
+                "default": "Add text"
+            },
+            {
+                "type": "text",
+                "id": "continue_text",
+                "label": "More blogs text",
+                "default": "Add text"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "article sidebar",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+  }
+{% endschema %}

@@ -1,0 +1,55 @@
+{% comment %} Settings {% endcomment %}
+{%- assign layout = section.settings.layout -%}
+<div class="container">
+<div class="blogWrapper">
+
+<div class="blog-left">
+<div class="blog__features-sticky">
+{% include 'featured-blog'%}
+</div>
+</div>
+{% paginate blog.articles %}
+<div class="blog-right">
+{% if paginate.current_page == 1 %}
+{% for article in blog.articles offset:1 limit: 8%}
+<div class="blogpostWrapper">        
+      {%- include 'blog-post' -%}
+</div>
+{%endfor%}
+{%else%}
+{%- for article in blog.articles limit: 8-%}
+<div class="blogpostWrapper">        
+      {%- include 'blog-post' -%}
+</div>
+      {%- endfor -%}
+      {%endif%}
+</div>
+</div>
+
+<div class="blog-bottom-wrapper" >
+   <div class="blog-bottom" id="AjaxinateLoop">
+  
+   {%- for article in blog.articles offset: 9  limit: 8-%} 
+   <div class="blogpostWrapper">        
+   {%- include 'blog-post' -%}
+   </div>
+   {%- endfor -%}
+  
+   </div>
+        
+       
+      <div class="prev-next" id="AjaxinatePagination">    
+         {% if paginate.next %}
+    <a href="{{ paginate.next.url }}" class="button button-transparent">Load More</a>
+    {% endif %} 
+      </div>   
+</div>   
+
+{% endpaginate %}
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var endlessScroll = new Ajaxinate();
+});
+</script>
