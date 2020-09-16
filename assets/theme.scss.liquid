@@ -33,6 +33,7 @@ $color-black: rgba(0, 0, 0, 1);
 $color-light-green: rgba(173, 218, 27, 1);
 $color-text-grey: rgba(128, 130, 132, 1);
 $color-hover-grey: rgba(76, 76, 75, 1);
+$color-green: rgba(92, 194, 85, 1);
 // Container
 $container-padding-phone: 3%;
 $container-padding-tablet: 3%;
@@ -1064,18 +1065,24 @@ tfoot th {
 // View + Shipping
 .viewerShipping {
   margin: 20px 0;
+  padding: 0 0 30px;
   border-bottom: 0.2px solid #e3e3e3;
+}
+.viewerShipping img {
+  width: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.viewerShipping-wrapper {
+  display: flex;
 }
 .viewerShipping h4 {
   color: $color-text-grey;
   margin: 10px 0;
 }
-.viewer-number,
-.shipping-date,
-.free-shipping {
-  color: $color-black !important;
+.shipping-date {
+  color: $color-green !important;
 }
-
 // Collection
 .productsList {
 }
