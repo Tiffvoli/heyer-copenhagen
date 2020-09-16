@@ -8,38 +8,48 @@
 {% include 'featured-blog'%}
 </div>
 </div>
-
-{% paginate blog.articles by 8 %}
+{% paginate blog.articles %}
 <div class="blog-right">
-{%- for article in blog.articles -%}
+{% if paginate.current_page == 1 %}
+{% for article in blog.articles offset:1 limit: 8%}
 <div class="blogpostWrapper">        
-                {%- include 'blog-post' -%}
+      {%- include 'blog-post' -%}
 </div>
-            {%- endfor -%}
+{%endfor%}
+{%else%}
+{%- for article in blog.articles limit: 8-%}
+<div class="blogpostWrapper">        
+      {%- include 'blog-post' -%}
 </div>
-{% endpaginate %}
+      {%- endfor -%}
+      {%endif%}
+</div>
+</div>
 
-</div>
-
-{% paginate blog.articles by 8 %}
-<div class="blog-bottom-wrapper">
-   <div class="blog-bottom">
-   {%- for article in blog.articles -%}
-      {%- unless showFeatured and paginate.current_page == 1 and forloop.index == 1 -%}
+<div class="blog-bottom-wrapper" >
+   <div class="blog-bottom" id="AjaxinateLoop">
+  
+   {%- for article in blog.articles offset: 9  limit: 8-%} 
    <div class="blogpostWrapper">        
    {%- include 'blog-post' -%}
    </div>
-      {%- endunless -%}
    {%- endfor -%}
+  
    </div>
-         <div class="prev-next">    
-            <a href="{{ paginate.previous.url }}" class="button button-transparent">Previous page</a>   
-            <a href="{{ paginate.next.url }}" class="button button-transparent">Next page</a>
-         </div>
+        
+       
+      <div class="prev-next" id="AjaxinatePagination">    
+         {% if paginate.next %}
+    <a href="{{ paginate.next.url }}" class="button button-transparent">Load More</a>
+    {% endif %} 
+      </div>   
 </div>   
 
 {% endpaginate %}
-
-
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var endlessScroll = new Ajaxinate();
+});
+</script>
