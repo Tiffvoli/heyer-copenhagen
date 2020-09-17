@@ -1,0 +1,62 @@
+<div class="returnDetails">
+    <div class="returnDetails-left">
+        <h4 class="return-modal"><span><img src="{{ 'truck.svg' | asset_url}}"/></span>Free Shipping</h4>
+        <h4 class="return-modal"><span><img src="{{ 'trial.svg' | asset_url}}"/></span>14 days trial</h4>
+    </div>
+    <div class="returnDetails-right">
+        <h4 class="return-modal"><span><img src="{{ 'return.svg' | asset_url}}"/></span>Easy returns</h4>
+        <h4 class="return-modal"><span><img src="{{ 'service.svg' | asset_url}}"/></span>Personal service</h4>
+    </div>
+
+    {%comment%} Slide in modal {%endcomment%}
+    <div class="modal">
+        <div class="modal-small modal_container">
+         <p>Free Shipping</p>
+        <span class="close-shipping">X</span>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-small modal_container">
+         <p>Free Trial/p>
+        <span class="close-shipping">X</span>
+        </div>
+    </div>
+ 
+</div>
+<script>
+var modalShipping = document.querySelector("#truckShipping");
+var btnShipping = document.querySelector(".truck-shipping");
+var spanShipping = document.getElementsByClassName("close")[0];
+
+btnShipping.onclick = function() {
+  modalShipping.style.display = "block";
+}
+
+spanShipping.onclick = function() {
+  modalShipping.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modalShipping) {
+    modalShipping.style.display = "none";
+  }
+}
+var modalTrial = document.querySelector("#freeTrial");
+var btnTrial = document.querySelector(".free-trial");
+var spanTrial = document.getElementsByClassName("close-trial")[0];
+
+btnTrial.onclick = function() {
+  modalTrial.style.display = "block";
+}
+
+spanTrial.onclick = function() {
+  modalTrial.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modalTrial) {
+    modalTrial.style.display = "none";
+  }
+}
+
+</script>
