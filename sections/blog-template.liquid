@@ -10,31 +10,29 @@
 </div>
 {% paginate blog.articles %}
 <div class="blog-right">
-{% if paginate.current_page == 1 %}
-{% for article in blog.articles offset:1 limit: 8%}
+{% for article in blog.articles offset:1 limit:8%}
 <div class="blogpostWrapper">        
       {%- include 'blog-post' -%}
 </div>
 {%endfor%}
-{%else%}
-{%- for article in blog.articles limit: 8-%}
-<div class="blogpostWrapper">        
-      {%- include 'blog-post' -%}
-</div>
-      {%- endfor -%}
-      {%endif%}
 </div>
 </div>
 
 <div class="blog-bottom-wrapper" >
    <div class="blog-bottom" id="AjaxinateLoop">
-  
-   {%- for article in blog.articles offset: 9  limit: 8-%} 
+   {% if paginate.current_page == 1 %}
+{% for article in blog.articles offset:9 %}
+<div class="blogpostWrapper">        
+   {%- include 'blog-post' -%}
+   </div>
+   {%endfor%}
+   {%else%}
+   {%- for article in blog.articles -%} 
    <div class="blogpostWrapper">        
    {%- include 'blog-post' -%}
    </div>
    {%- endfor -%}
-  
+  {%endif%}
    </div>
         
        
