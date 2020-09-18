@@ -1,16 +1,21 @@
  {% include 'breadcrumb' %}
 <section class="section">
   <div class="container product">
-  <div class="product__features-left">
-    {%include 'product-images' with image%}
+    <div class="product__features-left">
+      {%include 'product-images' with image%}
+    </div>
+    <div class="product__features-right">
+      <div class="product__features-sticky">
+        {% section 'product-details' %}
+      </div>
+    </div>
   </div>
-  <div class="product__features-right">
-  <div class="product__features-sticky">
-    {% section 'product-details' %}
   </div>
+   <div class="container product-bottom">
+    {% section 'sustainable-index' %}
   </div>
-</div>
 </section>
+
 
 {% comment %} {% section 'related-products' %} {% endcomment %}
 {% include 'product-schema' with product %}

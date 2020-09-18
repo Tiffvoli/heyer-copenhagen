@@ -525,6 +525,9 @@ tfoot th {
   z-index: 500;
   display: none;
 }
+.modal h2 {
+  font-size: 2.5rem;
+}
 .modal-small .modal_container {
   width: calc(100% - 5rem);
 }
@@ -539,21 +542,32 @@ tfoot th {
   max-width: 45rem;
   height: 100%;
   overflow: scroll;
-  animation: slide-in 1s ease-in-out;
+  animation: slide-in 0.5s ease-in-out;
 }
 @keyframes slide-in {
   0% {
-    width: 0;
+    transform: translateX(45rem);
   }
   100% {
-    width: calc(100% - 5rem);
+    transform: translateX(0);
+  }
+}
+.slide-out {
+  animation: slide-out 0.5s ease-in-out;
+}
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(45rem);
   }
 }
 .modal-container-wrapper {
   padding: 10rem 3rem;
 }
 .modal_close {
-  background-color: $color-white;
+  background-color: $color-white !important;
   position: absolute;
   right: calc(100% - 7rem);
   bottom: 2rem;
@@ -563,6 +577,13 @@ tfoot th {
   border-radius: 50%;
   border: 0.2px solid #e3e3e3;
   cursor: pointer;
+  left: calc(100% - 50rem);
+
+  @media (max-width: 500px) {
+    left: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .modal_header {
@@ -1011,6 +1032,9 @@ tfoot th {
 .product {
   display: flex;
 }
+.product-bottom {
+  display: block;
+}
 .product__features-left {
   width: 70%;
   //display: flex;
@@ -1114,6 +1138,86 @@ tfoot th {
 }
 
 .returnDetails-right {
+}
+//Call/Chat support
+.callChat {
+  padding: 30px 0 30px 0;
+  border-bottom: 0.2px solid #e3e3e3;
+  color: $color-text-grey;
+}
+.callChat-top {
+  display: flex;
+}
+.callChat-top h3 {
+  font-family: $font-body;
+}
+.callChat-top h4 {
+  margin: 0;
+}
+.callChat-top img {
+  width: 12%;
+}
+.callChat-text {
+  padding-left: 20px;
+}
+.callChat-bottom {
+  display: flex;
+  color: $color-green;
+  padding-top: 20px;
+}
+.call-us,
+.chat-support {
+  border-width: 0.2px;
+  border-color: #e3e3e3;
+  text-align: center;
+  width: 50%;
+}
+.chat-support {
+  border-style: solid solid solid none;
+}
+.call-us {
+  border-style: solid;
+}
+//Sustainable Index
+.sustainableIndex {
+  padding: 60px 0;
+  border-bottom: 0.2px solid #e3e3e3;
+}
+.sustainableIndex-wrapper {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: auto;
+  grid-column-gap: 16px;
+  color: $color-text-grey;
+}
+.sustainableIndex img {
+  object-fit: cover;
+}
+.sustainable-img {
+  width: 35%;
+}
+.sustainable-stats {
+  align-self: center;
+  padding-left: 20px;
+}
+.sustainableIndex-wrapper h2 {
+  font-size: 3rem;
+}
+.sustainableIndex-wrapper h4,
+.sustainableIndex-wrapper p,
+.sustainableIndex-wrapper h2 {
+  margin: 0;
+}
+.sustainableIndex-wrapper h4 {
+  font-size: 1.4rem;
+}
+.sustainableIndex-wrapper p {
+  font-size: 1.3rem;
+}
+.sustainable-flex {
+  display: flex;
 }
 // Collection
 .productsList {
