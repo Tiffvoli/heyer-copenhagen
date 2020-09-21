@@ -36,7 +36,7 @@
 
   {% if product_variants_size > 1 %}
     {% comment %} Hidden form to handle add to cart {% endcomment %}
-    <select name="id" id="ProductSelect">
+    <select name="id" id="ProductSelect" style="display:none">
       {% assign hidden_product_variants = product.variants %}
       {% for hidden_variant in hidden_product_variants %}
         {% assign hidden_variant_id = hidden_variant.id %}
@@ -54,6 +54,8 @@
      {% else %}
     <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
   {% endif %}
+
+{% include 'product-info'%}
 
     <button type="submit" class="button button-grey">Personalise</button>
   {% if product_available %}
