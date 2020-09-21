@@ -210,6 +210,14 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+var menu = document.querySelector("#menuToggle input");
+var body = document.querySelector("body");
+
+menu.addEventListener('click', () => {
+  body.classList.toggle('overflow-hidden');
+});
+
 </script>
 {% schema %}
   {
