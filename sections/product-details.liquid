@@ -5,6 +5,14 @@
 {% assign active_product = product.selected_or_first_available_variant %}
 {% assign product_id = active_product.id %}
 {% assign product_available = active_product.available %}
+{% assign shipping_header = section_settings.shipping_header %}
+{% assign shipping_details = section_settings.shipping_details %}
+{% assign trial_header = section_settings.trial_header %}
+{% assign trial_details = section_settings.trial_details %}
+{% assign return_header = section_settings.return_header %}
+{% assign return_details = section_settings.return_details %}
+{% assign service_header = section_settings.service_header %}
+{% assign service_details = section_settings.service_details %}
 
 {% comment %} Price {% endcomment %}
 {% assign product_price = active_product.price %}
@@ -25,11 +33,166 @@
 
 {% include 'product-form' with product %}
 {% include 'viewer-shipping' %}
+{%comment%} Return/Shipping Section {%endcomment%}
+<div class="returnDetails">
+    <div class="returnDetails-left">
+      <h4 class="shipping-modal"><span><img src="{{ 'truck.svg' | asset_url}}"/></span>Free Shipping</h4>
+      <h4 class="trial-modal"><span><img src="{{ 'trial.svg' | asset_url}}"/></span>14 days trial</h4>
+    </div>
+    <div class="returnDetails-right">
+      <h4 class="return-modal"><span><img src="{{ 'return.svg' | asset_url}}"/></span>Easy returns</h4>
+      <h4 class="service-modal"><span><img src="{{ 'service.svg' | asset_url}}"/></span>Personal service</h4>
+    </div>
+
+    {%comment%} Slide in modal {%endcomment%}
+    <div class="modal hide" id="shippingModal">
+        <div class="modal-small modal_container" id="shippingContainer">
+        <div class="shipping_close modal_close"></div>
+          <div class="modal-container-wrapper">       
+            <h2>{{shipping_header}}</h2>
+            <p>{{shipping_details}}</p>       
+          </div>
+        </div>
+    </div>
+    <div class="modal hide" id="trialModal">
+        <div class="modal-small modal_container" id="trialContainer">
+        <div class="trial_close modal_close"></div>
+          <div class="modal-container-wrapper">
+            <h2>{{trial_header}}</h2>
+            <p>{{trial_details}}</p>
+          </div>
+        </div>
+    </div>
+    <div class="modal hide" id="returnModal">
+        <div class="modal-small modal_container" id="returnContainer">
+        <div class="return_close modal_close"></div>
+          <div class="modal-container-wrapper">
+            <h2>{{return_header}}</h2>
+            <p>{{return_details}}</p>
+          </div>
+        </div>
+    </div>
+    <div class="modal hide" id="serviceModal">
+        <div class="modal-small modal_container" id="serviceContainer">
+        <div class="service_close modal_close"></div>
+          <div class="modal-container-wrapper">
+            <h2>{{service_header}}</h2>
+            <p>{{service_details}}</p>
+          </div>
+        </div>
+    </div>
+</div>
+{% include 'call-chat' %}
+<style>
+.modal_close{
+  background: url({{'close.png' | asset_url}}) no-repeat center;
+  background-size: 50% 50%;
+}
+</style>
+<script>
+
+document.querySelector(".shipping-modal").addEventListener("click", openModalShipping);
+document.querySelector(".trial-modal").addEventListener("click", openModalTrial);
+document.querySelector(".return-modal").addEventListener("click", openModalReturn);
+document.querySelector(".service-modal").addEventListener("click", openModalService); 
+
+function openModalShipping(){
+  document.querySelector("#shippingModal").classList.remove("hide");
+  document.querySelector("#shippingContainer").classList.add("slide-in")
+  document.querySelector("#shippingModal").addEventListener("click", closeModalShipping);
+  document.querySelector(".shipping_close").addEventListener("click", closeModalShipping);
+}
+
+function closeModalShipping(){
+  document.querySelector("#shippingModal").classList.add("hide");
+}
+
+function openModalTrial(){
+  document.querySelector("#trialModal").classList.remove("hide");
+  document.querySelector("#trialContainer").classList.add("slide-in")
+  document.querySelector("#trialModal").addEventListener("click", closeModalTrial);
+  document.querySelector(".trial_close").addEventListener("click", closeModalTrial);
+}
+
+function closeModalTrial(){
+  document.querySelector("#trialModal").classList.add("hide");
+}
+
+function openModalReturn(){
+  document.querySelector("#returnModal").classList.remove("hide");
+  document.querySelector("#returnContainer").classList.add("slide-in")
+  document.querySelector("#returnModal").addEventListener("click", closeModalReturn);
+  document.querySelector(".return_close").addEventListener("click", closeModalReturn);
+}
+
+function closeModalReturn(){
+  document.querySelector("#returnModal").classList.add("hide");
+}
+
+function openModalService(){
+  document.querySelector("#serviceModal").classList.remove("hide");
+  document.querySelector("#serviceContainer").classList.add("slide-in")
+  document.querySelector("#serviceModal").addEventListener("click", closeModalService);
+  document.querySelector(".service_close").addEventListener("click", closeModalService);
+}
+
+function closeModalService(){
+  document.querySelector("#serviceModal").classList.add("hide");
+}
+</script>
+
+
 {% schema %}
   {
     "name": "Product details",
     "class": "product_details",
     "settings": [
+      {
+        "type": "header",
+        "content": "Return & Shipping Details"
+      },
+      {
+        "type": "text",
+        "id": "shipping_header",
+        "label": "Shipping header"
+      },
+      {
+        "type": "richtext",
+        "id": "shipping_details",
+        "label": "Shipping details"
+      },
+      {
+        "type": "text",
+        "id": "trial_header",
+        "label": "Trial header"
+      },
+      {
+        "type": "richtext",
+        "id": "trial_details",
+        "label": "Trial details"
+      },
+      {
+        "type": "text",
+        "id": "return_header",
+        "label": "Return header"
+      },
+      {
+        "type": "richtext",
+        "id": "return_details",
+        "label": "Return details"
+      },
+      {
+        "type": "text",
+        "id": "service_header",
+        "label": "Service header"
+      },
+      {
+        "type": "richtext",
+        "id": "service_details",
+        "label": "Service details"
+      }
     ]
   }
 {% endschema %}
+
+

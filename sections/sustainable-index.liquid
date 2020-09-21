@@ -1,0 +1,54 @@
+{% assign section_settings = section.settings %}
+{% assign sustainable_title = section_settings.sustainable_title %}
+{% assign sustainable_text = section_settings.sustainable_text %}
+
+<div class="sustainableIndex">
+    <div class="sustainableIndex-wrapper">
+        <h2>{{sustainable_title}}</h2>
+        <div class="co2 sustainable-flex">
+            <div class="sustainable-img"><img src="{{'co2.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-co2"] }}</h4>
+                <p>Co2 <br> prevented</p>
+            </div>
+        </div>
+        <div class="chemical sustainable-flex">
+            <div class="sustainable-img"><img src="{{'chemical.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-chemical"] }}</h4>
+                <p>Co2 <br> prevented</p>
+            </div>
+        </div>
+        <div class="waste sustainable-flex">
+            <div class="sustainable-img"><img src="{{'waste.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-waste"] }}</h4>
+                <p>Co2 <br> prevented</p>
+            </div>
+        </div>
+        <p style="text-align: right">{{sustainable_text}}<p>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Sustainability index",
+    "class": "sustainability_index",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Sustainability index"
+        },
+        {
+            "type": "text",
+            "id": "sustainable_title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "sustainable_text",
+            "label": "Right text"
+        }
+    ]
+  }
+{% endschema %}

@@ -36,13 +36,14 @@
 
   {% if product_variants_size > 1 %}
     {% comment %} Hidden form to handle add to cart {% endcomment %}
-    <select name="id" id="ProductSelect" style="display: none;">
+    <select name="id" id="ProductSelect" style="display:none">
       {% assign hidden_product_variants = product.variants %}
       {% for hidden_variant in hidden_product_variants %}
         {% assign hidden_variant_id = hidden_variant.id %}
         {% assign hidden_variant_title = hidden_variant.title %}
         {% assign hidden_variant_title_split = hidden_variant_title | split: ' / ' %}
         <option 
+          class="product_select_label"
           data-option="{% for title in hidden_variant_title_split %}{{ title | replace: ' ', '-' | downcase }}{% unless forloop.last %}-{% endunless %}{% endfor %}"
           value="{{ hidden_variant_id }}" {% if hidden_variant_id == active_product_id %}
           selected="selected" {% endif %}>
@@ -50,10 +51,13 @@
         </option>
       {% endfor %}
     </select>
-  {% else %}
+     {% else %}
     <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
   {% endif %}
 
+{% include 'product-info'%}
+
+    <button type="submit" class="button button-grey">Personalise</button>
   {% if product_available %}
     <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button button-black">{{ 'products.product.add_to_cart' | t }}</button>
   {% else %}
@@ -64,26 +68,22 @@
 
 <script>
   // Toggle between variants
-  var variants = document.querySelectorAll('#ProductSelect option') // Hidden select list with id
+  var variants = document.querySelectorAll('.product_select_label') // Hidden select list with id
   var productOptions = document.querySelectorAll('.option_selector-toggable');
   var changingVariantText = 'Changing variant...';
   var addToCartButton = document.getElementById('cta-add-to-cart');
-
   // Listen to product options changes
   productOptions.forEach(function(option) {
     option.addEventListener('change', function(event) {
       event.preventDefault();
-
       let selectedVariantId = Array.from(productOptions).map(function(productOption) {
         return productOption.value.replace(/ /g, '-').toLowerCase()
       }).join('-')
-
       Array.prototype.slice.call(variants).forEach(function(variant) {
         let id = variant.getAttribute('data-option');
         let value = variant.value;
         addToCartButton.value = changingVariantText;
         addToCartButton.disabled = true;
-
         if (id === selectedVariantId) {
           setTimeout(function() {
           	window.location.search = '?variant=' + value;
