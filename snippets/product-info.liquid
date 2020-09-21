@@ -9,7 +9,7 @@
     </div>
 
     {%comment%} Slide in modal {%endcomment%}
-    <div class="modal hide" id="featuresModal">
+    <div class="features modal hide" id="featuresModal">
         <div class="modal-small modal_container" id="featuresContainer">
         <div class="features_close modal_close"></div>
           <div class="modal-container-wrapper">       
@@ -51,6 +51,7 @@ document.querySelector(".productInfo-personalisation").addEventListener("click",
 
 function openModalFeatures(){
   document.querySelector("#featuresModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#featuresContainer").classList.add("slide-in")
   document.querySelector("#featuresModal").addEventListener("click", closeModalFeatures);
   document.querySelector(".features_close").addEventListener("click", closeModalFeatures);
@@ -58,10 +59,12 @@ function openModalFeatures(){
 
 function closeModalFeatures(){
   document.querySelector("#featuresModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalSize(){
   document.querySelector("#sizingModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#sizingContainer").classList.add("slide-in")
   document.querySelector("#sizingModal").addEventListener("click", closeModalSize);
   document.querySelector(".sizing_close").addEventListener("click", closeModalSize);
@@ -69,10 +72,12 @@ function openModalSize(){
 
 function closeModalSize(){
   document.querySelector("#sizingModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalMaterial(){
   document.querySelector("#materialModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#materialContainer").classList.add("slide-in")
   document.querySelector("#materialModal").addEventListener("click", closeModalMaterial);
   document.querySelector(".material_close").addEventListener("click", closeModalMaterial);
@@ -80,10 +85,12 @@ function openModalMaterial(){
 
 function closeModalMaterial(){
   document.querySelector("#materialModal").classList.add("hide");
+   document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalPersonalise(){
   document.querySelector("#personaliseModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#personaliseContainer").classList.add("slide-in")
   document.querySelector("#personaliseModal").addEventListener("click", closeModalPersonalise);
   document.querySelector(".personalise_close").addEventListener("click", closeModalPersonalise);
@@ -91,6 +98,7 @@ function openModalPersonalise(){
 
 function closeModalPersonalise(){
   document.querySelector("#personaliseModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 </script>

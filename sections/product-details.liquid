@@ -98,6 +98,7 @@ document.querySelector(".service-modal").addEventListener("click", openModalServ
 
 function openModalShipping(){
   document.querySelector("#shippingModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#shippingContainer").classList.add("slide-in")
   document.querySelector("#shippingModal").addEventListener("click", closeModalShipping);
   document.querySelector(".shipping_close").addEventListener("click", closeModalShipping);
@@ -105,10 +106,12 @@ function openModalShipping(){
 
 function closeModalShipping(){
   document.querySelector("#shippingModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalTrial(){
   document.querySelector("#trialModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#trialContainer").classList.add("slide-in")
   document.querySelector("#trialModal").addEventListener("click", closeModalTrial);
   document.querySelector(".trial_close").addEventListener("click", closeModalTrial);
@@ -116,10 +119,12 @@ function openModalTrial(){
 
 function closeModalTrial(){
   document.querySelector("#trialModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalReturn(){
   document.querySelector("#returnModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#returnContainer").classList.add("slide-in")
   document.querySelector("#returnModal").addEventListener("click", closeModalReturn);
   document.querySelector(".return_close").addEventListener("click", closeModalReturn);
@@ -127,10 +132,12 @@ function openModalReturn(){
 
 function closeModalReturn(){
   document.querySelector("#returnModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 function openModalService(){
   document.querySelector("#serviceModal").classList.remove("hide");
+  document.querySelector("body").classList.add("overflow-hidden");
   document.querySelector("#serviceContainer").classList.add("slide-in")
   document.querySelector("#serviceModal").addEventListener("click", closeModalService);
   document.querySelector(".service_close").addEventListener("click", closeModalService);
@@ -138,6 +145,7 @@ function openModalService(){
 
 function closeModalService(){
   document.querySelector("#serviceModal").classList.add("hide");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 </script>
 
