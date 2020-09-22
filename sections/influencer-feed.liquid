@@ -1,0 +1,41 @@
+{% assign section_settings = section.settings  %}
+{% assign feed_title = section_settings.feed_title %}
+
+<div class="influencerFeed">
+    <div class="influencerFeed-title product-text">
+        <h2>{{feed_title}}</h2>
+    </div>
+    <div class="influencerFeed-img">
+        <img src="{{ product.metafields["global"]["feed-image-1"] }}">
+        <img src="{{ product.metafields["global"]["feed-image-2"] }}">
+        <img src="{{ product.metafields["global"]["feed-image-3"] }}">
+        <img src="{{ product.metafields["global"]["feed-image-4"] }}">
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Influencer Feed",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title"
+            },
+            {
+                "type": "text",
+                "id": "feed_title",
+                "label": "Feed title"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "influencer feed",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

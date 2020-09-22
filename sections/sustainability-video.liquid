@@ -1,0 +1,39 @@
+{% assign section_settings = section.settings  %}
+{% assign sus_title = section_settings.sus_title %}
+
+<div class="sustainabilityVid">
+    <div class="sustainabilityVid-title product-text">
+        <h2>{{sus_title}}</h2>
+    </div>
+    <video autoplay loop autobuffer muted playsinline width="100%" height="80vh">
+            <source src="{{ product.metafields["global"]["sustainability-vid-mp4"] }}">
+            <source src="{{ product.metafields["global"]["sustainability-vid-webm"] }}">
+    </video>
+</div>
+
+{% schema %}
+    {
+        "name": "Sustainability Video",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title"
+            },
+            {
+                "type": "text",
+                "id": "sus_title",
+                "label": "Sustainability title"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "sustainability video",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
