@@ -45,7 +45,7 @@
     </div>
 
     {%comment%} Slide in modal {%endcomment%}
-    <div class="modal hide" id="shippingModal">
+    
         <div class="modal-small modal_container" id="shippingContainer">
         <div class="shipping_close modal_close"></div>
           <div class="modal-container-wrapper">       
@@ -53,8 +53,8 @@
             <p>{{shipping_details}}</p>       
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="trialModal">
+    <div class="modal" id="shippingModal"></div>
+    
         <div class="modal-small modal_container" id="trialContainer">
         <div class="trial_close modal_close"></div>
           <div class="modal-container-wrapper">
@@ -62,8 +62,8 @@
             <p>{{trial_details}}</p>
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="returnModal">
+    <div class="modal" id="trialModal"></div>
+    
         <div class="modal-small modal_container" id="returnContainer">
         <div class="return_close modal_close"></div>
           <div class="modal-container-wrapper">
@@ -71,8 +71,8 @@
             <p>{{return_details}}</p>
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="serviceModal">
+    <div class="modal hide" id="returnModal"></div>
+    
         <div class="modal-small modal_container" id="serviceContainer">
         <div class="service_close modal_close"></div>
           <div class="modal-container-wrapper">
@@ -80,7 +80,7 @@
             <p>{{service_details}}</p>
           </div>
         </div>
-    </div>
+    <div class="modal" id="serviceModal"></div>
 </div>
 {% include 'call-chat' %}
 <style>
@@ -97,55 +97,59 @@ document.querySelector(".return-modal").addEventListener("click", openModalRetur
 document.querySelector(".service-modal").addEventListener("click", openModalService); 
 
 function openModalShipping(){
-  document.querySelector("#shippingModal").classList.remove("hide");
+  document.querySelector("#shippingModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#shippingContainer").classList.add("slide-in")
+  document.querySelector("#shippingContainer").classList.add("slide-in");
   document.querySelector("#shippingModal").addEventListener("click", closeModalShipping);
   document.querySelector(".shipping_close").addEventListener("click", closeModalShipping);
 }
 
 function closeModalShipping(){
-  document.querySelector("#shippingModal").classList.add("hide");
+  document.querySelector("#shippingModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#shippingContainer").classList.remove("slide-in");
 }
 
 function openModalTrial(){
-  document.querySelector("#trialModal").classList.remove("hide");
+  document.querySelector("#trialModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#trialContainer").classList.add("slide-in")
+  document.querySelector("#trialContainer").classList.add("slide-in");
   document.querySelector("#trialModal").addEventListener("click", closeModalTrial);
   document.querySelector(".trial_close").addEventListener("click", closeModalTrial);
 }
 
 function closeModalTrial(){
-  document.querySelector("#trialModal").classList.add("hide");
+  document.querySelector("#trialModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#trialContainer").classList.remove("slide-in");
 }
 
 function openModalReturn(){
-  document.querySelector("#returnModal").classList.remove("hide");
+  document.querySelector("#returnModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#returnContainer").classList.add("slide-in")
+  document.querySelector("#returnContainer").classList.add("slide-in");
   document.querySelector("#returnModal").addEventListener("click", closeModalReturn);
   document.querySelector(".return_close").addEventListener("click", closeModalReturn);
 }
 
 function closeModalReturn(){
-  document.querySelector("#returnModal").classList.add("hide");
+  document.querySelector("#returnModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#returnContainer").classList.remove("slide-in");
 }
 
 function openModalService(){
-  document.querySelector("#serviceModal").classList.remove("hide");
+  document.querySelector("#serviceModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#serviceContainer").classList.add("slide-in")
+  document.querySelector("#serviceContainer").classList.add("slide-in");
   document.querySelector("#serviceModal").addEventListener("click", closeModalService);
   document.querySelector(".service_close").addEventListener("click", closeModalService);
 }
 
 function closeModalService(){
-  document.querySelector("#serviceModal").classList.add("hide");
+  document.querySelector("#serviceModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#serviceContainer").classList.remove("slide-in");
 }
 </script>
 

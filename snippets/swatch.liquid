@@ -1,74 +1,144 @@
+{% comment %} Options {% endcomment %}
+{% assign active_product = product.selected_variant %}
+{% assign active_product_id = product.selected_or_first_available_variant.id %}
+{% assign product_variants = product.variants %}
+{% assign product_variants_size = product.variants | size %}
+{% assign product_options = product.options_with_values %}
+{% assign product_available = active_product.available %}
+{% assign product_qty = active_product.inventory_quantity %}
+{% assign product_options_size = product_options | size %}
 
-{% assign file_extension = 'png' %}
+{% form "product", product, class: 'product_form', id: 'product-form', data-productid: product.id %}
 
-{% if swatch == blank %}
-<div class="swatch error">
-  <p>You must include the snippet swatch.liquid with the name of a product option.</p> 
-  <p>Use: <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
-  <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
-</div>
-{% else %}
+    {% comment %} Show variant options as separate select boxes {% endcomment %}
+    {% if product_variants_size > 1 %}
+    <div class="product_options{% if product_options_size == 1 %} product_options-single{% endif %}">
+      {%- for product_option in product_options -%}
+        {%- assign option_name = product_option.name -%}
+        {%- assign option_name_handleized = product_option.name | handleize -%}
+        {%- assign option_values = product_option.values -%}
+        {%- assign selected_value = product_option.selected_value -%}
 
-{% assign found_option = false %}
-{% assign is_color = false %}
-{% assign option_index = 0 %}
+        {% if option_name == 'color' %}
 
-{% for option in product.options %}
-  {% if option == swatch %}
-    {% assign found_option = true %}
-    {% assign option_index = forloop.index0 %}
-    <style>
-      label[for="product-select-option-{{ option_index }}"] { display: none; }
-      #product-select-option-{{ option_index }} { display: none; }
-      #product-select-option-{{ option_index }} + .custom-style-select-box { display: none !important; }
-    </style>
-    <script>$(window).load(function() { $('.selector-wrapper:eq({{ option_index }})').hide(); });</script>
-    {% assign downcased_option = swatch | downcase %}
-    {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
-      {% assign is_color = true %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
+          {% comment %} Active state and styles are still to be declared {% endcomment %}
 
-{% unless found_option %}
-<div class="swatch error">
-  <p>You included the snippet swatch.liquid with the name of a product option — <code>'{{ swatch }}'</code> — that does not belong to your product.</p>
-  <p>Use <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
-  <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
-  <p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is <code>'Color'</code>.</p>
-</div>
-{% else %}
-<div class="swatch clearfix" data-option-index="{{ option_index }}">
-  <div class="header-swatch">{{ swatch }}</div>
-  {% assign values = '' %}
-  {% for variant in product.variants %}
-    {% assign value = variant.options[option_index] %}
-    {% unless values contains value %}
-      {% assign values = values | join: ',' %}
-      {% assign values = values | append: ',' | append: value %} 
-      {% assign values = values | split: ',' %}
-      <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
-        <input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
-        {% if is_color %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})">
-       
-        </label>
+          <div class="product_colour{% if variant_sku == selected_variant.sku %} product_colour-active{% endif %}">
+            <a title="{{ _dialProductColourName | upcase }}" class="colourSwatch_dot" href="{{ _dialProductUrl }}" style="background-color: {{ swatch_image | img_url: '60x', format: 'pjpg', scale: 1.5 }}">{{  }}</a>
+          </div>
+
         {% else %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}">
-          {{ value }}
-        
-        </label>
-        {% endif %}
-      </div>
-    {% endunless %}
-    {% if variant.available %}
-    <script>
-      jQuery('.swatch[data-option-index="{{ option_index }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-    </script>
+          <div class="product_option" option-name="{{ option_name }}">
+            <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
+            <div class="select-styled">
+              <select name="option-{{ option_name | downcase }}" class="option_selector option_selector-toggable option_selector-{{ option_name }}">
+                {%- for value in option_values -%}
+                  <option value="{{ value | escape | downcase }}" {%- if selected_value == value -%}selected="selected"{%- endif -%}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          </div>
+      {% endif %}
+
+      {%- endfor -%}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
 
-{% endunless %}
+    {% comment %} Hidden form to handle add to cart {% endcomment %}
+    {% if product_variants_size > 1 %}
+      <select name="id" id="ProductSelect" style="display: none;">
+        {% assign hidden_product_variants = product.variants %}
+        {% for hidden_variant in hidden_product_variants %}
+          {% assign hidden_variant_id = hidden_variant.id %}
+          {% assign hidden_variant_title = hidden_variant.title %}
+          {% assign hidden_variant_title_split = hidden_variant_title | split: ' / ' %}
+          <option
+            data-option="{% for title in hidden_variant_title_split %}{{ title | replace: ' ', '-' | downcase }}{% unless forloop.last %}-{% endunless %}{% endfor %}"
+            value="{{ hidden_variant_id }}" {% if hidden_variant_id == active_product_id %}
+            selected="selected" {% endif %}>
+              {{- hidden_variant_title -}}
+          </option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
+    {% endif %}
 
-{% endif %}
+{% endform %}
+
+<style>
+.product_form {}
+.product_options {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+}
+.product_option {
+  width: 100%;
+  max-width: calc(50% - 10px);
+  box-sizing: border-box;
+}
+.product_options-single .product_option {
+  max-width: 100%;
+}
+.product_option label {
+  margin-bottom: 5px;
+}
+/* Styled select */
+.select-styled {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  min-width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: transparent;
+  background: transparent url({{ 'chevron-down.svg' | asset_url }}) no-repeat 95% 50%;
+  background-size: 15px auto;
+}
+.select-styled select {
+  padding: 0 10px;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+</style>
+
+<script>
+  // Toggle between variants
+  var variants = document.querySelectorAll('#ProductSelect option') // Hidden select list with id
+  var productOptions = document.querySelectorAll('.option_selector-toggable');
+  var changingVariantText = {{ button_switching_variant | json }};
+  var addToCartButton = document.getElementById('product-atc');
+  // Listen to product options changes
+  productOptions.forEach(function(option) {
+    option.addEventListener('change', function(event) {
+      event.preventDefault();
+      let selectedVariantId = Array.from(productOptions).map(function(productOption) {
+        return productOption.value.replace(/ /g, '-').toLowerCase()
+      }).join('-');
+      Array.prototype.slice.call(variants).forEach(function(variant) {
+        let id = variant.getAttribute('data-option');
+        let value = variant.value;
+        addToCartButton.value = changingVariantText;
+        addToCartButton.disabled = true;
+        if (id === selectedVariantId) {
+          setTimeout(function() {
+          	window.location.search = '?variant=' + value;
+          }, 500);
+        }
+      });
+    })
+  })
+</script>

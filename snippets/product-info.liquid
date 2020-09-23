@@ -9,38 +9,38 @@
     </div>
 
     {%comment%} Slide in modal {%endcomment%}
-    <div class="features modal hide" id="featuresModal">
-        <div class="modal-small modal_container" id="featuresContainer">
-        <div class="features_close modal_close"></div>
-          <div class="modal-container-wrapper">       
+    
+        <div class="modal_container" id="featuresContainer">
+        <div class="features_close modal_close"></div>  
+          <div class="modal-container-wrapper">     
           {{ product.metafields["global"]["product-features"] }}     
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="sizingModal">
-        <div class="modal-small modal_container" id="sizingContainer">
+    <div class="modal hide" id="featuresModal"></div>
+    
+        <div class="modal_container" id="sizingContainer">
         <div class="sizing_close modal_close"></div>
           <div class="modal-container-wrapper">       
           {{ product.metafields["global"]["product-sizing"] }}     
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="materialModal">
-        <div class="modal-small modal_container" id="materialContainer">
+    <div class="modal hide" id="sizingModal"></div>
+    
+        <div class="modal_container" id="materialContainer">
         <div class="material_close modal_close"></div>
           <div class="modal-container-wrapper">       
           {{ product.metafields["global"]["product-materials"] }}     
           </div>
         </div>
-    </div>
-    <div class="modal hide" id="personaliseModal">
-        <div class="modal-small modal_container" id="personaliseContainer">
+    <div class="modal hide" id="materialModal"></div>
+    
+        <div class="modal_container" id="personaliseContainer">
         <div class="personalise_close modal_close"></div>
           <div class="modal-container-wrapper">       
           {{ product.metafields["global"]["product-personalisation"] }}    
           </div>
         </div>
-    </div>
+    <div class="modal hide" id="personaliseModal"></div>
 </div>
 
 <script>
@@ -50,55 +50,59 @@ document.querySelector(".productInfo-materials").addEventListener("click", openM
 document.querySelector(".productInfo-personalisation").addEventListener("click", openModalPersonalise);
 
 function openModalFeatures(){
-  document.querySelector("#featuresModal").classList.remove("hide");
+  document.querySelector("#featuresModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#featuresContainer").classList.add("slide-in")
+  document.querySelector("#featuresContainer").classList.add("slide-in");
   document.querySelector("#featuresModal").addEventListener("click", closeModalFeatures);
   document.querySelector(".features_close").addEventListener("click", closeModalFeatures);
 }
 
 function closeModalFeatures(){
-  document.querySelector("#featuresModal").classList.add("hide");
+  document.querySelector("#featuresModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#featuresContainer").classList.remove("slide-in");
 }
 
 function openModalSize(){
-  document.querySelector("#sizingModal").classList.remove("hide");
+  document.querySelector("#sizingModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#sizingContainer").classList.add("slide-in")
+  document.querySelector("#sizingContainer").classList.add("slide-in");
   document.querySelector("#sizingModal").addEventListener("click", closeModalSize);
   document.querySelector(".sizing_close").addEventListener("click", closeModalSize);
 }
 
 function closeModalSize(){
-  document.querySelector("#sizingModal").classList.add("hide");
+  document.querySelector("#sizingModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#sizingContainer").classList.remove("slide-in");
 }
 
 function openModalMaterial(){
-  document.querySelector("#materialModal").classList.remove("hide");
+  document.querySelector("#materialModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#materialContainer").classList.add("slide-in")
+  document.querySelector("#materialContainer").classList.add("slide-in");
   document.querySelector("#materialModal").addEventListener("click", closeModalMaterial);
   document.querySelector(".material_close").addEventListener("click", closeModalMaterial);
 }
 
 function closeModalMaterial(){
-  document.querySelector("#materialModal").classList.add("hide");
-   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#materialModal").classList.remove("visibility-open");
+  document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#materialContainer").classList.remove("slide-in");
 }
 
 function openModalPersonalise(){
-  document.querySelector("#personaliseModal").classList.remove("hide");
+  document.querySelector("#personaliseModal").classList.add("visibility-open");
   document.querySelector("body").classList.add("overflow-hidden");
-  document.querySelector("#personaliseContainer").classList.add("slide-in")
+  document.querySelector("#personaliseContainer").classList.add("slide-in");
   document.querySelector("#personaliseModal").addEventListener("click", closeModalPersonalise);
   document.querySelector(".personalise_close").addEventListener("click", closeModalPersonalise);
 }
 
 function closeModalPersonalise(){
-  document.querySelector("#personaliseModal").classList.add("hide");
+  document.querySelector("#personaliseModal").classList.remove("visibility-open");
   document.querySelector("body").classList.remove("overflow-hidden");
+  document.querySelector("#personaliseContainer").classList.remove("slide-in");
 }
 
 </script>

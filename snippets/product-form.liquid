@@ -1,5 +1,5 @@
 {% comment %} Options {% endcomment %}
-{% assign active_product = product.selected_or_first_available_variant %}
+{% assign active_product = product.selected_variant %}
 {% assign active_product_id = product.selected_or_first_available_variant.id %}
 {% assign product_variants = product.variants %}
 {% assign product_variants_size = product.variants | size %}
@@ -8,52 +8,66 @@
 {% assign product_qty = active_product.inventory_quantity %}
 {% assign product_options_size = product_options | size %}
 
-<form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form"
-  id="add-to-cart-{{ product.handle }}-{{ collection.handle }}-{{ section.id }}">
+{% form "product", product, class: 'product_form', id: 'product-form', data-productid: product.id %}
 
-  {% comment %} Show variant options as separate select boxes {% endcomment %}
-  {% if product_variants_size > 1 %}
-  <div class="product_options{% if product_options_size == 1 %} product_options-single{% endif %}"> 
-    {%- for product_option in product_options -%}
-      {%- assign option_name = product_option.name -%}
-      {%- assign option_values = product_option.values -%}
-      {%- assign selected_value = product_option.selected_value -%}
+    {% comment %} Show variant options as separate select boxes {% endcomment %}
+    {% if product_variants_size > 1 %}
+    <div class="product_options{% if product_options_size == 1 %} product_options-single{% endif %}">
+      {%- for product_option in product_options -%}
+        {%- assign option_name = product_option.name -%}
+        {%- assign option_name_handleized = product_option.name | handleize -%}
+        {%- assign option_values = product_option.values -%}
+        {%- assign selected_value = product_option.selected_value -%}
 
-      <div class="product_option" option-name="{{ option_name }}">
-        <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
-        <div class="select-styled">
-          <select name="option-{{ option_name | downcase }}" class="option_selector option_selector-toggable option_selector-{{ option_name }}">
-            {%- for value in option_values -%}
-              <option value="{{ value | escape | downcase }}" {%- if selected_value == value -%}selected="selected"{%- endif -%}>{{ value }}</option>
-            {%- endfor -%}
-          </select>
-        </div>
-      </div>
+        {% if option_name == 'color' %}
 
-    {%- endfor -%}
-  </div>
-  {% endif %}
+          {% comment %} Active state and styles are still to be declared {% endcomment %}
 
-  {% if product_variants_size > 1 %}
-    {% comment %} Hidden form to handle add to cart {% endcomment %}
-    <select name="id" id="ProductSelect" style="display:none">
-      {% assign hidden_product_variants = product.variants %}
-      {% for hidden_variant in hidden_product_variants %}
-        {% assign hidden_variant_id = hidden_variant.id %}
-        {% assign hidden_variant_title = hidden_variant.title %}
-        {% assign hidden_variant_title_split = hidden_variant_title | split: ' / ' %}
-        <option 
-          class="product_select_label"
-          data-option="{% for title in hidden_variant_title_split %}{{ title | replace: ' ', '-' | downcase }}{% unless forloop.last %}-{% endunless %}{% endfor %}"
-          value="{{ hidden_variant_id }}" {% if hidden_variant_id == active_product_id %}
-          selected="selected" {% endif %}>
-            {{- hidden_variant_title -}}
-        </option>
-      {% endfor %}
-    </select>
-     {% else %}
-    <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
-  {% endif %}
+          <div class="product_colour{% if variant_sku == selected_variant.sku %} product_colour-active{% endif %}">
+            <a title="{{ _dialProductColourName | upcase }}" class="colourSwatch_dot" href="{{ _dialProductUrl }}" style="background-color: {{ swatch_image | img_url: '60x', format: 'pjpg', scale: 1.5 }}">{{  }}</a>
+          </div>
+
+        {% else %}
+          <div class="product_option" option-name="{{ option_name }}">
+            <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
+            <div class="select-styled">
+              <select name="option-{{ option_name | downcase }}" class="option_selector option_selector-toggable option_selector-{{ option_name }}">
+                {%- for value in option_values -%}
+                  <option value="{{ value | escape | downcase }}" {%- if selected_value == value -%}selected="selected"{%- endif -%}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          </div>
+      {% endif %}
+
+      {%- endfor -%}
+    </div>
+    {% endif %}
+
+
+
+  
+
+  {% comment %} Hidden form to handle add to cart {% endcomment %}
+    {% if product_variants_size > 1 %}
+      <select name="id" id="ProductSelect" style="display: none;">
+        {% assign hidden_product_variants = product.variants %}
+        {% for hidden_variant in hidden_product_variants %}
+          {% assign hidden_variant_id = hidden_variant.id %}
+          {% assign hidden_variant_title = hidden_variant.title %}
+          {% assign hidden_variant_title_split = hidden_variant_title | split: ' / ' %}
+          <option
+            data-option="{% for title in hidden_variant_title_split %}{{ title | replace: ' ', '-' | downcase }}{% unless forloop.last %}-{% endunless %}{% endfor %}"
+            value="{{ hidden_variant_id }}" {% if hidden_variant_id == active_product_id %}
+            selected="selected" {% endif %}>
+              {{- hidden_variant_title -}}
+          </option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
+    {% endif %}
+{%endform%}
 
 {% include 'product-info'%}
 
@@ -64,21 +78,70 @@
     <input id="cta-add-to-cart" class="button button-black" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
   {% endif %}
 
-</form>
 
-<script>
+
+<style>
+.product_form {}
+.product_options {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+}
+.product_option {
+  width: 100%;
+  max-width: calc(50% - 10px);
+  box-sizing: border-box;
+}
+.product_options-single .product_option {
+  max-width: 100%;
+}
+.product_option label {
+  margin-bottom: 5px;
+}
+/* Styled select */
+.select-styled {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  min-width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: transparent;
+  background: transparent url({{ 'chevron-down.svg' | asset_url }}) no-repeat 95% 50%;
+  background-size: 15px auto;
+}
+.select-styled select {
+  padding: 0 10px;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+</style>
+
+ <script>
   // Toggle between variants
-  var variants = document.querySelectorAll('.product_select_label') // Hidden select list with id
+  var variants = document.querySelectorAll('#ProductSelect option') // Hidden select list with id
   var productOptions = document.querySelectorAll('.option_selector-toggable');
-  var changingVariantText = 'Changing variant...';
-  var addToCartButton = document.getElementById('cta-add-to-cart');
+  var changingVariantText = {{ button_switching_variant | json }};
+  var addToCartButton = document.getElementById('product-atc');
   // Listen to product options changes
   productOptions.forEach(function(option) {
     option.addEventListener('change', function(event) {
       event.preventDefault();
       let selectedVariantId = Array.from(productOptions).map(function(productOption) {
         return productOption.value.replace(/ /g, '-').toLowerCase()
-      }).join('-')
+      }).join('-');
       Array.prototype.slice.call(variants).forEach(function(variant) {
         let id = variant.getAttribute('data-option');
         let value = variant.value;
@@ -93,3 +156,4 @@
     })
   })
 </script>
+

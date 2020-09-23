@@ -516,25 +516,29 @@ tfoot th {
 
 // Modal
 .modal {
-  background-color: rgba($color-black, 0.2);
+  background-color: rgba($color-black, 0.4);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }
 .overflow-hidden {
   overflow: hidden;
 }
-.hide {
-  display: none;
+.visibility-open {
+  opacity: 1;
+  visibility: visible;
 }
 .slide-in {
-  animation: slide-in 0.5s ease-in-out;
+  transform: translateX(-45rem);
 }
 .slide-out {
-  animation: slide-out 0.5s ease-in-out forwards;
+  animation: slide-out 0.5s ease-in-out;
 }
 .modal h2 {
   font-size: 2.5rem;
@@ -545,35 +549,30 @@ tfoot th {
 
 .modal_container {
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
-  z-index: 2;
+  right: -45rem;
+  z-index: 800;
   width: calc(100% - 5rem);
   max-width: 45rem;
   height: 100%;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition: all 0.3s ease-in-out;
 }
 .modal_container::-webkit-scrollbar {
   display: none;
 }
 
 @keyframes slide-in {
-  0% {
-    transform: translateX(49rem);
-  }
   100% {
-    transform: translateX(0);
+    transform: translateX(-45rem);
   }
 }
 @keyframes slide-out {
-  0% {
-    transform: translateX(0);
-  }
   100% {
-    transform: translateX(49rem);
+    transform: translateX(0);
   }
 }
 .modal-container-wrapper {
@@ -689,7 +688,7 @@ tfoot th {
 }
 #suitcase_cart {
   position: relative;
-  padding-top: 1.7rem;
+  padding-top: 1.9rem;
   height: 68%;
 }
 .js-cart-counter {
