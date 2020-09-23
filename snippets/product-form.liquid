@@ -1,5 +1,5 @@
 {% comment %} Options {% endcomment %}
-{% assign active_product = product.selected_variant %}
+{% assign active_product = product.selected_or_first_available_variant %}
 {% assign active_product_id = product.selected_or_first_available_variant.id %}
 {% assign product_variants = product.variants %}
 {% assign product_variants_size = product.variants | size %}
@@ -7,6 +7,8 @@
 {% assign product_available = active_product.available %}
 {% assign product_qty = active_product.inventory_quantity %}
 {% assign product_options_size = product_options | size %}
+{% assign file_extension = 'png' %}
+{% assign product_url = collection.url | append: '/products/' %}
 
 {% form "product", product, class: 'product_form', id: 'product-form', data-productid: product.id %}
 
@@ -19,15 +21,16 @@
         {%- assign option_values = product_option.values -%}
         {%- assign selected_value = product_option.selected_value -%}
 
-        {% if option_name == 'color' %}
-
+ {% if option_name == 'Color' %}
           {% comment %} Active state and styles are still to be declared {% endcomment %}
-
+<label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
           <div class="product_colour{% if variant_sku == selected_variant.sku %} product_colour-active{% endif %}">
-            <a title="{{ _dialProductColourName | upcase }}" class="colourSwatch_dot" href="{{ _dialProductUrl }}" style="background-color: {{ swatch_image | img_url: '60x', format: 'pjpg', scale: 1.5 }}">{{  }}</a>
+          {%- for value in option_values -%}
+            <a title="{{ value | escape | downcase }}" class="colourSwatch_dot" href="{{product_url}}{{value}}" style="background-image: url({{ value | escape | downcase | append: '.' | append: file_extension | asset_url }})">{{}}</a>
+             {%- endfor -%}
           </div>
 
-        {% else %}
+{% else %}
           <div class="product_option" option-name="{{ option_name }}">
             <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
             <div class="select-styled">
@@ -44,9 +47,6 @@
     </div>
     {% endif %}
 
-
-
-  
 
   {% comment %} Hidden form to handle add to cart {% endcomment %}
     {% if product_variants_size > 1 %}
@@ -83,14 +83,14 @@
 <style>
 .product_form {}
 .product_options {
-  margin: 20px 0;
-  display: flex;
-  flex-flow: wrap row;
-  justify-content: space-between;
+  margin: 20px 0 0;
+  padding: 20px 0;
+  display: block;
+  width: 100%;
+  border-bottom: 0.2px solid #e3e3e3;
 }
 .product_option {
   width: 100%;
-  max-width: calc(50% - 10px);
   box-sizing: border-box;
 }
 .product_options-single .product_option {
@@ -99,12 +99,33 @@
 .product_option label {
   margin-bottom: 5px;
 }
+.product_colour{
+  display: flex;
+  height: 30px;
+}
+.product_colour a{
+  display: block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+}
+.product_colour a:hover{
+  width: 18px;
+  height: 18px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+}
 /* Styled select */
 .select-styled {
   padding: 0;
   margin: 0;
   border: 1px solid #ccc;
-  min-width: 150px;
+  width: 100%;
   height: 40px;
   line-height: 40px;
   border-radius: 0;
