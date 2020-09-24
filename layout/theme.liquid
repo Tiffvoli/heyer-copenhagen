@@ -1,9 +1,6 @@
 
 <!DOCTYPE html>
-<!-- 
-  Coded with caffeine by: Martin Søndergaard
-  website: https://martinsoendergaard.com
--->
+
 <html lang="{{ shop.locale }}">
 <head>
 
@@ -37,6 +34,9 @@
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
+  {% if template contains 'product' %}
+    {{ 'productreviews.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
   {% if template contains 'customer' %}
     {{ 'account.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
@@ -70,6 +70,9 @@
   {{ 'components.css' | asset_url | stylesheet_tag }}
 
   {{ content_for_header }}
+  {%comment%} Yotpo Review {%endcomment%}
+ {% include 'yotpo-script' %}
+
 </head>
 
 <body>

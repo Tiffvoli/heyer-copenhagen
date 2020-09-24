@@ -281,8 +281,9 @@ button:hover {
 .label {
   text-align: left;
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  font-family: $font-body;
 }
 
 .input {
@@ -535,7 +536,7 @@ tfoot th {
   visibility: visible;
 }
 .slide-in {
-  transform: translateX(-45rem);
+  transform: translateX(-49rem);
 }
 .slide-out {
   animation: slide-out 0.5s ease-in-out;
@@ -551,10 +552,10 @@ tfoot th {
   background-color: transparent;
   position: fixed;
   top: 0;
-  right: -45rem;
+  right: -49rem;
   z-index: 800;
   width: calc(100% - 5rem);
-  max-width: 45rem;
+  max-width: 49rem;
   height: 100%;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -578,7 +579,7 @@ tfoot th {
 .modal-container-wrapper {
   padding: 10rem 3rem;
   float: right;
-  width: 40rem;
+  width: 44rem;
   height: 100%;
   overflow-y: scroll;
   background-color: $color-white;
@@ -1094,7 +1095,6 @@ tfoot th {
 }
 .product__header {
   display: flex;
-  padding-bottom: 25px;
   justify-content: space-between;
 }
 
@@ -1137,6 +1137,62 @@ tfoot th {
   color: $color-white;
   background-color: #c3c3c3;
   cursor: pointer;
+}
+//Color Swatches
+.product_form {
+}
+.product_options {
+  margin: 20px 0 0;
+  padding: 20px 0;
+  display: block;
+  width: 100%;
+  border-bottom: 0.2px solid #e3e3e3;
+}
+.product_option {
+  width: 100%;
+  box-sizing: border-box;
+}
+.product_options-single .product_option {
+  max-width: 100%;
+}
+.product_option label {
+  margin-bottom: 5px;
+}
+.product_colour {
+  display: flex;
+  height: 30px;
+}
+.product_colour a {
+  display: block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+}
+.product_colour a:hover {
+  width: 18px;
+  height: 18px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+}
+/* Styled select */
+.select-styled select {
+  padding: 0 10px;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 // View + Shipping
 .viewerShipping {
@@ -1903,4 +1959,16 @@ tfoot th {
   .readmoreWrapper {
     display: none;
   }
+}
+/*------- Yotpo Reviews ---------*/
+body > main > div > div > div.yotpo-label.yotpo-small-box > a {
+  display: none !important;
+}
+
+body > main > div > div > div.yotpo-label.yotpo-small-box {
+  border: none !important;
+}
+
+.yotpo .yotpo-regular-box {
+  margin: 0 3% !important;
 }
