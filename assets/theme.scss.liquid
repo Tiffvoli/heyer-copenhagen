@@ -536,7 +536,7 @@ tfoot th {
   visibility: visible;
 }
 .slide-in {
-  transform: translateX(-49rem);
+  transform: translateX(-55rem);
 }
 .slide-out {
   animation: slide-out 0.5s ease-in-out;
@@ -544,18 +544,15 @@ tfoot th {
 .modal h2 {
   font-size: 2.5rem;
 }
-.modal-small .modal_container {
-  width: calc(100% - 5rem);
-}
 
 .modal_container {
   background-color: transparent;
   position: fixed;
   top: 0;
-  right: -49rem;
+  right: -55rem;
   z-index: 800;
-  width: calc(100% - 5rem);
-  max-width: 49rem;
+  width: calc(100% - 1rem);
+  max-width: 55rem;
   height: 100%;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -579,13 +576,14 @@ tfoot th {
 .modal-container-wrapper {
   padding: 10rem 3rem;
   float: right;
-  width: 44rem;
+  width: calc(100% - 5rem);
   height: 100%;
   overflow-y: scroll;
   background-color: $color-white;
   box-sizing: border-box;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  word-break: break-word;
 }
 .modal_container-wrapper::-webkit-scrollbar {
   display: none;
@@ -1009,7 +1007,9 @@ tfoot th {
     text-decoration: underline;
   }
 }
-
+.mobile-breadcrumb {
+  display: none;
+}
 // Product card
 .productCard {
   width: 100%;
@@ -1053,7 +1053,9 @@ tfoot th {
 }
 .product__features-left {
   width: 70%;
-  //display: flex;
+}
+.mobile-product-images {
+  display: none;
 }
 .product__features-right {
   width: 30%;
@@ -1123,7 +1125,7 @@ tfoot th {
   width: 50%;
 }
 .productInfo h4 {
-  margin: 10px 10%;
+  margin: 10px 7.5%;
   border-style: solid;
   border-width: 0.5px;
   border-color: #e3e3e3;
@@ -1131,7 +1133,7 @@ tfoot th {
   background-color: transparent;
   padding: 13px 0 10px;
   color: $color-text-grey;
-  width: 80%;
+  width: 85%;
 }
 .productInfo h4:hover {
   color: $color-white;
@@ -1290,7 +1292,7 @@ tfoot th {
   display: grid;
   align-items: center;
   align-content: center;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-column-gap: 16px;
   color: $color-text-grey;
@@ -1321,6 +1323,9 @@ tfoot th {
 }
 .sustainable-flex {
   display: flex;
+}
+.sustainable-p {
+  text-align: right;
 }
 //Video Image Layout
 .twoLayout {
@@ -1372,7 +1377,108 @@ tfoot th {
   height: 80vh;
   object-fit: cover;
 }
-// Collection
+//Responsive product page
+@media (max-width: 1000px) {
+  .product {
+    display: block;
+    padding: 0;
+  }
+  .product__features-sticky {
+    margin: 0 3%;
+    z-index: 20;
+  }
+  .desktop-breadcrumb {
+    display: none;
+  }
+  .mobile-breadcrumb {
+    display: block;
+  }
+  .product__features-left {
+    width: 100%;
+  }
+  .product__features-right {
+    width: 100%;
+    padding: 20px 0;
+  }
+  .callChat-top img {
+    width: 5%;
+    height: 100%;
+    padding: 0;
+  }
+  .returnDetails {
+    justify-content: flex-start;
+  }
+  .returnDetails-left {
+    width: 20%;
+  }
+  .returnDetails-right {
+    padding-left: 40px;
+  }
+  .productInfo {
+    justify-content: flex-start;
+  }
+  .productInfo h4 {
+    width: 90%;
+    margin: 10px 0;
+  }
+  .productInfo-left,
+  .productInfo-right {
+    width: 25%;
+  }
+  .sustainableIndex-wrapper h2 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .sustainableIndex-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 16px;
+    grid-column-gap: 0;
+  }
+  .sustainable-p {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: left;
+  }
+  .sustainableIndex {
+    padding: 30px 0;
+  }
+}
+@media (max-width: 768px) {
+  .desktop-product-images {
+    display: none;
+  }
+  .mobile-product-images {
+    display: block;
+  }
+  .twoLayout {
+    display: block;
+    height: auto;
+  }
+  .twoLayout div {
+    width: 100%;
+  }
+  .influencerFeed-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  .influencerFeed-img img {
+    width: auto;
+    height: auto;
+  }
+  .returnDetails-left {
+    width: 50%;
+  }
+  .productInfo-left,
+  .productInfo-right {
+    width: 50%;
+  }
+  .product-text h2 {
+    width: 100%;
+  }
+}
+/*--------- Collection Template ------------*/
 .productsList {
 }
 
@@ -1959,16 +2065,4 @@ tfoot th {
   .readmoreWrapper {
     display: none;
   }
-}
-/*------- Yotpo Reviews ---------*/
-body > main > div > div > div.yotpo-label.yotpo-small-box > a {
-  display: none !important;
-}
-
-body > main > div > div > div.yotpo-label.yotpo-small-box {
-  border: none !important;
-}
-
-.yotpo .yotpo-regular-box {
-  margin: 0 3% !important;
 }

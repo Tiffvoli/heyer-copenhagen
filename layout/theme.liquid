@@ -34,8 +34,10 @@
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
+
   {% if template contains 'product' %}
     {{ 'productreviews.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'product.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
   {% if template contains 'customer' %}
     {{ 'account.scss.css' | asset_url | stylesheet_tag }}
@@ -90,6 +92,7 @@
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
   {{ 'swiper-js.min.js' | asset_url | script_tag }}
+  {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {{ 'ajaxinate.min.js' | asset_url | script_tag }}
 <script>
 jQuery(function() {

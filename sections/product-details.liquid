@@ -102,6 +102,7 @@ function openModalShipping(){
   document.querySelector("#shippingContainer").classList.add("slide-in");
   document.querySelector("#shippingModal").addEventListener("click", closeModalShipping);
   document.querySelector(".shipping_close").addEventListener("click", closeModalShipping);
+  document.querySelector("#shippingContainer").addEventListener("click", closeModalShipping);
 }
 
 function closeModalShipping(){
@@ -116,6 +117,7 @@ function openModalTrial(){
   document.querySelector("#trialContainer").classList.add("slide-in");
   document.querySelector("#trialModal").addEventListener("click", closeModalTrial);
   document.querySelector(".trial_close").addEventListener("click", closeModalTrial);
+  document.querySelector("#trialContainer").addEventListener("click", closeModalTrial);
 }
 
 function closeModalTrial(){
@@ -130,6 +132,7 @@ function openModalReturn(){
   document.querySelector("#returnContainer").classList.add("slide-in");
   document.querySelector("#returnModal").addEventListener("click", closeModalReturn);
   document.querySelector(".return_close").addEventListener("click", closeModalReturn);
+  document.querySelector("#returnContainer").addEventListener("click", closeModalReturn);
 }
 
 function closeModalReturn(){
@@ -144,6 +147,7 @@ function openModalService(){
   document.querySelector("#serviceContainer").classList.add("slide-in");
   document.querySelector("#serviceModal").addEventListener("click", closeModalService);
   document.querySelector(".service_close").addEventListener("click", closeModalService);
+  document.querySelector("#serviceContainer").addEventListener("click", closeModalService);
 }
 
 function closeModalService(){

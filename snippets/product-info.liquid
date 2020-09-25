@@ -55,6 +55,7 @@ function openModalFeatures(){
   document.querySelector("#featuresContainer").classList.add("slide-in");
   document.querySelector("#featuresModal").addEventListener("click", closeModalFeatures);
   document.querySelector(".features_close").addEventListener("click", closeModalFeatures);
+  document.querySelector("#featuresContainer").addEventListener("click", closeModalFeatures);
 }
 
 function closeModalFeatures(){
@@ -69,6 +70,7 @@ function openModalSize(){
   document.querySelector("#sizingContainer").classList.add("slide-in");
   document.querySelector("#sizingModal").addEventListener("click", closeModalSize);
   document.querySelector(".sizing_close").addEventListener("click", closeModalSize);
+  document.querySelector("#sizingContainer").addEventListener("click", closeModalSize);
 }
 
 function closeModalSize(){
@@ -83,6 +85,7 @@ function openModalMaterial(){
   document.querySelector("#materialContainer").classList.add("slide-in");
   document.querySelector("#materialModal").addEventListener("click", closeModalMaterial);
   document.querySelector(".material_close").addEventListener("click", closeModalMaterial);
+  document.querySelector("#materialContainer").addEventListener("click", closeModalMaterial);
 }
 
 function closeModalMaterial(){
@@ -97,6 +100,7 @@ function openModalPersonalise(){
   document.querySelector("#personaliseContainer").classList.add("slide-in");
   document.querySelector("#personaliseModal").addEventListener("click", closeModalPersonalise);
   document.querySelector(".personalise_close").addEventListener("click", closeModalPersonalise);
+  document.querySelector("#personaliseContainer").addEventListener("click", closeModalPersonalise);
 }
 
 function closeModalPersonalise(){
