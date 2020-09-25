@@ -92,8 +92,10 @@
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
   {{ 'swiper-js.min.js' | asset_url | script_tag }}
-  {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {{ 'ajaxinate.min.js' | asset_url | script_tag }}
+  {% if template.name contains 'product' %}
+  {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
+  {% endif %}
 <script>
 jQuery(function() {
   jQuery('.swatch :radio').change(function() {
