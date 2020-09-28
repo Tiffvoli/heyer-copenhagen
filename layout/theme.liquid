@@ -72,8 +72,8 @@
   {{ 'components.css' | asset_url | stylesheet_tag }}
 
   {{ content_for_header }}
-  {%comment%} Yotpo Review {%endcomment%}
- {% include 'yotpo-script' %}
+  {%comment%} Stamped Review {%endcomment%}
+ {% include 'stamped-script' %}
 
 </head>
 
@@ -91,7 +91,9 @@
 
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
+  {% if template.name contains 'index' %}
   {{ 'swiper-js.min.js' | asset_url | script_tag }}
+  {%endif%}
   {{ 'ajaxinate.min.js' | asset_url | script_tag }}
   {% if template.name contains 'product' %}
   {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
