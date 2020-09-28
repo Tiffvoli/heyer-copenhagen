@@ -1,0 +1,53 @@
+{% assign section_settings = section.settings  %}
+{% assign heyerlife_subheading = section_settings.heyerlife_subheading %}
+{% assign heyerlife_button = section_settings.heyerlife_button %}
+{% assign heyerlife_button_url = section_settings.heyerlife_button_url %}
+
+<section class="heyerlifeBanner">
+<div class="heyerlifeBanner_overlay">
+    <div class="heyerlife-subheading">{{heyerlife_subheading}}</div>
+        {% if heyerlife_button != blank and heyerlife_button_url != blank %}  
+            <a class="button button-transparent" href="{{heyerlife_button_url}}"> {{heyerlife_button}} </a>
+        {% endif %}
+</div>
+<video autoplay loop autobuffer muted playsinline width="100%"
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/heyerlife-video.mp4?v=1601292867" type="video/mp4">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/heyerlife-video.webm?v=1601292880" type="video/webm">
+</video>
+</section>
+{% schema %}
+    {
+        "name": "HeyerLife Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Video Banner"
+            },
+            {
+                "type": "text",
+                "id": "heyerlife_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "heyerlife_button",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "heyerlife_button_url",
+                "label": "Button URL"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "heyerlife banner",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

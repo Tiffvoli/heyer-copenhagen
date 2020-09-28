@@ -1,0 +1,69 @@
+{% assign section_settings = section.settings  %}
+{% assign heyerlife_logo = section_settings.heyerlife_logo %}
+{% assign heyerlife_url = section_settings.heyerlife_url %}
+{% assign heyerlife_login = section_settings.heyerlife_login %}
+{% assign heyerlife_login_URL = section_settings.heyerlife_login_URL %}
+
+<section class="heyerlifeHeader">
+    <div class="heyerLife container">
+        <div class="heyerlife-logo-wrapper">
+            <a href="{{heyerlife_url}}">
+            <img class="heyerlife-logo" src="{{ 'HeyerLife-logo.svg' | asset_url}}"/>
+            </a>
+        </div>
+        <div class="heyerlife-links-wrapper">
+            {% for link in linklists.heyerlife-menu.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+        </div>
+        <div class="heyerlife-login-wrapper">
+            <a href="{{heyerlife_login_URL}}">{{heyerlife_login}}</a>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "HeyerLife Header",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Logo"
+            },
+            {
+                "type": "image_picker",
+                "id": "heyerlife_logo",
+                "label": "Logo"
+            },
+            {
+                "type": "url",
+                "id": "heyerlife_url",
+                "label": "Logo URL"
+            },
+            {
+                "type": "header",
+                "content": "Employee Login"
+            },
+            {
+                "type": "text",
+                "id": "heyerlife_login",
+                "label": "Employee Title"
+            },
+            {
+                "type": "url",
+                "id": "heyerlife_login_URL",
+                "label": "Employee URL"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "heyerlife header",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,69 @@
+{% assign section_settings = section.settings  %}
+{% assign culture_heading = section_settings.culture_heading %}
+{% assign culture_text = section_settings.culture_text %}
+{% assign culture_button = section_settings.culture_button%}
+{% assign culture_button_url = section_settings.culture_button_url %}
+{% assign culture_img = section_settings.culture_img%}
+
+<section class="container heyerlifeCulture">
+<div class="heyerlife-wrapper">
+    <div class="heyerlifeCulture-text">
+        <p>Culture</p>
+        <h2>{{culture_heading}}</h2>
+        <p>{{culture_text}}</p>
+        {% if culture_button != blank and culture_button_url != blank %}  
+            <a class="button button-transparent" style="border-color: #333" href="{{culture_button_url}}">{{culture_button}}</a>
+        {% endif %}
+    </div>
+    <div class="heyerlifeCulture-img">
+        <img src="{{culture_img | img_url: 'master'}}"
+    </div> 
+</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Frontpage Culture",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Culture Text"
+            },
+            {
+                "type": "text",
+                "id": "culture_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "culture_text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "culture_button",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "culture_button_url",
+                "label": "Button URL"
+            },
+            {
+                "type": "image_picker",
+                "id": "culture_img",
+                "label": "Image"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "heyerlife frontpage culture",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
