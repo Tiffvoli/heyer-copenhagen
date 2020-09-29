@@ -1,0 +1,158 @@
+
+{% assign section_settings = section.settings  %}
+{% assign content1_heading = section_settings.content1_heading %}
+{% assign content1_p = section_settings.content1_p %}
+{% assign content1_img = section_settings.content1_img %}
+{% assign content2_heading = section_settings.content2_heading %}
+{% assign content2_p = section_settings.content2_p %}
+{% assign content2_img = section_settings.content2_img %}
+{% assign content3_heading = section_settings.content3_heading %}
+{% assign content3_p = section_settings.content3_p %}
+{% assign content3_img = section_settings.content3_img %}
+{% assign content4_heading = section_settings.content4_heading %}
+{% assign content4_p = section_settings.content4_p %}
+{% assign content4_img = section_settings.content4_img %}
+
+<section class="cultureContent">
+    {% comment %} Block 1 {% endcomment %}
+    <div class="cultureContent-wrapper">
+        <div class="culture-wrapper">
+            <div class="cultureContent-text cultureContent-text-right">
+                <h3>{{content1_heading}}</h3>
+                {{content1_p}}
+            </div>
+            <div class="cultureContent-img">
+                <img src="{{ content1_img | img_url: 'master' }}" />
+            </div>
+        </div>
+    </div>
+    {% comment %} Block 2 {% endcomment %}
+    <div class="cultureContent-wrapper">
+        <div class="culture-wrapper">
+            <div class="cultureContent-img">
+                <img src="{{ content2_img | img_url: 'master' }}" />
+            </div>
+            <div class="cultureContent-text cultureContent-text-left">
+                <h3>{{content2_heading}}</h3>
+                {{content2_p}}
+            </div>
+        </div>
+    </div>
+    {% comment %} Block 3 {% endcomment %}
+    <div class="cultureContent-wrapper">
+        <div class="culture-wrapper">
+            <div class="cultureContent-text cultureContent-text-right">
+                <h3>{{content3_heading}}</h3>
+                {{content3_p}}
+            </div>
+            <div class="cultureContent-img">
+                <img src="{{ content3_img | img_url: 'master' }}" />
+            </div>
+        </div>
+    </div>
+    {% comment %} Block 4 {% endcomment %}
+    <div class="cultureContent-wrapper">
+        <div class="culture-wrapper">
+            <div class="cultureContent-img">
+                <img src="{{ content4_img | img_url: 'master' }}" />
+            </div>
+            <div class="cultureContent-text cultureContent-text-left">
+                <h3>{{content4_heading}}</h3>
+                {{content4_p}}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+    {
+        "name": "Culture Content",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Block 1"
+            },
+            {
+                "type": "text",
+                "id": "content1_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "content1_p",
+                "label": "Paragraph"
+            },
+            {
+                "type": "image_picker",
+                "id": "content1_img",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Block 2"
+            },
+            {
+                "type": "text",
+                "id": "content2_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "content2_p",
+                "label": "Paragraph"
+            },
+            {
+                "type": "image_picker",
+                "id": "content2_img",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Block 3"
+            },
+            {
+                "type": "text",
+                "id": "content3_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "content3_p",
+                "label": "Paragraph"
+            },
+            {
+                "type": "image_picker",
+                "id": "content3_img",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Block 4"
+            },
+            {
+                "type": "text",
+                "id": "content4_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "content4_p",
+                "label": "Paragraph"
+            },
+            {
+                "type": "image_picker",
+                "id": "content4_img",
+                "label": "Image"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "culture content",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

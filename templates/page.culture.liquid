@@ -1,8 +1,10 @@
 <div class="heyerlifeWrapper">
 {% section 'heyerlife-header' %}
-<div class="container">
-<div class="culture-header"><h2>{{page.title}}</h2></div>
-{% include 'breadcrumb' %}
-{% section 'culture-intro' %}
-</div>
+    <div class="container">
+        <div class="culture-header"><h2>{{page.title}}</h2></div>
+            {% include 'breadcrumb' %}
+            {% section 'culture-intro' %}
+            {% section 'culture-content' %}
+            {% include 'heyerlife-footer' %}
+    </div>
 </div>

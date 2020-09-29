@@ -1,0 +1,59 @@
+
+{% assign section_settings = section.settings  %}
+{% assign culture_heading = section_settings.culture_heading %}
+{% assign culture_p = section_settings.culture_p %}
+{% assign culture_text = section_settings.culture_text %}
+
+<section class="cultureIntro">
+    <h2 class="culture-heading">{{culture_heading}}</h2>
+    <p class="culture-p-black">{{culture_p}}</p>
+    <p class="culture-p-grey">{{culture_text}}</p>
+        <div class="culture-signature">
+            <img src="{{ 'mik-signature.svg' | asset_url }}"/>
+            <img src="{{ 'adela-signature.svg' | asset_url }}"/>
+            <img src="{{ 'frederik-signature.svg' | asset_url }}"/>
+            <img src="{{ 'simon-signature.svg' | asset_url }}"/>
+
+            <p>Mik Lokdam</p>
+            <p>Adela Hatic</p>
+            <p>Frederik Gudbjerg</p>
+            <p>Simon Bøttkjær</p>
+        </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Culture Intro",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Introduction Text"
+            },
+            {
+                "type": "text",
+                "id": "culture_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "culture_p",
+                "label": "Paragraph"
+            },
+            {
+                "type": "text",
+                "id": "culture_text",
+                "label": "Small text"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "culture intro",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

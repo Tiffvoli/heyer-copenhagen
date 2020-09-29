@@ -35,11 +35,23 @@ $color-text-grey: rgba(128, 130, 132, 1);
 $color-hover-grey: rgba(76, 76, 75, 1);
 $color-green: rgba(92, 194, 85, 1);
 $color-dark-grey-text: #333;
+$color-darker-grey: #4c4c4b;
 // Container
 $container-padding-phone: 3%;
 $container-padding-tablet: 3%;
 $container-padding-desktop: 3%;
 
+p {
+  color: #808284;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 3rem;
+  color: $color-darker-grey;
+  font-family: "CalibreRegular", sans-serif;
+  letter-spacing: 1px;
+}
 //Heyer Life header
 .heyerlifeWrapper {
   background-image: -webkit-gradient(
@@ -266,4 +278,91 @@ $container-padding-desktop: 3%;
 .culture-header h2 {
   color: $color-text-grey;
   font-size: 3rem;
+}
+//Heyer life culture
+.cultureIntro {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+.culture-heading {
+  font-size: 3.2rem;
+  color: $color-darker-grey;
+  padding-top: 20px;
+}
+.culture-p-black {
+  color: $color-dark-grey-text;
+  margin: 0 25%;
+  padding-top: 40px;
+}
+.culture-p-grey {
+  padding-top: 20px;
+  font-size: 1.3rem;
+}
+.culture-signature {
+  display: grid;
+  padding-top: 40px;
+  padding-right: 25%;
+  padding-left: 25%;
+  justify-items: center;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+}
+.culture-signature p {
+  color: #808284;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+//Culture content
+.cultureContent-wrapper {
+  padding: 60px 0;
+}
+.culture-wrapper {
+  padding: 0 12%;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.cultureContent-text,
+.cultureContent-img {
+  width: 50%;
+}
+.cultureContent-text-right {
+  padding-right: 10%;
+}
+.cultureContent-text-left {
+  padding-left: 10%;
+}
+.cultureContent-text p {
+  padding-top: 20px;
+  line-height: 20px;
+  color: #333;
+}
+.cultureContent-img img {
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+  object-position: 50% 0%;
 }
