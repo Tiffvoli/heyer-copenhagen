@@ -2,7 +2,7 @@
 {% assign sustainable_title = section_settings.sustainable_title %}
 {% assign sustainable_text = section_settings.sustainable_text %}
 
-<div class="sustainableIndex">
+<div class="sustainableIndex" id="sustainableIndex-desktop">
     <div class="sustainableIndex-wrapper">
         <h2>{{sustainable_title}}</h2>
         <div class="co2 sustainable-flex">
@@ -16,19 +16,74 @@
             <div class="sustainable-img"><img src="{{'chemical.png' | asset_url}}" /></div>
             <div class="sustainable-stats">
                 <h4>{{ product.metafields["global"]["sustainable-chemical"] }}</h4>
-                <p>Chemicals <br> prevented</p>
+                <p>Chemicals prevented</p>
             </div>
         </div>
         <div class="waste sustainable-flex">
             <div class="sustainable-img"><img src="{{'waste.png' | asset_url}}" /></div>
             <div class="sustainable-stats">
                 <h4>{{ product.metafields["global"]["sustainable-waste"] }}</h4>
-                <p>Waste <br> prevented</p>
+                <p>Waste prevented</p>
             </div>
         </div>
         <p class="sustainable-p">{{sustainable_text}}<p>
     </div>
 </div>
+<div class="sustainableIndex" id="sustainableIndex-mobile">
+   <h2>{{sustainable_title}}</h2>
+        <div class="swiper-container-2 swiper3">
+            <div class="swiper-wrapper">
+            <div class="swiper-slide-2 swiper-slide-3">
+            <div class="sustainable-img"><img src="{{'co2.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-co2"] }}</h4>
+                <p>Co2 prevented</p>
+            </div>
+            </div>
+            <div class="swiper-slide-2 swiper-slide-3">
+            <div class="sustainable-img"><img src="{{'chemical.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-chemical"] }}</h4>
+                <p>Chemicals prevented</p>
+            </div>
+            </div>
+            <div class="swiper-slide-2 swiper-slide-3">
+            <div class="sustainable-img"><img src="{{'waste.png' | asset_url}}" /></div>
+            <div class="sustainable-stats">
+                <h4>{{ product.metafields["global"]["sustainable-waste"] }}</h4>
+                <p>Waste prevented</p>
+            </div>
+            </div>
+        </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination3"></div>
+  </div>
+<p class="sustainable-p">{{sustainable_text}}<p>
+</div>
+{% stylesheet %}
+    .swiper-slide-3{
+        text-align: left;
+        -webkit-justify-content: left;
+       justify-content: left;
+    }
+{% endstylesheet %}
+
+{% javascript %}
+   var swiper = new Swiper('.swiper3', {
+      spaceBetween: 50,
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1800,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination3',
+        clickable: true,
+      },
+       debugger: true,
+    });
+{% endjavascript %}
 
 {% schema %}
   {

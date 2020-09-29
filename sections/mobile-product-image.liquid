@@ -1,9 +1,10 @@
-<div class="swiper-container-2">
+<div class="swiper-container-2 swiper2">
     <div class="swiper-wrapper">
     {% for image in product.images %}
       <div class="swiper-slide-2"><img src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" /></div>
       {% endfor %}
     </div>
+    
     <!-- Add Arrows -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
@@ -35,10 +36,11 @@
      {% endstylesheet %}
 {% javascript %}
   
-    var swiper = new Swiper('.swiper-container-2', {
+    var swiper = new Swiper('.swiper2', {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+       debugger: true,
     });
 {% endjavascript %}

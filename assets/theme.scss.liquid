@@ -1327,6 +1327,27 @@ tfoot th {
 .sustainable-p {
   text-align: right;
 }
+#sustainableIndex-mobile {
+  display: none;
+}
+@media (max-width: 480px) {
+  #sustainableIndex-desktop {
+    display: none;
+  }
+  #sustainableIndex-mobile {
+    color: $color-text-grey;
+    display: block;
+  }
+  #sustainableIndex-mobile h2 {
+    font-size: 3rem;
+  }
+  .sustainableIndex img {
+    width: 80%;
+  }
+  .sustainable-stats {
+    padding-left: 0;
+  }
+}
 //Video Image Layout
 .twoLayout {
   width: 100%;
@@ -1475,6 +1496,11 @@ tfoot th {
   }
   .product-text h2 {
     width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .returnDetails-right {
+    padding-left: 4rem;
   }
 }
 /*--------- Collection Template ------------*/
