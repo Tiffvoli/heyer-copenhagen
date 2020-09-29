@@ -4,16 +4,16 @@
 {% assign heyerlife_button_url = section_settings.heyerlife_button_url %}
 
 <section class="heyerlifeBanner">
-<div class="heyerlifeBanner_overlay">
-    <div class="heyerlife-subheading">{{heyerlife_subheading}}</div>
-        {% if heyerlife_button != blank and heyerlife_button_url != blank %}  
-            <a class="button button-transparent" href="{{heyerlife_button_url}}"> {{heyerlife_button}} </a>
-        {% endif %}
-</div>
-<video autoplay loop autobuffer muted playsinline width="100%"
+<video autoplay loop autobuffer muted playsinline width="100%" style="position: relative"
   <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/heyerlife-video.mp4?v=1601292867" type="video/mp4">
   <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/heyerlife-video.webm?v=1601292880" type="video/webm">
 </video>
+<div class="heyerlifeBanner_overlay">
+    <div class="heyerlife-subheading">{{heyerlife_subheading}}</div>
+        {% if heyerlife_button != blank and heyerlife_button_url != blank %}  
+            <a class="button button-transparent button-heyerlife" href="{{heyerlife_button_url}}"> {{heyerlife_button}} </a>
+        {% endif %}
+</div>
 </section>
 {% schema %}
     {

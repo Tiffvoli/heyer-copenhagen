@@ -33,6 +33,7 @@
 
 {% include 'product-form' with product %}
 {% include 'viewer-shipping' %}
+<div class="product-info-mobile">{% include 'product-info'%}</div>
 {%comment%} Return/Shipping Section {%endcomment%}
 <div class="returnDetails">
     <div class="returnDetails-left">
@@ -82,7 +83,7 @@
         </div>
     <div class="modal" id="serviceModal"></div>
 </div>
-{% include 'call-chat' %}
+<div class="call-chat-desktop">{% include 'call-chat' %}</div>
 <style>
 .modal_close{
   background: url({{'close.png' | asset_url}}) no-repeat center;

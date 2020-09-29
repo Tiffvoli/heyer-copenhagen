@@ -82,6 +82,7 @@ h1 {
 h2 {
   font-size: 4.2rem;
   font-family: $font-body;
+  font-weight: normal;
 }
 h4 {
   font-family: $font-body;
@@ -188,6 +189,7 @@ picture {
   outline: none;
   -webkit-appearance: none;
   cursor: pointer;
+  letter-spacing: 1px;
 
   &:disabled {
     cursor: not-allowed;
@@ -221,6 +223,24 @@ button:hover {
   color: $color-black;
   background: transparent;
   border: 0.2px solid #e3e3e3;
+}
+.button-round {
+  border-radius: 10px;
+}
+.button-blue {
+  background: #1c62cf;
+  color: $color-white;
+  text-align: center;
+  width: 100%;
+  border: none;
+}
+.button-blue:hover {
+  background: #0e4291;
+}
+.button-cart {
+  font-weight: bold;
+  height: auto;
+  line-height: 16px;
 }
 
 // Input
@@ -1115,7 +1135,7 @@ tfoot th {
 .productInfo {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0 30px;
+  padding: 0 0 30px;
   margin: 0 0 30px;
   border-bottom: 0.2px solid #e3e3e3;
 }
@@ -1140,11 +1160,22 @@ tfoot th {
   background-color: #c3c3c3;
   cursor: pointer;
 }
+.product-info-mobile {
+  display: none;
+}
+@media (max-width: 480px) {
+  .product-info-desktop {
+    display: none;
+  }
+  .product-info-mobile {
+    display: block;
+  }
+}
 //Color Swatches
 .product_form {
 }
 .product_options {
-  margin: 20px 0 0;
+  margin: 20px 0;
   padding: 20px 0;
   display: block;
   width: 100%;
@@ -1243,6 +1274,9 @@ tfoot th {
 .returnDetails-right {
 }
 //Call/Chat support
+.call-chat-mobile {
+  display: none;
+}
 .callChat {
   padding: 30px 0 30px 0;
   border-bottom: 0.2px solid #e3e3e3;
@@ -1282,6 +1316,14 @@ tfoot th {
 }
 .call-us {
   border-style: solid;
+}
+@media (max-width: 480px) {
+  .call-chat-desktop {
+    display: none;
+  }
+  .call-chat-mobile {
+    display: block;
+  }
 }
 //Sustainable Index
 .sustainableIndex {
@@ -1500,10 +1542,16 @@ tfoot th {
 }
 @media (max-width: 480px) {
   .returnDetails-right {
-    padding-left: 4rem;
+    padding-left: 2rem;
+  }
+  .returnDetails-left {
+    padding-left: 2rem;
   }
 }
 /*--------- Collection Template ------------*/
+.productsList {
+  margin-top: 80px;
+}
 
 .productsList_inner {
   display: grid;
