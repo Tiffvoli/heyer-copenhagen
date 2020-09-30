@@ -1952,6 +1952,7 @@ tfoot th {
 .featured-image {
   height: 75vh;
   object-fit: cover;
+  object-position: 50% 0%;
 }
 .article-content {
 }
@@ -1970,6 +1971,7 @@ tfoot th {
   min-height: auto;
   -o-object-fit: cover;
   object-fit: cover;
+  object-position: 50% 0%;
 }
 .blog-bottom {
   display: grid;
@@ -1982,6 +1984,7 @@ tfoot th {
 .blog-bottom-wrapper {
   padding: 80px 0;
   border-bottom: 0.2px solid #e3e3e3;
+  width: 100%;
 }
 .prev-next {
   text-align: center;
@@ -2035,7 +2038,7 @@ tfoot th {
 .articleBanner {
   display: flex;
   justify-content: space-between;
-  height: 80vh;
+  height: auto;
 }
 .articleBanner-left {
   width: auto;
@@ -2050,9 +2053,11 @@ tfoot th {
   max-width: 50%;
   display: flex;
   padding-top: 40px;
+  max-height: 80vh;
 }
 .articleBanner-right img {
   object-fit: cover;
+  object-position: 50% 0%;
 }
 .articleWrapper {
   padding: 80px 10% 0;
@@ -2074,16 +2079,17 @@ tfoot th {
   object-fit: cover;
 }
 .articleWrapper p {
-  font-family: $font-header;
-  font-size: 2rem;
+  font-family: $font-body;
+  font-size: 1.8rem;
   line-height: 2.8rem;
   letter-spacing: 0.5px;
+  font-weight: normal;
 }
 .articleWrapper h6 {
   font-size: 1.2rem;
 }
 .articleWrapper h3 {
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   font-weight: normal;
   padding: 10px 0;
 }

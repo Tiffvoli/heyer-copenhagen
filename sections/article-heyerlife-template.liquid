@@ -1,0 +1,21 @@
+<div class="container">
+<div class="articleBanner">
+ <div class="articleBanner-left">
+    <h2>{{ article.title }}</h2>
+    <p class="article-details">
+    by {{article.author}} | <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
+    </p>
+  </div>
+  <div class="articleBanner-right">
+    {%- if article.image -%}
+    <img src="{{ article.image | img_url: 'master' }}" alt="">
+    {%- endif -%} 
+  </div>
+</div>
+</div>
+{% include 'breadcrumb'%}
+<div class="articleWrapper articleWrapper-heyerlife">
+    <div class="article-fullwidth">
+        {{ article.content }}
+    </div>
+</div>

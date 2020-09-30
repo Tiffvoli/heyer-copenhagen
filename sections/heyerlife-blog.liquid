@@ -1,0 +1,43 @@
+
+{% assign section_settings = section.settings  %}
+{% assign blog_heading = section_settings.blog_heading %}
+
+<section class="container heyerlifeHighlights">
+    <div class="heyerlifeHighlights-wrapper">
+    <h3 style="margin-bottom: 30px">{{blog_heading}}</h3>
+        <div class="heyerlife-blog-grid">
+            {%- for article in blogs.heyer-life.articles limit:3-%} 
+                <div class="blogpostWrapper">        
+                    {%- include 'blog-post' -%}
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Blog Highlights",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Blog Header"
+            },
+            {
+                "type": "text",
+                "id": "blog_heading",
+                "label": "Blog header"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "blog highlights",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

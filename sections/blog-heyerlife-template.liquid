@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="blogWrapper" style="border: none">
+    <div class="blog-bottom-wrapper" >
+        <div class="blog-bottom blog-heyer" id="AjaxinateLoop">
+            {%- for article in blog.articles limit:6-%} 
+                <div class="blogpostWrapper">        
+                {%- include 'blog-post' -%}
+        </div>
+            {%- endfor -%}
+    </div>
+    <div class="prev-next" id="AjaxinatePagination">    
+         {% if paginate.next %}
+    <a href="{{ paginate.next.url }}" class="button button-transparent">Load More</a>
+    {% endif %} 
+    </div>   
+    </div>
+</div>
