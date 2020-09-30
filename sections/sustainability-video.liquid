@@ -1,6 +1,7 @@
 {% assign section_settings = section.settings  %}
 {% assign sus_title = section_settings.sus_title %}
 
+{% if product.metafields["global"]["sustainability-vid-mp4"] != blank and product.metafields["global"]["sustainability-vid-webm"] != blank %} 
 <div class="sustainabilityVid">
     <div class="sustainabilityVid-title product-text">
         <h2>{{sus_title}}</h2>
@@ -10,6 +11,7 @@
             <source src="{{ product.metafields["global"]["sustainability-vid-webm"] }}">
     </video>
 </div>
+{%endif%}
 
 {% schema %}
     {
