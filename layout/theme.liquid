@@ -82,9 +82,10 @@
 
 <body>
   {% section 'announcement-bar' %}
+<div class="mainHeader">
   {% section 'header' %}
-
-  <main class="main" role="main">
+</div>
+  <main class="main sticky-padding" role="main">
     {{ content_for_layout }} 
   </main>
 
@@ -114,6 +115,22 @@ jQuery(function() {
       .trigger('change');
   });
 });
+{%comment%} Sticky header {%endcomment%}
+window.onscroll = function() {myFunction()};
+var navbar =   document.querySelector(".mainHeader");
+var sticky = navbar.offsetTop;
+var heyerHeader = document.querySelector(".heyerlifeHeader");
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+    heyerHeader.classList.add("second-sticky")
+  } else {
+    navbar.classList.remove("sticky");
+    heyerHeader.classList.remove("second-sticky")
+  }
+}
+
 </script>
 </body>
 </html>

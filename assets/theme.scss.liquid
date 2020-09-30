@@ -645,6 +645,9 @@ tfoot th {
 }
 
 // Header
+.mainHeader {
+  z-index: 999;
+}
 .header {
   width: 100%;
   box-sizing: border-box;
@@ -659,6 +662,14 @@ tfoot th {
   top: 0;
   width: 100%;
 }
+.sticky + .sticky-padding {
+  padding-top: 7.1rem;
+}
+.second-sticky {
+  position: fixed;
+  top: 6.1rem;
+}
+
 .header_inmer {
   height: 60px;
   display: flex;
