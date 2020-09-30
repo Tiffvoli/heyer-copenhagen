@@ -48,7 +48,7 @@
   {% if template.name contains 'blog' or template.name contains 'article' %}
     {{ 'blog.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
-   {% if template.name contains 'heyerlife' or 'culture' %}
+  {% if template contains 'heyerlife' or template contains 'culture' %}
     {{ 'heyerlife.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
  
@@ -84,6 +84,9 @@
   {% section 'announcement-bar' %}
 <div class="mainHeader">
   {% section 'header' %}
+   {% if template contains 'heyerlife' or template contains 'culture' %}
+    {% section 'heyerlife-header' %}
+  {% endif %}
 </div>
   <main class="main sticky-padding" role="main">
     {{ content_for_layout }} 
@@ -102,6 +105,19 @@
   {% if template.name contains 'product' %}
   {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {% endif %}
+
+{%comment%} Sticky header {%endcomment%}
+<style>
+.sticky + .sticky-padding {
+  padding-top: 7rem;
+}
+{% if template contains 'heyerlife' or template contains 'culture' %}
+.sticky + .sticky-padding {
+  padding-top: 12.5rem;
+}
+{% endif %}
+</style>
+
 <script>
 jQuery(function() {
   jQuery('.swatch :radio').change(function() {
