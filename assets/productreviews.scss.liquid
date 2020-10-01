@@ -1,4 +1,6 @@
 /*------- Stamped Reviews ---------*/
+
+//star reviews style
 .fa-star,
 .fa-star-checked,
 .fa-star-half-o,
@@ -10,10 +12,16 @@
   padding: 0;
   color: rgba(128, 130, 132, 1) !important;
 }
+.stamped-badge-caption {
+  font-size: 1.6rem !important;
+  padding-left: 1rem !important;
+  color: #808284;
+}
+//review font
 .stamped-container {
   font-family: "CalibreRegular", sans-serif !important;
 }
-
+//review container style
 div.stamped-container[data-widget-style],
 div[data-widget-style] div.stamped-container {
   max-width: 100% !important;
@@ -27,8 +35,14 @@ div[data-widget-style] div.stamped-container {
 .summary-rating-bar-content {
   background: rgba(128, 130, 132, 1) !important;
 }
-.stamped-badge-caption {
-  font-size: 1.6rem !important;
-  padding-left: 1rem !important;
-  color: #808284;
+
+//onclick styling
+.stamped-fa:focus,
+.stamped-fa-star-o:focus {
+  outline: 0 !important;
+  border: none !important;
+}
+.stamped-summary-actions-newreview:focus {
+  border: 1px solid black !important;
+  outline: 0 !important;
 }
