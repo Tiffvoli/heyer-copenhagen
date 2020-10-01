@@ -647,7 +647,7 @@ tfoot th {
 // Header
 .mainHeader {
   z-index: 999;
-  transition: all 0.2s ease;
+  transition: all ease;
 }
 .header {
   width: 100%;
@@ -925,17 +925,18 @@ tfoot th {
 }
 .mobile_links {
   height: 15rem;
-  width: 100%;
-  column-count: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .mobile_links a {
   font-size: 2rem;
   color: $color-text-grey !important;
   font-weight: normal;
   display: block;
-  height: 40px;
+  height: auto;
   font-family: $font-body !important;
   padding: 0;
+  align-self: center;
 }
 #mobile_account {
   height: 5rem;
