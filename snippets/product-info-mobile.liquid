@@ -1,0 +1,45 @@
+<div class="productInfo">
+    <div class="productInfo-left">
+        <div class="productInfo-features productInfo-features-mobile"><h4>Features</h4></div>
+        <div class="productInfo-sizing productInfo-sizing-mobile"><h4>Sizing</h4></div>
+    </div>
+    <div class="productInfo-right">
+        <div class="productInfo-materials productInfo-materials-mobile"><h4>Materials</h4></div>
+        <div class="productInfo-personalisation productInfo-personalisation-mobile"><h4>Personalisation</h4></div>
+    </div>
+
+    {%comment%} Slide in modal {%endcomment%}
+    
+        <div class="modal_container" id="featuresContainer-mobile">
+        <div class="features_close-mobile modal_close"></div>  
+          <div class="modal-container-wrapper">     
+          {{ product.metafields["global"]["product-features"] }}     
+          </div>
+        </div>
+    <div class="modal hide" id="featuresModal-mobile"></div>
+    
+        <div class="modal_container" id="sizingContainer-mobile">
+        <div class="sizing_close-mobile modal_close"></div>
+          <div class="modal-container-wrapper">       
+          {{ product.metafields["global"]["product-sizing"] }}     
+          </div>
+        </div>
+    <div class="modal hide" id="sizingModal-mobile"></div>
+    
+        <div class="modal_container" id="materialContainer-mobile">
+        <div class="material_close-mobile modal_close"></div>
+          <div class="modal-container-wrapper">       
+          {{ product.metafields["global"]["product-materials"] }}     
+          </div>
+        </div>
+    <div class="modal hide" id="materialModal-mobile"></div>
+    
+        <div class="modal_container" id="personaliseContainer-mobile">
+        <div class="personalise_close-mobile modal_close"></div>
+          <div class="modal-container-wrapper">       
+          {{ product.metafields["global"]["product-personalisation"] }}    
+          </div>
+        </div>
+    <div class="modal hide" id="personaliseModal-mobile"></div>
+</div>
+

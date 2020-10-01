@@ -769,6 +769,7 @@ tfoot th {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .Shop:hover .dropdown-content,
 .About:hover .dropdown-content-2 {
@@ -1121,8 +1122,10 @@ tfoot th {
 .product__features-left ul li:nth-child(7) {
   width: 32.7%;
 }
-.product__features-left ul li:nth-child(8) {
-  display: none;
+.product__features-left ul li:nth-child(5) img,
+.product__features-left ul li:nth-child(6) img,
+.product__features-left ul li:nth-child(7) img {
+  vertical-align: bottom;
 }
 .product__header {
   display: flex;
@@ -1202,7 +1205,7 @@ tfoot th {
 }
 .product_colour {
   display: flex;
-  height: 30px;
+  height: auto;
 }
 .product_colour a {
   display: block;
@@ -1243,7 +1246,6 @@ tfoot th {
   border-bottom: 0.2px solid #e3e3e3;
 }
 .viewerShipping img {
-  width: 20px;
   margin-right: 10px;
   vertical-align: middle;
 }
@@ -1256,6 +1258,14 @@ tfoot th {
 }
 .shipping-date {
   color: $color-green !important;
+}
+//edit this for image size
+.package {
+  width: 40px;
+}
+.eye {
+  margin-left: 20px;
+  width: 20px;
 }
 //Reviews
 .productReviews {
@@ -1277,16 +1287,22 @@ tfoot th {
 }
 .returnDetails img {
   width: 20px;
+  height: 30px;
   margin-right: 10px;
   vertical-align: middle;
 }
 .returnDetails-left {
   width: 50%;
   border-right: 0.2px solid #e3e3e3;
+  box-sizing: border-box;
 }
 
 .returnDetails-right {
+  width: 50%;
+  margin-left: 20px;
+  box-sizing: border-box;
 }
+
 //Call/Chat support
 .call-chat-mobile {
   display: none;
@@ -1346,18 +1362,22 @@ tfoot th {
 }
 .sustainableIndex-wrapper {
   display: grid;
+  width: 100%;
+  padding-top: 10px;
   align-items: center;
   align-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
   grid-template-rows: auto;
-  grid-column-gap: 16px;
   color: $color-text-grey;
+  grid-auto-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
 }
 .sustainableIndex img {
   object-fit: cover;
 }
 .sustainable-img {
-  width: 95px;
+  width: 70px;
 }
 .sustainable-stats {
   align-self: center;
@@ -1367,16 +1387,18 @@ tfoot th {
   font-size: 3rem;
   font-weight: 600;
 }
-.sustainableIndex-wrapper h4,
-.sustainableIndex-wrapper p,
-.sustainableIndex-wrapper h2 {
+.sustainableIndex h4,
+.sustainableIndex p,
+.sustainableIndex h2 {
   margin: 0;
 }
-.sustainableIndex-wrapper h4 {
-  font-size: 1.4rem;
+.sustainableIndex h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
-.sustainableIndex-wrapper p {
-  font-size: 1.3rem;
+.sustainableIndex p {
+  font-size: 1.4rem;
+  font-family: $font-body;
 }
 .sustainable-flex {
   display: flex;
@@ -1386,6 +1408,11 @@ tfoot th {
 }
 #sustainableIndex-mobile {
   display: none;
+}
+@media (max-width: 1000px) {
+  br {
+    display: none;
+  }
 }
 @media (max-width: 480px) {
   #sustainableIndex-desktop {
@@ -1418,6 +1445,7 @@ tfoot th {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .twoLayout-vid,
 .twoLayout-img {
@@ -1446,6 +1474,7 @@ tfoot th {
   width: 24.5%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 0;
 }
 //Sustainability vid
 .sustainabilityVid {
@@ -1454,6 +1483,7 @@ tfoot th {
 .sustainabilityVid video {
   height: 80vh;
   object-fit: cover;
+  object-position: 50% 0;
 }
 //Responsive product page
 @media (max-width: 1000px) {
@@ -1488,10 +1518,11 @@ tfoot th {
     justify-content: flex-start;
   }
   .returnDetails-left {
-    width: 40%;
+    width: 50%;
+    padding-left: 60px;
   }
   .returnDetails-right {
-    padding-left: 80px;
+    padding-left: 60px;
   }
   .productInfo h4 {
     width: 90%;
@@ -1595,6 +1626,7 @@ tfoot th {
 .collectionHero img {
   height: 70vh;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .collectionHero_description p {
   font-size: 2.2rem;
@@ -1732,6 +1764,7 @@ tfoot th {
   .heroBanner video {
     height: 85vh;
     object-fit: cover;
+    object-position: 50% 0;
   }
 }
 // Travel Essentials
@@ -1802,6 +1835,7 @@ tfoot th {
   object-fit: cover;
   width: 49.7%;
   height: 85vh;
+  object-position: 50% 0;
 }
 .sustainableDesign__overlay {
   position: absolute;
@@ -2060,7 +2094,6 @@ tfoot th {
 }
 .articleBanner-right img {
   object-fit: cover;
-  object-position: 50% 0%;
 }
 .articleWrapper {
   padding: 80px 10% 0;
@@ -2080,6 +2113,7 @@ tfoot th {
   width: 100%;
   height: auto;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .articleWrapper p {
   font-family: $font-body;
@@ -2111,6 +2145,7 @@ tfoot th {
   width: 100%;
   height: 350px;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .readmoreWrapper {
   border-bottom: 0.2px solid #e3e3e3;
