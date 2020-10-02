@@ -138,13 +138,18 @@ var navbar =   document.querySelector(".mainHeader");
 var sticky = navbar.offsetTop;
 var heyerHeader = document.querySelector(".heyerlifeHeader");
 
+
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
+    {% if template contains 'heyerlife' or template contains 'culture' %}
     heyerHeader.classList.add("second-sticky")
+    {% endif %}
   } else {
     navbar.classList.remove("sticky");
+    {% if template contains 'heyerlife' or template contains 'culture' %}
     heyerHeader.classList.remove("second-sticky")
+    {% endif %}
   }
 }
 
