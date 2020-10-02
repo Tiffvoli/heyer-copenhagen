@@ -1,0 +1,128 @@
+{% assign section_settings = section.settings  %}
+{% assign help_heading = section_settings.help_heading %}
+{% assign order_shipping_text = section_settings.order_shipping_text %}
+{% assign order_shipping_url = section_settings.order_shipping_url %}
+{% assign fit_sizing_text = section_settings.fit_sizing_text%}
+{% assign fit_sizing_url = section_settings.fit_sizing_url %}
+{% assign return_exchange_text= section_settings.return_exchange_text%}
+{% assign return_exchange_url = section_settings.return_exchange_url %}
+{% assign help_faq_text = section_settings.help_faq_text%}
+{% assign help_faq_url = section_settings.help_faq_url %}
+{% assign help_contact_text = section_settings.help_contact_text%}
+{% assign help_contact_url = section_settings.help_contact_url %}
+
+<section class="helpHeader">
+    <h2> {{help_heading}} </h2> 
+    {% include 'breadcrumb' %}
+        <div class="container helpCenter-nav">
+        <div class="helpCenter-wrapper">
+            <div class="helpCenter-box order-shipping">
+                <a href="{{order_shipping_url}}">
+                <img src="{{ 'order-shipping.svg' | asset_url}}"/>
+                <p> {{order_shipping_text}} </p>
+                </a>
+            </div>
+            <div class="helpCenter-box fit-sizing">
+                <a href="{{fit_sizing_url}}">
+                <img src="{{ 'fit-sizing.svg' | asset_url}}"/>
+                <p> {{fit_sizing_text}} </p>
+                </a>
+            </div>
+            <div class="helpCenter-box return-exchange">
+                <a href="{{return_exchange_url}}">
+                <img src="{{ 'return-exchange.svg' | asset_url}}"/>
+                <p> {{return_exchange_text}} </p>
+                </a>
+            </div>
+            <div class="helpCenter-box help-faq">
+                <a href="{{help_faq_url}}">
+                <img src="{{ 'help-faq.svg' | asset_url}}"/>
+                <p> {{help_faq_text}}</p>
+                </a>
+            </div>
+            <div class="helpCenter-box help-contact">
+                <a href="{{help_contact_url}}">
+                <img src="{{ 'help-contact.svg' | asset_url}}"/>
+                <p> {{help_contact_text}} </p>
+                </a>
+            </div>
+        </div>
+        </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Help Center Header",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Help Center"
+            },
+            {
+                "type": "text",
+                "id": "help_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "order_shipping_text",
+                "label": "Order shipping title"
+            },
+            {
+                "type": "url",
+                "id": "order_shipping_url",
+                "label": "Order shipping URL"
+            },
+            {
+                "type": "text",
+                "id": "fit_sizing_text",
+                "label": "Fit sizing title"
+            },
+            {
+                "type": "url",
+                "id": "fit_sizing_url",
+                "label": "Fit sizing URL"
+            },
+            {
+                "type": "text",
+                "id": "return_exchange_text",
+                "label": "Return exchange title"
+            },
+            {
+                "type": "url",
+                "id": "return_exchange_url",
+                "label": "Return exchange URL"
+            },
+            {
+                "type": "text",
+                "id": "help_faq_text",
+                "label": "FAQ title"
+            },
+            {
+                "type": "url",
+                "id": "help_faq_url",
+                "label": "FAQ URL"
+            },
+            {
+                "type": "text",
+                "id": "help_contact_text",
+                "label": "Contact title"
+            },
+            {
+                "type": "url",
+                "id": "help_contact_url",
+                "label": "Contact URL"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "help header",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
