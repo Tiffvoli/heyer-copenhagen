@@ -2270,7 +2270,7 @@ tfoot th {
   font-size: 3rem;
 }
 .helpCenter-wrapper {
-  padding-top: 10px;
+  padding-top: 7px;
   padding-bottom: 40px;
   border-bottom: 0.2px solid #e3e3e3;
   display: flex;
@@ -2323,20 +2323,57 @@ tfoot th {
 }
 
 //Order Shipping
-.orderShipping-header {
+.helpCenter-header {
   max-width: 550px;
   padding-top: 80px;
   padding-bottom: 80px;
 }
-.orderShipping-header h2 {
-  padding: 0 60px 20px 40px;
-  color: #e3e3e3;
+.helpCenter-h2 {
+  padding: 0 60px 20px 0;
+  color: $color-darker-grey;
   font-size: 3rem;
   font-weight: 600;
 }
-.orderShipping-header p {
+.helpCenter-p p {
   color: grey;
   font-family: $font-body;
   font-size: 1.4rem;
   line-height: 20px;
+}
+
+//Shipping table
+.shippingTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.shippingTable th {
+  border: 0.2px solid #e3e3e3;
+  height: 100%;
+  padding: 25px 0 20px 25px;
+  background: #f5f5f5;
+}
+
+//Return Exchange content
+.returnExchange-content {
+  margin: 80px 0;
+  background: #f5f5f5;
+  display: flex;
+  height: 75vh;
+}
+.returnExchange-content-left {
+  width: 65%;
+  align-self: center;
+  text-align: center;
+}
+.returnExchange-content-right {
+  width: 35%;
+}
+.returnExchange-content-left h2 {
+  font-size: 2rem;
+}
+.returnExchange-content-right img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }

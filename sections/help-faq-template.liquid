@@ -1,19 +1,19 @@
 {% assign section_settings = section.settings  %}
-{% assign fitsizing_heading = section_settings.fitsizing_heading %}
-{% assign fitsizing_description = section_settings.fitsizing_description %}
+{% assign helpfaq_heading = section_settings.helpfaq_heading %}
+{% assign helpfaq_description = section_settings.helpfaq_description %}
 
 <section class="container">
     <div class="helpCenter-header">
-        <h2 class="helpCenter-h2"> {{fitsizing_heading}} </h2>
+        <h2 class="helpCenter-h2"> {{helpfaq_heading}} </h2>
         <div class="helpCenter-p">
-        {{fitsizing_description}}
+        {{helpfaq_description}}
         </div>
     </div>
 </section>
 
 {% schema %}
     {
-        "name": "Fit & Sizing",
+        "name": "Help FAQ",
         "settings": [
             {
                 "type": "header",
@@ -21,12 +21,12 @@
             },
             {
                 "type": "text",
-                "id": "fitsizing_heading",
+                "id": "helpfaq_heading",
                 "label": "Heading"
             },
             {
                 "type": "richtext",
-                "id": "fitsizing_description",
+                "id": "helpfaq_description",
                 "label": "Description"
             }
         ],
@@ -35,7 +35,7 @@
         ],
         "presets": [
             {
-                "name": "fit & sizing",
+                "name": "help faq",
                 "category": "General",
                 "settings": {}
             }

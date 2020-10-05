@@ -1,0 +1,52 @@
+{% assign section_settings = section.settings  %}
+{% assign returnexchange_heading = section_settings.returnexchange_heading %}
+{% assign returnexchange_description = section_settings.returnexchange_description %}
+
+<section class="container">
+    <div class="helpCenter-header">
+        <h2 class="helpCenter-h2"> {{returnexchange_heading}} </h2>
+        <div class="helpCenter-p">
+        {{returnexchange_description}}
+        </div>
+    </div>
+    <div class="returnExchange-content">
+        <div class="returnExchange-content-left">
+            <h2>Start Return / Exchange Process</h2>
+        </div>
+         <div class="returnExchange-content-right">
+            <img src="{{ 'image-test.jpeg' | asset_url }}"/>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Returns & Exchanges",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Description"
+            },
+            {
+                "type": "text",
+                "id": "returnexchange_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "returnexchange_description",
+                "label": "Description"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "returns & exchanges",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

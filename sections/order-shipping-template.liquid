@@ -1,12 +1,44 @@
+{% assign section_settings = section.settings  %}
+{% assign ordershipping_heading = section_settings.ordershipping_heading %}
+{% assign ordershipping_description = section_settings.ordershipping_description %}
+
 <section class="container">
-    <div class="orderShipping-header">
-        <h2> Orders & Shipping </h2>
-        <p>
-        Delivery time can vary depending on the courier you have chosen and where you live in the world. As an EU customer, it should take no more than 5 days for you to receive your basics. For orders outside of the EU, depending on the shipping method you choose, delivery can take up to 18 days.
-        </p>
-    </div>
-    <div class="orderShipping-container">
-   <h2 class="shipping_country"></h2>
+    <div class="helpCenter-header">
+        <h2 class="helpCenter-h2"> {{ordershipping_heading}} </h2>
+        <div class="helpCenter-p">
+        {{ordershipping_description}}
+        </div>
     </div>
 </section>
 
+{% schema %}
+    {
+        "name": "Order & Shipping",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Description"
+            },
+            {
+                "type": "text",
+                "id": "ordershipping_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "ordershipping_description",
+                "label": "Description"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "order & shipping",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
