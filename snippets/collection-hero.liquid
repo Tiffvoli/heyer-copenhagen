@@ -4,11 +4,13 @@
 
 <section class="collectionHero section">
   <div class="collectionHero__overlay">
-      {%- if collection_title != blank -%}<h2 class="collection_title">{{ collection_title }}</h2>{%- endif -%}
-      {%- if collection_image != blank -%}<div class="collectionHero_description">{{ collection_description }}</div>{% endif -%}
-  </div>
-  <img src="{{collection_image| img_url: 'master'}}">
- 
+      <h2 class="collection_title">{{ collection_title }}</h2>
+      <div class="collectionHero_description">
+       <input type="checkbox" class="read-more-state" id="collection-description-span"/>
+        <p class="read-more-wrap">{{ collection_description }}</p>
+         <label for="collection-description-span" class="read-more-trigger"></label>
+      </div>
+  </div> 
   {% include 'breadcrumb' %}
 </section>
 
