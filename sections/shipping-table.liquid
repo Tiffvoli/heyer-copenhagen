@@ -1,18 +1,28 @@
-{% assign section_settings = section.settings %}
-{% assign page_delivery_methods = section_settings.page_test %}
-
-{% comment %} Page create in Shopify with the table. {% endcomment %}
-<h1>{{ page_delivery_methods.title}}</h1>
+{% assign section_settings = section.settings  %}
+{% assign page_test = section_settings.page_test %}
+<div class="shippingTable-wrapper container" style="background-color: grey; height: 60vh">
+{{page_test.title}}
+</div>
 
 {% schema %}
-  {
-    "name": "Shipping options",
-    "settings": [
-      {
-        "type": "page",
-        "id": "page_test",
-        "label": "Page"
-      }
-    ]
-  }
+    {
+        "name": "Order & Shipping",
+        "settings": [
+            {
+                "type": "page",
+                "id": "page_test",
+                "label": "Description"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "shipping table",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
 {% endschema %}
