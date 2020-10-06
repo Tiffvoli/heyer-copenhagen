@@ -1,28 +1,27 @@
 <section class="container">
+{% if collection.metafields["global"]["factory-heading"] != blank and collection.metafields["global"]["factory-button"] != blank and collection.metafields["global"]["factory-image"] != blank and collection.metafields["global"]["design-heading"] != blank and collection.metafields["global"]["design-button"] != blank and collection.metafields["global"]["design-image"] != blank %} 
 <div class="collectionArticle">
     <div class="collectionArticle-wrapper">
         <div class="collectionArticle__overlay">
-            <h2 class="collectionArticle_h2">Sustainably designed, </br> Mindfully Sourced</h2>
-            <a class="collectionArticle_a" href="">Read more about our Factories</a>
+            {{ collection.metafields["global"]["factory-heading"] }}
+            {{ collection.metafields["global"]["factory-button"] }}
         </div>
-        <img src="{{ 'image-test.jpeg' | asset_url }}">
+        <img src="{{ collection.metafields["global"]["factory-image"] }}">
     </div>
      <div class="collectionArticle-wrapper">
         <div class="collectionArticle__overlay">
-            <h2 class="collectionArticle_h2">Designed to stand </br> the Test of Time</h2>
-            <a class="collectionArticle_a" href="">Read more about our Design</a>
+            {{ collection.metafields["global"]["design-heading"] }}
+            {{ collection.metafields["global"]["design-button"] }}
         </div>
-        <img src="{{ 'image-test-2.jpeg' | asset_url }}">
+        <img src="{{ collection.metafields["global"]["design-image"] }}">
     </div>
 </div>
+{% endif %}
+{% if collection.metafields["global"]["discover-text"] != blank %}
 <div class="collectionArticle-text">
-<input type="checkbox" class="read-more-state" id="collection-text-span"/>
-    <p class="read-more-wrap">
-    Discover new arrivals; created with a sustainable design approach, made for the modern wardrobe. From essential  and to understated  and the latest. Made from sustainably sourced materials such as organic cotton and Tencel™ lyocell, uncover updated classics designs for everyday in our latest collection for this season.Discover new arrivals; created with a sustainable design approach, made for the modern wardrobe. From essential  and to understated  and the latest. Made from sustainably sourced materials such as organic cotton and Tencel™ lyocell, uncover updated classics designs for everyday in our latest collection for this season.
-    <span class="read-more-target">
-    Discover new arrivals; created with a sustainable design approach, made for the modern wardrobe.
-    </span>
-    </p>
+<input type="checkbox" class="read-more-state" id="collection-text-span"/> 
+    {{ collection.metafields["global"]["discover-text"] }}
  <label for="collection-text-span" class="read-more-trigger"></label>
 </div>
+{% endif %}
 <section>
