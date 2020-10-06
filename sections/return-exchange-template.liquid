@@ -1,6 +1,16 @@
 {% assign section_settings = section.settings  %}
 {% assign returnexchange_heading = section_settings.returnexchange_heading %}
 {% assign returnexchange_description = section_settings.returnexchange_description %}
+{% assign image_banner = section_settings.image_banner %}
+{% assign options_heading = section_settings.options_heading %}
+{% assign size_color_header  = section_settings.size_color_header %}
+{% assign size_color_text = section_settings.size_color_text %}
+{% assign product_header = section_settings.product_header %}
+{% assign product_text = section_settings.product_text %}
+{% assign refund_header = section_settings.refund_header %}
+{% assign refund_text = section_settings.refund_text %}
+{% assign button_link = section_settings.button_link %}
+{% assign button_title = section_settings.button_title %}
 
 <section class="container">
     <div class="helpCenter-header">
@@ -11,10 +21,32 @@
     </div>
     <div class="returnExchange-content">
         <div class="returnExchange-content-left">
-            <h2>Start Return / Exchange Process</h2>
+            <h2>{{options_heading}}</h2>
+            <div class="returnExchange-options">
+                <div id="options">
+                    <a href="#size-color">
+                        <img src="{{'different-size-color.svg' | asset_url }}"/>
+                        <p>{{size_color_header}}</p>
+                    </a>
+                    <a href="#product">
+                        <img src="{{'different-product.svg' | asset_url }}"/>
+                        <p>{{product_header}}</p>
+                    </a>
+                    <a href="#refund">
+                        <img src="{{'different-refund.svg' | asset_url }}"/>
+                        <p>{{refund_header}}</p>
+                    </a>
+                </div>
+                <div id="optionsDescription">
+                    <span id="size-color">{{size_color_text}}</span>
+                    <span id="product">{{product_text}}</span>
+                    <span id="refund">{{refund_text}}</span>
+                </div>
+            </div>
+            <a class="button button-black" style="width: auto" href="{{button_link}}">{{button_title}}</a>
         </div>
          <div class="returnExchange-content-right">
-            <img src="{{ 'image-test.jpeg' | asset_url }}"/>
+            <img src="{{ image_banner | img_url: 'master' }}"/>
         </div>
     </div>
 </section>
@@ -36,6 +68,60 @@
                 "type": "richtext",
                 "id": "returnexchange_description",
                 "label": "Description"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_banner",
+                "label": "Image banner"
+            },
+            {
+                "type": "header",
+                "content": "Returns & Exchanges Options"
+            },
+            {
+                "type": "text",
+                "id": "options_heading",
+                "label": "Option title"
+            },
+            {
+                "type": "text",
+                "id": "size_color_header",
+                "label": "Option name"
+            },
+            {
+                "type": "textarea",
+                "id": "size_color_text",
+                "label": "Option description"
+            },
+            {
+                "type": "text",
+                "id": "product_header",
+                "label": "Option name"
+            },
+            {
+                "type": "textarea",
+                "id": "product_text",
+                "label": "Option description"
+            },
+            {
+                "type": "text",
+                "id": "refund_header",
+                "label": "Option name"
+            },
+            {
+                "type": "textarea",
+                "id": "refund_text",
+                "label": "Option description"
+            },
+            {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button link"
+            },
+            {
+                "type": "text",
+                "id": "button_title",
+                "label": "Button title"
             }
         ],
         "blocks": [

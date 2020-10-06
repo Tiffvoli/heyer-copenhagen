@@ -1,6 +1,7 @@
 {% assign section_settings = section.settings  %}
 {% assign fitsizing_heading = section_settings.fitsizing_heading %}
 {% assign fitsizing_description = section_settings.fitsizing_description %}
+{% assign blocks = section.blocks %}
 
 <section class="container">
     <div class="helpCenter-header">
@@ -9,6 +10,54 @@
         {{fitsizing_description}}
         </div>
     </div>
+    {% if blocks %}
+  {% for block in blocks %}
+    {% assign block_settings = block.settings %}
+    {% assign image_banner = block_settings.image_banner %}
+    {% assign product_image = block_settings.product_image %}
+    {% assign product_name = block_settings.product_name %}
+    {% assign exterior_label = block_settings.exterior_label %}
+    {% assign exterior_description = block_settings.exterior_description %}
+    {% assign interior_label = block_settings.interior_label %}
+    {% assign interior_description = block_settings.interior_description %}
+    {% assign features_label = block_settings.features_label %}
+    {% assign features_description = block_settings.features_description %}
+    <div class="productSizing">
+        <div class="productSizing-left">
+            <img src="{{ image_banner | img_url: 'master' }}" />
+        </div>
+         <div class="productSizing-middle">
+            <img src="{{product_image}}"/>
+        </div>
+         <div class="productSizing-right">
+            <h2> {{product_name}} </h2>
+            <div class="tabs">
+                <div class="tab">
+                    <input class="accordion-input" type="checkbox" id="exterior-size">
+                    <label class="tab-label" for="exterior-size">{{exterior_label}}</label>
+                    <div class="tab-content">
+                        {{exterior_description}}
+                    </div>
+                </div>
+                <div class="tab">
+                    <input class="accordion-input" type="checkbox" id="interior-size">
+                    <label class="tab-label" for="interior-size">{{interior_label}}</label>
+                    <div class="tab-content">
+                        {{interior_description}} 
+                    </div>
+                </div>
+                <div class="tab">
+                    <input class="accordion-input" type="checkbox" id="features">
+                    <label class="tab-label" for="features">{{features_label}}</label>
+                    <div class="tab-content">
+                        {{features_description}} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
 </section>
 
 {% schema %}
@@ -31,7 +80,57 @@
             }
         ],
         "blocks": [
-
+    {
+        "type": "product_features",
+        "name": "Product Features",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_banner",
+            "label": "Image banner"
+          },
+          {
+            "type": "url",
+            "id": "product_image",
+            "label": "Product image"
+          },
+           {
+            "type": "text",
+            "id": "product_name",
+            "label": "Product name"
+          },
+          {
+            "type": "text",
+            "id": "exterior_label",
+            "label": "Exterior label"
+          },
+          {
+            "type": "textarea",
+            "id": "exterior_description",
+            "label": "Exterior description"
+          },
+          {
+            "type": "text",
+            "id": "interior_label",
+            "label": "Interior label"
+          },
+          {
+            "type": "textarea",
+            "id": "interior_description",
+            "label": "Interior description"
+          },
+          {
+            "type": "text",
+            "id": "features_label",
+            "label": "Features label"
+          },
+          {
+            "type": "textarea",
+            "id": "features_description",
+            "label": "Features description"
+          }
+        ]
+      }
         ],
         "presets": [
             {

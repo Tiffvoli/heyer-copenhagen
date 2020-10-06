@@ -1,28 +1,76 @@
-{% assign section_settings = section.settings  %}
-{% assign page_test = section_settings.page_test %}
-<div class="shippingTable-wrapper container" style="background-color: grey; height: 60vh">
-{{page_test.title}}
-</div>
+{% assign section_settings = section.settings %}
+{% assign blocks = section.blocks %}
+<section class="container">
+ <table class="shippingTable">
+        <tr>
+            <th>Region</th>
+            <th>Country</th> 
+            <th>Delivery Method</th>
+            <th>Price</th>
+            <th>Delivery Time</th> 
+        </tr> 
+{% if blocks %}
+  {% for block in blocks %}
+    {% assign block_settings = block.settings %}
+    {% assign region = block_settings.region %}
+    {% assign flag = block_settings.flag %}
+    {% assign country = block_settings.country %}
+    {% assign delivery_method = block_settings.delivery_method %}
+    {% assign price = block_settings.price %}
+    {% assign delivery_time = block_settings.delivery_time %}
+        <tr>  
+            <td>{{region}}</td>
+            <td><img src="{{ flag | img_url: 'master' }}" />{{country}}</td>
+            <td>{{delivery_method}}</td>
+            <td>{{price}}</td>
+            <td>{{delivery_time}}</td>
+        </tr>
+  {% endfor %}
+{% endif %}
+</table>
+</section>
 
 {% schema %}
-    {
-        "name": "Order & Shipping",
+  {
+    "name": "Shipping Options",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "shipping_option",
+        "name": "Shipping option",
         "settings": [
-            {
-                "type": "page",
-                "id": "page_test",
-                "label": "Description"
-            }
-        ],
-        "blocks": [
-
-        ],
-        "presets": [
-            {
-                "name": "shipping table",
-                "category": "General",
-                "settings": {}
-            }
+          {
+            "type": "text",
+            "id": "region",
+            "label": "Region"
+          },
+          {
+              "type": "image_picker",
+              "id": "flag",
+              "label": "Flag"
+          },
+          {
+            "type": "text",
+            "id": "country",
+            "label": "Country"
+          },
+          {
+            "type": "textarea",
+            "id": "delivery_method",
+            "label": "Delivery Method"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Price"
+          },
+          {
+            "type": "text",
+            "id": "delivery_time",
+            "label": "Delivery time"
+          }
         ]
-    }
+      }
+    ]
+  }
 {% endschema %}
