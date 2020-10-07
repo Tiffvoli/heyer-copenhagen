@@ -24,23 +24,21 @@
             <h2>{{options_heading}}</h2>
             <div class="returnExchange-options">
                 <div id="options">
-                    <a href="#size-color">
+                    <button data-content="{{size_color_text}}">
                         <img src="{{'different-size-color.svg' | asset_url }}"/>
                         <p>{{size_color_header}}</p>
-                    </a>
-                    <a href="#product">
+                    </button>
+                    <button data-content="{{product_text}}">
                         <img src="{{'different-product.svg' | asset_url }}"/>
                         <p>{{product_header}}</p>
-                    </a>
-                    <a href="#refund">
+                    </button>
+                    <button data-content="{{refund_text}}">
                         <img src="{{'different-refund.svg' | asset_url }}"/>
                         <p>{{refund_header}}</p>
-                    </a>
+                    </button>
                 </div>
                 <div id="optionsDescription">
-                    <span id="size-color">{{size_color_text}}</span>
-                    <span id="product">{{product_text}}</span>
-                    <span id="refund">{{refund_text}}</span>
+                    <p class="allowChange">{{size_color_text}}</p>
                 </div>
             </div>
             <a class="button button-black" style="width: auto" href="{{button_link}}">{{button_title}}</a>
@@ -50,6 +48,15 @@
         </div>
     </div>
 </section>
+{% javascript %}
+        
+        $(document).ready(function () {    
+    $("button").click(function() {
+        var content = $(this).data('content');   
+        $('.allowChange').html(content);
+    });    
+});
+    {% endjavascript %}
 
 {% schema %}
     {

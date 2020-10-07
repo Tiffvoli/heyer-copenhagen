@@ -2480,7 +2480,7 @@ input:checked ~ .tab-content {
   justify-content: center;
   padding: 30px 0;
 }
-#options a {
+#options button {
   height: 170px;
   width: 180px;
   text-align: center;
@@ -2492,12 +2492,16 @@ input:checked ~ .tab-content {
   text-align: center;
   align-items: center;
   box-sizing: border-box;
+  background: transparent;
 
   &:hover {
     border: 1px solid $color-darker-grey;
   }
   &:active {
     border: 1px solid $color-darker-grey;
+  }
+  &:focus {
+    outline: none;
   }
 }
 #options img {
@@ -2512,14 +2516,10 @@ input:checked ~ .tab-content {
   text-align: center;
   text-align: -webkit-center;
 }
-#optionsDescription span {
+#optionsDescription p {
   margin-bottom: 20px;
   max-width: 500px;
-  display: none;
   color: $color-darker-grey;
-}
-#optionsDescription span:target {
-  display: block;
 }
 //Help FAQ
 .faq-wrapper {
