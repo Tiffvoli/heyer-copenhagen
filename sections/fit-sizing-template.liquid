@@ -33,22 +33,22 @@
             <h2> {{product_name}} </h2>
             <div class="tabs">
                 <div class="tab">
-                    <input class="accordion-input" type="checkbox" id="exterior-size">
-                    <label class="tab-label" for="exterior-size">{{exterior_label}}</label>
+                    <input class="accordion-input" type="checkbox" id="{{product_name | handleize}}-exterior-size">
+                    <label class="tab-label" for="{{product_name | handleize}}-exterior-size">{{exterior_label}}</label>
                     <div class="tab-content">
                         {{exterior_description}}
                     </div>
                 </div>
                 <div class="tab">
-                    <input class="accordion-input" type="checkbox" id="interior-size">
-                    <label class="tab-label" for="interior-size">{{interior_label}}</label>
+                    <input class="accordion-input" type="checkbox" id="{{product_name | handleize}}-interior-size">
+                    <label class="tab-label" for="{{product_name | handleize}}-interior-size">{{interior_label}}</label>
                     <div class="tab-content">
                         {{interior_description}} 
                     </div>
                 </div>
                 <div class="tab">
-                    <input class="accordion-input" type="checkbox" id="features">
-                    <label class="tab-label" for="features">{{features_label}}</label>
+                    <input class="accordion-input" type="checkbox" id="{{product_name | handleize}}-features">
+                    <label class="tab-label" for="{{product_name | handleize}}-features">{{features_label}}</label>
                     <div class="tab-content">
                         {{features_description}} 
                     </div>

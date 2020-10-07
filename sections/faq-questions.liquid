@@ -1,0 +1,322 @@
+{% assign section_settings = section.settings  %}
+{% assign faq_heading = section_settings.faq_heading %}
+{% assign faq_heading_banner = section_settings.faq_heading_banner %}
+{% assign blocks = section.blocks %}
+
+<section class="container section">
+    <div class="faq-wrapper">
+        <div class="faq-heading">
+            <h2>{{faq_heading}}</h2>
+        </div>
+        <div class="faq-content">
+            <div class="faq-content-left">
+                <h3>{{faq_heading_banner}}</h3>
+            </div>
+            <div class="faq-content-middle">
+                <a name="shipping-returns">Shipping & Returns</a>
+                {%comment%} Accordion FAQ {%endcomment%}
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='shippingreturns_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign shipping_returns_questions = block_settings.shipping_returns_questions %}
+                        {% assign shipping_returns_answers = block_settings.shipping_returns_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{shipping_returns_questions | handleize}}">
+                        <label class="faq-tab-label" for="{{shipping_returns_questions | handleize}}">{{shipping_returns_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{shipping_returns_answers}}
+                        </div>
+                    </div>
+                    {%endif%}
+                {% endfor %}
+                {%comment%} End accordion FAQ {%endcomment%}          
+                </div>
+                <a name="warranty">Warranty</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='warranty_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign warranty_questions = block_settings.warranty_questions %}
+                        {% assign warranty_answers = block_settings.warranty_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{warranty_questions| handleize}}">
+                        <label class="faq-tab-label" for="{{warranty_questions| handleize}}">{{warranty_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{warranty_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <a name="products">Products</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='product_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign product_questions = block_settings.product_questions %}
+                        {% assign product_answers = block_settings.product_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{product_questions| handleize}}">
+                        <label class="faq-tab-label" for="{{product_questions| handleize}}">{{product_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{product_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <a name="personalisation">Personalisation</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='personalisation_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign personalisation_questions = block_settings.personalisation_questions %}
+                        {% assign personalisation_answers = block_settings.personalisation_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{personalisation_questions | handleize}}">
+                        <label class="faq-tab-label" for="{{personalisation_questions | handleize}}">{{personalisation_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{personalisation_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <a name="impact">Impact</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='impact_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign impact_questions = block_settings.impact_questions %}
+                        {% assign impact_answers = block_settings.impact_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{impact_questions | handleize}}">
+                        <label class="faq-tab-label" for="{{impact_questions | handleize}}">{{impact_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{impact_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <a name="corporate-gifting">Corporate Gifting</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='corporation_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign corporation_questions = block_settings.corporation_questions %}
+                        {% assign corporation_answers = block_settings.corporation_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{corporation_questions | handleize}}">
+                        <label class="faq-tab-label" for="{{corporation_questions | handleize}}">{{corporation_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{corporation_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <a name="other">Other</a>
+                <div class="faq-tabs">
+                {% for block in blocks %}
+                    {% if block.type =='other_questions' %}
+                        {% assign block_settings = block.settings %}
+                        {% assign other_questions = block_settings.other_questions %}
+                        {% assign other_answers = block_settings.other_answers %}
+                    <div class="faq-tab">
+                        <input class="faq-input" type="checkbox" id="{{other_questions | handleize}}">
+                        <label class="faq-tab-label" for="{{other_questions | handleize}}">{{other_questions}}</label>
+                        <div class="faq-tab-content">
+                            {{corporation_answers}}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            <div class="faq-content-right">
+                <a href="#shipping-returns">Shipping & Returns</a>
+                <a href="#warranty">Warranty</a>
+                <a href="#products">Products</a>
+                <a href="#personalisation">Personalisation</a>
+                <a href="#impact">Impact</a>
+                <a href="#corporate-gifting">Corporate Gifting</a>
+                <a href="#other">Other</a>
+                <a href="">Chat with a human</a>
+                <a href="">Talk with our Experts</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "FAQ Questions",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "faq_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "faq_heading_banner",
+                "label": "Banner heading"
+            }
+        ],
+        "blocks": [
+    {
+        "type": "shippingreturns_questions",
+        "name": "Shipping Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Shipping & Returns"
+          },
+          {
+            "type": "textarea",
+            "id": "shipping_returns_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "shipping_returns_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "warranty_questions",
+        "name": "Warranty Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Warranty"
+          },
+          {
+            "type": "textarea",
+            "id": "warranty_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "warranty_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "product_questions",
+        "name": "Product Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Product"
+          },
+          {
+            "type": "textarea",
+            "id": "product_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "product_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "personalisation_questions",
+        "name": "Personalise Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Personalisation"
+          },
+          {
+            "type": "textarea",
+            "id": "personalisation_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "personalisation_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "impact_questions",
+        "name": "Impact Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Impact"
+          },
+          {
+            "type": "textarea",
+            "id": "impact_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "impact_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "corporation_questions",
+        "name": "Corporation Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Corporate Gifting"
+          },
+          {
+            "type": "textarea",
+            "id": "corporation_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "corporation_answers",
+            "label": "Answer"
+          }
+        ]
+    },
+    {
+        "type": "other_questions",
+        "name": "Other Questions",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Other"
+          },
+          {
+            "type": "textarea",
+            "id": "other_questions",
+            "label": "Question"
+          },
+          {
+            "type": "textarea",
+            "id": "other_answers",
+            "label": "Answer"
+          }
+        ]
+    }
+        ],
+        "presets": [
+            {
+                "name": "faq questions",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
