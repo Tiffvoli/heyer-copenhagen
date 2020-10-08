@@ -1,0 +1,58 @@
+{% assign section_settings = section.settings %}
+{% assign blocks = section.blocks %}
+
+<section class="container factories">
+    <div class="factories-block-wrapper">
+    {% if blocks %}
+        {% for block in blocks %}
+            {% assign block_settings = block.settings %}
+            {% assign block_image = block_settings.block_image %}
+            {% assign block_heading = block_settings.block_heading %}
+            {% assign block_text = block_settings.block_text %}
+            {% assign page_url = block_settings.page_url %}
+                <div class="factories-block">
+                    <a href="{{page_url}}">
+                        <img src="{{ block_image | img_url: 'master' }}"/>
+                        <p> {{block_text}} </p>
+                        <h3>{{block_heading}}</h3>
+                     </a>
+                </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Factories Block",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "factories_block",
+        "name": "Factories block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "block_image",
+            "label": "Factory Image"
+          },
+          {
+              "type": "text",
+              "id": "block_text",
+              "label": "Factory Country"
+          },
+          {
+            "type": "text",
+            "id": "block_heading",
+            "label": "Factory Corp"
+          },
+          {
+              "type": "url",
+              "id": "page_url",
+              "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

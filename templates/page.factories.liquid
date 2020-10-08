@@ -1,0 +1,10 @@
+<section class="readmoreBanner">
+     <h2 class="collection_title">{{ page.title }}</h2>
+     <div class="readmore_description">
+       <input type="checkbox" class="read-more-state" id="readmore-span"/>
+        <p class="read-more-wrap">{{ page.content }}</p>
+         <label for="readmore-span" class="read-more-trigger"></label>
+      </div>
+</section>
+{% include 'breadcrumb' %}
+{% section 'factories-blocks' %}
