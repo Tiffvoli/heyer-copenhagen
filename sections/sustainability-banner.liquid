@@ -1,0 +1,38 @@
+{% assign section_settings = section.settings  %}
+{% assign sustainability_heading = section_settings.sustainability_heading %}
+
+<section class="sustainabilityBanner">
+<video autoplay loop autobuffer muted playsinline width="100%" style="position: relative"
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/sustainability-video.mp4?v=1602149125" type="video/mp4">
+</video>
+<div class="sustainabilityBanner_overlay">
+    <h1>{{sustainability_heading}}</h1>
+</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Sustainability Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Video Banner"
+            },
+            {
+                "type": "textarea",
+                "id": "sustainability_heading",
+                "label": "Heading"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "sustainability banner",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

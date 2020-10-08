@@ -2650,3 +2650,83 @@ input:checked ~ .tab-content {
 .faq-input {
   display: none;
 }
+/*---------Sustainability Header-----------*/
+.sustainabilityHeader {
+  z-index: 200;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: $color-black;
+  color: $color-white;
+}
+.sustainability {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sustainability-links-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+
+  & a {
+    color: $color-white;
+    align-self: center;
+    margin: 0 10px;
+    border-bottom: 0.2px solid $color-black;
+  }
+
+  & a:hover {
+    border-bottom: 0.2px solid #e3e3e3;
+  }
+}
+//Sustainability Banner
+.sustainabilityBanner {
+  position: relative;
+  height: 80vh;
+}
+.sustainabilityBanner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sustainabilityBanner_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: $color-white;
+  width: 100%;
+
+  & h1 {
+    font-family: $font-body;
+    font-size: 4rem;
+  }
+}
