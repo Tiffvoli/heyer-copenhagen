@@ -665,9 +665,7 @@ tfoot th {
   box-sizing: border-box;
   border-bottom: 2px solid rgba(76, 76, 75, 0.1);
   z-index: 999;
-  //position: fixed;
   background-color: $color-white;
-  //top: 4rem;
 }
 .sticky {
   position: fixed;
@@ -688,7 +686,6 @@ tfoot th {
 }
 .header_inmer a {
   color: $color-text-grey;
-  padding: 0 1.7rem;
   height: 100%;
 }
 .nav {
@@ -699,57 +696,53 @@ tfoot th {
 }
 .header_logo {
   width: auto;
-  max-height: 17px;
+  max-height: 14px;
   max-width: none;
-  padding-top: 0.6rem;
+  margin-top: 0px;
 }
 .logo_link {
   text-align: center;
   height: auto !important;
   width: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.link_title {
-  padding-top: 2.5rem;
-  height: 100%;
-  letter-spacing: 1px;
-}
-.link_title:hover {
-  box-shadow: inset 0 -1px 0 black;
-  color: $color-black;
-}
+
 .js-cart-trigger {
   height: 100%;
   color: $color-text-grey;
-  padding-left: 1.7rem;
+  margin-left: 35px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding-top: 0.5rem;
+
+  &:hover {
+    box-shadow: inset 0 -1px 0 black;
+    color: $color-black;
+  }
 }
 .suitcase {
   width: 15px;
 }
 #suitcase_cart {
   position: relative;
-  padding-top: 1.9rem;
 }
 .js-cart-counter {
   position: absolute;
-  padding-top: 0.8rem;
-  padding-left: 0.37rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 #right_menu {
   justify-content: flex-end;
 }
 #dropdown-wrapper {
-  padding-right: 3.4rem;
   height: 100%;
 }
-.menu_left_title:hover {
-  box-shadow: inset 0 -1px 0 black;
-  color: $color-black;
-}
-.menu_left_title {
-  margin-top: 0.8rem;
-  height: 58%;
-  margin-bottom: 0;
-}
+
 .dropdown-content,
 .dropdown-content-2 {
   display: none;
@@ -774,7 +767,13 @@ tfoot th {
 .dropdown-content a,
 .dropdown-content-2 a {
   width: 25%;
-  padding: 30px 15px;
+  padding: 30px 15px !important;
+  margin: 0 !important;
+
+  &:hover {
+    box-shadow: none !important;
+    color: $color-text-grey !important;
+  }
 }
 .dropdown-content img,
 .dropdown-content-2 img {
@@ -790,7 +789,8 @@ tfoot th {
 }
 .dropdown-content h2,
 .dropdown-content-2 h2 {
-  padding-top: 0.5rem;
+  padding-top: 2rem;
+  margin: 0;
   font-size: 1.5rem;
 }
 @media (max-width: 768px) {
@@ -807,13 +807,37 @@ tfoot th {
   #right_menu,
   #left_menu-mobile {
     width: 33%;
-    display: block !important;
+    display: flex !important;
   }
   #dropdown-wrapper,
   #left_menu,
   .header-faq,
   .header-signup {
     display: none !important;
+  }
+}
+#left_menu a {
+  padding-top: 0.7rem;
+  margin-right: 35px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: inset 0 -1px 0 black;
+    color: $color-black;
+  }
+}
+#right_menu a {
+  padding-top: 0.7rem;
+  margin-left: 35px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: inset 0 -1px 0 black;
+    color: $color-black;
   }
 }
 //Header Mobile
@@ -906,17 +930,14 @@ tfoot th {
   font-weight: normal;
   padding-top: 60px;
 }
-//#menu ul {
-//  list-style-type: none;
-//  padding: 0 45px 60px 0;
-//}
 #menu h2 {
   color: $color-text-grey;
-  padding: 10px 0;
+  padding: 25px 0 20px;
   font-size: 22px;
   border-bottom: solid 0.2px #e3e3e3;
   font-weight: normal;
   width: 100%;
+  margin: 0;
 }
 #menuToggle input:checked ~ #menu {
   transform: none;
@@ -928,6 +949,10 @@ tfoot th {
   border-bottom: 0.2px solid #e3e3e3;
   justify-content: space-between;
   display: flex;
+
+  & p {
+    padding: 1.5rem 0 0;
+  }
 }
 .best-sellers a {
   width: 48%;
@@ -950,7 +975,6 @@ tfoot th {
 }
 #mobile_account {
   height: 5rem;
-  padding: 1.5rem 0;
 }
 #mobile_account p {
   margin: 0 !important;
@@ -2856,6 +2880,9 @@ input:checked ~ .tab-content {
     object-fit: cover;
     border: none;
   }
+  & video {
+    width: 100%;
+  }
 }
 //flip block
 .img-text {
@@ -2865,6 +2892,7 @@ input:checked ~ .tab-content {
 
   & img {
     width: 50%;
+    object-fit: cover;
   }
 }
 .text-block {

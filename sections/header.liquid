@@ -66,7 +66,7 @@
         {% for link in linklists[menu].links %}
        <div class="{{link.title}}" id="dropdown-wrapper">
        <a class="{% if link.active %}active{% endif %}"  href= "{{ link.url }}">
-       <h4 class="menu_left_title">{{ link.title }}</h4>
+       {{ link.title }}
        </a>
       
        <div class="dropdown-content">
@@ -174,17 +174,17 @@
 {%comment%} End of Mobile Header {%endcomment%}
       <a href="/index" class="logo_link"><img class="header_logo" src="{{ 'logo.svg' | asset_url}}"/></a>
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
-         <a href="/pages/faq-1" class="header-faq"><div class="link_title">FAQ</div></a>
+         <a href="/pages/faq-1" class="header-faq">FAQ</a>
       {% if customer %}
           
-           <a href="{{ routes.account_url }}" class="header-signup"><div class="link_title">{{ 'layout.customer.account' | t }}</div></a>
+           <a href="{{ routes.account_url }}" class="header-signup">{{ 'layout.customer.account' | t }}</a>
         {% else %} 
           
-          <a href="{{ routes.account_login_url }}" class="header-signup"><div class="link_title">Sign up</div></a>
+          <a href="{{ routes.account_login_url }}" class="header-signup">Sign up</a>
         {% endif %}
        
       <div class="js-cart-trigger menu-cart">
-      <div class="link_title" id="suitcase_cart">
+      <div id="suitcase_cart">
          <span class="js-cart-counter"></span>
         <img class="suitcase" src="{{ 'suitcase.svg' | asset_url}}"/>
         </div>
