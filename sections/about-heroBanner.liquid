@@ -1,0 +1,46 @@
+{% assign section_setting = section.settings  %}
+{% assign title = section_setting.Title %}
+{% assign subheading = section_setting.subheading %}
+
+<section class="heroBanner">
+<video autoplay loop autobuffer muted playsinline width="100%" style="position:relative" 
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/about-vid.mp4?v=1602239655" type="video/mp4">
+  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/about-vid.webm?v=1602239674" type="video/webm">
+</video>
+<div class="heroBanner_overlay" style="width: 100%">
+<h3 class="about-banner-subheading"> {{subheading}}</h3>
+<h2 class="about-banner-title">{{title}}</h2>
+</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Hero Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title & Subheading"
+            },
+            {
+                "type": "text",
+                "id": "Title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "subheading",
+                "label": "subheading"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "hero banner",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
