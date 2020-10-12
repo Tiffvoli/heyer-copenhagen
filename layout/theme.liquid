@@ -103,13 +103,16 @@
   {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {{ 'product-info.js' | asset_url | script_tag }}
   {% endif %}
+   {% if template contains 'sustainability' %}
+  {{ 'sustainability.js' | asset_url | script_tag }}
+  {% endif %}
 
 {%comment%} Sticky header {%endcomment%}
 <style>
 .sticky + .sticky-padding {
   padding-top: 7rem;
 }
-{% if template contains 'heyerlife' or template contains 'culture' %}
+{% if template contains 'heyerlife' or template contains 'culture' or template contains 'sustainability'%}
 .sticky + .sticky-padding {
   padding-top: 12.5rem;
 }
@@ -134,18 +137,24 @@ window.onscroll = function() {myFunction()};
 var navbar =   document.querySelector(".mainHeader");
 var sticky = navbar.offsetTop;
 var heyerHeader = document.querySelector(".heyerlifeHeader");
-
+var sustainabilityHeader = document.querySelector(".sustainabilityHeader");
 
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
     {% if template contains 'heyerlife' or template contains 'culture' %}
-    heyerHeader.classList.add("second-sticky")
+    heyerHeader.classList.add("second-sticky");
+    {% endif %}
+    {% if template contains 'sustainability'%}
+    sustainabilityHeader.classList.add("second-sticky");
     {% endif %}
   } else {
     navbar.classList.remove("sticky");
     {% if template contains 'heyerlife' or template contains 'culture' %}
-    heyerHeader.classList.remove("second-sticky")
+    heyerHeader.classList.remove("second-sticky");
+    {% endif %}
+    {% if template contains 'sustainability'%}
+    sustainabilityHeader.classList.remove("second-sticky");
     {% endif %}
   }
 }

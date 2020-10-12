@@ -1,0 +1,94 @@
+{% assign section_settings = section.settings  %}
+{% assign blocks = section.blocks %}
+
+<section>
+{% if blocks %}
+  {% for block in blocks %}
+    {% assign block_settings = block.settings %}
+    {% assign first_gradient = block_settings.first_gradient %}
+    {% assign second_gradient = block_settings.second_gradient %}
+    {% assign link_id = block_settings.link_id %}
+    {% assign heading = block_settings.heading %}
+    {% assign subtext = block_settings.subtext %}
+    {% assign banner_image = block_settings.banner_image %}
+    {% assign text_content= block_settings.text_content%}
+    <div id="{{link_id}}" class="sustainability-block target">
+        <div class="sustainability-block-banner" style="background-image: linear-gradient(180deg, {{first_gradient}}, {{second_gradient}})">
+            <div class="sustainability-block-text center-flex sustainability-block-left">
+                <h2> {{heading}} </h2>
+                <p>{{subtext}}</p>
+            </div>
+           <img src="{{ banner_image | img_url: 'master' }}" />
+        </div>
+        <div class="sustainability-block-content">
+            <div class="sustainability-content-text">
+                {{text_content}}
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+{% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Text Content",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "sustainable_content",
+        "name": "Sustainable Content",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Section ID"
+          },
+          {
+              "type": "text",
+              "id": "link_id",
+              "label": "Section ID",
+              "placeholder": "Enter the same name as the nav link e.g: Philosophy for Philosophy nav in header. Capital sensitive"
+          },
+          {
+            "type": "header",
+            "content": "Gradient Background"
+          },
+          {
+            "type": "color",
+            "id": "first_gradient",
+            "label": "First gradient colour"
+          },
+          {
+            "type": "color",
+            "id": "second_gradient",
+            "label": "Second gradient colour"
+          },
+          {
+            "type": "header",
+            "content": "Content"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Header text"
+          },
+          {
+              "type": "textarea",
+              "id": "subtext",
+              "label": "Subtext"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+          },
+          {
+            "type": "textarea",
+            "id": "text_content",
+            "label": "Text Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
