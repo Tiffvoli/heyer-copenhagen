@@ -1,0 +1,79 @@
+{% assign section_settings = section.settings %}
+{% assign features_heading = section_settings.features_heading %}
+{% assign features_subtext = section_settings.features_subtext %}
+{% assign blocks = section.blocks %}
+
+<section class="features-block-wrapper center-flex">
+{% if features_heading != blank and features_subtext!= blank %}  
+    <h2> {{features_heading}} </h2>
+    <p> {{features_subtext}} </p>
+{% endif %}
+    <div class="features-grid">
+    {% if blocks %}
+        {% for block in blocks %}
+            {% assign block_settings = block.settings %}
+            {% assign features_image = block_settings.features_image %}
+            {% assign heading = block_settings.heading %}
+            {% assign content = block_settings.content %}
+            {% assign features_url = block_settings.features_url %}
+        <div class="features-grid-wrapper">
+            <a href="{{features_url}}">
+            <img src="{{ features_image | img_url: 'master' }}" />
+            <h3> {{heading}} </h3>
+            <p>{{content}}</p>
+            </a>
+        </div>
+    {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Features Block",
+    "settings": [
+        {
+                "type": "header",
+                "content": "Header"
+            },
+            {
+                "type": "text",
+                "id": "features_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "features_subtext",
+                "label": "Subtext"
+            }
+    ],
+    "blocks": [
+      {
+        "type": "sfeatures_block",
+        "name": "Features Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "features_image",
+            "label": "Image"
+          },
+          {
+              "type": "text",
+              "id": "heading",
+              "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Text content"
+          },
+          {
+              "type": "url",
+              "id": "features_url",
+              "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

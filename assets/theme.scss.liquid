@@ -2985,3 +2985,69 @@ input:checked ~ .tab-content {
     object-position: 50% 0%;
   }
 }
+//Flip block
+.flip-block-wrapper {
+  border-top: 0.2px solid #e3e3e3;
+}
+.block-flex {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  padding: 60px 0;
+  border-bottom: 0.2px solid #e3e3e3;
+}
+.block-img {
+  width: 50%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.block-text {
+  width: 50%;
+  height: 100%;
+  max-width: 540px;
+  align-self: center;
+
+  & h2 {
+    font-size: 3rem;
+    color: $color-darker-grey;
+  }
+  & p {
+    color: grey;
+    font-family: $font-body;
+  }
+  & a {
+    color: #808284;
+    text-decoration: underline;
+    font-size: 1.6rem;
+  }
+}
+.features-block-wrapper {
+  padding: 60px 0;
+
+  & h2 {
+    color: $color-darker-grey;
+    font-size: 3rem;
+  }
+  & p {
+    color: grey;
+    font-family: $font-body;
+  }
+}
+.features-grid {
+  display: grid;
+  width: 100%;
+  padding-top: 60px;
+  grid-column-gap: 40px;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: left;
+}
+.features-grid-wrapper {
+  & h3 {
+    padding: 15px 0 0;
+    font-weight: normal;
+    color: $color-darker-grey;
+    font-size: 2.2rem;
+  }
+}

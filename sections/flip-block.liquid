@@ -1,0 +1,172 @@
+{% assign section_settings = section.settings  %}
+{% assign block_image = section_settings.block_image %}
+{% assign block_subheading = section_settings.block_subheading %}
+{% assign block_title = section_settings.block_title %}
+{% assign block_p = section_settings.block_p %}
+{% assign block_link = section_settings.block_link %}
+{% assign link_title = section_settings.link_title %}
+{% assign block_image_2 = section_settings.block_image_2 %}
+{% assign block_subheading_2 = section_settings.block_subheading_2 %}
+{% assign block_title_2 = section_settings.block_title_2 %}
+{% assign block_p_2 = section_settings.block_p_2 %}
+{% assign block_link_2 = section_settings.block_link_2 %}
+{% assign link_title_2 = section_settings.link_title_2 %}
+{% assign block_image_3 = section_settings.block_image_3 %}
+{% assign block_subheading_3 = section_settings.block_subheading_3 %}
+{% assign block_title_3 = section_settings.block_title_3 %}
+{% assign block_p_3 = section_settings.block_p_3 %}
+{% assign block_link_3 = section_settings.block_link_3 %}
+{% assign link_title_3 = section_settings.link_title_3 %}
+
+<section class="flip-block-wrapper">
+{%comment%} Img Text Block {%endcomment%}
+    <div class="block-flex">
+        <img class="block-img" src="{{ block_image | img_url: 'master' }}"/>
+        <div class="block-text">
+            <p> {{block_subheading}} </p>
+            <h2> {{block_title}} </h2>
+            <p> {{block_p}} </p>
+            <a href="{{block_link}}">{{link_title}}</a>
+        </div>
+    </div>
+{%comment%} Text Img Block {%endcomment%}
+    <div class="block-flex">
+        <div class="block-text">
+            <p> {{block_subheading_2}} </p>
+            <h2> {{block_title_2}} </h2>
+            <p> {{block_p_2}} </p>
+            <a href="{{block_link_2}}">{{link_title_2}}</a>
+        </div>
+        <img class="block-img" src="{{ block_image_2 | img_url: 'master' }}"/>
+    </div>
+{%comment%} Img Text Block {%endcomment%}
+    <div class="block-flex">
+        <img class="block-img" src="{{ block_image_3 | img_url: 'master' }}"/>
+        <div class="block-text">
+            <p> {{block_subheading_3}} </p>
+            <h2> {{block_title_3}} </h2>
+            <p>{{block_p_3}}</p>
+            <a href="{{block_link_3}}">{{link_title_3}}</a>
+        </div>
+    </div>
+<section>
+
+{% schema %}
+    {
+        "name": "Flip Block",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Image Text Block"
+            },
+            {
+                "type": "image_picker",
+                "id": "block_image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "block_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "block_title",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "block_p",
+                "label": "Content"
+            },
+            {
+                "type": "url",
+                "id": "block_link",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "link_title",
+                "label": "Link title"
+            },
+            {
+                "type": "header",
+                "content": "Text Image Block"
+            },
+            {
+                "type": "text",
+                "id": "block_subheading_2",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "block_title_2",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "block_p_2",
+                "label": "Content"
+            },
+            {
+                "type": "url",
+                "id": "block_link_2",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "link_title_2",
+                "label": "Link title"
+            },
+            {
+                "type": "image_picker",
+                "id": "block_image_2",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Image Text Block"
+            },
+            {
+                "type": "image_picker",
+                "id": "block_image_3",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "block_subheading_3",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "block_title_3",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "block_p_3",
+                "label": "Content"
+            },
+            {
+                "type": "url",
+                "id": "block_link_3",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "link_title_3",
+                "label": "Link title"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "flip block",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
