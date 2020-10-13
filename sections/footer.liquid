@@ -1,1 +1,35 @@
-<footer id="footer" class="footer"></footer>
+<footer id="footer" class="footer">
+    <div class="footer-wrapper">
+        <div class="footer-wrapper-grid">
+            <div class="footer-div">
+                <a href=""><img class="b-corp" src="{{ 'b-corp.svg'| asset_url}}"/></a>
+                <a href=""><img class="footer-flag" src="{{ 'footer-flags.svg'| asset_url}}"/></a>
+            </div>
+            <div class="footer-a">
+               <h4>{{linklists.footer-company.title}}</h4>
+            {% for link in linklists.footer-company.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+            </div>
+            <div class="footer-a">
+               <h4>{{linklists.footer-discover.title}}</h4>
+            {% for link in linklists.footer-discover.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+            </div>
+            <div class="footer-a">
+               <h4>{{linklists.footer-connect.title}}</h4>
+            {% for link in linklists.footer-connect.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+            </div>
+            <div class="footer-a">
+                <div class="klaviyo-form-TZ78Pb"></div>
+                {% include 'social-media'%}
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar">
+       {% include 'footer-bar'%}
+    </div>
+</footer>
