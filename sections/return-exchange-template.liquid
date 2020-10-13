@@ -24,15 +24,15 @@
             <h2>{{options_heading}}</h2>
             <div class="returnExchange-options">
                 <div id="options">
-                    <button data-content="{{size_color_text}}">
+                    <button class="data-change" data-content="{{size_color_text}}">
                         <img src="{{'different-size-color.svg' | asset_url }}"/>
                         <p>{{size_color_header}}</p>
                     </button>
-                    <button data-content="{{product_text}}">
+                    <button class="data-change" data-content="{{product_text}}">
                         <img src="{{'different-product.svg' | asset_url }}"/>
                         <p>{{product_header}}</p>
                     </button>
-                    <button data-content="{{refund_text}}">
+                    <button class="data-change" data-content="{{refund_text}}">
                         <img src="{{'different-refund.svg' | asset_url }}"/>
                         <p>{{refund_header}}</p>
                     </button>
@@ -48,10 +48,11 @@
         </div>
     </div>
 </section>
+
 {% javascript %}
         
         $(document).ready(function () {    
-    $("button").click(function() {
+    $(".data-change").click(function() {
         var content = $(this).data('content');   
         $('.allowChange').html(content);
     });    
