@@ -1,0 +1,114 @@
+{% assign section_settings = section.settings  %}
+{% assign block_image = section_settings.block_image %}
+{% assign block_title = section_settings.block_title %}
+{% assign block_p = section_settings.block_p %}
+{% assign bg_colour = section_settings.bg_colour %}
+{% assign font_colour = section_settings.font_colour %}
+{% assign block_quote = section_settings.block_quote %}
+{% assign quote_image = section_settings.quote_image %}
+{% assign block_image_2 = section_settings.block_image_2 %}
+{% assign block_title_2 = section_settings.block_title_2 %}
+{% assign block_p_2 = section_settings.block_p_2 %}
+
+<section class="section">
+    <div class="block-flex-black">
+        <img class="block-img block-padding-right" src="{{ block_image | img_url: 'master' }}"/>
+        <div class="block-text-white block-padding-left">
+            <h2> {{block_title}} </h2>
+            <p> {{block_p}} </p>
+        </div>
+    </div>
+    <div class="block-quote" style="background-color: {{bg_colour}}">
+        <h2 style="color: {{font_colour}}">{{block_quote}}</h2>
+    </div>
+    <div class="quote-image" style="background-color: {{bg_colour}}">
+         <img src="{{ quote_image | img_url: 'master' }}"/>
+    </div>
+    <div class="block-flex-black">
+        <div class="block-text-white block-padding-right">
+            <h2> {{block_title_2}} </h2>
+            <p> {{block_p_2}} </p>
+        </div>
+        <img class="block-img block-padding-left" src="{{ block_image_2 | img_url: 'master' }}"/>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Design Content",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Image Text Block"
+            },
+            {
+                "type": "image_picker",
+                "id": "block_image",
+                "label": "Image"
+            },
+            {
+                "type": "textarea",
+                "id": "block_title",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "block_p",
+                "label": "Content"
+            },
+            {
+                "type": "header",
+                "content": "Block Quote"
+            },
+            {
+                "type": "color",
+                "id": "bg_colour",
+                "label": "Background Colour"
+            },
+            {
+                "type": "color",
+                "id": "font_colour",
+                "label": "Font Colour"
+            },
+            {
+                "type": "textarea",
+                "id": "block_quote",
+                "label": "Text Content"
+            },
+            {
+                "type": "image_picker",
+                "id": "quote_image",
+                "label": "Design Image"
+            },
+            {
+                "type": "header",
+                "content": "Text Image Block"
+            },
+            {
+                "type": "textarea",
+                "id": "block_title_2",
+                "label": "Heading"
+            },
+            {
+                "type": "textarea",
+                "id": "block_p_2",
+                "label": "Content"
+            },
+            {
+                "type": "image_picker",
+                "id": "block_image_2",
+                "label": "Image"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "flip block",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
