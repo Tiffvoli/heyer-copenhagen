@@ -1,10 +1,13 @@
 {% assign section_settings = section.settings  %}
 {% assign feed_title = section_settings.feed_title %}
 
+{% if product.metafields["global"]["feed-image-1"] != blank and product.metafields["global"]["feed-image-2"] != blank and product.metafields["global"]["feed-image-3"] != blank and product.metafields["global"]["feed-image-4"] != blank %}
 <div class="influencerFeed">
+{% if feed_title != blank %}
     <div class="influencerFeed-title product-text">
         <h2>{{feed_title}}</h2>
     </div>
+{% endif %}
     <div class="influencerFeed-img">
         <img src="{{ product.metafields["global"]["feed-image-1"] }}">
         <img src="{{ product.metafields["global"]["feed-image-2"] }}">
@@ -12,6 +15,7 @@
         <img src="{{ product.metafields["global"]["feed-image-4"] }}">
     </div>
 </div>
+{% endif %}
 
 {% schema %}
     {
