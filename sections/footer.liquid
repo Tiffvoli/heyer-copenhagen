@@ -3,7 +3,11 @@
         <div class="footer-wrapper-grid">
             <div class="footer-div">
                 <a href=""><img class="b-corp" src="{{ 'b-corp.svg'| asset_url}}"/></a>
-                <a href=""><img class="footer-flag" src="{{ 'footer-flags.svg'| asset_url}}"/></a>
+                <div class="someWrapper">
+                    <a class="footer-flag" href=""><img src="{{ 'us-flag-color.svg'| asset_url}}"/></a>
+                    <a class="footer-flag" href=""><img src="{{ 'uk-flag-color.svg'| asset_url}}"/></a>
+                    <a class="footer-flag" href=""><img src="{{ 'dk-flag-color.svg'| asset_url}}"/></a>
+                </div>
             </div>
             <div class="footer-a">
                <h4>{{linklists.footer-company.title}}</h4>
