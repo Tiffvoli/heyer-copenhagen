@@ -171,11 +171,10 @@
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
          <a href="/pages/faqs" class="header-faq">FAQ</a>
       {% if customer %}
-          
-           <a href="{{ routes.account_url }}" class="header-signup">{{ 'layout.customer.account' | t }}</a>
-        {% else %} 
-          
-          <a href="{{ routes.account_login_url }}" class="header-signup">Sign up</a>
+          <a class="header-signup" href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+          <a class="header-signup" href="{{ routes.account_login_url }}">{{ 'layout.customer.log_out' | t }}</a>
+        {% else %}
+          <a class="header-signup" href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
         {% endif %}
        
       <div class="js-cart-trigger menu-cart">

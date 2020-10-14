@@ -1,0 +1,41 @@
+{% assign section_setting = section.settings  %}
+{% assign title = section_setting.title %}
+{% assign subheading = section_setting.subheading %}
+
+<section class="signupForm center-flex">
+    <img src="{{'fit-sizing.svg' | asset_url}}"/>
+    <h2> {{title}} </h2>
+    <p> {{subheading}} </p>
+</section>
+
+{% schema %}
+    {
+        "name": "Sign Up Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title & Subtext"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "subheading",
+                "label": "Subtext"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "sign up form",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

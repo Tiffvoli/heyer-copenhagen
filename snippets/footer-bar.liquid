@@ -1,8 +1,7 @@
 <div class="footer-bar-left">
-      <a href=""> © 2020 HEYER. All Rights Reserved. </a>
-      <a href=""> Privacy Policy </a>
-      <a href=""> Terms & Conditions </a>
-      <a href=""> ESG Policy </a>
+      {% for link in linklists.footer-bar.links %}
+         <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
 </div>
 <div class="footer-bar-right">
       <a href=""> Questions? +45 26 22 52 06 </a>

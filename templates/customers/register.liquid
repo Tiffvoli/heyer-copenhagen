@@ -1,10 +1,6 @@
 <section class="page section">
   <div class="container">
-
-    <header class="page_header">
-      <h1 class="page_title">{{ 'customer.register.title' | t }}</h1>
-    </header>
-
+  {%section 'signup-banner'%}
     <div class="page_content">
 
       {% comment %} Register form {% endcomment %}
@@ -28,7 +24,7 @@
             id="{{ formId }}-FirstName"
             class="input input-dark"
             value=""
-            placeholder="{{ 'customer.register.first_name' | t }}"
+            placeholder="{{ 'customer.register.placeholder_first_name' | t }}"
           >
         </div>
 
@@ -39,7 +35,7 @@
             id="{{ formId }}-LastName"
             class="input input-dark"
             value=""
-            placeholder="{{ 'customer.register.last_name' | t  }}"
+            placeholder="{{ 'customer.register.placeholder_last_name' | t  }}"
           >
         </div>
 
@@ -51,7 +47,7 @@
             id="{{ formId }}-email" 
             class="input input-dark"
             value=""
-            placeholder="{{ 'customer.register.email' | t }}"
+            placeholder="{{ 'customer.register.placeholder_email' | t }}"
             autocorrect="off"
             autocapitalize="off"
             autocomplete="email"
@@ -68,7 +64,7 @@
             id="{{ formId }}-password"
             class="input input-dark"
             value=""
-            placeholder="{{ 'customer.register.password' | t }}"
+            placeholder="{{ 'customer.register.placeholder_password' | t }}"
             required
           >
         </div>
@@ -82,10 +78,11 @@
         </div>
 
         {% comment %} Form submit {% endcomment %}
-        <button class="button" type="submit">{{ 'customer.register.submit' | t }}</button>
+        <button class="button button-black" type="submit">{{ 'customer.register.submit' | t | upcase }}</button>
 
       {% endform %}
     
     </div>
+    {%include 'email-privacy'%}
   </div>
 </section>

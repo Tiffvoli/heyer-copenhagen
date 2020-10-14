@@ -260,7 +260,7 @@ button:hover {
   width: 100%;
 }
 .form-small {
-  max-width: 500px;
+  max-width: 350px;
   margin: 0 auto;
 }
 .contactForm {
@@ -315,10 +315,11 @@ button:hover {
 
 .label {
   text-align: left;
-  display: none;
   font-weight: normal;
   margin-bottom: 10px;
   font-family: $font-body;
+  color: #4c4c4b;
+  font-size: 1.4rem;
 }
 
 .input {
@@ -331,9 +332,9 @@ button:hover {
   outline: none;
   vertical-align: middle;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   min-width: 100px;
-  color: $color-black;
+  color: #4c4c4b;
 
   &:focus {
     border: 1px solid $color-black;
@@ -347,15 +348,16 @@ button:hover {
 .input[type="tel"],
 .input[type="password"],
 .input[type="text"] {
-  height: 60px;
+  height: 40px;
   line-height: 60px;
   -webkit-appearance: none;
 }
 
 .input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #333;
-  opacity: 1; /* Firefox */
+  color: grey;
+  opacity: 0.5; /* Firefox */
+  letter-spacing: 1px;
 }
 
 .input:-ms-input-placeholder {
@@ -370,7 +372,7 @@ button:hover {
 
 .input-textarea,
 textarea {
-  padding: 10px 20px;
+  padding: 10px;
   -webkit-appearance: none;
   resize: none;
 }
@@ -392,8 +394,8 @@ textarea {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 15px;
+    width: 15px;
     overflow: hidden;
     outline: none;
     display: flex;
@@ -402,7 +404,7 @@ textarea {
     -webkit-appearance: none;
 
     &:checked {
-      background-color: $color-black;
+      background-image: url("https://cdn.shopify.com/s/files/1/0274/8609/3447/files/close-icon_14.svg?v=1602686106");
       color: $color-white;
 
       &::after {
@@ -410,17 +412,15 @@ textarea {
         letter-spacing: 0;
         font-variant: initial;
         line-height: 1;
-        content: "accept";
-        // content: url({{ 'icon-checkmark-white.svg' | asset_url }});
       }
     }
   }
 
   label {
-    font-size: 1.8rem;
+    color: #4c4c4b;
     line-height: normal;
     text-align: left;
-    margin-left: 40px;
+    margin-left: 30px;
 
     &:hover {
       cursor: pointer;
@@ -471,7 +471,35 @@ textarea {
     }
   }
 }
+.signupForm {
+  max-width: 350px;
+  margin: 80px auto 20px;
+  text-align: center;
 
+  & img {
+    width: 45px;
+  }
+  & h2 {
+    color: #4c4c4b;
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+  & p {
+    font-family: $font-body;
+    color: grey;
+    font-size: 1.4rem;
+  }
+  & span {
+    color: #4c4c4b;
+  }
+  & a {
+    color: #4c4c4b;
+    text-decoration: underline;
+  }
+  & a:hover {
+    color: $color-black;
+  }
+}
 // Responsive table
 table {
   margin-bottom: 20px;
@@ -3253,6 +3281,60 @@ input:checked ~ .tab-content {
 }
 .quote-image {
   padding: 0 12% 8rem;
+}
+/*------------Plain page template-------------*/
+.plainText {
+  display: flex;
+  height: auto;
+  padding: 120px 3%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.plainText-wrapper {
+  max-width: 850px;
+  color: #4c4c4b;
+  font-size: 1.3rem;
+
+  & h1 {
+    color: #4c4c4b;
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+  & h3 {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 30px;
+  }
+  & h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  & p {
+    font-family: $font-body;
+    font-weight: normal;
+    line-height: 22px;
+  }
+  & a {
+    color: #4c4c4b;
+    text-decoration: underline;
+  }
+  & ul {
+    margin: 0 0 10px;
+    padding-left: 40px;
+  }
+  & li {
+    padding: 5px 0;
+    line-height: 22px;
+    font-size: 1.6rem;
+  }
 }
 //Klaviyo form styling
 .kl-private-quill-wrapper-Lkqws1.kl-private-quill-wrapper-Lkqws1.kl-private-quill-wrapper-Lkqws1
