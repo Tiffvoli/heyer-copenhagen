@@ -47,16 +47,7 @@
 {%comment%}Country Dropdown{%endcomment%}
 {%- assign global_img = section.settings.global_img -%}
 {%- assign country_selector = section.settings.country_selector -%}
-{%- assign flag_1= section.settings.flag_1-%}
-{%- assign country_1 = section.settings.country_1 -%}
-{%- assign flag_2 = section.settings.flag_2 -%}
-{%- assign country_2 = section.settings.country_2 -%}
-{%- assign flag_3 = section.settings.flag_3 -%}
-{%- assign country_3 = section.settings.country_3 -%}
-{%- assign flag_4 = section.settings.flag_4 -%}
-{%- assign country_4 = section.settings.country_4 -%}
-{%- assign flag_5 = section.settings.flag_5 -%}
-{%- assign country_5 = section.settings.country_5 -%}
+{% assign blocks = section.blocks %}
 
 <header id="site-nav" class="header">
   <div class="container">
@@ -155,14 +146,18 @@
        <div class="dropdown">
        <a class="dropbtn" href="#">
        <img class="country-flag-menu country-flag-menu-mobile" src="{{ global_img | img_url: 'master' }}" />
-        <p style="margin: 0; padding-top: 0.3rem;">{{country_selector}}</p>
+        <p style="margin: 0">{{country_selector}}</p>
        </a>
        <div class="dropdown-content-mobile">
-        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_1 | img_url: 'master' }}"><p>{{country_1}}</p></a>
-        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_2 | img_url: 'master' }}"><p>{{country_2}}</p></a>
-        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_3 | img_url: 'master' }}"><p>{{country_3}}</p></a>
-        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_4 | img_url: 'master' }}"><p>{{country_4}}</p></a>
-        <a href="#"><img class="country-flag country-flag-mobile" src="{{ flag_5 | img_url: 'master' }}"><p>{{country_5}}</p></a>
+      {% if blocks %}
+            {% for block in blocks %}
+              {% assign block_settings = block.settings %}
+              {% assign flag = block_settings.flag %}
+              {% assign country = block_settings.country %}
+              {% assign country_page = block_settings.country_page %}
+                <a href="{{country_page}}"><img class="country-flag country-flag-mobile" src="{{ flag | img_url: 'master' }}"><p>{{country}}</p></a>
+            {%endfor%}
+      {%endif%}
        </div>
        </div>
        </div>
@@ -443,56 +438,29 @@ menu.addEventListener('click', () => {
         "type": "text",
         "id": "country_selector",
         "label": "Country Name"
-      },
+      }
+    ],
+    "blocks": [
       {
-        "type": "image_picker",
-        "id": "flag_1",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_1",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_2",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_2",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_3",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_3",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_4",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_4",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_5",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_5",
-        "label": "Country Name"
+        "type": "country_selector",
+        "name": "Country Selector",
+        "settings": [
+          {
+              "type": "image_picker",
+              "id": "flag",
+              "label": "Country Flag"
+          },
+          {
+            "type": "text",
+            "id": "country",
+            "label": "Country Name"
+          },
+          {
+            "type": "url",
+            "id": "country_page",
+            "label": "Link"
+          }
+        ]
       }
     ]
   }

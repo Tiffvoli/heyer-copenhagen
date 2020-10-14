@@ -132,7 +132,6 @@ picture {
   max-width: 2000px;
   margin: 0 auto;
   width: 100%;
-  box-sizing: border-box;
   padding: 0 $container-padding-phone;
 
   @media (min-width: 768px) {
@@ -150,7 +149,6 @@ picture {
   position: relative;
   display: block;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .page {
@@ -196,7 +194,6 @@ picture {
   text-align: center;
   text-transform: capitalize;
   position: relative;
-  box-sizing: border-box;
   outline: none;
   -webkit-appearance: none;
   cursor: pointer;
@@ -336,7 +333,6 @@ button:hover {
   width: 100%;
   padding: 0 20px;
   min-width: 100px;
-  box-sizing: border-box;
   color: $color-black;
 
   &:focus {
@@ -351,7 +347,6 @@ button:hover {
 .input[type="tel"],
 .input[type="password"],
 .input[type="text"] {
-  box-sizing: border-box;
   height: 60px;
   line-height: 60px;
   -webkit-appearance: none;
@@ -375,7 +370,6 @@ button:hover {
 
 .input-textarea,
 textarea {
-  box-sizing: border-box;
   padding: 10px 20px;
   -webkit-appearance: none;
   resize: none;
@@ -521,7 +515,6 @@ tfoot th {
       padding: 5px 0;
       border: 0;
       margin: 0;
-      box-sizing: border-box;
     }
 
     th::before,
@@ -617,7 +610,6 @@ tfoot th {
   height: 100%;
   overflow-y: scroll;
   background-color: $color-white;
-  box-sizing: border-box;
   -ms-overflow-style: none;
   scrollbar-width: none;
   word-break: break-word;
@@ -668,7 +660,6 @@ tfoot th {
 }
 .header {
   width: 100%;
-  box-sizing: border-box;
   border-bottom: 2px solid rgba(76, 76, 75, 0.1);
   z-index: 999;
   background-color: $color-white;
@@ -761,7 +752,6 @@ tfoot th {
   border-top: 0.2px solid #e3e3e3;
   box-shadow: inset 0 -1px 2px 1px rgba(76, 76, 75, 0.1);
   padding: 0 3%;
-  box-sizing: border-box;
 }
 .Shop,
 .About {
@@ -788,11 +778,13 @@ tfoot th {
   object-fit: cover;
   object-position: 50% 0;
 }
+/*--- Dropdown menus 
 .Shop:hover .dropdown-content,
 .About:hover .dropdown-content-2 {
   display: flex;
   justify-content: space-between;
 }
+--*/
 .dropdown-content h2,
 .dropdown-content-2 h2 {
   padding-top: 2rem;
@@ -993,7 +985,6 @@ tfoot th {
 }
 //Dropdown country selector - mobile
 .country-selector-mobile {
-  box-sizing: border-box;
   margin: 10px 0 20px;
   position: relative;
 }
@@ -1001,12 +992,12 @@ tfoot th {
 .country-flag-mobile {
   margin: 0 !important;
   height: 20px !important;
-  margin-right: 0.5rem !important;
+  margin-right: 1rem !important;
   width: auto !important;
+  padding: 0 !important;
 }
 .dropdown {
   border: 0.2px solid #e3e3e3;
-  box-sizing: border-box;
   padding: 0 15px;
   width: 100%;
 }
@@ -1017,7 +1008,6 @@ tfoot th {
 }
 .country-selector .dropbtn span,
 .country-selector .dropdown-content-test span {
-  box-sizing: border-box;
   vertical-align: middle;
   padding-left: 8px;
   font-size: 12px;
@@ -1027,7 +1017,7 @@ tfoot th {
   border: 0.2px solid #e3e3e3;
   border-bottom: none;
   box-shadow: none;
-  bottom: 43px;
+  bottom: 40px;
   left: 0;
   top: initial;
 }
@@ -1049,9 +1039,12 @@ tfoot th {
 }
 .dropdown-content-mobile a {
   padding: 10px !important;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
 }
 .dropdown-content-mobile p {
-  padding-top: 0.3rem;
   margin: 0;
 }
 //Announcement Bar
@@ -1063,7 +1056,6 @@ tfoot th {
 }
 .footer-wrapper {
   padding: 180px 3% 150px;
-  border-top: 0.2px solid #e3e3e3;
 }
 .footer-wrapper-grid {
   display: grid;
@@ -1170,9 +1162,7 @@ tfoot th {
 // Product card
 .productCard {
   width: 100%;
-  box-sizing: border-box;
   padding: 0 0 15px 0;
-  //margin: 0 10px;
 }
 
 .productCard_images {
@@ -1322,7 +1312,6 @@ tfoot th {
 }
 .product_option {
   width: 100%;
-  box-sizing: border-box;
 }
 .product_options-single .product_option {
   max-width: 100%;
@@ -1421,13 +1410,11 @@ tfoot th {
 .returnDetails-left {
   width: 50%;
   border-right: 0.2px solid #e3e3e3;
-  box-sizing: border-box;
 }
 
 .returnDetails-right {
   width: 50%;
   margin-left: 20px;
-  box-sizing: border-box;
 }
 
 //Call/Chat support
@@ -2315,6 +2302,10 @@ tfoot th {
   object-fit: cover;
   object-position: 50% 0;
 }
+.sign-up {
+  position: sticky;
+  top: 10rem;
+}
 .articleWrapper p {
   font-family: $font-body;
   font-size: 1.8rem;
@@ -2492,7 +2483,6 @@ tfoot th {
   padding: 25px 0 20px 25px;
 }
 .shippingTable td img {
-  box-sizing: border-box;
   width: 26px;
   padding-right: 10px;
   height: 10px;
@@ -2529,7 +2519,6 @@ tfoot th {
 }
 .productSizing-middle img {
   height: 70%;
-  box-sizing: border-box;
   padding: 60px 100px;
 }
 .productSizing-right {
@@ -2617,7 +2606,6 @@ input:checked ~ .tab-content {
   color: $color-darker-grey;
   text-align: center;
   align-items: center;
-  box-sizing: border-box;
   background: transparent;
 
   &:hover {
@@ -2662,7 +2650,6 @@ input:checked ~ .tab-content {
   border-color: #e3e3e3;
   background-color: #f5f5f5;
   width: 100%;
-  box-sizing: border-box;
 
   & h2 {
     font-size: 3rem;
@@ -2679,7 +2666,6 @@ input:checked ~ .tab-content {
   position: sticky;
   top: 60px;
   width: 20%;
-  box-sizing: border-box;
   height: 94vh;
   padding: 60px 0 0;
   justify-content: space-around;
@@ -2691,12 +2677,10 @@ input:checked ~ .tab-content {
     font-family: $font-body;
     font-size: 2rem;
     padding: 0 0 0 4rem;
-    box-sizing: border-box;
   }
 }
 .faq-content-middle {
   width: 50%;
-  box-sizing: border-box;
   padding: 60px 60px 80px;
   border-bottom: 0.2px solid #e3e3e3;
   border-top: 0.2px solid #e3e3e3;
@@ -2710,7 +2694,6 @@ input:checked ~ .tab-content {
   }
 }
 .faq-content-right {
-  box-sizing: border-box;
   position: sticky;
   top: 60px;
   display: -webkit-box;
@@ -2952,8 +2935,6 @@ input:checked ~ .tab-content {
   grid-template-rows: auto auto;
 }
 .factories-block {
-  box-sizing: border-box;
-
   & img {
     height: 350px;
     object-fit: cover;
@@ -3012,7 +2993,6 @@ input:checked ~ .tab-content {
   padding: 3%;
   border: 0.2px solid #e3e3e3;
   display: block;
-  box-sizing: border-box;
 }
 .stats-div {
   width: 100%;
@@ -3086,15 +3066,7 @@ input:checked ~ .tab-content {
 }
 /*------------ About Us -------------*/
 .aboutWrapper {
-  background-color: #e3e3e3;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#e3e3e3),
-    to(#fff)
-  );
-  background-image: linear-gradient(180deg, #e3e3e3, #fff);
+  background-color: #f5f5f5;
 }
 .about-banner-subheading {
   font-size: 2.5rem;
@@ -3104,7 +3076,7 @@ input:checked ~ .tab-content {
   font-size: 3.2rem;
 }
 .content-wrapper {
-  padding-bottom: 60px;
+  padding: 0 12% 60px;
 }
 .content-text {
   padding: 120px 0 110px;
@@ -3144,8 +3116,7 @@ input:checked ~ .tab-content {
   display: flex;
   justify-content: space-between;
   align-self: center;
-  padding: 60px 0;
-  border-bottom: 0.2px solid #e3e3e3;
+  padding: 120px 12%;
 }
 .block-flex-black {
   display: flex;
@@ -3207,7 +3178,8 @@ input:checked ~ .tab-content {
   padding-right: 6rem;
 }
 .features-block-wrapper {
-  padding: 60px 0;
+  padding: 120px 12%;
+  background-color: $color-white;
 
   & h2 {
     color: $color-darker-grey;

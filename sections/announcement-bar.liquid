@@ -9,19 +9,25 @@
 {%- assign color_text_hover = section.settings.color_text_hover -%}
 {%- assign global_img = section.settings.global_img -%}
 {%- assign country_selector = section.settings.country_selector -%}
-{%- assign flag_1= section.settings.flag_1-%}
-{%- assign country_1 = section.settings.country_1 -%}
-{%- assign flag_2 = section.settings.flag_2 -%}
-{%- assign country_2 = section.settings.country_2 -%}
-{%- assign flag_3 = section.settings.flag_3 -%}
-{%- assign country_3 = section.settings.country_3 -%}
-{%- assign flag_4 = section.settings.flag_4 -%}
-{%- assign country_4 = section.settings.country_4 -%}
-{%- assign flag_5 = section.settings.flag_5 -%}
-{%- assign country_5 = section.settings.country_5 -%}
+{% assign blocks = section.blocks %}
 
   <div class="announcement-bar container"> 
   <div class="announcement__left">
+  <div class="country_dropbtn">
+          <img class="country-flag-menu" src="{{ global_img | img_url: 'master' }}" />
+          <p>{{country_selector}}</p>
+          <div class="country-dropdown-content">   
+          {% if blocks %}
+            {% for block in blocks %}
+              {% assign block_settings = block.settings %}
+              {% assign flag = block_settings.flag %}
+              {% assign country = block_settings.country %}
+              {% assign country_page = block_settings.country_page %}
+                <a href="{{country_page}}"><img class="country-flag" src="{{ flag | img_url: 'master' }}"><p> {{country}} </p></a>
+            {% endfor %}
+          {% endif %}
+          </div>
+    </div>
   </div>
   <div class="announcement__middle"> 
     <a href="{{message_link}}" class="announcement-bar--link">  
@@ -30,17 +36,6 @@
   </div>
   <div class="announcement__right">
   <a href="/pages/contact" class="announcement-bar--link"><p style="text-decoration: underline">Contact</p></a>
-  <div class="country_dropbtn">
-          <img class="country-flag-menu" src="{{ global_img | img_url: 'master' }}" />
-          <p>{{country_selector}}</p>
-          <div class="country-dropdown-content">   
-          <a href="#"><img class="country-flag" src="{{ flag_1 | img_url: 'master' }}"> {{country_1}} </a>
-          <a href="#"><img class="country-flag" src="{{ flag_2 | img_url: 'master' }}"> {{country_2}} </a>
-          <a href="#"><img class="country-flag" src="{{ flag_3 | img_url: 'master' }}"> {{country_3}} </a>
-          <a href="#"><img class="country-flag" src="{{ flag_4 | img_url: 'master' }}"> {{country_4}} </a>
-          <a href="#"><img class="country-flag" src="{{ flag_5 | img_url: 'master' }}"> {{country_5}} </a>
-        </div>
-        </div>
   </div>
 </div>
 
@@ -118,34 +113,43 @@
   background-color: #ffffff;
   z-index: 1;
   top:100%;
-  width: 15%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  left: 3%;
+  width: 220px;
 }
-.country-dropdown-content a{
-  display: block;
+.country-dropdown-content p{
+  color: black !important;
+  padding: 0.2rem 0 0 0 !important;
+}
+.country-dropdown-content a {
+  display: flex;
   color: black;
-  padding: 10px !important;
+  padding: 15px !important;
   text-align: left;
   vertical-align: middle;
   letter-spacing: 1px;
+  border-bottom: 0.2px solid #e3e3e3;
 }
 .country-dropdown-content a:hover{
   font-weight: bold;
-  background-color: #ddd;
+  background-color: #f5f5f5;
 }
 .country_dropbtn:hover .country-dropdown-content{
   display: block;
 }
 .country-flag-menu {
     width: auto;
-    height: 17px;
+    height: 100%;
+    max-height: 16px;
     padding-right: 0.5rem;
-    margin-top: 1.2rem;
+    margin-top: 1.4rem;
     object-fit: cover;
  }
  .country-flag{
-   width: 13%;
-   padding-right: 0.5rem;
+   width: auto;
+   height: 100%;
+   max-height: 16px;
+   object-fit: cover;
+   margin-right: 1.5rem;
  }
  @media (max-width: 768px) {
   .announcement__left,
@@ -227,59 +231,30 @@
         "type": "text",
         "id": "country_selector",
         "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_1",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_1",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_2",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_2",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_3",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_3",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_4",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_4",
-        "label": "Country Name"
-      },
-      {
-        "type": "image_picker",
-        "id": "flag_5",
-        "label": "Country Flag"
-      },
-         {
-        "type": "text",
-        "id": "country_5",
-        "label": "Country Name"
       }
     ],
      "blocks": [
-     ]
+      {
+        "type": "country_selector",
+        "name": "Country Selector",
+        "settings": [
+          {
+              "type": "image_picker",
+              "id": "flag",
+              "label": "Country Flag"
+          },
+          {
+            "type": "text",
+            "id": "country",
+            "label": "Country Name"
+          },
+          {
+            "type": "url",
+            "id": "country_page",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
   }
 {% endschema %}
