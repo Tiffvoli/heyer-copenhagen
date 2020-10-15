@@ -48,6 +48,7 @@
 
                     {% comment %} Product title {% endcomment %}
                     <a href="{{ item_url }}" class="cartItem_title">{{ item_product_title }}</a>
+                    {% include 'product-personalizer-helper' %}
 
                     {% comment %} Line item variants {% endcomment %}
                     {% if line_item.product.has_only_default_variant != true %}

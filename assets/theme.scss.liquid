@@ -234,6 +234,8 @@ button:hover {
 .button-transparent {
   color: $color-black;
   background: transparent;
+  margin: 20px 0;
+  width: 100%;
   border: 0.2px solid #e3e3e3;
 }
 .button-round {
@@ -272,6 +274,14 @@ button:hover {
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 30px;
+
+  & ul {
+    padding: 0;
+  }
+  & h3 {
+    font-family: $font-body;
+    font-weight: normal;
+  }
 }
 
 .formMessage_title {
@@ -1293,7 +1303,7 @@ tfoot th {
   display: flex;
   justify-content: space-between;
   padding: 0 0 30px;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   border-bottom: 0.2px solid #e3e3e3;
 }
 .productInfo-left,

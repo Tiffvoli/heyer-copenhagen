@@ -67,16 +67,17 @@
     {% else %}
       <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
     {% endif %}
-{%endform%}
+     <div class="product-info-desktop">{% include 'product-info' %}</div>
+     {% include 'product-personalizer' %}
 
-<div class="product-info-desktop">{% include 'product-info' %}</div>
-
-    <button type="submit" class="button button-grey button-cart">Personalise</button>
-  {% if product_available %}
+      {% if product_available %}
     <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button button-cart button-black">{{ 'products.product.add_to_cart' | t }}</button>
   {% else %}
     <input id="cta-add-to-cart" class="button button-cart button-black" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
   {% endif %}
+{%endform%}
+
+ 
 
 
 

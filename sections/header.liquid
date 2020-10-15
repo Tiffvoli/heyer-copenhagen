@@ -172,7 +172,7 @@
          <a href="/pages/faqs" class="header-faq">FAQ</a>
       {% if customer %}
           <a class="header-signup" href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
-          <a class="header-signup" href="{{ routes.account_login_url }}">{{ 'layout.customer.log_out' | t }}</a>
+          <a class="header-signup" href="{{ routes.account_logout_url }}">{{ 'layout.customer.log_out' | t }}</a>
         {% else %}
           <a class="header-signup" href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
         {% endif %}
