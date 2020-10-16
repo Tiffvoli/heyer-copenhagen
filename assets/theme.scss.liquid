@@ -223,6 +223,17 @@ button:hover {
     background: $color-black;
   }
 }
+.button-white {
+  color: $color-black;
+  background: $color-white;
+  text-align: center;
+  width: 100%;
+  border: none;
+
+  &:hover {
+    background: $color-black;
+  }
+}
 .button-grey {
   color: $color-white;
   background: #c3c3c3;
@@ -269,6 +280,11 @@ button:hover {
   border-top: 0.2px solid #e3e3e3;
   padding-top: 40px;
 }
+.contactForm-white {
+  border: none;
+  padding: 0;
+  text-align: left;
+}
 .formMessage {
   background-color: $color-white;
   border-radius: 20px;
@@ -301,6 +317,17 @@ button:hover {
 .formGroup {
   display: block;
   margin-bottom: 20px;
+}
+.formGroup-white {
+  margin-bottom: 20px;
+
+  & label {
+    color: white;
+  }
+  & input {
+    margin: 10px 0 0 0;
+    background-color: $color-white;
+  }
 }
 .formGroup-half {
   width: 100%;
@@ -504,6 +531,38 @@ textarea {
   }
   & a {
     color: #4c4c4b;
+    text-decoration: underline;
+  }
+  & a:hover {
+    color: $color-black;
+  }
+}
+.affiliateForm-wrapper {
+  padding: 120px 12%;
+}
+.affiliateForm {
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+
+  & img {
+    width: 45px;
+  }
+  & h2 {
+    color: $color-white;
+    font-size: 3rem;
+    margin: 20px 0;
+  }
+  & p {
+    font-family: $font-body;
+    color: $color-white;
+    font-size: 1.6rem;
+  }
+  & span {
+    color: $color-white;
+  }
+  & a {
+    color: $color-white;
     text-decoration: underline;
   }
   & a:hover {

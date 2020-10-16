@@ -1,0 +1,50 @@
+{% assign section_setting = section.settings  %}
+{% assign bg_colour = section_setting.bg_colour %}
+{% assign title = section_setting.title %}
+{% assign subheading = section_setting.subheading %}
+
+<section class="affiliateForm-wrapper" style="background-color: {{bg_colour}}">
+    <div class="affiliateForm center-flex"">
+        <h2> {{title}} </h2>
+        <p> {{subheading}} </p>
+
+          {% include 'affiliate-form'%}
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Affiliate Contact Form",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title & Subtext"
+            },
+            {
+                "type": "color",
+                "id": "bg_colour",
+                "label": "Background color"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "subheading",
+                "label": "Subtext"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "affiliate contact form",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

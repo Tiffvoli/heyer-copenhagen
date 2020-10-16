@@ -1,0 +1,42 @@
+{% assign section_settings = section.settings  %}
+{% assign text_heading = section_settings.text_heading %}
+{% assign image_banner = section_settings.image_banner %}
+
+<section class="designBanner">
+<img src="{{ image_banner| img_url: 'master' }}" />
+<div class="designBanner_overlay">
+    <h1>{{text_heading}}</h1>
+</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Image Hero Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Image Banner"
+            },
+            {
+                "type": "textarea",
+                "id": "text_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_banner",
+                "label": "Banner Image"
+            }
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "design banner",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}
