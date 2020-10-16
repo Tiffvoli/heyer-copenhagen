@@ -134,7 +134,7 @@
     </div>
     <div class="mobile_links" id="mobile_account">
      {% if customer %}
-          <a href="{{ routes.account_url }}"><p>{{ 'layout.customer.account' | t }}</p></a>
+          <a href="{{ routes.account_url }}"><p>{{ customer.first_name }}</p></a>
           <a href="{{ routes.account_login_url }}"><p>{{ 'layout.customer.log_out' | t }}</p></a>
         {% else %}
           <a href="{{ routes.account_register_url }}"><p>{{ 'layout.customer.create_account' | t }}</p></a>
@@ -171,7 +171,7 @@
       <nav class="nav" id="right_menu" role="navigation" style="display: flex">
          <a href="/pages/faqs" class="header-faq">FAQ</a>
       {% if customer %}
-          <a class="header-signup" href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+          <a class="header-signup" href="{{ routes.account_url }}">{{ customer.first_name }}</a>
           <a class="header-signup" href="{{ routes.account_logout_url }}">{{ 'layout.customer.log_out' | t }}</a>
         {% else %}
           <a class="header-signup" href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
@@ -189,8 +189,6 @@
 </header>
 
 <script>
-
-
 var menu = document.querySelector("#menuToggle input");
 var body = document.querySelector("body");
 
@@ -198,6 +196,20 @@ menu.addEventListener('click', () => {
   body.classList.toggle('overflow-hidden');
 });
 
+(function() {
+  let nav = document.querySelector('.Shop');
+  let navigationDropdowns = document.querySelector('.dropdown-content');
+  let navigationDropdownsCount = navigationDropdowns.length;
+  
+  for (i = 0; i < navigationDropdownsCount; i++) {
+    navDropdown = navigationDropdowns[i];
+    
+    nav.addEventListener('touchstart', function(event) {
+      event.preventDefault();
+      nav.toggle('navigation_dropdown-visible')
+    });
+  }
+})();
 </script>
 {% schema %}
   {

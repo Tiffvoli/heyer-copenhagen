@@ -781,6 +781,7 @@ tfoot th {
 .dropdown-content,
 .dropdown-content-2 {
   display: none;
+  justify-content: space-between;
   position: absolute;
   background-color: #ffffff;
   width: 100vw;
@@ -816,13 +817,15 @@ tfoot th {
   object-fit: cover;
   object-position: 50% 0;
 }
-/*--- Dropdown menus 
+.navigation_dropdown-visible {
+  display: flex;
+}
+
 .Shop:hover .dropdown-content,
 .About:hover .dropdown-content-2 {
   display: flex;
-  justify-content: space-between;
 }
---*/
+
 .dropdown-content h2,
 .dropdown-content-2 h2 {
   padding-top: 2rem;
