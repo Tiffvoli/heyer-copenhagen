@@ -436,3 +436,64 @@ h3 {
   -ms-grid-rows: auto auto;
   grid-template-rows: auto auto;
 }
+//Responsiveness
+@media (max-width: 768px) {
+  .heyerlife-blog-grid {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .culture-p-black {
+    margin: 0 15%;
+  }
+  .culture-signature {
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+  .cultureContent-img img {
+    height: 65vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .heyerlife-wrapper {
+    flex-direction: column;
+  }
+  .heyerlife-login-wrapper,
+  .heyerlife-logo-wrapper {
+    display: none;
+  }
+  .heyerlife-links-wrapper {
+    width: 100%;
+  }
+  .heyerlifeCulture-text,
+  .heyerlifeCulture-img,
+  .cultureContent-text,
+  .cultureContent-img {
+    width: 100%;
+    padding: 0;
+  }
+  .heyerlifeCulture-text a {
+    width: 100%;
+  }
+  .heyerlifeCulture-img img {
+    height: 60vh;
+  }
+  .heyerlife-blog-grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .culture-wrapper {
+    flex-direction: column;
+    padding: 0;
+  }
+  .cultureContent-text-right,
+  .cultureContent-text-left {
+    padding: 0;
+  }
+  .cultureContent-wrapper {
+    padding: 40px 0;
+  }
+  .cultureContent-text {
+    margin-top: 4rem;
+  }
+}
