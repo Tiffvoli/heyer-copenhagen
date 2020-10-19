@@ -222,13 +222,28 @@
   "contact": {
     "form": {
       "name": "Full Name",
+      "name_placeholder": "Enter your full name",
       "email": "Email",
+      "email_placeholder": "Enter your email",
       "email_affiliate": "Site",
+      "affiliate_placeholder": "Affiliate.com",
       "phone": "Phone Number",
       "message": "Message",
       "submit": "SUBMIT",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-      "error_heading": "Please adjust the following:"
+      "error_heading": "Please adjust the following:",
+      "contact_title": "Contact Information",
+      "company": "Company",
+      "company_placeholder": "Enter your company name",
+      "order_title": "Order Information",
+      "quantity": "Quantity",
+      "quantity_placeholder": "Requested quantity",
+      "product": "Products of interest",
+      "product_placeholder": "E.g. The Weekend bags",
+      "occasion": "Occasion",
+      "occasion_placeholder": "E.g. Gift or Marketing",
+      "delivery_date": "Desired delivery",
+      "interested_personalisation_text_html": "Are you interested in personalisation?"
     }
   },
   "customer": {

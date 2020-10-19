@@ -1,0 +1,74 @@
+<section id="page-contact" class="section">
+    <div class="page_content">
+
+      <div class="contact_content">
+        <div class="contact_col">{{ content }}</div>
+        <div class="contact_col">
+          
+          {%- form 'contact', class: 'contactForm-white' -%}
+            {%- if form.errors -%}  
+            <ul class="contactForm_errors">
+              {%- for field in form.errors -%}
+              <li>{{ field | replace: 'body', 'Message' | capitalize }} - {{ form.errors.messages[field] }}</li>
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+
+            {%- if form.posted_successfully? -%}
+            <div class="contactForm_success">{{ 'customer.contact.post_success' | t }}</div>
+            {%- endif -%}
+
+            <h3>{{'contact.form.contact_title'| t}}</h3>
+
+            <div class="formGroup">
+              <label class="label" for="contact_name">{{ 'contact.form.name' | t }}</label>
+              <input type="text" class="input input-dark" id="contact_name" name="contact[name]" placeholder="{{ 'contact.form.name_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="contact_email">{{ 'contact.form.email' | t }}</label>
+              <input type="email" class="input input-dark" id="contact_email" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="company_name">{{ 'contact.form.company' | t }}</label>
+              <input type="text" class="input input-dark" id="company_name" name="contact[body]" placeholder="{{ 'contact.form.company_placeholder' | t }}" required/>
+            </div>
+
+             <h3>{{'contact.form.order_title'| t}}</h3>
+
+            <div class="formGroup">
+              <label class="label" for="quantity">{{ 'contact.form.quantity' | t }}</label>
+              <input type="number" class="input input-dark" id="quantity" name="contact[body]" placeholder="{{ 'contact.form.quantity_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="product">{{ 'contact.form.product' | t }}</label>
+              <input type="text" class="input input-dark" id="product" name="contact[body]" placeholder="{{ 'contact.form.product_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="occasion">{{ 'contact.form.occasion' | t }}</label>
+              <input type="text" class="input input-dark" id="occasion" name="contact[body]" placeholder="{{ 'contact.form.occasion_placeholder' | t }}" required/>
+            </div>
+
+            <div class="formGroup">
+              <label class="label" for="deliverydate">{{ 'contact.form.delivery_date' | t }}</label>
+              <input type="date" class="input input-dark" id="deliverydate" name="contact[body]" placeholder="{{ 'contact.form.delivery_placeholder' | t }}" required/>
+            </div>
+            
+            <div class="formGroup">
+              <div class="checkbox">
+                <input id="{{ formId }}-InterestedPersonalisation" name="customer[accepts_personalisation]" type="checkbox" value="true">
+                <label class="checkbox_text" for="{{ formId }}-InterestedPersonalisation">{{ 'contact.form.interested_personalisation_text_html' | t }}</p>
+              </div>
+            </div>
+
+            <input class="button button-black" type="submit" value="{{ 'contact.form.submit' | t }}" />
+          {%- endform -%}
+
+        </div>
+      </div>
+
+    </div>
+</section>
