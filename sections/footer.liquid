@@ -9,24 +9,55 @@
                     <a class="footer-flag" href=""><img src="{{ 'dk-flag-color.svg'| asset_url}}"/></a>
                 </div>
             </div>
-            <div class="footer-a">
+            <div class="footer-a footer-links-desktop">
                <h4>{{linklists.footer-company.title}}</h4>
             {% for link in linklists.footer-company.links %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
             {% endfor %}
             </div>
-            <div class="footer-a">
+            <div class="footer-a footer-links-desktop">
                <h4>{{linklists.footer-discover.title}}</h4>
             {% for link in linklists.footer-discover.links %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
             {% endfor %}
             </div>
-            <div class="footer-a">
+            <div class="footer-a footer-links-desktop">
                <h4>{{linklists.footer-connect.title}}</h4>
             {% for link in linklists.footer-connect.links %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
             {% endfor %}
             </div>
+            {%comment%} Mobile Footer {%endcomment%}
+            <div class="tabs">
+                <div class="tab footer-a">
+                    <input class="accordion-input" type="checkbox" id="{{linklists.footer-company.title | handleize}}">
+                    <label class="tab-label" for="{{linklists.footer-company.title | handleize}}"><h4>{{linklists.footer-company.title}}</h4></label>
+                    <div class="tab-content flex-column">
+                        {% for link in linklists.footer-company.links %}
+                             <a href="{{ link.url }}">{{ link.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tab footer-a">
+                    <input class="accordion-input" type="checkbox" id="{{linklists.footer-discover.title | handleize}}">
+                    <label class="tab-label" for="{{linklists.footer-discover.title | handleize}}"><h4>{{linklists.footer-discover.title}}</h4></label>
+                    <div class="tab-content flex-column">
+                        {% for link in linklists.footer-discover.links %}
+                             <a href="{{ link.url }}">{{ link.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tab footer-a">
+                    <input class="accordion-input" type="checkbox" id="{{linklists.footer-connect.title | handleize}}">
+                    <label class="tab-label" for="{{linklists.footer-connect.title | handleize}}"><h4>{{linklists.footer-connect.title}}</h4></label>
+                    <div class="tab-content flex-column">
+                        {% for link in linklists.footer-connect.links %}
+                             <a href="{{ link.url }}">{{ link.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {%comment%} End Mobile Footer {%endcomment%}
             <div class="footer-a">
                 <div class="klaviyo-form-TZ78Pb"></div>
                 {% include 'social-media'%}

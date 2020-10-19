@@ -73,6 +73,10 @@ body.locked {
   align-items: center;
   text-align: center;
 }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 // Typography
 h1,
 h2,
@@ -1293,6 +1297,33 @@ tfoot th {
   & img:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+  }
+}
+@media (max-width: 768px) {
+  .footer-wrapper {
+    padding: 55px 3%;
+  }
+  .footer-wrapper-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-links-desktop {
+    display: none;
+  }
+  .footer-a {
+    & h4 {
+      margin: 0;
+    }
+    & a {
+      margin: 5px 0;
+    }
+  }
+  .footer-bar-right {
+    display: none;
+  }
+  .footer-div {
+    flex-direction: row;
+    margin-bottom: 5px;
   }
 }
 // Breadcrumb
@@ -2708,14 +2739,14 @@ tfoot th {
   -webkit-box-pack: justify;
   justify-content: space-between;
   padding: 1.1em 0 1em;
-  background: white;
+  background: transparent;
   cursor: pointer;
 }
 .tab-content {
   max-height: 0;
   padding: 0;
   color: black;
-  background: white;
+  background: transparent;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
