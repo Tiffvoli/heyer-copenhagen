@@ -10,6 +10,8 @@
 {% assign file_extension = 'png' %}
 {% assign product_url = collection.url | append: '/products/' %}
 
+
+
 {% form "product", product, class: 'product_form', id: 'product-form', data-productid: product.id %}
 
     {% comment %} Show variant options as separate select boxes {% endcomment %}
@@ -70,12 +72,13 @@
      <div class="product-info-desktop">{% include 'product-info' %}</div>
      {% include 'product-personalizer' %}
 
-      {% if product_available %}
-    <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button button-cart button-black">{{ 'products.product.add_to_cart' | t }}</button>
-  {% else %}
-    <input id="cta-add-to-cart" class="button button-cart button-black" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
-  {% endif %}
-{%endform%}
+   {% if product_available %}
+      <button class="productForm-submit js-productForm-submit button-cart {% if settings.enable_payment_button %}add-to-cart-btn-style{% endif %} button button-black" data-ajax="{{ settings.enable_ajax_cart }}" type="submit" data-handle="{{product.handle}}">{{ 'products.product.add_to_cart' | t }}</button>
+    {%else%}
+      <button class="productForm-submit js-productForm-submit button-cart button button-black" data-ajax="{{ settings.enable_ajax_cart }}" type="submit" data-handle="{{product.handle}}" disabled>{{ 'products.product.sold_out' | t }}</button>
+    {%endif%}
+
+  {%endform%}
 
  
 

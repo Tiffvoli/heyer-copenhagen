@@ -25,12 +25,12 @@
 
             <div class="formGroup-white">
               <label class="label" for="contact_email">{{ 'contact.form.email' | t }}</label>
-              <input type="email" class="input input-dark" id="contact_email" name="contact[email]" placeholder="{{ 'contact.form.email_placeholder' | t }}" required/>
+              <input type="email" class="input input-dark" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="contact_email" name="contact[email]" placeholder="{{ 'contact.form.email_placeholder' | t }}" required/>
             </div>
 
             <div class="formGroup-white">
-              <label class="label" for="contact_email">{{ 'contact.form.email_affiliate' | t }}</label>
-              <input type="email" class="input input-dark" id="message" name="contact[body]" placeholder="{{ 'contact.form.affiliate_placeholder' | t }}" required/>
+              <label class="label" for="affiliate_email">{{ 'contact.form.email_affiliate' | t }}</label>
+              <input type="email" class="input input-dark" id="affiliate_email" name="contact[body]" placeholder="{{ 'contact.form.affiliate_placeholder' | t }}" required/>
             </div>
 
             <input class="button button-white" type="submit" value="{{ 'contact.form.submit' | t }}" />

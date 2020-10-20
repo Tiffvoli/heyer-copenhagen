@@ -1466,7 +1466,7 @@ tfoot th {
 .productInfo {
   display: flex;
   justify-content: space-between;
-  padding: 0 0 30px;
+  padding: 30px 0;
   margin: 0 0 15px;
   border-bottom: 0.2px solid #e3e3e3;
 }
@@ -1506,7 +1506,7 @@ tfoot th {
 .product_form {
 }
 .product_options {
-  margin: 0 0 20px;
+  margin: 0;
   padding: 20px 0;
   display: block;
   width: 100%;
@@ -1673,7 +1673,7 @@ tfoot th {
 //Sustainable Index
 .sustainableIndex {
   padding: 60px 0;
-  border-bottom: 0.2px solid #e3e3e3;
+  //border-bottom: 0.2px solid #e3e3e3;
 }
 .sustainableIndex-wrapper {
   display: grid;
@@ -1751,7 +1751,8 @@ tfoot th {
 .twoLayout {
   width: 100%;
   height: 90vh;
-  margin: 60px 0;
+  //margin: 60px 0;
+  margin: 0 0 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -1771,8 +1772,8 @@ tfoot th {
   width: 100%;
   //height: 90vh;
   padding: 60px 0;
-  border-bottom: 0.2px solid #e3e3e3;
-  border-top: 0.2px solid #e3e3e3;
+  //border-bottom: 0.2px solid #e3e3e3;
+  //border-top: 0.2px solid #e3e3e3;
 }
 .product-text h2 {
   width: 50%;
@@ -3103,6 +3104,34 @@ input:checked ~ .tab-content {
   & a {
     color: grey;
     text-decoration: underline;
+  }
+}
+.ustainability-links-mobile {
+  display: none;
+}
+@media (max-width: 480px) {
+  .sustainability-block-banner {
+    flex-direction: column;
+  }
+  .sustainability-block-text,
+  .sustainability-block-banner img {
+    width: 100%;
+  }
+  .sustainability-block-banner img {
+    height: 65vh;
+  }
+  .sustainability-block-left,
+  .sustainability-block-right {
+    padding: 0;
+  }
+  .sustainability-block-content {
+    padding: 12rem 12% 0;
+  }
+  .sustainability-links-desktop {
+    display: none;
+  }
+  .sustainability-links-mobile {
+    display: flex;
   }
 }
 //Read more page template
