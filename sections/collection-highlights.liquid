@@ -18,14 +18,13 @@
        <a class="button" href="{{collection_button}}"> {{collection_button_text}} </a>
     {% endif %}
     </div>
-       <img src="{{ collection_image | img_url: 'master' }}" />
+       <img src="{{ collection_image | img_url: 'master' }}" class="lazy" />
    
 </div>
     {% endfor %}
     {% endif %}
 </div>
 </section>
-
 
 
 {% schema %}

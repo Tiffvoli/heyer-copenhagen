@@ -73,9 +73,9 @@
      {% include 'product-personalizer' %}
 
    {% if product_available %}
-      <button class="productForm-submit js-productForm-submit button-cart {% if settings.enable_payment_button %}add-to-cart-btn-style{% endif %} button button-black" data-ajax="{{ settings.enable_ajax_cart }}" type="submit" data-handle="{{product.handle}}">{{ 'products.product.add_to_cart' | t }}</button>
+      <button  id="cta-add-to-cart" class="button-cart add-to-cart button button-black"  type="submit">{{ 'products.product.add_to_cart' | t }}</button>
     {%else%}
-      <button class="productForm-submit js-productForm-submit button-cart button button-black" data-ajax="{{ settings.enable_ajax_cart }}" type="submit" data-handle="{{product.handle}}" disabled>{{ 'products.product.sold_out' | t }}</button>
+      <button  id="cta-add-to-cart" class="button-cart button button-black"  type="submit"  disabled>{{ 'products.product.sold_out' | t }}</button>
     {%endif%}
 
   {%endform%}
