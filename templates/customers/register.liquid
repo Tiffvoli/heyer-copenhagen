@@ -81,7 +81,7 @@
         {% comment %} Form submit {% endcomment %}
         <button class="button button-black" type="submit">{{ 'customer.register.submit' | t | upcase }}</button>
         
-        <a class="button button-transparent" href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+        <a class="button button-transparent" href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t | upcase}}</a>
       {% endform %}
     
     </div>

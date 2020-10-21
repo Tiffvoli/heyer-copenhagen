@@ -93,8 +93,8 @@
   padding-bottom: 30px;
 }
 .productHighlights h1 {
-  color: #808284;
-  font-size: 2rem;
+  color: #4c4c4b;
+  font-size: 3rem;
   letter-spacing: 1px;
   padding: 10px 0;
 }
@@ -119,9 +119,10 @@
 .highlight__highlights p,
 .swiper-container h2,
 .swiper-container p {
-  color: #808284;
+  color: #4c4c4b;
   font-size: 1.5rem;
   letter-spacing: 1px;
+  margin: 0;
 }
 /* Mobile Version */
 .swiper-container {
@@ -173,6 +174,10 @@
   .swiper-container p {
     padding: 0px;
   }
+  .productHighlights{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 {% endstylesheet %}
@@ -180,7 +185,7 @@
 {% javascript %}
    var swiper = new Swiper(".swiper-container", {
         slidesPerView: "auto",
-        spaceBetween: 10,
+        spaceBetween: 15,
         grabCursor: true,
         scrollbar: {
           el: ".swiper-scrollbar",

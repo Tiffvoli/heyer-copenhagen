@@ -326,6 +326,7 @@
     },
     "recover_password": {
       "title": "Reset your password",
+      "email_placeholder": "Enter your email here",
       "email": "Email",
       "submit": "Submit",
       "cancel": "Cancel",
@@ -334,6 +335,10 @@
     },
     "reset_password": {
       "title": "Reset account password",
+      "password": "Password",
+      "password_placeholder": "Enter your new password",
+      "password_confirmation": "Password Confirmation",
+      "password_confirmation_placeholder": "Enter your password again",
       "subtext": "Enter a new password for {{ email }}",
       "password": "Password",
       "password_confirm": "Confirm Password",

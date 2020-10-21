@@ -1,13 +1,10 @@
 <section class="page section">
   <div class="container">
-
+      {%section 'signin-banner'%}
     <div id="CustomerLoginForm" class="">
-      <header class="page_header">
-        <h1 class="page_title">{{ 'customer.login.title' | t }}</h1>
-      </header>
 
       {% comment %} Customer login form {% endcomment %}
-      {% form 'customer_login', class: 'form form-small' %}
+      {% form 'customer_login', class: 'form form-small form-margin' %}
 
         {% comment %} Form errors {% endcomment %}
         {%- if form.errors -%}
@@ -53,14 +50,14 @@
         </div>
 
         {% comment %} Form submit {% endcomment %}
-        <button class="button" type="submit">{{ 'customer.login.sign_in' | t }}</button>
+        <button class="button button-black" type="submit">{{ 'customer.login.sign_in' | t | upcase}}</button>
       {% endform %}
     </div>
 
     <div id="RecoverPasswordForm" class="hidden">
-      <header class="page_header" style="margin-bottom: 65px;">
-        <h1 class="page_title">{{ 'customer.recover_password.title' | t }}</h1>
-        <h2 class="pageHero_description pageHero_description-center">{{ 'customer.recover_password.subtext' | t }}</h2>
+      <header class="page_header" style="margin: 0 auto 30px; max-width: 350px">
+        <h2 class="password-title">{{ 'customer.recover_password.title' | t }}</h2>
+        <p class="password-description">{{ 'customer.recover_password.subtext' | t }}</p>
       </header>
 
       {% form 'recover_customer_password', class: 'form form-small' %}
@@ -86,10 +83,10 @@
         </div>
 
         {% comment %} Form submit {% endcomment %}
-        <button class="button" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+        <button class="button button-black" type="submit">{{ 'customer.recover_password.submit' | t | upcase}}</button>
 
         {% comment %} Cancel recover password {% endcomment %}
-        <a id="hideRecoverPassword" class="link" href="#" style="display: block; margin-top: 20px;">{{ 'customer.recover_password.cancel' | t }}</a>
+        <a id="hideRecoverPassword" class="link" href="#" style="display: block; margin: 20px 0 80px; color: #4c4c4b">{{ 'customer.recover_password.cancel' | t }}</a>
       {% endform %}
     </div>
 
