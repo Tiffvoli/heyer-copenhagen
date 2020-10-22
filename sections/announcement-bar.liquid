@@ -3,6 +3,8 @@
 {%- assign announcement_message = section.settings.message_text -%}
 {%- assign message_link = section.settings.message_link -%}
 {%- assign message_text = section.settings.message_text -%}
+{%- assign right_text = section.settings.right_text -%}
+{%- assign right_link = section.settings.right_link -%}
 {%- assign header_padding = section.settings.header_padding -%}
 {%- assign color_bg = section.settings.color_bg -%}
 {%- assign color_text = section.settings.color_text -%}
@@ -35,7 +37,7 @@
     </a>
   </div>
   <div class="announcement__right">
-  <a href="/pages/contact" class="announcement-bar--link"><p style="text-decoration: underline">Contact</p></a>
+  <a {%if right_link != blank%} href="{{right_link}}" {%endif%} class="announcement-bar--link"><p style="text-decoration: underline">{{right_text}}</p></a>
   </div>
 </div>
 
@@ -196,7 +198,19 @@
         "label": "Link",
         "info": "Optional"
       },
-    {
+      {
+        "type": "text",
+        "id": "right_text",
+        "label": "Right text",
+        "default": "Add something here"
+      },
+      {
+        "type": "url",
+        "id": "right_link",
+        "label": "Link",
+        "info": "Optional"
+      },
+      {
         "type": "header",
         "content": "Fonts and colors"
       },

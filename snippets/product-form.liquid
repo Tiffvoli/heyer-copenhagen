@@ -26,9 +26,9 @@
  {% if option_name == 'Color' %}
           {% comment %} Active state and styles are still to be declared {% endcomment %}
 <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
-          <div class="product_colour{% if variant_sku == selected_variant.sku %} product_colour-active{% endif %}">
+          <div class="product_colour">
           {%- for value in option_values -%}
-            <a title="{{ value | escape | downcase }}" class="colourSwatch_dot" href="{{product_url}}{{value}}" style="background-image: url({{ value | escape | downcase | append: '.' | append: file_extension | asset_url }})">{{}}</a>
+            <a title="{{ value | escape | downcase }}" class="colourSwatch_dot {% if product.handle == value %}product_colour-active{% endif %} lazy" href="{{product_url}}{{value}}" style="background-image: url({{ value | escape | downcase | append: '.' | append: file_extension | asset_url }})">{{}}</a>
              {%- endfor -%}
           </div>
 
@@ -73,7 +73,7 @@
      {% include 'product-personalizer' %}
 
    {% if product_available %}
-      <button  id="cta-add-to-cart" class="button-cart add-to-cart button button-black"  type="submit">{{ 'products.product.add_to_cart' | t }}</button>
+      <button  id="cta-add-to-cart" class="js-cart-add-to-cart button-cart add-to-cart button button-black"  type="submit">{{ 'products.product.add_to_cart' | t }}</button>
     {%else%}
       <button  id="cta-add-to-cart" class="button-cart button button-black"  type="submit"  disabled>{{ 'products.product.sold_out' | t }}</button>
     {%endif%}
