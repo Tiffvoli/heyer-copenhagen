@@ -6,13 +6,13 @@
 {% assign culture_img = section_settings.culture_img%}
 
 <section class="container heyerlifeCulture">
-<div class="heyerlife-wrapper reverse-column-mobile">
+<div class="heyerlife-wrapper">
     <div class="heyerlifeCulture-text">
         <p>Culture</p>
         <h3>{{culture_heading}}</h3>
         <p>{{culture_text}}</p>
         {% if culture_button != blank and culture_button_url != blank %}  
-            <a class="button button-transparent" style="border-color: #333" href="{{culture_button_url}}">{{culture_button}}</a>
+            <a class="button button-transparent" style="border-color: #333; width: auto" href="{{culture_button_url}}">{{culture_button}}</a>
         {% endif %}
     </div>
     <div class="heyerlifeCulture-img">

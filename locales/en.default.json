@@ -420,7 +420,16 @@
       "features": "Features",
       "materials": "Materials",
       "sizing": "Sizing",
-      "personalisation": "Personalisation"
+      "personalisation": "Personalisation",
+      "free_shipping": "Free Shipping",
+      "trial": "14 days trial",
+      "returns": "Easy returns",
+      "service": "Personal service",
+      "shipping_region": "Region",
+      "shipping_country": "Country",
+      "shipping_delivery_method": "Delivery Method",
+      "shipping_price": "Price",
+      "shipping_delivery_time": "Delivery Time"
     }
   },
   "gift_cards": {

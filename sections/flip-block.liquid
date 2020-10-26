@@ -20,7 +20,7 @@
 
 <section class="flip-block-wrapper">
 {%comment%} Img Text Block {%endcomment%}
-    <div class="block-flex-black">
+    <div class="block-flex-black reverse-column-ipad">
         <img class="block-img block-padding-right lazy" data-src="{{ block_image | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
             <p> {{block_subheading}} </p>
@@ -30,7 +30,7 @@
         </div>
     </div>
 {%comment%} Text Img Block {%endcomment%}
-    <div class="block-flex reverse-column-ipad">
+    <div class="block-flex">
         <div class="block-text block-padding-right">
             <p> {{block_subheading_2}} </p>
             <h2> {{block_title_2}} </h2>
@@ -40,7 +40,7 @@
         <img class="block-img block-padding-left lazy" data-src="{{ block_image_2 | img_url: 'master' }}"/>
     </div>
 {%comment%} Img Text Block {%endcomment%}
-    <div class="block-flex-black">
+    <div class="block-flex-black reverse-column-ipad">
         <img class="block-img block-padding-right lazy" data-src="{{ block_image_3 | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
             <p> {{block_subheading_3}} </p>

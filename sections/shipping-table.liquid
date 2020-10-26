@@ -3,11 +3,11 @@
 <section class="container">
  <table class="shippingTable">
         <tr>
-            <th>Region</th>
-            <th>Country</th> 
-            <th>Delivery Method</th>
-            <th>Price</th>
-            <th>Delivery Time</th> 
+            <th>{{ 'products.product.shipping_region' | t }}</th>
+            <th>{{ 'products.product.shipping_country' | t }}</th> 
+            <th>{{ 'products.product.shipping_delivery_method' | t }}</th>
+            <th>{{ 'products.product.shipping_price' | t }}</th>
+            <th>{{ 'products.product.shipping_delivery_time' | t }}</th> 
         </tr> 
 {% if blocks %}
   {% for block in blocks %}

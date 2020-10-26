@@ -181,6 +181,12 @@ h3 {
   margin: 0 0 20px;
   font-weight: normal;
   color: #e3e3e3;
+
+  @media (max-width: 480px) {
+    padding: 0 10%;
+    font-size: 4rem;
+    line-height: 45px;
+  }
 }
 //Heyerlife frontapge culture
 .heyerlifeCulture {
@@ -443,11 +449,12 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
   .culture-p-black {
-    margin: 0 15%;
+    margin: 0 8%;
+    text-align: left;
   }
   .culture-signature {
-    padding-right: 15%;
-    padding-left: 15%;
+    padding-right: 8%;
+    padding-left: 8%;
   }
   .cultureContent-img img {
     height: 65vh;
@@ -465,12 +472,18 @@ h3 {
   .heyerlife-links-wrapper {
     width: 100%;
   }
-  .heyerlifeCulture-text,
+  .heyerlifeCulture-text {
+    width: 100%;
+    padding: 25% 0 12%;
+  }
   .heyerlifeCulture-img,
   .cultureContent-text,
   .cultureContent-img {
     width: 100%;
     padding: 0;
+  }
+  .cultureContent-img img {
+    padding: 0 8%;
   }
   .heyerlifeCulture-text a {
     width: 100%;
@@ -495,5 +508,10 @@ h3 {
   }
   .cultureContent-text {
     margin-top: 4rem;
+    padding: 0 8% 25%;
+
+    & h3 {
+      font-size: 2.4rem;
+    }
   }
 }
