@@ -10,7 +10,7 @@
 <section class="flip-block-wrapper" style="border-top: none">
 {%comment%} Img Text Block {%endcomment%}
     <div class="block-flex-black" style="background-color: {{bg_colour}}">
-        <img class="block-img block-padding-right" src="{{ block_image | img_url: 'master' }}"/>
+        <img class="block-img block-padding-right lazy" data-src="{{ block_image | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
         {% if block_subheading != blank %}
             <p> {{block_subheading}} </p>

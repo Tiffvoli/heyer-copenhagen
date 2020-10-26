@@ -8,7 +8,7 @@
   </div>
   <div class="articleBanner-right">
     {%- if article.image -%}
-    <img src="{{ article.image | img_url: 'master' }}" alt="">
+    <img data-src="{{ article.image | img_url: 'master' }}" alt="" class="lazy">
     {%- endif -%} 
   </div>
 </div>

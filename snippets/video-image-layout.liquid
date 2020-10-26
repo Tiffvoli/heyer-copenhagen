@@ -1,9 +1,9 @@
 {% if product.metafields["global"]["video-1-webm"] != blank and product.metafields["global"]["video-1-mp4"] != blank and product.metafields["global"]["image-1"] != blank  %}
 <div class="twoLayout">
     <div class="twoLayout-vid">
-        <video autoplay loop autobuffer muted playsinline width="100%">
-            <source src="{{ product.metafields["global"]["video-1-webm"] }}">
-            <source src="{{ product.metafields["global"]["video-1-mp4"] }}">
+        <video autoplay loop autobuffer muted playsinline width="100%" class="lazy">
+            <source data-src="{{ product.metafields["global"]["video-1-webm"] }}">
+            <source data-src="{{ product.metafields["global"]["video-1-mp4"] }}">
         </video>
      </div>
     <div class="twoLayout-img">

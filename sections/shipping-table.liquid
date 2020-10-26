@@ -20,7 +20,7 @@
     {% assign delivery_time = block_settings.delivery_time %}
         <tr>  
             <td>{{region}}</td>
-            <td><img src="{{ flag | img_url: 'master' }}" />{{country}}</td>
+            <td><img data-src="{{ flag | img_url: 'master' }}" class="lazy"/>{{country}}</td>
             <td>{{delivery_method}}</td>
             <td>{{price}}</td>
             <td>{{delivery_time}}</td>

@@ -25,15 +25,15 @@
             <div class="returnExchange-options">
                 <div id="options">
                     <button class="data-change" data-content="{{size_color_text}}">
-                        <img src="{{'different-size-color.svg' | asset_url }}"/>
+                        <img data-src="{{'different-size-color.svg' | asset_url }}" class="lazy"/>
                         <p>{{size_color_header}}</p>
                     </button>
                     <button class="data-change" data-content="{{product_text}}">
-                        <img src="{{'different-product.svg' | asset_url }}"/>
+                        <img data-src="{{'different-product.svg' | asset_url }}" class="lazy"/>
                         <p>{{product_header}}</p>
                     </button>
                     <button class="data-change" data-content="{{refund_text}}">
-                        <img src="{{'different-refund.svg' | asset_url }}"/>
+                        <img data-src="{{'different-refund.svg' | asset_url }}" class="lazy"/>
                         <p>{{refund_header}}</p>
                     </button>
                 </div>
@@ -44,7 +44,7 @@
             <a class="button button-black" style="width: auto" href="{{button_link}}">{{button_title}}</a>
         </div>
          <div class="returnExchange-content-right">
-            <img src="{{ image_banner | img_url: 'master' }}"/>
+            <img data-src="{{ image_banner | img_url: 'master' }}" class="lazy"/>
         </div>
     </div>
 </section>

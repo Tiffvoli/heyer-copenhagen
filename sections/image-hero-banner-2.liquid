@@ -3,7 +3,7 @@
 {% assign image_banner = section_settings.image_banner %}
 
 <section class="designBanner">
-<img src="{{ image_banner| img_url: 'master' }}" />
+<img data-src="{{ image_banner| img_url: 'master' }}" class="lazy"/>
 <div class="designBanner_overlay">
     <h1>{{text_heading}}</h1>
 </div>

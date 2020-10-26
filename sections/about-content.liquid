@@ -1,12 +1,47 @@
+{% assign section_setting = section.settings  %}
+{% assign title = section_setting.title %}
+{% assign subheading = section_setting.subheading %}
+
 <section class="content-wrapper">
     <div class="content-text center-flex">
-        <h3>Our Way </h3>
-        <p>Through our sustainable travel goods, our platform and our community, we make your adventures more seamless while leaving a positive impact on the world.</p>
+        <h3>{{title}}</h3>
+        <p>{{subheading}}</p>
     </div>
     <div class="content-vid">
-        <video autoplay loop autobuffer muted playsinline
-            <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.mp4?v=1599735823" type="video/mp4">
-            <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.webm?v=1599735823" type="video/webm">
+        <video autoplay loop autobuffer muted playsinline class="lazy">
+            <source data-src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.mp4?v=1599735823" type="video/mp4">
+            <source data-src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.webm?v=1599735823" type="video/webm">
         </video>
     </div>
 </section>
+
+{% schema %}
+    {
+        "name": "About Content",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Title & Subheading"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "subheading",
+                "label": "Subheaing"
+            }
+        ],
+        "blocks": [
+        ],
+        "presets": [
+            {
+                "name": "about content",
+                "category": "General",
+                "settings": {}
+            }
+        ]
+    }
+{% endschema %}

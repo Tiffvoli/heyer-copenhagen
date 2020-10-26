@@ -12,7 +12,7 @@
   {% comment %} Image {% endcomment %}
   <a href="{{ product_url }}">
     <div class="productCard_images">
-      <img src="{{ featured_image | img_url: 'master' }}" />
+      <img data-src="{{ featured_image | img_url: 'master' }}" class="lazy"/>
     </div>
   </a>
 

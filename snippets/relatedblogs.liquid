@@ -153,7 +153,7 @@
                     {%- endif -%}
             <div class="rb_blog-grid">
                               {%- if article.image -%}
-                  <a href="{{ article.url }}"><img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.title }}"/></a>
+                  <a href="{{ article.url }}"><img data-src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.title }}" class="lazy"/></a>
                 {%- else -%}
                   <div class="rb_no_image"></div>
                 {%- endif -%}
@@ -273,7 +273,7 @@
 
                                   {%- if article.image -%}
 
-                    <a href="{{ article.url }}"><img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.title }}" /></a>
+                    <a href="{{ article.url }}"><img data-src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.title }}" class="lazy"/></a>
 
                   {%- else -%}
                     <div class="rb_no_image"></div>

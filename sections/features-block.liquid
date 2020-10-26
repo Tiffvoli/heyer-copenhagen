@@ -18,7 +18,7 @@
             {% assign features_url = block_settings.features_url %}
         <div class="features-grid-wrapper">
             <a href="{{features_url}}">
-            <img src="{{ features_image | img_url: 'master' }}" />
+            <img data-src="{{ features_image | img_url: 'master' }}" class="lazy"/>
             <h3> {{heading}} </h3>
             <p>{{content}}</p>
             </a>

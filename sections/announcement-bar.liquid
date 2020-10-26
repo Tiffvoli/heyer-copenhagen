@@ -16,7 +16,7 @@
   <div class="announcement-bar container"> 
   <div class="announcement__left">
   <div class="country_dropbtn">
-          <img class="country-flag-menu" src="{{ global_img | img_url: 'master' }}" />
+          <img class="country-flag-menu lazy" data-src="{{ global_img | img_url: 'master' }}" />
           <p>{{country_selector}}</p>
           <div class="country-dropdown-content">   
           {% if blocks %}
@@ -25,7 +25,7 @@
               {% assign flag = block_settings.flag %}
               {% assign country = block_settings.country %}
               {% assign country_page = block_settings.country_page %}
-                <a href="{{country_page}}"><img class="country-flag" src="{{ flag | img_url: 'master' }}"><p> {{country}} </p></a>
+                <a href="{{country_page}}"><img class="country-flag lazy" data-src="{{ flag | img_url: 'master' }}"><p> {{country}} </p></a>
             {% endfor %}
           {% endif %}
           </div>
@@ -115,7 +115,7 @@
   box-shadow: 0 1px 1px 0 #e3e3e3;
   z-index: 1;
   top:100%;
-  left: 3%;
+  left: 2%;
   width: 220px;
 }
 .country-dropdown-content p{

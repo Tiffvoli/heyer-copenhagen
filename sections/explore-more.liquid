@@ -20,7 +20,7 @@
 
         <div class="explore__blocks">
           <a href="{{ explore_link }}">
-            <img src="{{ explore_image | img_url: 'master' }}"/>
+            <img data-src="{{ explore_image | img_url: 'master' }}" class="lazy"/>
           <h2>{{ explore_title }}</h2>
           </a>
         </div>

@@ -14,8 +14,8 @@
 <a class="button" href="{{buttonLink}}"> {{buttonText}} </a>
 {% endif %}
 </div>
-<img src="{{image_one | img_url: 'master'}}">
-<img class="sustainableDesign__img-2" src="{{image_two | img_url: 'master'}}">
+<img data-src="{{image_one | img_url: 'master'}}" class="lazy"/>
+<img class="sustainableDesign__img-2 lazy" data-src="{{image_two | img_url: 'master'}}">
 </section>
 
 {% schema %}

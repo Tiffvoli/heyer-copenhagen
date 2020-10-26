@@ -15,7 +15,7 @@
   </div>
   <div class="articleBanner-right">
     {%- if article.image -%}
-    <img src="{{ article.image | img_url: 'master' }}" alt="">
+    <img data-src="{{ article.image | img_url: 'master' }}" alt="" class="lazy">
     {%- endif -%} 
   </div>
 </div>
@@ -28,15 +28,15 @@
   </div>
   <div class="article-right">
       <a href="{{ side_image_url }}">
-      <img src="{{ article_side_image | img_url: 'master' }}" />
+      <img data-src="{{ article_side_image | img_url: 'master' }}" class="lazy"/>
       </a>
       <div style="width:100%;height:0;padding-bottom:67%;position:relative;">
-      <iframe src="https://giphy.com/embed/RkuPuqo3pajs2WaEPP" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <iframe data-src="https://giphy.com/embed/RkuPuqo3pajs2WaEPP" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed lazy" allowFullScreen></iframe>
       </div>
       <h3>{{instagram_text}}</h3>
       <h3>{{readmore_text}}</h3>
       {% include 'relatedblogs'%}
-      <iframe src="https://giphy.com/embed/iGLKGvR1GK6G4d6eXn" width="100%" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <iframe data-src="https://giphy.com/embed/iGLKGvR1GK6G4d6eXn" width="100%" height="480" frameBorder="0" class="giphy-embed lazy" allowFullScreen></iframe>
       <div class="sign-up">
       <div class="klaviyo-form-TZ78Pb"></div>
       </div>

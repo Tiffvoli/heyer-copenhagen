@@ -2,7 +2,7 @@
 {%comment%} Img Text Block {%endcomment%}
 {% if product.metafields["global"]["flip-block-1-image"] != blank and product.metafields["global"]["flip-block-1-text"] != blank %}
     <div class="block-flex" style="padding-top: 6rem">
-        <img class="block-img" src="{{ product.metafields["global"]["flip-block-1-image"] }}"/>
+        <img class="block-img lazy" data-src="{{ product.metafields["global"]["flip-block-1-image"] }}"/>
         <div class="block-text block-padding-left">
             {{ product.metafields["global"]["flip-block-1-text"] }}
         </div>
@@ -14,13 +14,13 @@
         {{ product.metafields["global"]["flip-block-2-text"] }}
         <div class="block-text block-padding-right">
         </div>
-            <img class="block-img" src="{{ product.metafields["global"]["flip-block-2-image"] }}"/>
+            <img class="block-img lazy" data-src="{{ product.metafields["global"]["flip-block-2-image"] }}"/>
         </div>
 {% endif %}
 {%comment%} Img Text Block {%endcomment%}
 {% if product.metafields["global"]["flip-block-3-image"] != blank and product.metafields["global"]["flip-block-3-text"] != blank %}
     <div class="block-flex">
-        <img class="block-img" src="{{ product.metafields["global"]["flip-block-3-image"] }}"/>
+        <img class="block-img lazy" data-src="{{ product.metafields["global"]["flip-block-3-image"] }}"/>
         <div class="block-text block-padding-left"> 
             {{ product.metafields["global"]["flip-block-3-text"] }}
         </div>

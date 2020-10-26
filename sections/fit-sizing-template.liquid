@@ -24,10 +24,10 @@
     {% assign features_description = block_settings.features_description %}
     <div class="productSizing">
         <div class="productSizing-left">
-            <img src="{{ image_banner | img_url: 'master' }}" />
+            <img data-src="{{ image_banner | img_url: 'master' }}" class="lazy"/>
         </div>
          <div class="productSizing-middle">
-            <img src="{{product_image}}"/>
+            <img data-src="{{product_image | img_url: 'master'}}" class="lazy"/>
         </div>
          <div class="productSizing-right">
             <h2> {{product_name}} </h2>

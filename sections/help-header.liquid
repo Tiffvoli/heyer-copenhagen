@@ -18,31 +18,31 @@
         <div class="helpCenter-wrapper">
             <div class="helpCenter-box order-shipping {%if page.url contains 'order-shipping'%}helpCenter-active{%endif%}">
                 <a href="{{order_shipping_url}}">
-                <img src="{{ 'order-shipping.svg' | asset_url}}"/>
+                <img data-src="{{ 'order-shipping.svg' | asset_url}}" class="lazy"/>
                 <p> {{order_shipping_text}} </p>
                 </a>
             </div>
             <div class="helpCenter-box fit-sizing {%if page.url contains 'fit-sizing'%}helpCenter-active{%endif%}">
                 <a href="{{fit_sizing_url}}">
-                <img src="{{ 'fit-sizing.svg' | asset_url}}"/>
+                <img data-src="{{ 'fit-sizing.svg' | asset_url}}" class="lazy"/>
                 <p> {{fit_sizing_text}} </p>
                 </a>
             </div>
             <div class="helpCenter-box return-exchange {%if page.url contains 'returns-exchanges'%}helpCenter-active{%endif%}">
                 <a href="{{return_exchange_url}}">
-                <img src="{{ 'return-exchange.svg' | asset_url}}"/>
+                <img data-src="{{ 'return-exchange.svg' | asset_url}}" class="lazy"/>
                 <p> {{return_exchange_text}} </p>
                 </a>
             </div>
             <div class="helpCenter-box help-faq {%if page.url contains 'faqs'%}helpCenter-active{%endif%}">
                 <a href="{{help_faq_url}}">
-                <img src="{{ 'help-faq.svg' | asset_url}}"/>
+                <img data-src="{{ 'help-faq.svg' | asset_url}}" class="lazy"/>
                 <p> {{help_faq_text}}</p>
                 </a>
             </div>
             <div class="helpCenter-box help-contact {%if page.url contains 'contact'%}helpCenter-active{%endif%}">
                 <a href="{{help_contact_url}}">
-                <img src="{{ 'help-contact.svg' | asset_url}}"/>
+                <img data-src="{{ 'help-contact.svg' | asset_url}}" class="lazy"/>
                 <p> {{help_contact_text}} </p>
                 </a>
             </div>

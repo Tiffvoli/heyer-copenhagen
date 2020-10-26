@@ -3,7 +3,7 @@
 {% assign subheading = section_setting.subheading %}
 
 <section class="signupForm center-flex">
-    <img src="{{'fit-sizing.svg' | asset_url}}"/>
+    <img data-src="{{'fit-sizing.svg' | asset_url}}" class="lazy"/>
     <h2> {{title}} </h2>
     {%if subheading != blank%}
         <p> {{subheading}} </p>

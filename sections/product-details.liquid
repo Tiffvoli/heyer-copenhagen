@@ -40,14 +40,14 @@
 {%comment%} Return/Shipping Section {%endcomment%}
 <div class="returnDetails">
     <div class="returnDetails-left">
-      <h4 class="shipping-modal"><span><img src="{{ 'truck.svg' | asset_url}}"/></span>Free Shipping</h4>
-      <h4 class="trial-modal"><span><img src="{{ 'trial.svg' | asset_url}}"/></span>14 days trial</h4>
+      <h4 class="shipping-modal"><span><img data-src="{{ 'truck.svg' | asset_url}}" class="lazy"/></span>Free Shipping</h4>
+      <h4 class="trial-modal"><span><img data-src="{{ 'trial.svg' | asset_url}}" class="lazy"/></span>14 days trial</h4>
     </div>
     <div class="returnDetails-right">
-      <h4 class="return-modal"><span><img src="{{ 'return.svg' | asset_url}}"/></span>Easy returns</h4>
-      <h4 class="service-modal"><span><img src="{{ 'service.svg' | asset_url}}"/></span>Personal service</h4>
+      <h4 class="return-modal"><span><img data-src="{{ 'return.svg' | asset_url}}" class="lazy"/></span>Easy returns</h4>
+      <h4 class="service-modal"><span><img data-src="{{ 'service.svg' | asset_url}}" class="lazy"/></span>Personal service</h4>
     </div>
-
+  </div>
     {%comment%} Slide in modal {%endcomment%}
     
         <div class="modal-small modal_container" id="shippingContainer">

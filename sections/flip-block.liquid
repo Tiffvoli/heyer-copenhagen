@@ -21,7 +21,7 @@
 <section class="flip-block-wrapper">
 {%comment%} Img Text Block {%endcomment%}
     <div class="block-flex-black">
-        <img class="block-img block-padding-right" src="{{ block_image | img_url: 'master' }}"/>
+        <img class="block-img block-padding-right lazy" data-src="{{ block_image | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
             <p> {{block_subheading}} </p>
             <h2> {{block_title}} </h2>
@@ -37,11 +37,11 @@
             <p> {{block_p_2}} </p>
             <a href="{{block_link_2}}">{{link_title_2}}</a>
         </div>
-        <img class="block-img block-padding-left" src="{{ block_image_2 | img_url: 'master' }}"/>
+        <img class="block-img block-padding-left lazy" data-src="{{ block_image_2 | img_url: 'master' }}"/>
     </div>
 {%comment%} Img Text Block {%endcomment%}
     <div class="block-flex-black">
-        <img class="block-img block-padding-right" src="{{ block_image_3 | img_url: 'master' }}"/>
+        <img class="block-img block-padding-right lazy" data-src="{{ block_image_3 | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
             <p> {{block_subheading_3}} </p>
             <h2> {{block_title_3}} </h2>

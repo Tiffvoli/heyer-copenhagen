@@ -16,7 +16,7 @@
 <section class="flip-block-wrapper" style="border-top: none">
 {%comment%} Img Text Block {%endcomment%}
     <div class="block-flex-black">
-        <img class="block-img block-padding-right" src="{{ block_image | img_url: 'master' }}"/>
+        <img class="block-img block-padding-right lazy" data-src="{{ block_image | img_url: 'master' }}"/>
         <div class="block-text-white block-padding-left">
         {% if block_subheading != blank %}
             <p> {{block_subheading}} </p>
@@ -38,7 +38,7 @@
             <a href="{{block_link_2}}">{{link_title_2}}</a>
             {% endif %}
         </div>
-        <img class="block-img block-padding-right" src="{{ block_image_2 | img_url: 'master' }}"/>
+        <img class="block-img block-padding-right lazy" data-src="{{ block_image_2 | img_url: 'master' }}"/>
     </div>
 </section>
 

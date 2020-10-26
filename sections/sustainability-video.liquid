@@ -6,9 +6,9 @@
     <div class="sustainabilityVid-title product-text">
         <h2>{{sus_title}}</h2>
     </div>
-    <video autoplay loop autobuffer muted playsinline width="100%" height="80vh">
-            <source src="{{ product.metafields["global"]["sustainability-vid-mp4"] }}">
-            <source src="{{ product.metafields["global"]["sustainability-vid-webm"] }}">
+    <video autoplay loop autobuffer muted playsinline width="100%" height="80vh" class="lazy">
+            <source data-src="{{ product.metafields["global"]["sustainability-vid-mp4"] }}">
+            <source data-src="{{ product.metafields["global"]["sustainability-vid-webm"] }}">
     </video>
 </div>
 {%endif%}

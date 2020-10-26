@@ -42,7 +42,7 @@
 
         <div class="highlight__highlights">
           <a href="{{ highlight_link }}">
-            <img src="{{ highlight_image | img_url: 'master' }}"/>
+            <img data-src="{{ highlight_image | img_url: 'master' }}" class="lazy"/>
           <h2>{{ highlight_title }}</h2>
           <h4>{{ highlight_subheading }}</h4>
           </a>
@@ -52,31 +52,31 @@
  <div class="swiper-container">
       <div class="swiper-wrapper">
         <a href="{{ swiper_link_one}}" class="swiper-slide">
-        <img src="{{ swiper_image_one | img_url: 'master' }}" />
+        <img data-src="{{ swiper_image_one | img_url: 'master' }}" class="lazy"/>
         <h2>{{ swiper_title_one }}</h2>
         <h4>{{ swiper_subheading_one }}</h4>
         </a>
 
         <a href="{{ swiper_link_two}}" class="swiper-slide">
-        <img src="{{ swiper_image_two | img_url: 'master' }}" />
+        <img data-src="{{ swiper_image_two | img_url: 'master' }}" class="lazy"/>
         <h2>{{ swiper_title_two }}</h2>
         <h4>{{ swiper_subheading_two }}</h4>
         </a>
         
         <a href="{{ swiper_link_three}}" class="swiper-slide">
-        <img src="{{ swiper_image_three | img_url: 'master' }}" />
+        <img data-src="{{ swiper_image_three | img_url: 'master' }}" class="lazy"/>
         <h2>{{ swiper_title_three }}</h2>
         <h4>{{ swiper_subheading_three }}</h4>
         </a>
        
         <a href="{{ swiper_link_four}}" class="swiper-slide">
-        <img src="{{ swiper_image_four | img_url: 'master' }}" />
+        <img data-src="{{ swiper_image_four | img_url: 'master' }}" class="lazy"/>
         <h2>{{ swiper_title_four }}</h2>
         <h4>{{ swiper_subheading_four }}</h4>
         </a>
 
         <a href="{{ swiper_link_five}}" class="swiper-slide">
-        <img src="{{ swiper_image_five | img_url: 'master' }}" />
+        <img data-src="{{ swiper_image_five | img_url: 'master' }}" class="lazy"/>
         <h2>{{ swiper_title_five }}</h2>
         <h4>{{ swiper_subheading_five }}</h4>
         </a>    

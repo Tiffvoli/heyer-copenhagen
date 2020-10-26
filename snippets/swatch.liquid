@@ -24,7 +24,7 @@
           {% comment %} Active state and styles are still to be declared {% endcomment %}
 
           <div class="product_colour{% if variant_sku == selected_variant.sku %} product_colour-active{% endif %}">
-            <a title="{{ _dialProductColourName | upcase }}" class="colourSwatch_dot" href="{{ _dialProductUrl }}" style="background-color: {{ swatch_image | img_url: '60x', format: 'pjpg', scale: 1.5 }}">{{  }}</a>
+            <a title="{{ _dialProductColourName | upcase }}" class="colourSwatch_dot lazy" href="{{ _dialProductUrl }}" style="background-color: {{ swatch_image | img_url: '60x', format: 'pjpg', scale: 1.5 }}">{{  }}</a>
           </div>
 
         {% else %}

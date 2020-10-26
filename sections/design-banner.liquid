@@ -4,10 +4,10 @@
 
 <section class="designBanner">
 {% if design_image != blank%}
-<img src="{{ design_image | img_url: 'master' }}" />
+<img data-src="{{ design_image | img_url: 'master' }}" class="lazy"/>
 {%else%}
-<video autoplay loop autobuffer muted playsinline width="100%" style="position: relative"
-  <source src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/sustainability-video.mp4?v=1602149125" type="video/mp4">
+<video autoplay loop autobuffer muted playsinline width="100%" style="position: relative" class="lazy">
+  <source data-src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/sustainability-video.mp4?v=1602149125" type="video/mp4">
 </video>
 {% endif %}
 <div class="designBanner_overlay">

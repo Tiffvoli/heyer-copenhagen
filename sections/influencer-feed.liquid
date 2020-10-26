@@ -9,10 +9,10 @@
     </div>
 {% endif %}
     <div class="influencerFeed-img">
-        <img src="{{ product.metafields["global"]["feed-image-1"] }}">
-        <img src="{{ product.metafields["global"]["feed-image-2"] }}">
-        <img src="{{ product.metafields["global"]["feed-image-3"] }}">
-        <img src="{{ product.metafields["global"]["feed-image-4"] }}">
+        <img data-src="{{ product.metafields["global"]["feed-image-1"] }}" class="lazy"/>
+        <img data-src="{{ product.metafields["global"]["feed-image-2"] }}" class="lazy"/>
+        <img data-src="{{ product.metafields["global"]["feed-image-3"] }}" class="lazy"/>
+        <img data-src="{{ product.metafields["global"]["feed-image-4"] }}" class="lazy"/>
     </div>
 </div>
 {% endif %}

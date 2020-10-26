@@ -1,7 +1,7 @@
 <div class="swiper-container-2 swiper2">
     <div class="swiper-wrapper">
     {% for image in product.images %}
-      <div class="swiper-slide-2"><img src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" /></div>
+      <div class="swiper-slide-2"><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></div>
       {% endfor %}
     </div>
     
