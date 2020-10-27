@@ -10,7 +10,7 @@
 @font-face {
   font-family: "CalibreRegular";
   font-display: fallback;
-  src: url("./CalibreRegular.otf") format("opentype");
+  src: url("./Calibre-Regular.woff") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -174,8 +174,18 @@ picture {
 .page {
 }
 
+.page_title {
+  color: $color-darker-grey;
+  font-weight: normal;
+  font-size: 3rem;
+  padding: 80px 0 0 0;
+}
 .page_header {
   margin-bottom: 50px;
+
+  & a {
+    color: $color-darker-grey;
+  }
 }
 
 // Helpers
@@ -291,7 +301,13 @@ button:hover {
   height: auto;
   line-height: 16px;
 }
-
+/*------------ Customer ------------*/
+.customer_name {
+  color: $color-darker-grey;
+  font-weight: normal;
+  font-size: 3rem;
+  padding: 80px 0 0 0;
+}
 // Input
 .form {
   width: 100%;
@@ -2587,7 +2603,7 @@ tfoot th {
   max-height: 80vh;
 }
 .articleBanner-right img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .articleWrapper {
   padding: 80px 10% 0;
@@ -2780,7 +2796,7 @@ tfoot th {
   padding: 0 60px 20px 0;
   color: $color-darker-grey;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 .helpCenter-p p {
   color: grey;
@@ -2811,6 +2827,12 @@ tfoot th {
   padding-right: 10px;
   height: 10px;
   object-fit: cover;
+}
+@media (max-width: 768px) {
+  .shippingTable th,
+  .shippingTable td {
+    padding: 10px 14px;
+  }
 }
 //Fit & Sizing
 .productSizing {
@@ -2896,7 +2918,7 @@ input:checked ~ .tab-content {
   margin: 0 0 80px;
   background: #f5f5f5;
   display: flex;
-  height: 90vh;
+  height: auto;
 }
 .returnExchange-content-left {
   width: 65%;
@@ -2908,6 +2930,7 @@ input:checked ~ .tab-content {
 }
 .returnExchange-content-left h2 {
   font-size: 2.3rem;
+  margin: 20px 0;
 }
 .returnExchange-content-right img {
   object-fit: cover;

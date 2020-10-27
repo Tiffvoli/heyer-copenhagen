@@ -25,6 +25,7 @@
             class="input input-dark"
             value=""
             placeholder="{{ 'customer.register.placeholder_first_name' | t }}"
+            required
           >
         </div>
 
@@ -32,10 +33,12 @@
           <label class="label" for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
           <input
             type="text"
+            name="customer[last_name]"
             id="{{ formId }}-LastName"
             class="input input-dark"
             value=""
             placeholder="{{ 'customer.register.placeholder_last_name' | t  }}"
+            required
           >
         </div>
 

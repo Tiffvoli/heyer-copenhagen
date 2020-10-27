@@ -1,6 +1,29 @@
 // Font
-$font-header: "Helvetica Neue", Helvetica, sans-serif;
-$font-body: "Helvetica Neue", Helvetica, sans-serif;
+@font-face {
+  font-family: "CalibreMedium";
+  font-display: fallback;
+  src: url("./Calibre-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CalibreRegular";
+  font-display: fallback;
+  src: url("./Calibre-Regular.woff") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CalibreThin";
+  font-display: fallback;
+  src: url("./Calibre-Thin.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-header: "CalibreMedium", sans-serif;
+$font-body: "CalibreRegular", sans-serif;
 
 // Colors
 $color-white: rgba(255, 255, 255, 1);
@@ -8,15 +31,17 @@ $color-dark-grey: rgba(215, 215, 215, 1);
 $color-light-grey: rgba(246, 246, 246, 1);
 $color-black: rgba(0, 0, 0, 1);
 $color-light-green: rgba(173, 218, 27, 1);
+$color-darker-grey: #4c4c4b;
 
 // Container
 $container-padding-phone: 15px;
 $container-padding-tablet: 30px;
 $container-padding-desktop: 60px;
 
-
 // Account
-.account {}
+
+.account {
+}
 
 .account_inner {
   width: 100%;
@@ -49,6 +74,7 @@ $container-padding-desktop: 60px;
 .account_sidebar .link {
   display: block;
   margin-bottom: 10px;
+  color: $color-darker-grey;
 }
 
 // Addresses
@@ -121,7 +147,7 @@ $container-padding-desktop: 60px;
 }
 
 .addressCard_default {
-  display: flex; 
+  display: flex;
   align-items: center;
   min-height: 17px;
   margin-bottom: 20px;
@@ -214,7 +240,8 @@ $container-padding-desktop: 60px;
     border-bottom: 1px solid currentColor;
   }
 
-  th, td {
+  th,
+  td {
     border: 0;
     padding: 5px;
   }
@@ -262,14 +289,15 @@ $container-padding-desktop: 60px;
   @media (min-width: 768px) {
     tfoot {
       tr {
-        td, th {
+        td,
+        th {
           vertical-align: bottom;
         }
       }
     }
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     border: 0;
 
     thead {
@@ -315,7 +343,7 @@ $container-padding-desktop: 60px;
 }
 
 .order-table__product {
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     display: flex;
     justify-content: space-between;
   }
@@ -355,8 +383,7 @@ $container-padding-desktop: 60px;
 }
 
 .order-discount-wrapper {
-
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -367,7 +394,7 @@ $container-padding-desktop: 60px;
   display: flex;
   justify-content: center;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     justify-content: flex-end;
   }
 }
@@ -376,7 +403,7 @@ $container-padding-desktop: 60px;
   font-size: inherit;
   padding-right: 0;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: inherit;
   }
 }
@@ -384,7 +411,7 @@ $container-padding-desktop: 60px;
 .order-discount--cart-total {
   padding-left: 20px;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     padding-left: 40px;
     min-width: 150px;
   }
