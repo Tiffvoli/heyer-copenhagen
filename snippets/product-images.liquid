@@ -1,10 +1,11 @@
 <ul>
 {% for image in product.images %}
     {% if forloop.first %}
-    <li>  <a href="{{ image | product_img_url: 'master' }}">
-          <img src="{{ 'blank.png' | asset_url}}" data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/>
-        </a>
-         </li>
+    <li>  
+        <div class=”image-container”>
+        <img src="{{ image | product_img_url: '480x480'}}" alt="{{ image.alt | escape }}" data-zoom="{{ image | product_img_url: '1024x1024'}}"/>
+        </div>
+    </li>
     {% else %}
     <li>
         <a href="{{ image | product_img_url: 'master' }}">
@@ -15,4 +16,8 @@
 {% endfor %}
 </ul>
 
- 
+<script>
+new Drift(document.querySelector('.image-zoom'), {
+  paneContainer: document.querySelector('.image-details')
+});
+</script>

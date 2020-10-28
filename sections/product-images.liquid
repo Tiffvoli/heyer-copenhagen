@@ -1,0 +1,22 @@
+
+<ul>
+{% for image in product.images %}
+    <li>        
+        <img src="{{ image | product_img_url: '480x480'}}" alt="{{ image.alt | escape }}" data-zoom="{{ image | product_img_url: '1024x1024'}}" class="lazy zoom-trigger">
+        <div class="zoom-detail"></div>  
+    </li>
+{% endfor %}
+</ul>
+
+{% javascript %}
+        var demoTrigger = document.querySelector('.zoom-trigger');
+    var paneContainer = document.querySelector('.zoom-detail');
+
+
+new Drift(demoTrigger, {
+  paneContainer: paneContainer,
+  inlinePane: false,
+});
+{% endjavascript %}
+
+

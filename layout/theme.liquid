@@ -90,7 +90,6 @@
   {% section 'footer' %}
 
   {% include 'cart-drawer' %}
-
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
   {% if template.name contains 'index' %}
@@ -100,6 +99,8 @@
   {% if template.name contains 'product' %}
   {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {{ 'product-info.js' | asset_url | script_tag }}
+    <script type="text/javascript" src="{{ 'Drift.min.js' | asset_url }}" defer="defer"></script>
+
   {% endif %}
    {% if template contains 'sustainability' %}
   {{ 'sustainability.js' | asset_url | script_tag }}
