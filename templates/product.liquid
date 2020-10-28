@@ -2,7 +2,7 @@
 <section class="section">
   <div class="container product">
     <div class="product__features-left">
-      <div class="desktop-product-images">{% section 'product-images' %}</div>
+      <div class="desktop-product-images">{% include 'product-images' %}</div>
       <div class="mobile-product-images">{% section 'mobile-product-image' %}</div>
       <div class="mobile-breadcrumb">{% include 'breadcrumb' %}</div>
     </div>
@@ -20,7 +20,7 @@
     {% section 'sustainability-video'%}
     {% comment %} Flip Blocks {% endcomment %}
     {% include 'flip-block-product' %}
-
+    {% include 'flip-block-video-product' %}
   </div>
 </section>
 

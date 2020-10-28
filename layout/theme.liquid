@@ -37,6 +37,7 @@
 
   {% if template contains 'product' %}
     {{ 'product.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'lightbox.min.css' | asset_url | stylesheet_tag }}
   {% endif %}
   {% if template contains 'customer' %}
     {{ 'account.scss.css' | asset_url | stylesheet_tag }}
@@ -99,8 +100,8 @@
   {% if template.name contains 'product' %}
   {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
   {{ 'product-info.js' | asset_url | script_tag }}
-    <script type="text/javascript" src="{{ 'Drift.min.js' | asset_url }}" defer="defer"></script>
-
+  {{ 'Drift.min.js' | asset_url | script_tag }}
+  {{ 'lightbox-plus-jquery.min.js' | asset_url | script_tag }}
   {% endif %}
    {% if template contains 'sustainability' %}
   {{ 'sustainability.js' | asset_url | script_tag }}
