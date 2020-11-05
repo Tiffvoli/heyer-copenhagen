@@ -1,4 +1,4 @@
-<section class="container">
+<section>
 {% if collection.metafields["global"]["factory-heading"] != blank and collection.metafields["global"]["factory-button"] != blank and collection.metafields["global"]["factory-image"] != blank and collection.metafields["global"]["design-heading"] != blank and collection.metafields["global"]["design-button"] != blank and collection.metafields["global"]["design-image"] != blank %} 
 <div class="collectionArticle container-padding">
     <div class="collectionArticle-wrapper">
@@ -18,7 +18,7 @@
 </div>
 {% endif %}
 {% if collection.metafields["global"]["discover-text"] != blank %}
-<div class="collectionArticle-text container-padding">
+<div class="collectionArticle-text container-padding-large">
 <input type="checkbox" class="read-more-state" id="collection-text-span"/> 
     {{ collection.metafields["global"]["discover-text"] }}
  <label for="collection-text-span" class="read-more-trigger"></label>

@@ -12,7 +12,10 @@
   {% comment %} Image {% endcomment %}
   <a href="{{ product_url }}">
     <div class="productCard_images">
-      <img data-src="{{ featured_image | img_url: 'master' }}" class="lazy"/>
+      <div class="reveal-collection">
+        <img data-src="{{ featured_image | img_url: 'master' }}" class="lazy"/>
+        <img class="hidden-collection lazy" data-src="{{ product.images.last | img_url: 'master' }}" alt="{{ product.images.last.alt | escape }}" />
+      </div>
     </div>
   </a>
 
