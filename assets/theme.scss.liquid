@@ -834,7 +834,8 @@ tfoot th {
 .modal_close {
   background-color: $color-white !important;
   position: fixed;
-  bottom: 2rem;
+  top: 8rem;
+  //bottom: 2rem;
   z-index: 2;
   width: 4rem;
   height: 4rem;
@@ -1525,12 +1526,16 @@ tfoot th {
 .product__features-left ul li:nth-child(3),
 .product__features-left ul li:nth-child(4) {
   width: 49.5%;
-  margin-bottom: 1%;
 }
 .product__features-left ul li:nth-child(5),
 .product__features-left ul li:nth-child(6),
 .product__features-left ul li:nth-child(7) {
   width: 32.7%;
+}
+.product__features-left ul li:nth-child(5) img,
+.product__features-left ul li:nth-child(6) img,
+.product__features-left ul li:nth-child(7) img {
+  vertical-align: bottom;
 }
 .product__header {
   display: flex;

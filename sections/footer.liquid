@@ -24,7 +24,8 @@
             <div class="footer-a footer-links-desktop">
                <h4>{{linklists.footer-connect.title}}</h4>
             {% for link in linklists.footer-connect.links %}
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{ link.url }}" {%if link.url contains 'instagram' or link.url contains 'pinterest'%} 
+                target="_blank" {%endif%}>{{ link.title }}</a>
             {% endfor %}
             </div>
             {%comment%} Mobile Footer {%endcomment%}
