@@ -260,6 +260,12 @@ button:hover {
     background: $color-black;
   }
 }
+.button-small {
+  padding: 15px;
+  min-width: auto;
+  font-size: inherit;
+  height: 20px;
+}
 .button-white {
   color: $color-black;
   background: $color-white;
@@ -292,6 +298,28 @@ button:hover {
 }
 .button-round {
   border-radius: 10px;
+}
+.button-close {
+  background-image: url("https://cdn.shopify.com/s/files/1/0274/8609/3447/files/trash.png?v=1604585132");
+  height: 15px;
+  width: 15px;
+  border: none;
+  background-position: 50% 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("https://cdn.shopify.com/s/files/1/0274/8609/3447/files/trash.png?v=1604585132");
+    height: 15px;
+    width: 15px;
+    border: none;
+    background-position: 50% 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
 }
 .button-blue {
   background: #1c62cf;
@@ -375,6 +403,7 @@ button:hover {
 .formGroup {
   display: block;
   margin-bottom: 20px;
+  text-align: left;
 
   & a {
     color: $color-darker-grey;
@@ -394,6 +423,7 @@ button:hover {
 .formGroup-half {
   width: 100%;
   display: inline-block;
+  text-align: left;
 
   @media (min-width: 768px) {
     width: calc(50% - 10px);
