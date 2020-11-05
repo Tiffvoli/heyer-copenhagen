@@ -1500,7 +1500,7 @@ tfoot th {
   width: 30%;
   position: static;
   top: 0px;
-  padding: 0 0 0 30px;
+  padding: 4% 3% 0 3%;
   z-index: 1;
 }
 .product__features-right p {
@@ -1525,16 +1525,15 @@ tfoot th {
 .product__features-left ul li:nth-child(2),
 .product__features-left ul li:nth-child(3),
 .product__features-left ul li:nth-child(4) {
-  width: 49.5%;
+  width: 50%;
 }
 .product__features-left ul li:nth-child(5),
 .product__features-left ul li:nth-child(6),
 .product__features-left ul li:nth-child(7) {
-  width: 32.7%;
+  width: 33.33%;
 }
-.product__features-left ul li:nth-child(5) img,
-.product__features-left ul li:nth-child(6) img,
-.product__features-left ul li:nth-child(7) img {
+
+.product-image {
   vertical-align: bottom;
 }
 .product__header {
@@ -1543,14 +1542,14 @@ tfoot th {
 }
 
 .product_title {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-family: $font-body;
   font-weight: normal;
   color: $color-darker-grey;
   line-height: 20px;
 }
 .product_pricing span {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-family: $font-text;
   font-weight: 300;
   color: $color-darker-grey;
@@ -1771,7 +1770,7 @@ tfoot th {
 }
 //Sustainable Index
 .sustainableIndex {
-  padding: 8% 0;
+  padding: 8% 3%;
   //border-bottom: 0.2px solid #e3e3e3;
 }
 .sustainableIndex-wrapper {
@@ -1864,7 +1863,7 @@ tfoot th {
 }
 .twoLayout-vid,
 .twoLayout-img {
-  width: 49%;
+  width: 50%;
 }
 //Influencer feed
 .influencerFeed {
@@ -1875,18 +1874,18 @@ tfoot th {
   //border-top: 0.2px solid #e3e3e3;
 }
 .product-text h2 {
-  width: 50%;
-  padding: 0 0 30px;
+  padding: 0 0 40px;
   margin: 0;
-  font-size: 3rem;
+  font-size: 4rem;
   color: $color-text-grey;
+  text-align: center;
 }
 .influencerFeed-img {
   display: flex;
   justify-content: space-between;
 }
 .influencerFeed-img img {
-  width: 24.5%;
+  width: 25%;
   height: 100%;
   object-fit: cover;
   object-position: 50% 0;
@@ -2348,7 +2347,7 @@ tfoot th {
   display: flex;
   background-color: white;
   justify-content: space-between;
-  margin-bottom: 8%;
+  //margin-bottom: 8%;
 }
 .sustainableDesign img {
   object-fit: contain;
@@ -2358,12 +2357,12 @@ tfoot th {
 }
 .sustainableDesign__overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 75%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  width: 92%;
+  width: 100%;
 }
 .sustainableDesign__overlay h2 {
   font-size: 4rem;
@@ -2384,6 +2383,7 @@ tfoot th {
 
 // Explore More
 .exploreMore {
+  padding-top: 8%;
   padding-bottom: 8%;
   background-color: white;
 }
@@ -2392,13 +2392,15 @@ tfoot th {
   font-size: 3rem;
   letter-spacing: 1px;
   font-weight: normal;
+  text-align: center;
+  margin: 0 0 40px;
 }
 .explore__flex {
   display: flex;
   justify-content: space-between;
 }
 .explore__blocks {
-  width: 24.5%;
+  width: 24.8%;
 }
 .explore__blocks a {
   color: black;
