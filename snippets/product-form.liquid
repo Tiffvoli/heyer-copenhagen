@@ -9,7 +9,7 @@
 {% assign product_options_size = product_options | size %}
 
 <form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form"
-  id="add-to-cart-{{ product.handle }}-{{ collection.handle }}-{{ section.id }}">
+  id="add-to-cart-{{ product.handle }}">
 
   {% comment %} Show variant options as separate select boxes {% endcomment %}
   {% if product_variants_size > 1 %}
@@ -55,7 +55,7 @@
   {% endif %}
   
   {% if product_available %}
-    <button type="submit" name="add" id="cta-add-to-cart" class="js-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
+    <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
   {% else %}
     <input id="cta-add-to-cart" class="button" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
   {% endif %}

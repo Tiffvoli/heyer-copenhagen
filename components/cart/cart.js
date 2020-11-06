@@ -96,7 +96,7 @@ class GoCart {
         this.addToCart.forEach((item) => {
             item.addEventListener('click', (event) => {
                 event.preventDefault();
-                const formID = item.parentNode.parentNode.getAttribute('id');
+                const formID = item.parentNode.getAttribute('id');
                 this.addItemToCart(formID);
             });
         });
