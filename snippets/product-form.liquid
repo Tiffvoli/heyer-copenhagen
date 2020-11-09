@@ -10,6 +10,7 @@
 {% assign file_extension = 'png' %}
 {% assign product_url = collection.url | append: '/products/' %}
 
+<<<<<<< HEAD
 
 
 {% form "product", product, class: 'product_form', id: 'product-form', data-productid: product.id %}
@@ -102,6 +103,63 @@
 </style>
 
  <script>
+=======
+<form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form"
+  id="add-to-cart-{{ product.handle }}">
+
+  {% comment %} Show variant options as separate select boxes {% endcomment %}
+  {% if product_variants_size > 1 %}
+  <div class="product_options{% if product_options_size == 1 %} product_options-single{% endif %}"> 
+    {%- for product_option in product_options -%}
+      {%- assign option_name = product_option.name -%}
+      {%- assign option_values = product_option.values -%}
+      {%- assign selected_value = product_option.selected_value -%}
+
+      <div class="product_option" option-name="{{ option_name }}">
+        <label class="label" for="option-{{ option_name | downcase }}">{{ option_name }}</label>
+        <div class="select-styled">
+          <select name="option-{{ option_name | downcase }}" class="option_selector option_selector-toggable option_selector-{{ option_name }}">
+            {%- for value in option_values -%}
+              <option value="{{ value | escape | downcase }}" {%- if selected_value == value -%}selected="selected"{%- endif -%}>{{ value }}</option>
+            {%- endfor -%}
+          </select>
+        </div>
+      </div>
+
+    {%- endfor -%}
+  </div>
+  {% endif %}
+
+  {% if product_variants_size > 1 %}
+    {% comment %} Hidden form to handle add to cart {% endcomment %}
+    <select name="id" id="ProductSelect" style="display: none;">
+      {% assign hidden_product_variants = product.variants %}
+      {% for hidden_variant in hidden_product_variants %}
+        {% assign hidden_variant_id = hidden_variant.id %}
+        {% assign hidden_variant_title = hidden_variant.title %}
+        {% assign hidden_variant_title_split = hidden_variant_title | split: ' / ' %}
+        <option 
+          data-option="{% for title in hidden_variant_title_split %}{{ title | replace: ' ', '-' | downcase }}{% unless forloop.last %}-{% endunless %}{% endfor %}"
+          value="{{ hidden_variant_id }}" {% if hidden_variant_id == active_product_id %}
+          selected="selected" {% endif %}>
+            {{- hidden_variant_title -}}
+        </option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input type="hidden" id="id" name="id" value="{{ active_product_id }}" />
+  {% endif %}
+  
+  {% if product_available %}
+    <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
+  {% else %}
+    <input id="cta-add-to-cart" class="button" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
+  {% endif %}
+
+</form>
+
+<script>
+>>>>>>> 9a87914d306b937e10c53adae7439c21b62a2e8e
   // Toggle between variants
   var variants = document.querySelectorAll('#ProductSelect option') // Hidden select list with id
   var productOptions = document.querySelectorAll('.option_selector-toggable');

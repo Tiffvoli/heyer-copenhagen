@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 node_modules
+=======
+node_modules/
+components/.cache/
+config.yml
+>>>>>>> 9a87914d306b937e10c53adae7439c21b62a2e8e
