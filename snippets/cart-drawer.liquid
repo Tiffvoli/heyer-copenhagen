@@ -41,13 +41,14 @@
           <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
         </svg>
       </div>
-
+      
       {% comment %} Cart drawer count {% endcomment %}
       <div class="cartDrawer_count">{{ 'layout.cart.title' | t }} (<span class="js-cart-drawer-count">{{ cart.item_count }}</span>)</div>
     </div>
 
     {% comment %} Cart drawer content {% endcomment %}
     <div class="cartDrawer_content js-cart-drawer-content"></div>
+
 
     {% comment %} Cart drawer subtotals {% endcomment %}
     <div class="cartDrawer_subtotal">
@@ -60,8 +61,7 @@
 
     {% comment %} Cart drawer buttons {% endcomment %}
     <div class="cartDrawer_footer js-cart-drawer-footer">
-      <a href="{{ routes.cart_url }}" class="button button-transparent">{{ 'products.product.view_cart' | t }}</a>
-      <a href="/checkout" class="button">{{ 'cart.general.checkout' | t  }}</a>
+      <a href="/checkout" class="button button-black">{{ 'cart.general.checkout' | t  }}</a>
     </div>
 
   </div>

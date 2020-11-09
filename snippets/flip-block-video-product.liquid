@@ -1,7 +1,7 @@
 
 {%comment%} Video Text Block {%endcomment%}
 {% if product.metafields["global"]["flip-block-4-video-mp4"] != blank and product.metafields["global"]["flip-block-4-video-webm"] != blank and product.metafields["global"]["flip-block-4-text"] != blank%}
-    <div class="block-flex" style="padding: 6rem 0">
+    <div class="block-flex">
         <video autoplay loop autobuffer muted playsinline width="100%" class="lazy block-img">
             <source data-src="{{ product.metafields["global"]["flip-block-4-video-mp4"] }}" type="video/mp4">
             <source data-src="{{ product.metafields["global"]["flip-block-4-video-webm"] }}" type="video/webm">
@@ -13,7 +13,7 @@
 {%endif%}
 {%comment%} Text Video Block {%endcomment%}
 {% if product.metafields["global"]["flip-block-5-video-mp4"] != blank and product.metafields["global"]["flip-block-5-video-webm"] != blank and product.metafields["global"]["flip-block-5-text"] != blank%}
-    <div class="block-flex reverse-column-ipad" style="padding: 6rem 0">
+    <div class="block-flex reverse-column-ipad">
         <div class="block-text block-padding-right">
             {{ product.metafields["global"]["flip-block-5-text"] }}
         </div>
@@ -25,7 +25,7 @@
 {%endif%}
 {%comment%} Video Text Block {%endcomment%}
 {% if product.metafields["global"]["flip-block-6-video-mp4"] != blank and product.metafields["global"]["flip-block-6-video-webm"] != blank and product.metafields["global"]["flip-block-6-text"] != blank%}
-    <div class="block-flex" style="padding: 6rem 0">
+    <div class="block-flex">
        <video autoplay loop autobuffer muted playsinline width="100%" class="lazy block-img">
             <source data-src="{{ product.metafields["global"]["flip-block-6-video-mp4"] }}" type="video/mp4">
             <source data-src="{{ product.metafields["global"]["flip-block-6-video-webm"] }}" type="video/webm">
