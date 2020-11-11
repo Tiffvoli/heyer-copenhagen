@@ -1,0 +1,88 @@
+{% comment %} General {% endcomment %}
+{%- assign cart_items = cart.items -%}
+{%- assign cart_items_count = cart.item_count -%}
+{%- assign subtotal = cart.total_price -%}
+
+{% comment %} Section {% endcomment %}
+{%- assign section_settings = section.settings -%}
+
+{% comment %} Cart modal fail {% endcomment %}
+<div class="cart-modal cart-modal-fail js-cart-modal-fail">
+  <div class="cartModal">
+    <div class="cartModal_close js-cart-modal-fail-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+      </svg>
+    </div>
+    <div class="cartModal_content js-cart-modal-fail-content">Something went wrong, please contact us!</div>
+  </div>
+</div>
+
+{% comment %} Cart modal {% endcomment %}
+<div class="cart-modal js-cart-modal">
+  <div class="cartModal">
+
+    <div class="cartModal_close js-go-cart-modal-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+      </svg>
+    </div>
+
+    <div class="cartModal_content js-cart-modal-content"></div>
+
+      <div class="cartModal_buttons">
+        <a class="cart_button js-cart-modal-close">{{ 'cart.general.continue_shopping' | t }}</a>
+      </div>
+    </div>
+</div>
+
+{% comment %} Cart drawer {% endcomment %}
+<div class="cart-drawer js-cart-drawer">
+  <div class="cartDrawer">
+
+    {% comment %} Cart drawer close {% endcomment %}
+    <div class="cartDrawer_header">
+
+      <div class="cartDrawer_close js-cart-drawer-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+        </svg>
+      </div>
+      
+      {% comment %} Cart drawer count {% endcomment %}
+      <div class="cartDrawer_count">{{ 'layout.cart.title' | t }} (<span class="js-cart-drawer-count">{{ cart.item_count }}</span>)</div>
+    </div>
+
+    {% comment %} Cart drawer content {% endcomment %}
+    <div class="cartDrawer_content js-cart-drawer-content">
+    {% include 'product-personalizer-helper' %}
+    </div>
+
+
+    {% comment %} Cart drawer subtotals {% endcomment %}
+    <div class="cartDrawer_subtotal">
+
+      <div class="cartDrawer_subtotal-inner">
+        <span>{{ 'cart.general.subtotal' | t }}</span>
+        <span class="cartDrawer_subtotal-price js-cart-drawer-subtotal"></span>
+      </div>
+    </div>
+
+    {% comment %} Cart drawer buttons {% endcomment %}
+    <div class="cartDrawer_footer js-cart-drawer-footer">
+      <a href="/checkout" class="button button-black">{{ 'cart.general.checkout' | t  }}</a>
+    </div>
+
+  </div>
+</div>
+
+{% comment %} Cart overlay {% endcomment %}
+<div class="cart_overlay js-cart-overlay"></div>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+    ]
+  }
+{% endschema %}

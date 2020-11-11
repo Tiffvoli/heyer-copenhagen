@@ -192,6 +192,8 @@
   padding: 20px 30px;
   transition: all 0.3s ease-in-out;
   box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
 }
 .cartDrawer .button {
   margin-bottom: 20px;

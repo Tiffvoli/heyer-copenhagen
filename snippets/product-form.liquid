@@ -72,11 +72,11 @@
      <div class="product-info-desktop">{% include 'product-info' %}</div>
      {% include 'product-personalizer' %}
 
-   {% if product_available %}
-      <button  id="cta-add-to-cart" class="js-cart-add-to-cart button-cart add-to-cart button button-black"  type="submit">{{ 'products.product.add_to_cart' | t }}</button>
-    {%else%}
-      <button  id="cta-add-to-cart" class="button-cart button button-black"  type="submit"  disabled>{{ 'products.product.sold_out' | t }}</button>
-    {%endif%}
+      {% if product_available %}
+    <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button button-black">{{ 'products.product.add_to_cart' | t }}</button>
+  {% else %}
+    <input id="cta-add-to-cart" class="button button-black" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
+  {% endif %}
 
   {%endform%}
 

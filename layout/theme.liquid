@@ -90,7 +90,7 @@
 
   {% section 'footer' %}
 
-  {% include 'cart-drawer' %}
+  {% section 'cart-drawer' %}
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'components.js' | asset_url | script_tag }}
   {% if template.name contains 'index' %}
