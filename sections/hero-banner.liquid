@@ -5,10 +5,11 @@
 {% assign buttonText = section_setting.buttonText %}
 {% assign buttonLink = section_setting.buttonLink %}
 {% assign backup_image = section_setting.backup_image %}
+{% assign margin_bottom = section_setting.margin_bottom %}
 
 
 
-<section class="heroBanner">
+<section class="heroBanner" style="margin-bottom: {{margin_bottom}}%">
 <video autoplay loop autobuffer muted playsinline width="100%" style="position:relative" class="lazy">
   <source data-src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.mp4?v=1599735823" type="video/mp4">
   <source data-src="https://cdn.shopify.com/s/files/1/0274/8609/3447/files/homevideo.webm?v=1599735823" type="video/webm">
@@ -64,12 +65,17 @@
             },
             {
                 "type": "header",
-                "content": "Images"
+                "content": "Margin"
             },
             {
-                "type": "image_picker",
-                "id": "backup_image",
-                "label": "Back-up Image for video"
+                "type": "range",
+                "id": "margin_bottom",
+                "label": "Margin Bottom",
+                "min": 0,
+                "max": 20,
+                "step": 1,
+                "unit": "%",
+                 "default":   0
             }
         ],
         "blocks": [

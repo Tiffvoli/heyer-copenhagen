@@ -5,10 +5,10 @@
 {% assign buttonText = section_setting.buttonText %}
 {% assign buttonLink = section_setting.buttonLink %}
 {% assign banner_image = section_setting.banner_image %}
+{% assign margin_bottom = section_setting.margin_bottom %}
 
 
-
-<section class="heroBanner">
+<section class="heroBanner" style="margin-bottom:{{margin_bottom}}%">
 
   <img data-src="{{ banner_image | img_url: 'master' }}" class="lazy"/>
 
@@ -63,6 +63,16 @@
                 "type": "url",
                 "id": "buttonLink",
                 "label": "buttonLink"
+            },
+            {
+                "type": "range",
+                "id": "margin_bottom",
+                "label": "Margin Bottom",
+                "min": 0,
+                "max": 30,
+                "step": 1,
+                "unit": "%",
+                 "default":  20
             }
         ],
         "blocks": [
