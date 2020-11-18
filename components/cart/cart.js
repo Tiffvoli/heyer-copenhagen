@@ -42,6 +42,9 @@ class GoCart {
       displayModal: false,
       // eslint-disable-next-line no-template-curly-in-string
       moneyFormat: "${{amount}}",
+      labelAddedToCart: 'was added to your cart.',
+      labelCartIsEmpty: 'Your Cart is currently empty!',
+      labelQuantity: 'Quantity:',
     };
 
     this.defaults = Object.assign({}, defaults, options);
@@ -96,6 +99,9 @@ class GoCart {
     this.drawerDirection = this.defaults.drawerDirection;
     this.displayModal = this.defaults.displayModal;
     this.moneyFormat = this.defaults.moneyFormat;
+    this.labelAddedToCart = this.defaults.labelAddedToCart;
+    this.labelCartIsEmpty = this.defaults.labelCartIsEmpty;
+    this.labelQuantity = this.defaults.labelQuantity;
 
     this.init();
   }
@@ -320,7 +326,7 @@ class GoCart {
         <div class="cartModalItem">
             <div class="cartModalItem_image" style="background-image: url(${product.image});"></div>
             <div class="cartModalItem_info">
-                <a href="${product.url}" class="cartModalItem_title">${product.product_title} ${productVariant}</a> was added to your cart.
+                <a href="${product.url}" class="cartModalItem_title">${product.product_title} ${productVariant}</a> ${this.labelAddedToCart}
             </div>
         </div>
       `;
@@ -341,10 +347,14 @@ class GoCart {
                   item.image
                 });"></div>
                 <div class="cartDrawerItem_info">
-                    <a href="${item.url}" class="cartDrawerItem_title">${
-        item.product_title
-      }</a>
+                    <a href="${item.url}" class="cartDrawerItem_title">${item.product_title}</a>
                     <div class="cartDrawerItem_variant">${itemVariant}</div>
+                    <div class="cartDrawerItem_quantity">
+                      <span class="cartDrawerItem_quantity-label">${this.labelQuantity} </span>
+                      <span class="cartDrawerItem_quantity-button js-cart-quantity-minus">-</span>
+                      <input class="cartDrawerItem_quantity-number js-cart-quantity" type="number" value="${item.quantity}" disabled>
+                      <span class="cartDrawerItem_quantity-button js-cart-quantity-plus">+</span>
+                    </div>
                 </div>
             </div>
             <a class="cartDrawerItem_remove ${this.removeFromCartNoDot}">${
@@ -493,14 +503,14 @@ class GoCart {
     this.cartDrawerSubTotal.parentNode.classList.add("is-invisible");
     this.clearCartDrawer();
     this.cartDrawerContent.innerHTML =
-      '<div class="cart_empty">Your cart is currently empty!</div>';
+      `<div class="cart_empty">${this.labelCartIsEmpty}</div>`;
   }
 
   renderBlankMiniCart() {
     this.cartMiniCartSubTotal.parentNode.classList.add("is-invisible");
     this.clearMiniCart();
     this.cartMiniCartContent.innerHTML =
-      '<div class="cart_empty">Your cart is currently empty!</div>';
+      `<div class="cart_empty">${this.labelCartIsEmpty}</div>`;
   }
 
   clearCartDrawer() {

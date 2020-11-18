@@ -51,13 +51,13 @@
 
               <form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form" id="add-to-cart-{{ product_handle }}">
 
-                <input type="hidden" id="id" name="id" value="{{ product_id }}" />
+                <input type="hidden" name="id" value="{{ product_id }}" />
                 <input type="hidden" name="quantity" value="1">
 
                 {% if product_available %}
-                  <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
+                  <button type="submit" name="add" class="js-cart-add-to-cart button productCart_button">{{ 'products.product.add_to_cart' | t }}</button>
                 {% else %}
-                  <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button" disabled>{{ 'products.product.sold_out' | t }}</button>
+                  <button type="submit" name="add" class="button productCart_button" disabled>{{ 'products.product.sold_out' | t }}</button>
                 {% endif %}
               </form>
 
@@ -102,6 +102,10 @@
   overflow: hidden;
   list-style: none;
   padding: 0;
+}
+
+.productCart_button {
+  width: 100%;
 }
 </style>
 
