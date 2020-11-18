@@ -41,6 +41,8 @@
 }
 .cart-drawer {
   position: fixed;
+  overflow: hidden;
+  overflow-y: hidden;
   top: 0;
   right: -480px;
   z-index: 999;
@@ -143,6 +145,8 @@
 .cartDrawer {
   position: relative;
   height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
 }
 .cartDrawer_header {
   width: 100%;
@@ -192,8 +196,6 @@
   padding: 20px 30px;
   transition: all 0.3s ease-in-out;
   box-sizing: border-box;
-  position: fixed;
-  bottom: 0;
 }
 .cartDrawer .button {
   margin-bottom: 20px;

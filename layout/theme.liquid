@@ -119,13 +119,24 @@
 {% endif %}
 </style>
 
+
+{%comment%} Cart drawer prevent scrolling {%endcomment%}
 <script>
-{%comment%} Cart container 
-var cart = document.querySelector(".cart-drawer");
-cart.classList.add("cartContainer");
-{%endcomment%}
+var main= document.querySelector('body');
+var cartDrawer = document.querySelector('.js-cart-trigger');
+var cartDrawerClose = document.querySelector('.js-cart-drawer-close');
+
+cartDrawer.addEventListener('click', () => {
+  main.classList.add('overflow-hidden');
+});
+
+cartDrawerClose.addEventListener('click', () => {
+  main.classList.remove('overflow-hidden');
+});
+</script>
 
 {%comment%} Sticky header {%endcomment%}
+<script>
 window.onscroll = function() {myFunction()};
 var navbar =   document.querySelector(".mainHeader");
 var sticky = navbar.offsetTop;
