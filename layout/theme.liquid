@@ -103,6 +103,9 @@
   {{ 'Drift.min.js' | asset_url | script_tag }}
   {{ 'lightbox-plus-jquery.min.js' | asset_url | script_tag }}
   {% endif %}
+   {% if template.name contains 'collection' %}
+  {{ 'swiper-js-2.min.js' | asset_url | script_tag }}
+  {% endif %}
    {% if template contains 'sustainability' %}
   {{ 'sustainability.js' | asset_url | script_tag }}
   {% endif %}

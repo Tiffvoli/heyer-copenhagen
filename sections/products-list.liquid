@@ -13,7 +13,18 @@
 
         {% comment %} Loop through products {% endcomment %}
         {%- for product in collection.products -%}
-          {%- include 'product-card' with product -%}
+     
+        <div class="swiper-container-2 swiper4">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+              <div class="swiper-slide-2"><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></div>
+            {% endfor %}
+          </div>
+  
+           <div class="swiper-pagination"></div>
+        </div>
+  
+    
         {%- endfor -%}
 
         {% comment %} Pagination {% endcomment %}
@@ -28,7 +39,16 @@
     {%- endif -%}
   </div>
 </div>
+{% javascript %}
 
+    var swiper = new Swiper('.swiper4', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+       debugger: true,
+    });
+{% endjavascript %}
 {% schema %}
   {
     "name": "Product list",
