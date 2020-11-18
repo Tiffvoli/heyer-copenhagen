@@ -13,17 +13,56 @@
 
         {% comment %} Loop through products {% endcomment %}
         {%- for product in collection.products -%}
-     
-        <div class="swiper-container-2 swiper4">
-          <div class="swiper-wrapper">
-            {% for image in product.images %}
-              <div class="swiper-slide-2"><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></div>
-            {% endfor %}
+          {%- assign product_title = product.title -%}
+          {%- assign product_handle = product.handle -%}
+          {%- assign active_product = product.selected_or_first_available_variant -%}
+          {%- assign product_id = active_product.id -%}
+          {%- assign product_url = active_product.url | within: collection -%}
+          {%- assign price = active_product.price -%}
+          {%- assign compare_price = active_product.compare_at_price -%}
+          {%- assign product_available = active_product.available -%}
+
+          <div id="product-{{ product_id }}" class="productCard">
+            {% comment %} Product gallery {% endcomment %}
+            <div class="swiper-container-2 swiper4">
+              <div class="swiper-wrapper">
+                {% for image in product.images %}
+                  <div class="swiper-slide-2"><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></div>
+                {% endfor %}
+              </div>
+      
+              <div class="swiper-pagination"></div>
+            </div>
+      
+            {% comment %} Details {% endcomment %}
+            <div class="productCard_details">
+
+              <a class="productCard_title" href="{{ product_url }}">{{ product_title }}</a>
+
+              {% comment %} Price {% endcomment %}
+              <div class="productCard_pricing">
+                {%- if price < compare_price -%}
+                <span class="productCard_price">{{- price | money -}}</span>
+                <span class="productCard_price productCard_price-sale">{{- compare_price | money -}}</span>
+                {%- else -%}
+                <span>{{- price | money -}}</span>
+                {%- endif -%}
+              </div> 
+
+              <form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form" id="add-to-cart-{{ product_handle }}">
+
+                <input type="hidden" id="id" name="id" value="{{ product_id }}" />
+                <input type="hidden" name="quantity" value="1">
+
+                {% if product_available %}
+                  <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button">{{ 'products.product.add_to_cart' | t }}</button>
+                {% else %}
+                  <button type="submit" name="add" id="cta-add-to-cart" class="js-cart-add-to-cart button" disabled>{{ 'products.product.sold_out' | t }}</button>
+                {% endif %}
+              </form>
+
+            </div>
           </div>
-  
-           <div class="swiper-pagination"></div>
-        </div>
-  
     
         {%- endfor -%}
 
@@ -49,6 +88,23 @@
        debugger: true,
     });
 {% endjavascript %}
+
+{% comment %}
+  Tiffany: Consider moving this to theme.scss.liquid
+{% endcomment %}
+<style>
+.productCard {
+  box-sizing: border-box;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+}
+</style>
+
 {% schema %}
   {
     "name": "Product list",
