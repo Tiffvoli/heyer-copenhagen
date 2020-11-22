@@ -1,18 +1,10 @@
-# Development
+# Development - (Development, MS)
 dev:
   password: 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
-  theme_id: "109427523733"
+  theme_id: '115588464789'
   store: farewell-global.myshopify.com
   timeout: 30s
   ignore_files:
     - config/settings_data.json
-    - locales/
-#Comment
-#dev:
-#  password: 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
-#  theme_id: "109427523733"
-#  store: farewell-global.myshopify.com
-#  timeout: 30s
-#  ignore_files:
-#    - config/settings_data.json
-#    - locales/
+
+# Production

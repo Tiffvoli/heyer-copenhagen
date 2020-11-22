@@ -1,8 +1,33 @@
-
 <!DOCTYPE html>
 
 <html lang="{{ shop.locale }}">
 <head>
+
+  {% comment %} Automatically redirect if not blog or article template {% endcomment %}
+  {% if template.name contains 'blog' or template.name contains 'article' %}
+    <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('shopify-section-header').style.display = 'none';
+      document.getElementById('shopify-section-footer').style.display = 'none';
+      document.querySelector('.footer-bottom').style.display = 'none';
+      document.getElementsByTagName('body')[0].style.paddingTop = '50px';
+    });
+    </script>
+  {% else %}
+    <script>
+    var __window = window;
+      var isBot = navigator.userAgent.indexOf('bot') > -1;
+      var isDevEnvActive = __window.location.href.indexOf('.myshopify.com') > 1;
+      var isPreviewActive = (__window.Shopify && __window.Shopify.PreviewBarInjector) || __window.location.href.indexOf('_theme_id=') > -1; // Matches 'preview_theme_id=' and 'design_theme_id='
+
+      if (!isBot && !isDevEnvActive && !isPreviewActive) {
+        var meta = document.createElement('meta');
+        meta.setAttribute('http-equiv', 'refresh');
+        meta.setAttribute('content', "0; URL='https://heyercopenhagen.com/blogs/inspiration':");
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+    </script>
+  {% endif %}
 
   {% comment %} Do not index tagged blog pages e.g. /blogs/blog/tagged/<tag_name> {% endcomment %}
   {% if template contains 'blog' or template contains 'collection' and current_tags %}

@@ -1,0 +1,97 @@
+{% layout 'seo' %}
+
+{%- assign collection_title = collection.title -%}
+{%- assign collection_description = collection.description -%}
+
+<section class="collectionHero section">
+  <div class="collectionHero__overlay">
+    <h2 class="collection_title">{{ collection_title }}</h2>
+    <div class="collectionHero_description">{{ collection_description }}</div>
+  </div> 
+  {% include 'breadcrumb' %}
+</section>
+
+{%- assign section_settings = section.settings -%}
+{%- assign number_of_products = collection.products | size -%}
+{%- assign products_per_page = section_settings.products_per_page -%}
+{%- assign empty_collection_text = section_settings.empty_collection_text -%}
+
+<section class="productsList section">
+  <div class="container">
+    {%- if number_of_products > 0 -%}
+      <div class="productsList_inner">
+
+      {%- comment -%} Loop through products {% endcomment -%}
+      {% paginate collection.products by 10 %}
+
+        {% comment %} Loop through products {% endcomment %}
+        {%- for product in collection.products -%}
+          {%- assign product_title = product.title -%}
+          {%- assign product_handle = product.handle -%}
+          {%- assign active_product = product.selected_or_first_available_variant -%}
+          {%- assign product_id = active_product.id -%}
+          {%- assign product_url = active_product.url | within: collection -%}
+          {%- assign price = active_product.price -%}
+          {%- assign compare_price = active_product.compare_at_price -%}
+          {%- assign product_available = active_product.available -%}
+
+          <div id="product-{{ product_id }}" class="productCard">
+            {% comment %} Product gallery {% endcomment %}
+            <div class="swiper-container-2 swiper4">
+              <div class="swiper-wrapper">
+                {% for image in product.images limit: 1 %}
+                  <div class="swiper-slide-2">
+                    <img class="lazy" data-src="{{ image | img_url: 'master', format: 'pjpg' }}" alt="{{ product.title }}"/>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+      
+            {% comment %} Details {% endcomment %}
+            <div class="productCard_details">
+
+              <a class="productCard_title" href="{{ product_url }}">{{ product_title }}</a>
+
+              {% comment %} Price {% endcomment %}
+              <div class="productCard_pricing">
+                {%- if price < compare_price -%}
+                <span class="productCard_price">{{- price | money -}}</span>
+                <span class="productCard_price productCard_price-sale">{{- compare_price | money -}}</span>
+                {%- else -%}
+                <span>{{- price | money -}}</span>
+                {%- endif -%}
+              </div>
+
+            </div>
+          </div>
+    
+        {%- endfor -%}
+
+        {% comment %} Pagination {% endcomment %}
+        {%- include 'pagination' -%}
+      {% endpaginate %}
+
+      </div>
+
+    {% comment %} If collection does not contain products {% endcomment %}
+    {%- else -%}
+      <div>{{ 'collections.general.no_matches' | t }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% comment %}
+  Tiffany: Consider moving this to theme.scss.liquid
+{% endcomment %}
+<style>
+.productCard {
+  box-sizing: border-box;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+}
+</style>
