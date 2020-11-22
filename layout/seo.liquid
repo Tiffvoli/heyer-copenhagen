@@ -3,7 +3,7 @@
 <head>
 
   {% comment %} Automatically redirect if not blog or article template {% endcomment %}
-  {% comment %} {% if template.name contains 'blog' or template.name contains 'article' %}
+  {% if template.name contains 'blog' or template.name contains 'article' %}
     <script>
     window.addEventListener('DOMContentLoaded', (event) => {
       document.getElementById('shopify-section-header').style.display = 'none';
@@ -26,7 +26,7 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
       }
     </script>
-  {% endif %} {% endcomment %}
+  {% endif %}
 
   {% comment %} Do not index tagged blog pages e.g. /blogs/blog/tagged/<tag_name> {% endcomment %}
   {% if contains 'collection' and current_tags %}
