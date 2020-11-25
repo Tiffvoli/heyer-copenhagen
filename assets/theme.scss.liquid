@@ -11,7 +11,7 @@
   font-family: "CalibreRegular";
   font-display: fallback;
   src: url("./Calibre-Regular.woff") format("opentype");
-  font-weight: normal;
+  font-weight: 200;
   font-style: normal;
 }
 @font-face {
@@ -106,12 +106,12 @@ h1 {
 h2 {
   font-size: 4.2rem;
   font-family: $font-body;
-  font-weight: normal;
+  font-weight: 200;
 }
 h4 {
   font-family: $font-body;
   font-size: 1.4rem;
-  font-weight: normal;
+  font-weight: 200;
   letter-spacing: 1px;
 }
 p {
@@ -1480,6 +1480,13 @@ tfoot th {
   display: none;
 }
 // Product card
+.product-list-mobile {
+  display: none;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
+}
 .productCard {
   width: 100%;
   padding: 0 0 15px 0;
@@ -1490,7 +1497,12 @@ tfoot th {
 
 .productCard_details {
 }
-
+.productCard_details-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
 .productCard_title {
   display: block;
   font-size: 1.4rem;
@@ -1510,6 +1522,11 @@ tfoot th {
 }
 .productCard_price-sale {
   text-decoration: line-through;
+}
+@media (max-width: 480px) {
+  .product-list-desktop {
+    display: none;
+  }
 }
 // Product Page
 .product {
@@ -2451,7 +2468,7 @@ tfoot th {
   //margin-bottom: 8%;
 }
 .sustainableDesign img {
-  object-fit: contain;
+  object-fit: cover;
   width: 50%;
   height: 110vh;
   object-position: 50% 0;
@@ -2478,7 +2495,7 @@ tfoot th {
   .sustainableDesign img {
     object-fit: cover;
     width: 100%;
-    height: auto;
+    height: 90vh;
   }
 }
 

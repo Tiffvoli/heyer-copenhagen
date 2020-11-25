@@ -7,21 +7,27 @@
 {% assign price = active_product.price %}
 {% assign compare_price = active_product.compare_at_price %}
 
+<div>
+{%comment%} Product Image {%endcomment%}
+<div class="reveal-collection">
+  <img src="{{ featured_image | img_url: 'master' }}">
+  <img class="hidden-collection" src="{{ product.images.last | img_url: 'master' }}" alt="{{ product.images.last.alt | escape }}" />
+</div>
 
+     {% comment %} Details {% endcomment %}
+            <div class="productCard_details">
+              <a class="productCard_title" href="{{ product_url }}">{{ product_title }}</a>
 
-
-  {% comment %} Details {% endcomment %}
-
-    <a class="productCard_title" href="{{ product_url }}">{{ product_title }}</a>
-
-    {% comment %} Price {% endcomment %}
-      {%- if price < compare_price -%}
-      <span class="productCard_price">{{- price | money -}}</span>
-      <span class="productCard_price productCard_price-sale">{{- compare_price | money -}}</span>
-      {%- else -%}
-      <span>{{- price | money -}}</span>
-      {%- endif -%}
-    </a>
-
+              {% comment %} Price {% endcomment %}
+              <div class="productCard_pricing" style="margin: 10px 0 5px !important;">
+                {%- if price < compare_price -%}
+                <span class="productCard_price">{{- price | money -}}</span>
+                <span class="productCard_price productCard_price-sale">{{- compare_price | money -}}</span>
+                {%- else -%}
+                <span>{{- price | money -}}</span>
+                {%- endif -%}
+              </div> 
+            </div>
+</div>
 
 

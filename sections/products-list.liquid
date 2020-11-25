@@ -36,11 +36,11 @@
       
             {% comment %} Details {% endcomment %}
             <div class="productCard_details">
-
+            <div class="productCard_details-flex">
               <a class="productCard_title" href="{{ product_url }}">{{ product_title }}</a>
 
               {% comment %} Price {% endcomment %}
-              <div class="productCard_pricing">
+              <div class="productCard_pricing" style="margin: 10px 0 5px !important;">
                 {%- if price < compare_price -%}
                 <span class="productCard_price">{{- price | money -}}</span>
                 <span class="productCard_price productCard_price-sale">{{- compare_price | money -}}</span>
@@ -48,16 +48,16 @@
                 <span>{{- price | money -}}</span>
                 {%- endif -%}
               </div> 
-
+</div>
               <form action="/cart/add" method="post" enctype="multipart/form-data" class="product_form" id="add-to-cart-{{ product_handle }}">
 
                 <input type="hidden" name="id" value="{{ product_id }}" />
                 <input type="hidden" name="quantity" value="1">
 
                 {% if product_available %}
-                  <button type="submit" name="add" class="js-cart-add-to-cart button productCart_button">{{ 'products.product.add_to_cart' | t }}</button>
+                  <button type="submit" name="add" class="js-cart-add-to-cart button button-black productCart_button">{{ 'products.product.add_to_cart' | t }}</button>
                 {% else %}
-                  <button type="submit" name="add" class="button productCart_button" disabled>{{ 'products.product.sold_out' | t }}</button>
+                  <button type="submit" name="add" class="button productCart_button button-grey" disabled>{{ 'products.product.sold_out' | t }}</button>
                 {% endif %}
               </form>
 

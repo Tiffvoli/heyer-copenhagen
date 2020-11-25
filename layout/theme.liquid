@@ -153,6 +153,7 @@
 var main= document.querySelector('body');
 var cartDrawer = document.querySelector('.js-cart-trigger');
 var cartDrawerClose = document.querySelector('.js-cart-drawer-close');
+var cartOverlay = document.querySelector('.cart_overlay');
 
 cartDrawer.addEventListener('click', () => {
   main.classList.add('overflow-hidden');
@@ -161,6 +162,11 @@ cartDrawer.addEventListener('click', () => {
 cartDrawerClose.addEventListener('click', () => {
   main.classList.remove('overflow-hidden');
 });
+
+cartOverlay.addEventListener('click', () => {
+  main.classList.remove('overflow-hidden');
+});
+
 </script>
 
 {%comment%} Sticky header {%endcomment%}
