@@ -1483,7 +1483,7 @@ tfoot th {
 .product-list-mobile {
   display: none;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     display: block;
   }
 }
@@ -1523,7 +1523,7 @@ tfoot th {
 .productCard_price-sale {
   text-decoration: line-through;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .product-list-desktop {
     display: none;
   }
@@ -2210,28 +2210,30 @@ tfoot th {
   display: block !important;
   visibility: visible !important;
 }
-.product:hover .reveal-collection img {
-  opacity: 1;
-}
+
 .reveal-collection {
   position: relative;
 }
-.reveal-collection .hidden-collection {
+.hidden-collection {
   position: absolute;
   z-index: -1;
   top: 0;
   width: 100%;
   height: auto;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.reveal-collection-img:hover {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
 }
-.reveal-collection:hover .hidden-collection {
-  z-index: 800;
-  opacity: 1;
-}
+
 .reveal-collection .caption {
   position: absolute;
   top: 0;
@@ -2252,11 +2254,6 @@ tfoot th {
   vertical-align: middle;
 }
 
-@media (max-width: 480px) {
-  .reveal-collection .hidden-collection {
-    display: none !important;
-  }
-}
 // Pagination
 .pagination {
   display: block;
