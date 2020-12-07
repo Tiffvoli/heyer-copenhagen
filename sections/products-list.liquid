@@ -27,7 +27,7 @@
             <div class="swiper-container-2 swiper4">
               <div class="swiper-wrapper">
                 {% for image in product.images %}
-                  <div class="swiper-slide-2"><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></div>
+                  <div class="swiper-slide-2"> <a href={{product_url}}><img data-src="{{ image | product_img_url: 'master'}}" alt="{{product.title}}" class="lazy"/></a></div>
                 {% endfor %}
               </div>
       
