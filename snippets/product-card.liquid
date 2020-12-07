@@ -13,10 +13,10 @@
                   <div class="reveal-collection">
                 {% for image in product.images %}
                     {% if image.alt contains 'editorial' %}
-                        <img class="reveal-collection-img lazy" src="{{ 'preloader-1.svg' | asset_url}}" data-src="{{ image.src | img_url: 'master' }}">
+                        <img class="reveal-collection-img lazy" data-src="{{ image.src | img_url: 'master' }}">
                     {%endif%}
                 {% endfor %}
-                    <img class="hidden-collection lazy" src="{{ 'preloader-1.svg' | asset_url}}"data-src="{{ product.images.first | img_url: 'master' }}" alt="{{ product.images.first.alt | escape }}" />
+                    <img class="hidden-collection lazy" data-src="{{ product.images.first | img_url: 'master' }}" alt="{{ product.images.first.alt | escape }}" />
                   </div>
                 </a>
 

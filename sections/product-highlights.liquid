@@ -25,12 +25,13 @@
 
 <section class="container productHighlights">
 <h1>{{ highlightheading}}</h1>
-  <div class="highlights__flex">
+  <div class="highlights__grid">
 
     {% if blocks %}
       {% for block in blocks %}
         {% assign block_settings = block.settings %}
         {% assign highlight_image = block_settings.highlight_image %}
+        {% assign highlight_image_hover = block_settings.highlight_image_hover %}
         {% assign highlight_link = block_settings.highlight_link %}
         {% assign highlight_title = block_settings.highlight_title %}
         {% assign highlight_subheading = block_settings.highlight_subheading %}
@@ -42,9 +43,12 @@
 
         <div class="highlight__highlights">
           <a href="{{ highlight_link }}">
-            <img data-src="{{ highlight_image | img_url: 'master' }}" class="lazy"/>
+          <div class="reveal-collection">
+            <img data-src="{{ highlight_image | img_url: 'master' }}" class="lazy reveal-collection-img"/>
+            <img data-src="{{ highlight_image_hover | img_url: 'master' }}" class="lazy hidden-collection"/>
           <h2>{{ highlight_title }}</h2>
           <h4>{{ highlight_subheading }}</h4>
+          </div>
           </a>
         </div>
       {% endfor %}
@@ -105,8 +109,14 @@
   display: inline-flex;
   justify-content: space-between;
 }
+.highlights__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 30px;
+}
 .highlight__highlights {
-  width: 33%;
+  width: 100%;
 }
 .highlight__highlights a {
   color: black;
@@ -168,6 +178,9 @@
 @media (max-width: 480px) {
   .highlight__highlights{
     display: none;
+  }
+  .highlights__flex{
+    display:none;
   }
   .swiper-container {
     display: flex;
@@ -326,6 +339,11 @@
                   "type": "image_picker",
                   "id": "highlight_image",
                   "label": "Product Image"
+              },
+              {
+                  "type": "image_picker",
+                  "id": "highlight_image_hover",
+                  "label": "Product Image Hover"
               },
               {
                   "type": "url",

@@ -1,0 +1,18 @@
+{% assign content = page.content %}
+
+<div class="country-notfound">
+    <div class="country-notfound-left block-padding-right">
+        <div class="country-notfound-text">
+            {{page.content}}
+        </div>
+        <a class="button button-black" href="/" style="width: 20rem">{{ 'general.404.link' | t }}</a>
+    </div>
+     <div class="country-notfound-right block-padding-left">
+    {%if page.url contains 'sweden'%}
+         <img data-src="{{ 'country-boarding-pass-sweden.svg' | asset_url}}" class="lazy"/>
+    {% endif %}
+     {%if page.url contains 'japan'%}
+         <img data-src="{{ 'country-boarding-pass-japan.svg' | asset_url}}" class="lazy"/>
+    {% endif %}
+     </div>
+</div>

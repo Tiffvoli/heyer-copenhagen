@@ -1036,8 +1036,7 @@ tfoot th {
   display: flex;
 }
 
-//Uncomment to display dropdown menu for Shop
-/*----.Shop:hover .dropdown-content,---*/
+.Shop:hover .dropdown-content,
 .About:hover .dropdown-content-2 {
   display: flex;
 }
@@ -3615,11 +3614,6 @@ input:checked ~ .tab-content {
 
   & iframe {
     width: 100%;
-    object-fit: cover;
-    border: none;
-  }
-  & video {
-    width: 100%;
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -4000,6 +3994,47 @@ input:checked ~ .tab-content {
     padding: 5px 0;
     line-height: 22px;
     font-size: 1.6rem;
+  }
+}
+/*--------Country not found---------*/
+.country-notfound {
+  display: flex;
+  padding: 60px 12%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: #e2dcd7;
+}
+.country-notfound-left,
+.country-notfound-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & img {
+    max-height: 100%;
+  }
+}
+.country-notfound-text {
+  & h2 {
+    font-size: 3rem;
+    color: #4c4c4b;
+  }
+  & p {
+    padding-bottom: 16px;
+    color: grey;
+  }
+}
+@media (max-width: 480px) {
+  .country-notfound {
+    flex-direction: column-reverse;
+  }
+  .country-notfound-left,
+  .country-notfound-right {
+    width: 100%;
   }
 }
 //Klaviyo form styling
